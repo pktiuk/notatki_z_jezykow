@@ -206,7 +206,7 @@ Specyfikacje domyślne klasy:
  - nieabstrakcyjna (można tworzyć obiekty tej klasy)
  - niefinalna (może mieć klasy pochodne)
  - dziedziczy niejawnie po klasie Object
- - nie implementuje niejawnie żadnych 
+ - nie implementuje niejawnie żadnych interfejsów
 
 Specyfikacje dodatkowe (niedomyślne) klasy:
  - public – klasa jest dostępna dla wszystkich klas (domyślnie: tylko dla klas z tego samego pakietu)
