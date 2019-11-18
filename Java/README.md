@@ -379,6 +379,21 @@ class D implements C{
 }
 ```
 
+implementacje domyślne i statyczne metod
+```java
+public interface Addressable {
+    String getStreet();
+    String getCity();
+    default String getFullAddress() {
+        return getStreet()+", "+getCity();
+    }
+    static void foo(){
+        System.out.println("foo");
+}
+```
+Umożliwiają zdefiniowanie metod, których działanie jest niezależne od potencjalnych sposobów implementacji interfejsu.
+Metody domyślne mogą być nadpisywane w klasach implementujących interfejs.
+
 ## Wyjątki
 Wyrzucenie wyjątku:
 `throw obiekt`
@@ -392,4 +407,4 @@ try {
     instrukcje
 }
 ```
-
+## Wykład 2 slajd 33
