@@ -202,23 +202,23 @@ Definicja klasys kłada się z
  - bloku definicji klasy
 
 Specyfikacje domyślne klasy:
-▪ niepubliczna (istnieją restrykcje dostępu)
-▪ nieabstrakcyjna (można tworzyć obiekty tej klasy)
-▪ niefinalna (może mieć klasy pochodne)
-▪ dziedziczy niejawnie po klasie Object
-▪ nie implementuje niejawnie żadnych 
+ - niepubliczna (istnieją restrykcje dostępu)
+ - nieabstrakcyjna (można tworzyć obiekty tej klasy)
+ - niefinalna (może mieć klasy pochodne)
+ - dziedziczy niejawnie po klasie Object
+ - nie implementuje niejawnie żadnych 
 
 Specyfikacje dodatkowe (niedomyślne) klasy:
-▪ public – klasa jest dostępna dla wszystkich klas (domyślnie: tylko dla klas z tego samego pakietu)
-▪ abstract – nie można tworzyć obiektów tej klasy
-▪ final – nie można dziedziczyć z tej klasy
-▪ extends klasa_bazowa – deklaruje dziedziczenie po klasie bazowej
-▪ implements interfejs1, interfejs2 – deklaruje implementowanie jednego lub więcej interfejsów
+ - public – klasa jest dostępna dla wszystkich klas (domyślnie: tylko dla klas z tego samego pakietu)
+ - abstract – nie można tworzyć obiektów tej klasy
+ - final – nie można dziedziczyć z tej klasy
+ - extends klasa_bazowa – deklaruje dziedziczenie po klasie bazowej
+ - implements interfejs1, interfejs2 – deklaruje implementowanie jednego lub więcej interfejsów
 
 Blok definicji klasy – ograniczony parą nawiasów klamrowych, zawiera
-▪ deklaracje wszystkich zmiennych składowych - pól (w tym obiektów i pól statycznych)
-▪ deklaracje i definicje wszystkich funkcji składowych - metod (w tym metod wywoływanych na rzecz obiektu lub metod statycznych)
-▪ ewentualnie, definicje jednego lub więcej konstruktorów
+ - deklaracje wszystkich zmiennych składowych - pól (w tym obiektów i pól statycznych)
+ - deklaracje i definicje wszystkich funkcji składowych - metod (w tym metod wywoływanych na rzecz obiektu lub metod statycznych)
+ - ewentualnie, definicje jednego lub więcej konstruktorów
 
 **Konstruktory**
 Nazwy konstruktorów są takie same jak nazwa konstruowanej klasy.
@@ -229,17 +229,17 @@ Odpowiednikiem **destrukotrów** jest metoda `finalize()`
 Jeśli w klasie nie zdefiniowano żadnego konstruktora, tworzony jest automatycznie  domyślny konstruktor (pusty)
 Klasy dziedziczące korzystają z konstruktora pustego, jeżeli go nie ma to należy samodzielnie wywołać inny
 Konstruktory – specyfikacja dostępu
-▪ `private` - żadna inna klasa nie może bezpośrednio użyć takiego konstruktora do tworzenia obiektów danej klasy
-▪ `protected` – obiekty mogą być tworzone przez klasy pochodne danej klasy i klasy należące do tego samego pakietu
-▪ `public` - każda klasa może tworzyć obiekty danej klasy
-▪ brak specyfikatora dostępu - każda klasa z tego samego pakietu może tworzyć obiekty danej klasy
+ - `private` - żadna inna klasa nie może bezpośrednio użyć takiego konstruktora do tworzenia obiektów danej klasy
+ - `protected` – obiekty mogą być tworzone przez klasy pochodne danej klasy i klasy należące do tego samego pakietu
+ - `public` - każda klasa może tworzyć obiekty danej klasy
+ - brak specyfikatora dostępu - każda klasa z tego samego pakietu może tworzyć obiekty danej klasy
 
 Pola klasy – specyfikatory
-▪ `private`, `public`, `protected`, (package) – specyfikacja dostępu
-▪ `static` – deklaracja pola statycznego (przynależnego do klasy, a nie – jej obiektów)
-▪ `final` – deklaracja pola stałego
-▪ `transient` – specyfikacja pola, które nie powinno podlegać serializacji
-▪ `volatile` – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków
+ - `private`, `public`, `protected`, (package) – specyfikacja dostępu
+ - `static` – deklaracja pola statycznego (przynależnego do klasy, a nie – jej obiektów)
+ - `final` – deklaracja pola stałego
+ - `transient` – specyfikacja pola, które nie powinno podlegać serializacji
+ - `volatile` – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków
 
 Pole i metoda jednej klasy mogą nosić taką samą nazwę:
 ```java
@@ -250,23 +250,23 @@ private float[] buffer(); // metoda buffer
 ```
 ## Metody
 Deklaracja metody – specyfikacja
-▪ poziomu dostępu
-▪ typu wyniku
-▪ nazwy
-▪ listy argumentów formalnych
+ - poziomu dostępu
+ - typu wyniku
+ - nazwy
+ - listy argumentów formalnych
 `public Object push(Object item)`
 
 Wszystkie możliwe elementy nagłówka definicji metody (w ich kolejności)
-▪ poziom dostępu - `public`, `protected`, `package`, `private`
-▪ `static` - deklaruje metodę jako statyczną
-▪ `abstract` – metoda nie posiada definicji, jej klasa musi być abstrakcyjna
-▪ `final` - nie może być nadpisana przez metody klas pochodnych
-▪ `native` - metoda rodzima, napisana w innym języku programowania
-▪ `synchronized` – może być jednocześnie wykonywana (na rzecz konkretnego obiektu) tylko przez jeden wątek
-▪ typ wyniku OBOWIĄZKOWE
-▪ nazwa metody OBOWIĄZKOWE
-▪ lista parametrów (w nawiasach) OBOWIĄZKOWE
-▪ throws wyjątki - lista wyjątków zgłaszanych przez metodę
+ - poziom dostępu - `public`, `protected`, `package`, `private`
+ - `static` - deklaruje metodę jako statyczną
+ - `abstract` – metoda nie posiada definicji, jej klasa musi być abstrakcyjna
+ - `final` - nie może być nadpisana przez metody klas pochodnych
+ - `native` - metoda rodzima, napisana w innym języku programowania
+ - `synchronized` – może być jednocześnie wykonywana (na rzecz konkretnego obiektu) tylko przez jeden wątek
+ - typ wyniku OBOWIĄZKOWE
+ - nazwa metody OBOWIĄZKOWE
+ - lista parametrów (w nawiasach) OBOWIĄZKOWE
+ - throws wyjątki - lista wyjątków zgłaszanych przez metodę
 
 **Wynik metody**
 Można zwrócić
@@ -274,8 +274,8 @@ Można zwrócić
  - zmienną np int `return 10;`
  - obiekt (referencja) np. `return new String();`
 
-▪ Metody przeciążone różnią się liczbą lub typem parametrów
-▪ Metoda nadpisana (polimorficzna) ma tę samą sygnaturę, co metoda w klasie
+ - Metody przeciążone różnią się liczbą lub typem parametrów
+ - Metoda nadpisana (polimorficzna) ma tę samą sygnaturę, co metoda w klasie
 bazowej. Nie może rozszerzać zbioru zgłaszanych wyjątków.
 
 **Odwołania w metodach**
