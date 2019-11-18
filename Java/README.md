@@ -57,9 +57,11 @@ do javy 11 można stosować identyfikator typu wywnioskowanego:
 
 #### Stałe
 **Literały** – stałe bez nazwy, o typie wynikającym ze sposobu zapisu literału, np.
+
 |78,| 8864L,| 37.266,| 37.266D, |37.266F, |’c’,| true, null|
 |--|--|--|--|--|--|--|
 |int| long| double| double| float| char| boolean|
+
 oraz łańcuchy znaków, typu String: "ala ma kota"
 **Stałe symboliczne** – stałe opatrzone nazwą i jawną deklaracją typu
 ```java
