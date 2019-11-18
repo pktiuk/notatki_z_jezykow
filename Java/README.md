@@ -241,6 +241,15 @@ Pola klasy – specyfikatory
  - `transient` – specyfikacja pola, które nie powinno podlegać serializacji
  - `volatile` – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków
 
+**Dostęp do pól**
+|Specyfikator Dostępu|Klasa|Klasa Pochodna|Klasy z tego samego pakietu|Wszystkie klasy|
+|-|-|-|-|-|
+|private|:heavy_check_mark: | | | |
+|protected|:heavy_check_mark:|:heavy_check_mark:* |:heavy_check_mark: | |
+|public|:heavy_check_mark:|:heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark:|
+|(package)|:heavy_check_mark: | | :heavy_check_mark: | |
+*Tylko przy odwołaniu niejawnym do pól klasy bazowej
+
 Pole i metoda jednej klasy mogą nosić taką samą nazwę:
 ```java
 public class CircularBuffer{
@@ -248,12 +257,41 @@ private float[] buffer; // pole buffer
 private float[] buffer(); // metoda buffer
 }
 ```
+#### Inicjalizacja
+Składowe zwykłe i statyczne mogą być inicjalizowane w miejscu
+deklaracji. Np.:
+```java
+public class StaticInit {
+    static int MAX_LINES = 1000;
+    int maxLines = 300;
+}
+```
+Ograniczenia inicjalizowania w miejscu deklaracji:
+ - wykonywana tyko operatorem przypisania.
+ - tylko wyrażeniem, które nie deklaruje, że może zgłosić wyjątek.
+ - wystąpienie wyjątku w wyrażeniu kończy program.
+
+W każdym innym przypadku trzeba użyć bloku statycznej inicjalizacji lub konstruktora.
+```java
+public class StaticInit {
+    static int MAX_LINES;
+    static {//Przykład dla bloku inicjalizacji
+        try{
+            MAX_LINES = Integer.parseInt(new java.util.Properties().getProperty("maxLinesLimit"));
+        }
+        catch(Exception e){ // obsługa wyjątku
+        }
+    }
+}
+```
+Liczba bloków statycznej inicjalizacji w programie jest dowolna (wykonywane wg ich kolejności wystąpienia w kodzie źródłowym).
+
 ## Metody
 Deklaracja metody – specyfikacja
  - poziomu dostępu
  - typu wyniku
  - nazwy
- - listy argumentów formalnych
+ - listy argumentów formalnych (typy proste lub referencje do obiektów)
 `public Object push(Object item)`
 
 Wszystkie możliwe elementy nagłówka definicji metody (w ich kolejności)
@@ -282,6 +320,65 @@ bazowej. Nie może rozszerzać zbioru zgłaszanych wyjątków.
  - `this`-odwołanie do obiektu, na rzecz którego wykonywana jest metoda
  - `super` - odwołanie do "nadobiektu", określonego przez klasę bazową
 
+## Dziedziczenie
+ - Można dziedziczyć (extends) tylko z jednej klasy
+ - Wszystkie obiekty dziedziczą (niejawnie, obowiązkowo, pośrednio lub bezpośrednio) z klasy java.lang.Object
+ - Klasa pochodna dziedziczy wszystkie składowe, które są dostępne dla niej i których sama nie przesłania (pola) lub nie nadpisuje (metody)
+ - Konstruktorów nie dziedziczy się 
+ - Nadpisana metoda może deklarować zgłaszanie tylko podzbioru wyjątków zgłaszanych przez metodę dziedziczoną.
+ - Specyfikator dostępu do metody nadpisanej może zezwolić na większy dostęp niż metoda dziedziczona ale nie na mniejszy. Np. metoda chroniona (protected) w klasie bazowej może zostać upubliczniona, ale nie "uprywatniona"
+
+- Metody klasy bazowej, których **nie można** nadpisać w klasie pochodnej:
+    - metoda zadeklarowana jako final w klasie bazowej
+    - metoda statyczna (można jedynie ukryć metodę statyczną dziedziczoną przez jej ponowne zadeklarowanie)
+ - Metody klasy bazowej, które **muszą** zostać nadpisane w klasie pochodnej:
+    - metody zadeklarowane jako abstrakcyjne w klasie bazowej
+    - wszystkie metody bazowej klasy abstrakcyjnej
+
+Dziedziczenie po java.lang.Object
+Metody klasy Object, które mogą być nadpisane:
+ - clone
+ - equals, hashCode - porównywanie obiektów
+ - finalize - destruktor
+ - toString - zamienia obiekt w klasę String pozwalając na "tekstowy wydruk" zawartości  za pomocą `System.out.println`
+
+Metody final (nie mogą być nadpisane):
+ - getClass -Metoda zwraca reprezentację "run-time" klasy obiektu w postaci obiektu typu Class. Można dowiedzieć się z niego o nazwie klasy, jej klasie bazowej i interfejsach, które implementuje klasa
+  ```java
+void PrintClassName(Object obj) {
+        System.out.println("Klasa obiektu to "+ obj.getClass().getName()); }
+Object createNewInstanceOf(Object obj) {
+    return obj.getClass().newInstance(); //Nowa instancja tego samego obiektu
+    }
+ ```
+ - notify
+ - notifyAll
+ - wait
+
+ ## Interfejs
+ **Interfejs** – typ referencyjny, zawierający deklaracje metod, implementacje domyślne metod, pola stałe, metody statyczne, interfejsy i klasy
+ ```java
+ [modyfikatory] interface NazwaInterfejsu [extends Interfejs1,…]
+{
+    // ciało interfejsu
+}
+```
+Interfejs jest domyślnie `publiczny` i obowiązkowo `abstrakcyjny`
+Metody interfejsu – domyślnie `publiczne`; albo abstrakcyjne, albo domyślne, albo statyczne
+Pola interfejsu – domyślnie `publiczne`, statyczne i finalne.
+
+Przykład
+```java
+interface A {int i=2;}
+interface B {void foo();}
+interface C extends A, B{
+    int i=3; //przesłoni to i z interfejsu A
+}
+class D implements C{
+    void foo(){System.out.println(i);}
+}
+```
+
 ## Wyjątki
 Wyrzucenie wyjątku:
 `throw obiekt`
@@ -295,4 +392,4 @@ try {
     instrukcje
 }
 ```
-# Skończone na slajdzie 17 Wykadu 2
+
