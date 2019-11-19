@@ -155,8 +155,7 @@ Za wyjątkiem operatora + używanego też do łączenia napisów, operatory aryt
 
 ## Kolekcje
 **Kolekcja** to obiekt:
- - zawierający wiele elementów (teoretycznie dowolna liczba,
-nieokreślona zawczasu),
+ - zawierający wiele elementów (teoretycznie dowolna liczba, nieokreślona zawczasu),
  - udostępniający operacje
     - wstawiania,
     - przeglądania,
@@ -176,6 +175,8 @@ używamy w szerszym sensie.
 Kolekcje a typy uogólnione:
  - Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. `List.insert(Object o)`
  - Wersje parametryzowane typem – np. `List<MojTyp>.insert(MojTyp o)`
+
+![alt text](./assets/Kolekcje.jpg "Title")
 
 ## Instrukcje sterujące (pętle i warunki)
 ```java
