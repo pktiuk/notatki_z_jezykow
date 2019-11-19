@@ -153,6 +153,29 @@ operand1 ? operand2 : operand3
 
 Za wyjątkiem operatora + używanego też do łączenia napisów, operatory arytmetyczne są przeznaczone tylko dla operandów liczbowych.
 
+## Kolekcje
+**Kolekcja** to obiekt:
+ - zawierający wiele elementów (teoretycznie dowolna liczba,
+nieokreślona zawczasu),
+ - udostępniający operacje
+    - wstawiania,
+    - przeglądania,
+    - usuwania.
+ - stosowany do magazynowania, przetwarzania i transmisji danych.
+
+Biblioteka kolekcji w Javie:
+ - Interfejsy – definiujące zachowanie kolekcji,
+ - Implementacje interfejsów (na różne sposoby),
+ - Algorytmy – typowe operacje na kolekcjach różnego rodzaju
+
+Kolekcje w Javie zostały umieszczone w java.util.
+Mimo, że w java.util występuje interfejs Collection, nie wszystkie
+kolekcje go implementują czy dziedziczą. Dlatego terminu kolekcja
+używamy w szerszym sensie.
+
+Kolekcje a typy uogólnione:
+ - Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. `List.insert(Object o)`
+ - Wersje parametryzowane typem – np. `List<MojTyp>.insert(MojTyp o)`
 
 ## Instrukcje sterujące (pętle i warunki)
 ```java
