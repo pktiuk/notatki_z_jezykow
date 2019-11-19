@@ -395,16 +395,56 @@ Umożliwiają zdefiniowanie metod, których działanie jest niezależne od poten
 Metody domyślne mogą być nadpisywane w klasach implementujących interfejs.
 
 ## Wyjątki
+Java wymaga, aby metody obsługiwały lub specyfikowały wszystkie sprawdzalne
+wyjątki, które mogą wystąpić podczas wykonania programu.
+Wyjątki, które są powodowane przez złą logikę samego programu (np. błędy
+arytmetyczne lub błędy dostępu do pamięci danych programu), nie są sprawdzane przez kompilator. Nie ma wymogu ich obsługi lub deklarowania ich wystąpienia.
+Np. są nimi:
+ - wyjątki arytmetyczne (np. dzielenie przez zero),
+ - wyjątki wskazań (np. próba odwołania do obiektu poprzez zerową referencję, próba
+rzutowania na obiekt niewłaściwej klasy),
+ - wyjątki indeksowania (np. odwołanie do elementu tablicy poprzez zły indeks).
+
 Wyrzucenie wyjątku:
 `throw obiekt`
 Obsługa:
 ```java 
 try {
     instrukcje // tu może wystąpić throw
-} catch (typ_wyjątku nazwa) { // obsługa wyjątku danego typu
+} catch (typ_wyjątku|inny_typ nazwa) { // obsługa wyjątków dwóch typów
     instrukcje
 } finally { // wykonywana zawsze niezależnie od zaistnienia wyjątku
     instrukcje
 }
 ```
+Jako wyjątek może być zgłoszony jedynie obiekt klasy `Throwable` lub klasy pochodnej od Throwable. W innym razie wystąpi błąd kompilacji
+
+Hierarchia klas wyjątków
+ - `Error`. Błąd dynamicznej konsolidacji programu lub inny "ciężki" błąd w JVM. Programy nie powinny obsługiwać ani zgłaszać takich wyjątków. (błąd w maszynie albo np brak pamięci itp.)
+ - `Exception`. Jest to klasa bazowa wyjątków w programach Javy. Są już liczne klasy pochodne tej klasy, np. IllegalAccessException, NegativeArraySizeException.
+ - `RuntimeException`. Specjalna klasa pochodna od Exception, która dotyczy wyjątków niesprawdzalnych, zgłaszanych przez Runtime (środowisko czasu wykonania programu). np dzielenie przez 0
+
+Delegowanie wyjątków "w górę"
+ ```java
+ public class Example3 {
+    public static void notMainYet(String[] args) throws IOException {
+    try(BufferedReader br = new BufferedReader(new FileReader("/testing.txt")))
+    {
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+}
+```
+```java
+try{
+    notMainYet(null);
+}
+catch(IOException e){
+    e.getSuppressed(); // zwraca tablicę wyjątków powstałych przy zwalnianiu zasobów
+}
+```
+
+
 ## Wykład 2 slajd 33
