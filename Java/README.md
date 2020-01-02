@@ -175,8 +175,117 @@ używamy w szerszym sensie.
 Kolekcje a typy uogólnione:
  - Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. `List.insert(Object o)`
  - Wersje parametryzowane typem – np. `List<MojTyp>.insert(MojTyp o)`
+Klasy parametryzowane typem - przykład
+```java
+public class CircularBuffer<T> {
+    private T[] buffer;
+    private int head = 0, tail = 0;
 
+    public CircularBuffer() {
+        buffer = (T[]) new Object[10];
+    }
+
+    public void add(T f) {
+        if (head == tail - 1) // nadpisanie
+            tail = ++tail % buffer.length;
+        buffer[head++] = f;
+        head = head % buffer.length;
+    }
+
+    public T get() {
+        int adjTail = tail > head ? tail - buffer.length : tail;
+        if (adjTail < head) {
+            T t = buffer[tail++];
+            tail = tail % buffer.length;
+            return t;
+        } else {
+            throw new Error();
+        }
+    }
+}
+
+```
+Posługując się interfejsami, możemy tworzyć algorytmy operujące na kolekcjach niezależnie od sposobu, w jaki zaimplementowano kolekcję (programowanie abstrakcyjne)
 ![alt text](./assets/Kolekcje.jpg "Title")
+Są 2 niezależne hierarchie: „właściwych kolekcji” oraz wykazy asocjacyjne, czyli kolekcje par {klucz,wartość}.
+Oprócz tego dysponujemy obiektami do przeglądania kolekcji: 
+jednokierunkowym (Iterator) i dwukierunkowym (ListIterator). Kolekcje można również przeglądać, korzystając z obiektów funkcyjnych w połączeniu z metodą forEach().
+
+Podstawowe zależności pomiędzy interfejsami kolekcji:
+-  Collection określa zachowanie najogólniejszego zbioru obiektów, 
+mogącego zawierać obiekty identyczne
+-  Set „rozszerza” Collection: nie dopuszcza duplikatów
+-  List rozszerza Collection, dopuszczając indeksowanie przez pozycję obiektu
+-  Map definiuje funkcjonalności podobne do Collection, ale nie jest z nim spokrewniony
+
+#### Metody interfejsów 
+
+`Collection` i `Iterator`:
+-  Metody „jednostkowe”
+add, contains, remove
+-  Metody zbiorcze
+addAll, containsAll, removeAll, retainAll (dla teorii zbiorów różnica zbiorów iloczyn itp.)
+-  Inne
+clear, isEmpty, size, toArray
+-  iterator – produkuje nowy iterator (na początku na nic nie wskazuje, jest przed pierwszym elementem)
+    - hasNext
+    - next - przeskakuje dalej i zwraca kolejny element (wskazywał pierwszy, po przeskoku zwraca drugi itd.)
+    - remove – usuwa ostatnio „przeskoczony” element
+-  forEach(), Spliterator – do iterowania równoległego (pojedynczego lub w blokach)
+
+Interfejs `Map`:
+-  get(key)
+-  containsKey(key)
+-  containsValue(value)
+![alt text](./assets/MapMethods.png "Title")
+  
+Parametryzacja np:
+`Map<String,Float>`
+
+Standardowe algorytmy: klasa Collections
+• sort – sortowanie listy
+• binarySearch – przeszukiwanie metodą bisekcji
+• shuffle – tasowanie elementów
+• reverse – odwrócenie kolejności elementów
+• rotate – przesunięcie elementów
+• fill – nadanie wszystkim elementom takiej samej wartości
+• copy, swap, addAll (typowe działania pomocnicze)
+• binarySearch – wyszukiwanie w liście
+• frequency – zliczanie wystąpień
+• disjoint – test rozłączności
+• min, max – szukanie ekstremów
+
+
+#### Uporządkowanie elementów kolekcji
+Mamy dwa sposoby porządkowania kolekcji obiektów:
+-  Interfejs Comparable zapewnia automatyczny naturalny porządek 
+dla klas go implementujących.
+W interfejsie deklarowana jest metoda compareTo(obj)
+-  Interfejs Comparator umożliwia programiście wyznaczenie własnego 
+sposobu porządkowania obiektów.
+W tym interfejsie występują dwie metody:
+– int compare(o1,o2)
+Ma dawać jako wynik wartość ujemną, zero lub wartość dodatnią 
+stosownie do tego, czy pierwszy argument jest mniejszy, równy bądź 
+większy od drugiego.
+– boolean equals(Object obj)
+
+#### Implementacje Biblioteczne kolekcji
+![alt text](./assets/KolekcjeBiblioteczne.png "Title")
+Właściwości:
+1. Implementują wszystkie opcjonalne operacje
+Mamy gwarancję, że nie wystąpi UnsupportedOperationException
+2. Nie są synchronizowane
+Mamy gwarancję, że przy współbieżnej modyfikacji i przeglądaniu wystąpi
+ConcurrentModificationException
+3. Są serializowalne i posiadają metodę `clone()`.
+
+-  HashSet – funkcja skrótu indeksuje miejsce w tablicy, gdzie znajduje się element; jeśli skrót się powiela, tworzona jest lista elementów. Średni czas dostępu do elementu praktycznie stały. Tablica może zmieniać swój rozmiar.
+-  LinkedHashSet – j.w. ale zapamiętuje kolejność dodania elementów do zbioru; minimalnie wolniejsza.
+-  TreeSet – elementy przechowywane w posortowanym i wyważonym drzewie binarnym (wymaga określenia relacji większości na elementach)
+- ArrayList – zapewnia stały czas wykonywania operacji size, 
+isEmpty, get, set, iterator i listIterator oraz stały czas operacji add.
+- LinkedList – implementacja wykorzystująca listy dwukierunkowe. W związku z tym realizacja dostępu do elementów tej kolekcji za pomocą indeksów jest nieefektywna. Natomiast może być szybsza od ArrayList w przypadku częstego usuwania i wstawiania elementów. Ponadto implementuje interfejsy Queue i Deque, więc nadaje do implementowania stosów i kolejek. LinkedList zawiera min. operacje addFirst, getFirst, removeFirst, addLast, getLast, removeLast.
 
 ## Instrukcje sterujące (pętle i warunki)
 ```java
@@ -379,7 +488,8 @@ Object createNewInstanceOf(Object obj) {
  - notifyAll
  - wait
 
- ## Interfejs
+## Interfejs
+
  **Interfejs** – typ referencyjny, zawierający deklaracje metod, implementacje domyślne metod, pola stałe, metody statyczne, interfejsy i klasy
  ```java
  [modyfikatory] interface NazwaInterfejsu [extends Interfejs1,…]
@@ -469,6 +579,69 @@ catch(IOException e){
     e.getSuppressed(); // zwraca tablicę wyjątków powstałych przy zwalnianiu zasobów
 }
 ```
+Kompilator automatycznie generuje niejawny blok finally z kodem bezpiecznie zamykającym zasoby.
 
 
-## Wykład 2 slajd 33
+## Moduł
+Moduł grupuje powiązane ze sobą pakiety, określając, które z nich zostaną udostępnione oraz to jakie pakiety i moduły są jemu potrzebne.
+
+Budowa:
+- Katalog bazowy (root direcotry) modułu nazwany tak samo jak nazwa modułu.
+- deskryptor modułu `module-info.java` -zawiera opis modułu
+```java
+
+module com.mycompany.factories {
+    exports com.mycompany.interfaces;  //exports opisuje które paczki mają być dostępne w pozostałych modułach 
+    exports com.mycompany.factories;
+
+    requires modulename;  //requires opisujeod jakich modułów zależy ten moduł
+}
+```
+exports and exports…to. An exports module directive specifies one of the module’s packages whose public types (and their nested public and protected types) should be accessible to code in all other modules. An exports…to directive enables you to specify in a comma-separated list precisely which module’s or modules’ code can access the exported package—this is known as a qualified export. 
+
+uses. A uses module directive specifies a service used by this module—making the module a service consumer. A service is an object of a class that implements the interface or extends the abstract class specified in the uses directive.
+
+provides…with. A provides…with module directive specifies that a module provides a service implementation—making the module a service provider. The provides part of the directive specifies an interface or abstract class listed in a module’s uses directive and the with part of the directive specifies the name of the service provider class that implements the interface or extends the abstract class.
+//TODO
+
+
+`javac --module-source-path . -d out -m com.mycompany.factories`
+
+
+```java
+import com.mycompany.interfaces.*;
+import com.mycompany.factories.*;
+
+public class Test{
+    public static void main(String args[]){
+        RestClientInterface i = RestClientFactory().makeClient(null,null);
+        String[] query = {"key?2389fg38","loc:21.1,50.9"};
+        i.runQuery(query);
+    }
+}
+
+```
+
+Kompilacja:
+`javac --module-path out --add-modules com.mycompany.factories Test.java`
+
+Uruchomienie:
+`java --module-path out --add-modules com.mycompany.factories Test`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TODO Beans + Swing (w3 i w4 w6)
