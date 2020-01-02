@@ -176,6 +176,7 @@ Kolekcje a typy uogólnione:
  - Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. `List.insert(Object o)`
  - Wersje parametryzowane typem – np. `List<MojTyp>.insert(MojTyp o)`
 Klasy parametryzowane typem - przykład
+
 ```java
 public class CircularBuffer<T> {
     private T[] buffer;
@@ -203,8 +204,8 @@ public class CircularBuffer<T> {
         }
     }
 }
-
 ```
+
 Posługując się interfejsami, możemy tworzyć algorytmy operujące na kolekcjach niezależnie od sposobu, w jaki zaimplementowano kolekcję (programowanie abstrakcyjne)
 ![alt text](./assets/Kolekcje.jpg "Title")
 Są 2 niezależne hierarchie: „właściwych kolekcji” oraz wykazy asocjacyjne, czyli kolekcje par {klucz,wartość}.
