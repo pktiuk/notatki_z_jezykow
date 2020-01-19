@@ -58,9 +58,9 @@ do javy 11 można stosować identyfikator typu wywnioskowanego:
 #### Stałe
 **Literały** – stałe bez nazwy, o typie wynikającym ze sposobu zapisu literału, np.
 
-|78,| 8864L,| 37.266,| 37.266D, |37.266F, |’c’,| true, null|
-|--|--|--|--|--|--|--|
-|int| long| double| double| float| char| boolean|
+| 78, | 8864L, | 37.266, | 37.266D, | 37.266F, | ’c’, | true, null |
+| --- | ------ | ------- | -------- | -------- | ---- | ---------- |
+| int | long   | double  | double   | float    | char | boolean    |
 
 oraz łańcuchy znaków, typu String: "ala ma kota"
 **Stałe symboliczne** – stałe opatrzone nazwą i jawną deklaracją typu
@@ -376,12 +376,12 @@ Pola klasy – specyfikatory
  - `volatile` – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków
 
 **Dostęp do pól**
-|Specyfikator Dostępu|Klasa|Klasa Pochodna|Klasy z tego samego pakietu|Wszystkie klasy|
-|-|-|-|-|-|
-|private|:heavy_check_mark: | | | |
-|protected|:heavy_check_mark:|:heavy_check_mark:* |:heavy_check_mark: | |
-|public|:heavy_check_mark:|:heavy_check_mark:| :heavy_check_mark: | :heavy_check_mark:|
-|(package)|:heavy_check_mark: | | :heavy_check_mark: | |
+| Specyfikator Dostępu | Klasa              | Klasa Pochodna      | Klasy z tego samego pakietu | Wszystkie klasy    |
+| -------------------- | ------------------ | ------------------- | --------------------------- | ------------------ |
+| private              | :heavy_check_mark: |                     |                             |                    |
+| protected            | :heavy_check_mark: | :heavy_check_mark:* | :heavy_check_mark:          |                    |
+| public               | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark:          | :heavy_check_mark: |
+| (package)            | :heavy_check_mark: |                     | :heavy_check_mark:          |                    |
 *Tylko przy odwołaniu niejawnym do pól klasy bazowej
 
 Pole i metoda jednej klasy mogą nosić taką samą nazwę:
@@ -646,3 +646,159 @@ Uruchomienie:
 
 
 //TODO Beans + Swing (w3 i w4 w6)
+
+
+## Programowanie współbieżne
+
+Uruchomienie nowego wątku – zadanie do wykonania przez nowy wątek zdefiniowane w metodzie `run()`
+
+Są 2 sposoby:
+
+Klasa implementująca Runnable
+```java
+public class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+    public static void main(String args[]) 
+    {
+        (new Thread(new MyRunnable())).start();
+    }
+}
+```
+Klasa dziedzicząca po Thread
+```java
+public class HelloThread extends Thread {
+    public void run() {
+    System.out.println("Hello from a thread!");
+    }
+    public static void main(String args[]) 
+    {
+        (new HelloThread()).start();
+    }
+}
+```
+
+#### Diagram stanów wątku
+
+```java
+class MyThread extends Thread{public void run(){…}}
+```
+
+
+![alt text](./assets/Diagram_stanów_wątku.jpg "Title")
+#### Przyczyny blokowania wątków
+![alt text](./assets/Zablokowany.jpg "Title")
+
+
+**III**
+
+
+
+```java
+public class Test3 {
+    public static void main(String args[]) {
+        Thread p = new Producent();
+        p.setDaemon(true);
+        p.start();
+        try {
+            p.join(); //join-oczekiwanie
+        }
+        catch(InterruptedException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+**IV**
+
+słowo kluczowe `synchronized` sprawia, że dane obiekty /metody nie mogą być używane dednocześnie przez kilka wątków i jeżeli jeden wątek właśnie korzysta z takiego obiektu to wszystkie pozostałe muszą poczekać
+```java
+class Schowek {int wartosc = -1;}
+class Producent […]
+    Schowek schowek;
+    Producent(Schowek s) {schowek=s};
+    public void run […]
+    System.out.print(" p"+i);
+    synchronized(schowek) {
+    schowek.wartosc=i;
+} […]
+
+class Konsument […]
+    public void run() {
+        try 
+        {
+            for(int i=0; i<6; i++) 
+            {
+                int w;
+                synchronized(schowek) {
+                    w=schowek.wartosc;
+                }
+            System.out.print(" k"+w);
+            sleep((long)(Math.random()*3000));
+    }
+} […]
+    public static void main(String args[]) {
+        Schowek s = new Schowek();
+        Thread p = new Producent(s);
+        Thread k = new Konsument(s);[…]
+```
+
+**V**
+Tak jak ma to miejsce w monitorach
+```java
+class Schowek […]
+    boolean jestZapelniony = false; […]
+
+class Producent […]
+    synchronized(schowek) {
+        while( schowek.jestZapelniony )
+            schowek.wait();
+        schowek.wartosc=i;
+        schowek.jestZapelniony=true;
+        schowek.notifyAll();
+    } […]
+
+class Konsument […]
+    synchronized(schowek) {
+        while(!schowek.jestZapelniony )
+            schowek.wait();
+        w=schowek.wartosc;
+        schowek.jestZapelniony=false;
+        schowek.notifyAll();
+}
+```
+Przy takim schemacie działania należy zawsze:
+ - Sprawdzać zmienną warunkową w schemacie while(warunek) `wait() […] notify/All()`
+ - Pamiętać o nadaniu zmiennej warunkowej odpowiedniej wartości (unikanie zakleszczeń)
+ - Obsługiwać monitor po zajęciu zamka (IllegalStateException)
+
+### java.util.concurrent.locks.*
+Obiekty ułatwiające synchronizację wątków - Połączenie funkcjonalności zamka i monitora w jednym obiekcie, implementującym interfejs `Lock`
+ - Ułatwienie podziału i obsługi wątków oczekujących na zasób ze zróżnicowanymi warunkami wznowienia – obiekt `Condition`
+ - Dodatkowe możliwości, w zależności od implementacji – np. wybór strategii aktywacji wątków wznawianych do wykonania (`ReentrantLock`)
+
+
+
+```java
+void schowaj(int i) […]
+    zamek.lock();
+    while(!warunek_zapisu)
+        zapis.await();
+    […] // zapis do bufora
+    odczyt.signal();
+[…] finally {zamek.unlock();}
+
+void schowaj(int i) […]
+    zamek.lock();
+    while(!warunek_zapisu)
+        zapis.await();
+    […] // zapis do bufora
+    odczyt.signal();
+[…] finally {zamek.unlock();}
+```
+
+
+//TODO wyżej też są todo
