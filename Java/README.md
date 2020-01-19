@@ -17,8 +17,12 @@ public class HelloWorldApp {
 Wszystko jest tu klasą, nasza apka też. Jeżeli chcemy, aby jakaś klasa zaczęła coś robić przy jej samodzielnym uruchomieniu to dodajemy funkcję: `public static void main(String[] args)` 
 
 ## Pakiety
+W jednym pliku .java można zdefiniować wiele klas, ale tylko jedna z nich może bypubliczna i jej nazwa musi odpowiadać nazwie pliku.
+
 Każda klasa należy do jakiegoś pakietu. Jeśli w pliku z kodem źródłowym klasy nie występuje na początku deklaracja przynależności tej klasy do konkretnego pakietu, wówczas klasa ta będzie należeć do domyślnego pakietu.
 Klasy należące do tego samego pakietu mogą odwoływać się do siebie bez konieczności stosowania nazw kwalifikowanych (bez przedrostka)
+
+Konwencja nazewnicza dla nazw pakietów: nazwa_firmy.nazwa_pakietu.
 ```java
 import java.applet.Applet;
 public class App extends Applet {////kod
@@ -799,6 +803,163 @@ void schowaj(int i) […]
     odczyt.signal();
 […] finally {zamek.unlock();}
 ```
+
+//TODO fork/join
+
+## Sieć
+Dwa podstawowe rodzaje protokołów oparte na IP:
+▪ TCP – Transmission Control Protocol – połączeniowy kontroluje poprawność przesłanych danych, dostosowuje się do przepustowości łącza, wymagając informacji zwrotnej od odbiorcy
+▪ UDP – User Datagram Protocol – bezpołączeniowy całe sterowanie transmisją pozostawione użytkownikowi, możliwość transmisji rozgłoszeniowej 
+
+
+Pakiet `java.net` zawiera podstawowe klasy związane z komunikacją sieciową: URL, socket i pochodne, itp
+
+
+TCP - przykładowy serwer:
+```java
+import...
+public class MyHttpServer {
+    public static void main(String[] args) throws Exception {
+        ServerSocket sSocket = new ServerSocket(1777);
+        while(true) {
+            Socket newSocket = sSocket.accept(); //zawiesza w oczekiwaniu na połączenie
+            OutputStream os = newSocket.getOutputStream();
+            StringBuffer sb = new StringBuffer();
+            sb.append("<html><body>HTTPServer works!</body></html>");
+            byte[] byteArray = sb.toString().getBytes();
+            os.write("HTTP/1.0 200 OK\n".getBytes());
+            os.write(new String("Content-Length: "+byteArray.length+"\n").getBytes());
+            os.write("Content-Type: text/html\n\n".getBytes());
+            os.write(byteArray);
+            os.flush();
+            os.close();
+            br.close();
+            newSocket.close();
+        }
+    }
+}
+
+```
+http://www.java2s.com/Code/Java/Network-Protocol/BufferedReaderforServerSocket.htm
+
+
+### RMI - Remote Method Invocation
+Pozwala odnosić się poprzez referencję do obiektów na innych maszynach
+
+**Hello world of RMI – wywołanie zwrotne**
+
+Klient udostępnia usługę:
+```java
+public interface Callback extends Remote{
+    public void callback() throws RemoteException;
+}
+public static class CallbackImpl extends UnicastRemoteObject implements Callback{
+    protected CallbackImpl() throws RemoteException {
+        super();
+    }
+    public void callback(){
+        System.out.println("Hello from the callback");
+    }
+}
+```
+Serwer definiuje nową usługę (asynchroniczną):
+```java
+public void hello(Object o) throws RemoteException{
+    ((Client.Callback)o).callback();
+}
+```
+Wywołanie u klienta:
+```java
+worker.hello(UnicastRemoteObject.toStub(new CallbackImpl()));
+```
+
+### Java Messaging System (JMS)
+Komunikacja pomiędzy wieloma JVM – typowe zadania:
+▪ kolejka komunikatów (z buforowaniem)
+▪ transmisja rozgłoszeniowa do wybranych odbiorców
+▪ filtrowanie komunikatów w transmisji rozgłoszeniowej
+▪ synchroniczne i asynchroniczne modele komunikacji
+▪ zarządzanie trwałością i ważnością komunikatów (data ważności, priorytet, przechowywanie, gdy nie ma odbiorcy)
+▪ gwarancja dostarczenia
+▪ grupowanie serii komunikatów w niepodzielną transakcję
+▪ również: komunikacja z komponentami stworzonymi w innych językach
+
+//TODO jms
+
+## Atrybuty Systemowe
+Są to dane na temat środowiska takie jak:
+ - nazwa komputera
+ - nazwa użytkownika
+ - katalog roboczy
+ - identyfikator systemu operacyjnego 
+ - itp
+
+Atrybuty przechowywane w postaci par: (nazwa,wartość).
+Ustawiane na trzy sposoby:
+ - ładowane przez klasę `java.util.Properties` – na sposób trwały między uruchomieniami maszyny wirtualnej
+ - poprzez argumenty wiersza poleceń – na czas wykonania aplikacji `-Dnazwa=wartość`
+ - poprzez parametry apletu – na czas wykonania apletu
+<param name="nazwa" value="wartość"/>
+
+
+Metody klasy Properties:
+ - `contains(Object value)`, `containsKey(Object key)` – sprawdzają, czy obiekt zawiera daną wartość bądź nazwę atrybutu (podawane jako String)
+ - `getProperty(String key)`, `getProperty(String key, String default) `–zwraca wartość danego atrybutu / wartość domyślną jeśli atrybut nie istnieje
+ - `setProperty(String key, String value)` – zapisuje wartość atrybutu
+ - `list(PrintStream s)`, `list(PrintWriter w)` – zapisuje wszystkie własności do strumienia
+ - `elements()`, `keys()` – zwraca iteratory wartości i nazw atrybutów
+ - `load(From)/store(ToXML)` – umożliwia pobranie/zapis atrybutów (w formacie XML)
+
+
+1. Załadowanie atrybutów przy starcie
+   
+ ```java
+Properties p=new Properties();
+FileInputStream is=new FileInputStream("my.properties");
+p.load(is);
+is.close();
+```
+
+2. Odczyt/wykorzystanie/modyfikacja atrybutów podczas pracy programu
+
+3. Zapamiętanie (zmodyfikowanych) atrybutów przy wyjściu z programu
+
+```java
+FileOutputStream os=new FileOutputStream("my.properties");
+p.store(os, "---No Comment---");
+os.close();
+```
+
+
+| Nazwa atrybutu     | Opis                                      |
+| ------------------ | ----------------------------------------- |
+| file.separator     | separator nazw plików i katalogów         |
+| java.class.path    | ścieżka przeszukiwania klas Javy          |
+| java.class.version | wersja biblioteki systemowej Javy         |
+| java.home          | katalog, w którym zainstalowano Javę      |
+| java.vendor        | nazwa producenta używanego JRE            |
+| java.vendor.url    | adres www producenta używanego JRE        |
+| java.version       | wersja Javy                               |
+| line.separator     | separator wierszy tj. znak nowego wiersza |
+| os.arch            | architektura sprzętowa syst. operacyjnego |
+| os.name            | nazwa systemu operacyjnego                |
+| os.version         | wersja systemu operacyjnego               |
+| path.separator     | separator wpisów na ścieżce (set)         |
+| user.dir           | katalog roboczy                           |
+| user.home          | katalog domowy użytkownika                |
+| user.name          | nazwa użytkownika uruchamiającego JRE     |
+
+### Runtime
+Większość potrzeb aplikacji dostępu do systemu obsługuje klasa System. 
+W rzadkich przypadkach aplikacja może odwołać się bezpośrednio do środowiska czasu wykonania, reprezentowanego przez jeden obiekt klasy java.lang.Runtime, będący sprzęgiem aplikacji ze środowiskiem wykonania VM w systemie operacyjnym. 
+```java
+public static Runtime getRuntime();//zwraca akt. obiekt Runtime
+```
+Obiekt Runtime umożliwia m.in.
+• wykonanie programu funkcją systemową exec
+• pobranie informacji o liczbie dostępnych procesorów, pamięci operacyjnej
+• zlecenie załadowania biblioteki dynamicznej
+• bezwarunkowe zatrzymanie maszyny wirtualnej
 
 
 //TODO wyżej też są todo
