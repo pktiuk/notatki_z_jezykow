@@ -2,6 +2,7 @@
 ## I
 **Funkcja main**-wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
 ```python
+#!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu 
 def main():
 print("Witaj świecie!")
 if __name__ == "__main__":
@@ -150,6 +151,21 @@ def f(x):
     y2 = y0 ** y3
     return (y0, y1, y2)
 ```
+**named tuple**
+Specjalne obiekty działające jak krotki i kompatybilne z nimi.
+```python
+from collections import namedtuple
+Point = namedtuple('Point', 'x y')
+pt1 = Point(1.0, 5.0)
+pt2 = Point(2.5, 1.5)
+
+from math import sqrt
+# use index referencing
+line_length = sqrt((pt1[0]-pt2[0])**2 + (pt1[1]-pt2[1])**2)
+ # use tuple unpacking
+x1, y1 = pt1
+```
+
 **Lista**
 Podobną, przynajmniej na pozór, strukturą danych do krotki jest lista. Tutaj także możemy grupować dane oraz nie muszą one być tego samego typu. Jednak główną różnicą jest to, że listę możemy modyfikować. Możemy dodawać nowe elementy czy zastępować dotychczasowe.
 ```python
@@ -473,6 +489,7 @@ if __name__ == "__main__":
 ## 0
 ## 30
 ```
+
 ## V
 **Wyjątki**
 ```python
@@ -550,3 +567,89 @@ data_modyfikacji = datetime.datetime.fromtimestamp(mtime)
 print(data_modyfikacji)
 ## 2018-12-21 10:46:54
 ```
+
+
+
+
+
+
+**Testy z doctest**
+Jest to sposób na pisanie testów funkcji w jej definicji
+
+Składnia:
+ - znajduje się pomiędzy `"""` i `"""` 
+ - linie kodu są umieszczane po `>>>`
+ - oczekiwane wyniki wpisujemy w miejscach w których powinny się wyświetlić po wykonaniu
+
+Np:
+```python
+"""
+This is the "example" module.
+
+The example module supplies one function, factorial().  For example,
+
+>>> factorial(5)
+120
+"""
+
+def factorial(n):
+    """Return the factorial of n, an exact integer >= 0.
+
+    >>> [factorial(n) for n in range(6)]
+    [1, 1, 2, 6, 24, 120]
+    >>> factorial(30)
+    265252859812191058636308480000000
+    >>> factorial(-1)
+    Traceback (most recent call last):
+        ...
+    ValueError: n must be >= 0
+
+    Factorials of floats are OK, but the float must be an exact integer:
+    >>> factorial(30.1)
+    Traceback (most recent call last):
+        ...
+    ValueError: n must be exact integer
+    >>> factorial(30.0)
+    265252859812191058636308480000000
+
+    It must also not be ridiculously large:
+    >>> factorial(1e100)
+    Traceback (most recent call last):
+        ...
+    OverflowError: n too large
+    """
+
+    import math
+    if not n >= 0:
+        raise ValueError("n must be >= 0")
+    if math.floor(n) != n:
+        raise ValueError("n must be exact integer")
+    if n+1 == n:  # catch a value like 1e300
+        raise OverflowError("n too large")
+    result = 1
+    factor = 2
+    while factor <= n:
+        result *= factor
+        factor += 1
+    return result
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    ```
+
+flaga "-v" przy uruchamianiu takiego skryptu sprawia, że wyświetlają się także raporty z poprawnych testów.
+
+
+
+
+
+
+
+
+
+
+
+
+//TODO lista: mixin, importowanie, biblioteka sys, instance methods
