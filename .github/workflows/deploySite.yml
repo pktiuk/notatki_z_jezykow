@@ -12,8 +12,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: install deps
-      run: pip3 install mkdocs mkdocs-material
+    - name: Install deps
+      run: |
+      sudo apt-get install python3-setuptools 
+      pip3 install mkdocs mkdocs-material
         
     - name: Deploy MkDocs
       uses: mhausenblas/mkdocs-deploy-gh-pages@1.12
