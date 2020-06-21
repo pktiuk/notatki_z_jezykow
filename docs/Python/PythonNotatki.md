@@ -1,6 +1,6 @@
 # PythonNotatki
 ## I
-**Funkcja main**-wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
+### Funkcja main**-wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
 ```python
 #!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu 
 def main():
@@ -8,14 +8,14 @@ print("Witaj świecie!")
 if __name__ == "__main__":
 main()
 ```
-**Funkcje we/wy**
+### Funkcje we/wy
 ```python
 pobrany_napis = input()
 print("Twój napis to: " + pobrany_napis)
 ```
  input() jest funkcją, która pobiera napis podany przez użytkownika ze standardowego wejścia (do entera) zwraca zmienną typu str
 ## II
-**Komentarze**
+### Komentarze
 ```python
 """
 Komentarz na
@@ -23,7 +23,7 @@ kilka linii
 """
 #komentarz na jedną linię
 ```
-**Zmienne**
+### Zmienne
 Deklarujemy je be określania ich typu `a=5` (interpreter automatycznie uzna, że to będzie int)
 W odróżnieniu od takich języków jak C++, C# czy Java, w języku Python występuje typowanie dynamiczne. Oznacza to, że konkretny identyfikator, konkretna zmienna, np. a, może raz przechowywać napis ("Ala ma kota") by po chwili przechowywać liczbę całkowitą (3).
 Do sprawdzania typu danych służy funkcja `type()`.
@@ -83,7 +83,7 @@ else: #gdy zaden z warunkow nie byl prawdziwy
     instrukcja7
     instrukcja8
 ```
-**Pętle**
+### Pętle
 Po `for` (`foreach`) może się znajdować lista (obrót dla każdego elementu) 
 Po while warunek logiczny (obroty dopóki prawda)
 ```python
@@ -123,7 +123,7 @@ Argumenty nazwane Możemy podawać argumenty w dowolnej kolejności, gdy podamy 
 print(potega(wykladnik = 4, podstawa = 3))
 ## 81
 ```
-**Krotka (tuple)**
+### Krotka (tuple)
 Pewną specyficzną dla języka Python strukturą jest krotka. Polega ona na grupowaniu paru wartości w jeden byt. Warto zaznaczyć, że krotka, która raz została stworzona, nie może być modyfikowana: nie możemy podmienić jednej ze składowych krotki
 ```python
 krotka = (2,3)
@@ -151,7 +151,7 @@ def f(x):
     y2 = y0 ** y3
     return (y0, y1, y2)
 ```
-**named tuple**
+#### named tuple
 Specjalne obiekty działające jak krotki i kompatybilne z nimi.
 ```python
 from collections import namedtuple
@@ -166,7 +166,7 @@ line_length = sqrt((pt1[0]-pt2[0])**2 + (pt1[1]-pt2[1])**2)
 x1, y1 = pt1
 ```
 
-**Lista**
+### Lista
 Podobną, przynajmniej na pozór, strukturą danych do krotki jest lista. Tutaj także możemy grupować dane oraz nie muszą one być tego samego typu. Jednak główną różnicą jest to, że listę możemy modyfikować. Możemy dodawać nowe elementy czy zastępować dotychczasowe.
 ```python
 lista = [1, False, "Napis"]
@@ -252,7 +252,7 @@ print("a" < "b")
 Więcej na:
 https://www.kodolamacz.pl/blog/wyzwanie-python-3-algorytmy-i-struktury-danych/
 
-**Zbiór (set)**
+### Zbiór (set)
 to tablica (tyle, że bez indeksowania), w których nie ma dwóch lub więcej identycznych elementów. (jest szybszy od listy)
 ```python
 zbiorPusty = set()
@@ -284,7 +284,7 @@ Można zapytać, czy jeden zbiór jest podzbiorem drugiego
 print({1, 5}.issubset({1, 5, 9}))
 ## True
 ```
-**Słownik**
+### Słownik
 Jest to rozszerzenie idei zbioru.
 Słownik zawiera pary klucz-wartość. Wyszukiwanie po kluczu jest szybkie, tak jak w zbiorze, jednak gdy już odnajdziemy klucz, możemy odzyskać także stowarzyszoną z nim wartość. Gdy usuniemy ze słownika wartości, a zostawimy same klucze, otrzymamy zbiór. Tak jak w zbiorze, w słowniku klucze nie mogą się powtarzać.
 ```python
@@ -321,7 +321,7 @@ print(wartosc)
 print("-----")
 ```
 ## IV
-**Obiekt**
+### Obiekt
 ```python
 class Osoba: #Definicja klasy o nazwie Osoba
     ile = 0 # pole statyczne
@@ -340,11 +340,11 @@ class Osoba: #Definicja klasy o nazwie Osoba
     def policz():
         return Osoba.ile
 ```
-**Metody**
+#### Metody
 Metodę możemy poznać min. także po pierwszym argumencie: `self`. 
 W języku Python metody przyjmują jako pierwszy parametr obiekt, na rzecz którego są wywoływane. W samym wywołaniu nie musimy go sami podawać. Wystarczy, że metoda jest napisana po kropce. Następnie następują trzy zwykłe parametry: imie, nazwisko oraz wiek.
 
-**Konstruktor i destruktor**
+#### Konstruktor i destruktor
 Jest to taka metoda, która jest wywoływana, gdy obiekt jest tworzony. Jej celem jest zainicjowanie pól w instancji. Tu są definiowane parametry klasy.
 Konstruktor poznajemy po jego specjalnej nazwie: `__init__`. 
 Analogicznie działa destruktor (nazwa: `__del__`)
@@ -354,18 +354,18 @@ Jan = Osoba("Jan", "Nowak", 48)
 Jan = None #Wymuszenie destrukcji obiektu
 ```
 
-**Widoczność elementów**
+#### Widoczność elementów
 W języku Python nie ma pól prywatnych w klasie: nie jesteśmy w stanie w praktyce czegokolwiek “ukryć”. Jednak są pewne zasady nazewnictwa, które działają raczej na zasadzie porozumienia, niż będące prawdziwą barierą. I tak, gdy poprzedzimy nazwę jednym znakiem podkreślenia `_`, oznajmiamy, że dany element nie jest uwzględniony w dokumentacji, może się zmienić, raczej nie należy z niego korzystać, a środowisko programistyczne nie będzie nam go podpowiadać. Przykładowo pole `_imie`, np. `self._imie`, czy `self._metoda()`.
 
 Gdy użyjemy dwóch znaków podkreślenia `__`, zachowanie jest trochę inne: dane pole czy metoda nie będzie widoczna pod tą nazwą wcale, ale za to będzie można się do niego odwołać (dla nazwy `__element`) poprzez `_nazwaklasy.__element`.
 
-**Statyczne**
+#### Statyczne
 Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się poprzez nazwę klasy. Np `Osoba.ile`
 Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. dekorator. Dekoratory (zaczynające się od `@`) służą do modyfikacji definiowanej funkcji lub metody w określony sposób. W ten właśnie sposób oznaczamy metodę statyczną.
 Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.
 
 
-Dziedziczenie
+### Dziedziczenie
 ```python
 class Zwierze:
     def __init__(self, nazwa, wiek, waga):
@@ -401,7 +401,7 @@ class Papuga(Zwierze):
 
 
 
-**Polimorfizm**
+#### Polimorfizm
 Pozwala na używanie klasy dziedziczącej wszędzie tam, gdzie może być użyta klasa bazowa.
 Oznacza to, że instancja klasy dziedziczącej jest uznawana za instancję klasy bazowej. W języku Python sprawdzenie przynależności danego obiektu do klasy wykonuje się metodą isinstance():
 ```python
@@ -428,7 +428,7 @@ if __name__ == "__main__":
 ## isinstance(jakis_zwierz, Papuga): False
 ```
 
-**Abstrakcja**
+### Abstrakcja
 Uniemożliwia tworzenie instancji danej klasy. Przydatne przy klasach bazowych
 ```python
 class Zwierze(ABC):
@@ -456,7 +456,7 @@ Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma 
 
 Zwróćmy uwagę na ten zaawansowany mechanizm: w klasie Zwierze tworzymy metodę, zakładamy, co ta metoda będzie zwracać, a następnie korzystamy z niej w innej metodzie, pomimo, że prawdziwa jej implementacja nastąpi dopiero w klasie pochodnej. Dzięki temu musimy napisać mniej kodu w klasach pochodnych: musimy jedynie zaimplementować metodę nazwa_gatunku(), jednak nie musimy już od zera pisać kodu na przedstawienie zwierzęta. Jedynie w klasie Papuga, gdzie wprowadziliśmy nowe pole, dopisujemy kod odpowiedzialny za wypisanie jego wartości.
 
-**Hermetyzacja**
+### Hermetyzacja
 Polega na odcinanie użytkownikowi dostępu do pól, aby operował tylko metodami klasy.
 Jednak oczywiście używanie metod, zwłaszcza z przedrostkiem get_ czy set_, jest mniej wygodne. Dlatego nowoczesne języki programowania umożliwiają tworzenie tzw. właściwości (ang. property). Z punktu widzenia możliwości, są to po prostu metody, jednak z punktu widzenia zapisu i wygody, przypominają one pola.
 ```python
@@ -491,7 +491,7 @@ if __name__ == "__main__":
 ```
 
 ## V
-**Wyjątki**
+### Wyjątki
 ```python
 def silnia(n):
     if n < 0:
@@ -514,7 +514,7 @@ Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowuje
 
 Listę wbudowanych klas wyjątków znajdziemy pod docs.python.org/3/library/exceptions.html. Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne
 
-**Pliki**
+### Pliki
 ```python
 sciezka_do_pliku = r"C:\przykladowy.txt"
 #r sprawia, że / nie jest znakiem specjalnym
@@ -549,7 +549,7 @@ With open flagi:
 -`w` -write otiwera plik (i nadpisuje, jeżeli tam już coś jest)
 -`a` -append (otiwera do zapisu i zaczyna na końcu tzn dopisuje)
 
-**Dane o plikach**
+#### Dane o plikach
 ```python
 import os
 print(os.path.exists(sciezka_do_pliku))
@@ -573,7 +573,7 @@ print(data_modyfikacji)
 
 
 
-**Testy z doctest**
+### Testy z doctest
 Jest to sposób na pisanie testów funkcji w jej definicji
 
 Składnia:
