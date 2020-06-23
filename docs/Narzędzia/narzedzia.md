@@ -3,7 +3,16 @@
 
 
 ## Dokumentacja
-doxygen
-https://readthedocs.org/
-mkdocs
-https://jekyllrb.com/
+- doxygen
+- https://readthedocs.org/
+- mkdocs
+- https://jekyllrb.com/
+
+
+
+## Statystyki githuba i repozytoriów
+
+- statystyki pobrań projektów - [github-release-stats](https://somsubhra.com/github-release-stats/) i [GithubStats](https://githubstats0.firebaseapp.com/)
+- najaktywniejsze forki danego repo - [tu](https://techgaun.github.io/active-forks/index.html)
+- ststystyki użytkownika - [Coderstats](https://coderstats.net/)
+
