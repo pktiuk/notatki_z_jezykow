@@ -1,4 +1,4 @@
-# Zbiór różnych użytecznych nerzędzi, framweorków i bibliotek z któymi się spotkałem
+# Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
 
 
 
