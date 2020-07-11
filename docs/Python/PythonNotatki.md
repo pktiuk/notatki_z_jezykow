@@ -10,6 +10,19 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+### Argumenty programu
+```python
+# Print total number of arguments
+print ('Total number of arguments:', format(len(sys.argv)))
+ 
+# Print all arguments
+print ('Argument List:', str(sys.argv))
+ 
+# Print arguments one by one
+print ('First argument:',  str(sys.argv[0]))
+print ('Second argument:',  str(sys.argv[1]))
+```
+
 ### Funkcje we/wy
 ```python
 pobrany_napis = input()
