@@ -340,6 +340,59 @@ print(wartosc)
 print("-----")
 ```
 ## IV
+### Funkcje
+```python
+def printinfo( name, age = 35 ):
+   "Prosta funkcja z domyślnymi wartościami"
+   print "Name: ", name
+   print "Age ", age
+   return;
+```
+Funkcja może także przyjmować wiele argumentów
+```python
+#** - zmienne będą interpretowane jako krotka
+def printinfo( arg1, *krotka ):
+   print "Output is: "
+   print arg1
+   for var in krotka:
+      print var
+   return
+#** - zmienne będą interpretowane jako słownik
+def printinfo2( arg1, **slownik ):
+   print "Output is: "
+   print arg1
+   for key in slownik.keys():
+      print key
+   return
+
+printinfo( 10 )
+printinfo( 70, 60, 50 )
+```
+
+W pythonie jedna funkcja może zwracać różne rzeczy, obiekty, zmienne, nic.
+```python
+def returnOrNot(return_bool=True):
+    if return_bool:
+        return True
+    return
+
+```
+#### Adnotacje
+W wypadku funkcji możemy też dodać adnotacje do ich argumentów oraz wartości zwracanych (nie są one wykorzystywane przez interpreter, ale ułatwiają dokumentowanie)
+
+```python
+def funkcja( liczba1:99=12 , slowo1:str="sl", slowo2:"inne slowo"="inne") -> str:
+    #some code
+    return "slowo"
+
+```
+Można potem je sprawdzić poprzez sięgnięcie do aotrybutu `__annotations__`
+```python
+>>>funkcja.__annotations__
+{'liczba1': 99, 'slowo1': <class 'str'>, 'slowo2': 'inne slowo', 'return': <class 'str'>}
+```
+
+
 ### Obiekt
 ```python
 class Osoba: #Definicja klasy o nazwie Osoba
