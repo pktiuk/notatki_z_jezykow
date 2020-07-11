@@ -10,7 +10,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-### Argumenty programu
+#### Argumenty programu
 ```python
 # Print total number of arguments
 print ('Total number of arguments:', format(len(sys.argv)))
@@ -22,6 +22,10 @@ print ('Argument List:', str(sys.argv))
 print ('First argument:',  str(sys.argv[0]))
 print ('Second argument:',  str(sys.argv[1]))
 ```
+#### Zwracanie wartości
+    ```python 
+    sys.exit(numer)
+    ```
 
 ### Funkcje we/wy
 ```python
