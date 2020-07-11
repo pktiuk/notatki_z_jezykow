@@ -1,12 +1,14 @@
 # PythonNotatki
 ## I
-### Funkcja main**-wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
+### Funkcja main
+wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
 ```python
 #!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu 
 def main():
-print("Witaj świecie!")
+    print("Witaj świecie!")
+
 if __name__ == "__main__":
-main()
+    main()
 ```
 ### Funkcje we/wy
 ```python
