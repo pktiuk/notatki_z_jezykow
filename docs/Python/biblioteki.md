@@ -6,6 +6,14 @@ Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera 
 
 ## Manipulacja tekstem
 
+### Stringi wielolinijkowe
+```python
+slowa=""" linia1
+linia2
+linia3
+"""
+```
+
 ## Używanie kodu z C++
 boost lub ctypes
 
