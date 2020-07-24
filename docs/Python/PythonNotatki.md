@@ -346,25 +346,25 @@ print("-----")
 ```python
 def printinfo( name, age = 35 ):
    "Prosta funkcja z domyślnymi wartościami"
-   print "Name: ", name
-   print "Age ", age
+   print("Name: ", name)
+   print("Age ", age)
    return;
 ```
 Funkcja może także przyjmować wiele argumentów
 ```python
 #** - zmienne będą interpretowane jako krotka
 def printinfo( arg1, *krotka ):
-   print "Output is: "
-   print arg1
+   print("Output is: ")
+   print(arg1)
    for var in krotka:
-      print var
+      print(var)
    return
 #** - zmienne będą interpretowane jako słownik
 def printinfo2( arg1, **slownik ):
-   print "Output is: "
-   print arg1
+   print( "Output is: ")
+   print(arg1)
    for key in slownik.keys():
-      print key
+      print(key)
    return
 
 printinfo( 10 )
