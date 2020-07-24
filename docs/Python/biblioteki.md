@@ -18,6 +18,34 @@ import time
 time.sleep(60)#minuta
 ```
 
+## Aplikacje webowe
+
+### Django 
+jest to dość duża zabawka
+
+### Bottle
+Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku)
+
+```python
+from bottle import route,run,template
+
+@route('/hello/<name>') #@route to dekorator
+def index(name):
+    return template('<b>Hello {{name}} <br/>?',name=name) #otrzymamy prostego html-a
+
+#index = route('//hello/<name>')(index) #ten sam wynik, w sytuacji bez @route
+
+
+run(host='0.0.0.0',port=8080) #nasza strona będzie dostępna tutaj
+
+```
+
+albo możemy też chcieć wygenerować jsona
+```python
+def index(name):
+    return {"klucz":"wartosc","a_tu":["bedzie","lista"]}
+```
+
 ## Debugowanie
 
 ### pdb
