@@ -129,6 +129,13 @@ print(liczba)
 ```
 Słowo kluczowe `continue` przerywa dany obrót pętli
 Słowo kluczowe `break` przerywa całą pętlę
+
+Jeśli iterujemy po liście krotek możemy sobie je rozbić
+```python
+for i, line in enumerate(strings_list): #enumerate zwraca dla danej listy krotkę zawierającą numer i element z listy
+    ###jakiś kod
+```
+
 III
 
 Funkcje
