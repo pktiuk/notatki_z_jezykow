@@ -161,6 +161,8 @@ W krotce możemy mieszać typy danych:
 krotka = (2, "Napis")
 print(krotka)
 ## (2, 'Napis')
+len(krotka) #dlugosc krotki
+## 2
 ```
 Kiedy krotka może być przydatna? Np. gdy chcemy zwrócić więcej niż jedną wartość w funkcji.
 ```python
