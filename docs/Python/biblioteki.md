@@ -1,5 +1,14 @@
 # Różne użyteczne biblioteki i narzędzia dla ogólniejszych zagadnień
 
+## Manipulacja tekstem
+
+## Przetwarzanie strumieniowe
+
+## Czas
+```python
+import time
+time.sleep(60)#minuta
+```
 
 ## Debugowanie
 
