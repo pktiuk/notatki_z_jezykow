@@ -179,6 +179,12 @@ def f(x):
     y2 = y0 ** y3
     return (y0, y1, y2)
 ```
+
+Jeśli chcemy możemy rozbić krotkę na poszczególne zmienne
+```python
+a,b,c = (1,2,3)
+```
+
 #### named tuple
 Specjalne obiekty działające jak krotki i kompatybilne z nimi.
 ```python
