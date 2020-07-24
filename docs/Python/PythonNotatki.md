@@ -369,6 +369,7 @@ def printinfo2( arg1, **slownik ):
 
 printinfo( 10 )
 printinfo( 70, 60, 50 )
+printinfo2("argum1",klucz1=wart1,klucz2=wart2,klucz3=523,pusty=None) #ważne, aby słownik był definiowany jako słownik, czyli klucz=wartosc
 ```
 
 W pythonie jedna funkcja może zwracać różne rzeczy, obiekty, zmienne, nic.
