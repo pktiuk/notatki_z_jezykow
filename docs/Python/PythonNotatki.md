@@ -354,6 +354,16 @@ print(klucz)
 print(wartosc)
 print("-----")
 ```
+
+Słowniki można też łatwo łączyć (i także aktualizować z użyciemmetody `update(inny_slownik)`)
+```python
+dict1 = {  'Ritika': 5, 'Sam': 7, 'John' : 10 }
+dict2 = {'Aadi': 8,'Sam': 20,'Mark' : 11 }
+dict1.update(dict2)
+print(dict1)
+#{'Ritika': 5, 'Sam': 20, 'John': 10, 'Aadi': 8, 'Mark': 11}
+```
+Jeżeli jakieś klucze się powtarzały w obu słownikach to wtedy zawartość aktualizowanego jest nadpisywana.
 ## IV
 ### Funkcje
 ```python
