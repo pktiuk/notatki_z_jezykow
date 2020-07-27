@@ -297,7 +297,7 @@ print(zbior)
 ## {1, 3, 5}
 zbior.add(2) ##Dodawanie elementu
 zbior.discard(2) ##Usuwanie elementu
-Można w nim łatwo sprawdzać, czy dany element należy do zbioru
+## Można w nim łatwo sprawdzać, czy dany element należy do zbioru in działa także dla list i słowników
 print(1 in zbiorPusty)
 ## False
 print(1 in zbior)
