@@ -508,6 +508,19 @@ Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się p
 Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. dekorator. Dekoratory (zaczynające się od `@`) służą do modyfikacji definiowanej funkcji lub metody w określony sposób. W ten właśnie sposób oznaczamy metodę statyczną.
 Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.
 
+#### Dekoratory
+```python 
+#foo jest dekoratorem, który wzbogaci naszą funkcję
+def foo(to_be_wrapped):
+    def new_func(*args,**kwargs):
+        print("uwaga, będzie sześcian")
+    return to_be_wrapped
+
+@foo #jeśli dodamy ten dekorator to użycie tej funkcji zostanie zmienione, tzn zamiast oryginalnej funkcji cube() otrzymamy "wzbogacone" cube drukujące komunikat przed drukowaniem
+def cube(d):
+    return d ** 3 #podniesienie do potęgi 3
+```
+
 
 ### Dziedziczenie
 ```python
