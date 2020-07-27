@@ -85,7 +85,30 @@ Operator alternatywy, `or`, utożsamiany z polskim lub. Zwraca wartość True wt
 Operator zaprzeczenia, `not`, utożsamiany z polskim nie. Zwraca wartość przeciwną, niż argument
 
 Można łączyć kilka operatorów np:
-`czy_wiek_produkcyjny = 18 <= wiek <= 65`
+`czy_wiek_produkcyjny = 18 <= wiek <= 65` - w pythonie porównania rozwijane są tak jak w matematyce, czyli np możemy też napisać `2 <= 4 < 8`, co zwróci nam `True`
+
+Inne operatory:
+- `is` - czy dwie zmienne są różnymi instancjami tego samego obiektu
+```python 
+s1={}
+s2={}
+
+s1==s2
+#True
+
+s1 is s2
+#False ##ponieważ to nie jest ten sam słownik
+```
+- `in` używany do sprawdzenia, czy dana wartość/obiekt zawiera się w liście/słowniku/secie...
+```python
+zbior = {1, 3, 5}
+zbior_pusty = {}
+
+print(1 in zbiorPusty)
+## False
+print(1 in zbior)
+## True
+```
 
 Instrukcja warunkowa if
 ```python
