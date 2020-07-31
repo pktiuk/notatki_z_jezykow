@@ -85,7 +85,30 @@ Operator alternatywy, `or`, utożsamiany z polskim lub. Zwraca wartość True wt
 Operator zaprzeczenia, `not`, utożsamiany z polskim nie. Zwraca wartość przeciwną, niż argument
 
 Można łączyć kilka operatorów np:
-`czy_wiek_produkcyjny = 18 <= wiek <= 65`
+`czy_wiek_produkcyjny = 18 <= wiek <= 65` - w pythonie porównania rozwijane są tak jak w matematyce, czyli np możemy też napisać `2 <= 4 < 8`, co zwróci nam `True`
+
+Inne operatory:
+- `is` - czy dwie zmienne są różnymi instancjami tego samego obiektu
+```python 
+s1={}
+s2={}
+
+s1==s2
+#True
+
+s1 is s2
+#False ##ponieważ to nie jest ten sam słownik
+```
+- `in` używany do sprawdzenia, czy dana wartość/obiekt zawiera się w liście/słowniku/secie...
+```python
+zbior = {1, 3, 5}
+zbior_pusty = {}
+
+print(1 in zbiorPusty)
+## False
+print(1 in zbior)
+## True
+```
 
 Instrukcja warunkowa if
 ```python
@@ -354,16 +377,6 @@ print(klucz)
 print(wartosc)
 print("-----")
 ```
-
-Słowniki można też łatwo łączyć (i także aktualizować z użyciemmetody `update(inny_slownik)`)
-```python
-dict1 = {  'Ritika': 5, 'Sam': 7, 'John' : 10 }
-dict2 = {'Aadi': 8,'Sam': 20,'Mark' : 11 }
-dict1.update(dict2)
-print(dict1)
-#{'Ritika': 5, 'Sam': 20, 'John': 10, 'Aadi': 8, 'Mark': 11}
-```
-Jeżeli jakieś klucze się powtarzały w obu słownikach to wtedy zawartość aktualizowanego jest nadpisywana.
 ## IV
 ### Funkcje
 ```python
