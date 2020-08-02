@@ -92,16 +92,59 @@ target_include_directories(Tutorial PUBLIC
 ## Logika
 
 ### Zmienne
+Zmienne są definiowane podczas przypisywania im wartości.
+
+- listy
+```cmake
+# Dodanie elementu do listy
+list(APPEND EXTRA_LIBS MathFunctions)
+```
+
+Przykładowe wartości 
+
+
+
+TODO-uporządkować ten punkt
 
 ### Opcje
 
-### IF-y
+Są to parametry dla buildu, które będą potem także widoczne w narzędziach z GUI dla CMake.
 
+```cmake
+option(USE_MYMATH "Use tutorial provided math implementation" ON)
+
+```
+Ta opcja będzie widoczna z domyślną wartością `ON`
+
+### IF-y
+W CMake'u możemy tworzyć całe wyrażenia warunkowe za pomocą wcześniej predefiniowanych amiennych.
+```cmake
+if(USE_MYMATH)
+  add_subdirectory(MathFunctions)
+  list(APPEND EXTRA_LIBS MathFunctions)
+  list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
+endif()
+
+# add the executable
+add_executable(Tutorial tutorial.cxx)
+
+target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
+
+# add the binary tree to the search path for include files
+# so that we will find TutorialConfig.h
+target_include_directories(Tutorial PUBLIC
+                           "${PROJECT_BINARY_DIR}"
+                           ${EXTRA_INCLUDES}
+                           )
+```
 
 ## Domyślne ścieżki w CMake
 
 TODO
 
+```cmake
+
+```
 
 
 
