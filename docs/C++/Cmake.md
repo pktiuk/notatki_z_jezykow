@@ -1,5 +1,5 @@
 # Cmake
-
+Na podstawie: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 ## Podstawy
 Mamy tu minimalny przykład
 ```cmake
