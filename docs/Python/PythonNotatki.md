@@ -320,7 +320,7 @@ print(zbior)
 ## {1, 3, 5}
 zbior.add(2) ##Dodawanie elementu
 zbior.discard(2) ##Usuwanie elementu
-## Można w nim łatwo sprawdzać, czy dany element należy do zbioru in działa także dla list i słowników
+Można w nim łatwo sprawdzać, czy dany element należy do zbioru
 print(1 in zbiorPusty)
 ## False
 print(1 in zbior)
@@ -377,39 +377,6 @@ print(klucz)
 print(wartosc)
 print("-----")
 ```
-
-### Generator
-Są to obiekty, które służą do generowania obiektów, liczb, etc.
-
-```python
-#generator zwracający kolejne elementy z ciągu fibonacciego
-
-def fibo():
-    a=0
-    b=1
-    while True:
-        yield a
-        tmp=a
-        a=b
-        b=b+tmp
-```
-jeśli chcemy typować generator
-
-```python 
-from typing import Generator #z modułu typing ładujemy Generator
-
-def fibo(max_val: int): -> Generator[int,None, str]:#[to co zwraca,to co może przyjąć, to co może dodatkowo zwrócić] 
-    a=0
-    b=1
-    while max_val <= a:
-        yield a
-        tmp=a
-        a=b
-        b=b+tmp
-        #a, b =(b, a+b) #sposób interpretacji krotek dający to samo
-    return "KONIEC" #np po przekroczniu zakresu możemy zwrócić "KONIEC"
-```
-
 ## IV
 ### Funkcje
 ```python
