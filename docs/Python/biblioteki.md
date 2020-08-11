@@ -22,6 +22,13 @@ linia3
 """
 ```
 
+### Rozbijanie stringów po słowach
+```python
+slowo="slowo1 slowo2 sl3"
+slowo.split()
+>>>['slowo1', 'slowo2', 'sl3']
+```
+
 ## Używanie kodu z C++
 boost lub ctypes
 
