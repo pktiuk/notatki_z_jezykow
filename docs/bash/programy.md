@@ -33,87 +33,86 @@ Podstawowe:
 
 Inne użyteczne (pełna lista jest w `man screen`):
 ```
-       ┌─────────────────┬─────────────────┬─────────────────────────────────────────────────────┐
-       │C-a '            │ (select)        │ Prompt for a window name or number to switch to.    │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a "            │ (windowlist -b) │ Present a list of all windows for selection.        │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a digit        │ (select 0-9)    │ Switch to window number 0 - 9                       │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a C-a          │ (other)         │ Toggle to the window  displayed  previously.   Note │
-       │                 │                 │ that this binding defaults to the command character │
-       │                 │                 │ typed twice, unless overridden.  For  instance,  if │
-       │                 │                 │ you  use  the  option  "-e]x", this command becomes │
-       │                 │                 │ "]]".                                               │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a A            │ (title)         │ Allow the user to enter a name for the current win‐ │
-       │                 │                 │ dow.                                                │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a c,           │ (screen)        │ Create a new window with a shell and switch to that │
-       │C-a C-c          │                 │ window.                                             │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a C            │ (clear)         │ Clear the screen.                                   │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a d,           │ (detach)        │ Detach screen from this terminal.                   │
-       │C-a C-d          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a D D          │ (pow_detach)    │ Detach and logout.                                  │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a space,       │ (next)          │ Switch to the next window.                          │
-       │C-a n,           │                 │                                                     │
-       │C-a C-n          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a N            │ (number)        │ Show the number (and title) of the current window.  │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a backspace,   │ (prev)          │ Switch to the previous window (opposite of C-a n).  │
-       │C-a C-h,         │                 │                                                     │
-       │C-a p,           │                 │                                                     │
-       │C-a C-p          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a q,           │ (xon)           │ Send a control-q to the current window.             │
-       │C-a C-q          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a Q            │ (only)          │ Delete  all  regions but the current one.  See also │
-       │                 │                 │ split, remove, focus.                               │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a r,           │ (wrap)          │ Toggle the current window's line-wrap setting (turn │
-       │C-a C-r          │                 │ the current window's automatic margins on and off). │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a s,           │ (xoff)          │ Send a control-s to the current window.             │
-       │C-a C-s;         │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a S            │ (split)         │ Split  the current region horizontally into two new │
-       │                 │                 │ ones.  See also only, remove, focus.                │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a t,           │ (time)          │ Show system information.                            │
-       │C-a C-t          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a v            │ (version)       │ Display the version and compilation date.           │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a C-v          │ (digraph)       │ Enter digraph.                                      │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a w,           │ (windows)       │ Show a list of window.                              │
-       │C-a C-w          │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a X            │ (remove)        │ Kill the current region.   See  also  split,  only, │
-       │                 │                 │ focus.                                              │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a z,           │ (suspend)       │ Suspend screen.  Your system must support BSD-style │
-       │C-a C-z          │                 │ job-control.                                        │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a ?            │ (help)          │ Show key bindings.                                  │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a \            │ (quit)          │ Kill all windows and terminate screen.              │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a {,           │ (history)       │ Copy and paste a previous (command) line.           │
-       │C-a }            │                 │                                                     │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a |            │ (split -v)      │ Split  the  current  region vertically into two new │
-       │                 │                 │ ones.                                               │
-       ├─────────────────┼─────────────────┼─────────────────────────────────────────────────────┤
-       │C-a *            │ (displays)      │ Show a listing of all currently attached displays.  │
-       └─────────────────┴─────────────────┴─────────────────────────────────────────────────────┘
-
+┌──────────────┬────────────────┬─────────────────────────────────────────────────────┐
+│C-a '         │ (select)       │ Prompt for a window name or number to switch to.    │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a "         │ (windowlist -b)│ Present a list of all windows for selection.        │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a digit     │ (select 0-9)   │ Switch to window number 0 - 9                       │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a C-a       │ (other)        │ Toggle to the window  displayed  previously.   Note │
+│              │                │ that this binding defaults to the command character │
+│              │                │ typed twice, unless overridden.  For  instance,  if │
+│              │                │ you  use  the  option  "-e]x", this command becomes │
+│              │                │ "]]".                                               │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a A         │ (title)        │ Allow the user to enter a name for the current win‐ │
+│              │                │ dow.                                                │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a c,        │ (screen)       │ Create a new window with a shell and switch to that │
+│C-a C-c       │                │ window.                                             │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a C         │ (clear)        │ Clear the screen.                                   │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a d,        │ (detach)       │ Detach screen from this terminal.                   │
+│C-a C-d       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a D D       │ (pow_detach)   │ Detach and logout.                                  │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a space,    │ (next)         │ Switch to the next window.                          │
+│C-a n,        │                │                                                     │
+│C-a C-n       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a N         │ (number)       │ Show the number (and title) of the current window.  │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a backspace,│ (prev)         │ Switch to the previous window (opposite of C-a n).  │
+│C-a C-h,      │                │                                                     │
+│C-a p,        │                │                                                     │
+│C-a C-p       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a q,        │ (xon)          │ Send a control-q to the current window.             │
+│C-a C-q       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a Q         │ (only)         │ Delete  all  regions but the current one.  See also │
+│              │                │ split, remove, focus.                               │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a r,        │ (wrap)         │ Toggle the current window's line-wrap setting (turn │
+│C-a C-r       │                │ the current window's automatic margins on and off). │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a s,        │ (xoff)         │ Send a control-s to the current window.             │
+│C-a C-s;      │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a S         │ (split)        │ Split  the current region horizontally into two new │
+│              │                │ ones.  See also only, remove, focus.                │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a t,        │ (time)         │ Show system information.                            │
+│C-a C-t       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a v         │ (version)      │ Display the version and compilation date.           │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a C-v       │ (digraph)      │ Enter digraph.                                      │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a w,        │ (windows)      │ Show a list of window.                              │
+│C-a C-w       │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a X         │ (remove)       │ Kill the current region.   See  also  split,  only, │
+│              │                │ focus.                                              │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a z,        │ (suspend)      │ Suspend screen.  Your system must support BSD-style │
+│C-a C-z       │                │ job-control.                                        │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a ?         │ (help)         │ Show key bindings.                                  │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a \         │ (quit)         │ Kill all windows and terminate screen.              │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a {,        │ (history)      │ Copy and paste a previous (command) line.           │
+│C-a }         │                │                                                     │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a |         │ (split -v)     │ Split  the  current  region vertically into two new │
+│              │                │ ones.                                               │
+├──────────────┼────────────────┼─────────────────────────────────────────────────────┤
+│C-a *         │ (displays)     │ Show a listing of all currently attached displays.  │
+└──────────────┴────────────────┴─────────────────────────────────────────────────────┘
 ```
 
 
