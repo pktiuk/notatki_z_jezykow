@@ -15,6 +15,11 @@ screen -ls
 Dołącz do jednej z sesji
 screen -r [numer_sesji]
 
+Uruchom skrypt w sesji i odłącz się od sesji (dobre do startupu)
+```bash
+screen -d -m moj_skrypt_albo_komenda
+```
+
 Większość komend wewnątrz obsługuje się za pomocą kombinacji Ctrl+a (C-a) i po puszczeniu wciśnięciu danego przycisku.
 
 Podstawowe:
