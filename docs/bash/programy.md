@@ -45,3 +45,8 @@ I   login on
 O   login off
 ]   paste .
 ```
+
+
+## Networking
+
+`ifconfig` - zwraca informacje o wszystkich odstępnych interfejsach sieciowych, IP, adresy MAC etc.
