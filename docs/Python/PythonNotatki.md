@@ -446,6 +446,37 @@ nasza_lambda(2)
 ```
 Argumenty w lambdach można zapisywać tak samo jak w zwykłych funkcjach, mogą tam być wartości domyślne, 
 
+
+#### Zasięg i zmienne globalne
+W pythonie na ogół funkcje nie mogą edytować (mogą mieć dostęp, ale nie edytować) zmienne poza swoim zakresem.
+```python
+c = 1 # global variable
+    
+def add():
+    print(c)
+    c = c + 2 # increment c by 2
+    print(c)
+
+add()
+#>2
+#>UnboundLocalError: local variable 'c' referenced before assignment
+```
+Aby móc je jednak zmieniać jest używane słowo kluczowe `global`.
+```python
+c = 0 # global variable
+
+def add():
+    global c
+    c = c + 2 # increment by 2
+    print("Inside add():", c)
+
+add()
+print("In main:", c)
+#>Inside add(): 2
+#>In main: 2
+```
+
+
 ### Obiekt
 ```python
 class Osoba: #Definicja klasy o nazwie Osoba
