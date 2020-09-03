@@ -15,6 +15,11 @@ Sprawdzanie co jest czym oraz do czego służy
 - `?` - 
 - 
 
+## Pliki
+### Szukanie plików
+```bash
+find -name a*n.java
+```
 ## Obróbka tekstu
 
 #### Wyszukiwanie wzorca
