@@ -432,6 +432,19 @@ Można potem je sprawdzić poprzez sięgnięcie do aotrybutu `__annotations__`
 {'liczba1': 99, 'slowo1': <class 'str'>, 'slowo2': 'inne slowo', 'return': <class 'str'>}
 ```
 
+#### Wyrażenia lambda
+
+Lambdy to są funkcje, które można w dość podręczny sposób zdefiniować
+```python
+#Ogólna definicja
+lambda arg1, arg2, arg3: nasze_wyrazenie #ta lambda zwróci wartość naszego wyrażenia
+
+nasza_lambda = lambda x: x*2
+nasza_lambda(2)
+#>4
+
+```
+Argumenty w lambdach można zapisywać tak samo jak w zwykłych funkcjach, mogą tam być wartości domyślne, 
 
 ### Obiekt
 ```python
