@@ -159,19 +159,8 @@ for i, line in enumerate(strings_list): #enumerate zwraca dla danej listy krotk�
     ###jakiś kod
 ```
 
-III
+## III
 
-Funkcje
-```python
-def nazwaFunkcji(parametry, oddzielone, przecinkami):
-return wynik
-Wartości domyślne parametrów
-def potega(podstawa, wykladnik=1):
-#ciało funkcji
-Argumenty nazwane Możemy podawać argumenty w dowolnej kolejności, gdy podamy ich nazwy
-print(potega(wykladnik = 4, podstawa = 3))
-## 81
-```
 ### Krotka (tuple)
 Pewną specyficzną dla języka Python strukturą jest krotka. Polega ona na grupowaniu paru wartości w jeden byt. Warto zaznaczyć, że krotka, która raz została stworzona, nie może być modyfikowana: nie możemy podmienić jednej ze składowych krotki
 ```python
@@ -379,6 +368,18 @@ print("-----")
 ```
 ## IV
 ### Funkcje
+Funkcje
+```python
+def nazwaFunkcji(parametry, oddzielone, przecinkami):
+return wynik
+Wartości domyślne parametrów
+def potega(podstawa, wykladnik=1):
+#ciało funkcji
+Argumenty nazwane Możemy podawać argumenty w dowolnej kolejności, gdy podamy ich nazwy
+print(potega(wykladnik = 4, podstawa = 3))
+## 81
+```
+
 ```python
 def printinfo( name, age = 35 ):
    "Prosta funkcja z domyślnymi wartościami"
