@@ -9,6 +9,7 @@
 pip i pip3 #TODO
 
 ## Tworzenie i używanie własnych paczek
+### Struktura
 Przykładowa struktura paczki
 ```
 sound/                          Top-level package
@@ -38,4 +39,14 @@ sound/                          Top-level package
 Aby wykorzystać zawartość pliku `karaoke.py` należy zaimportować:
 ```python
 import sound.filters.karaoke
+```
+
+### Wewnętrzne linkowanie
+
+Przy linkowaniu pomiędzy poszczególnymi elementami paczki zaleca się używanie poniższej konwencji:
+```python
+#zakładamy, że jesteśmy w pliku filters/karaoke.py
+from . import echo 
+from .. import formats
+from ..filters import equalizer
 ```
