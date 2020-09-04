@@ -1,4 +1,4 @@
-# Moduły i Paczki
+# 2 Moduły i Paczki
 
 
 **Moduł** - plik pythonowy zawietający definicje i wyrażenia, nazwa pliku jest nazwą modułu z dodanym rozszerzeniem `.py` (`nazwa_modułu.py`). Wewnątrz modułu ta nazwa jest dostępna jako zmienna globalna `__name__`.

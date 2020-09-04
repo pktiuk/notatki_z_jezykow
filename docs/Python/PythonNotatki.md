@@ -1,4 +1,4 @@
-# PythonNotatki
+# 1 PythonNotatki
 ## I
 ### Funkcja main
 wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego

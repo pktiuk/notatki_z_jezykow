@@ -1,4 +1,4 @@
-# Różne użyteczne biblioteki i narzędzia dla ogólniejszych zagadnień
+# 3 Różne użyteczne biblioteki i narzędzia dla ogólniejszych zagadnień
 
 ## Instalacja pakietów
 Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera pakietów, a potem paczki pythonowskie pobieramy już pip-em.
