@@ -50,3 +50,12 @@ from . import echo
 from .. import formats
 from ..filters import equalizer
 ```
+
+## Wczytywanie paczki z danego folderu
+Kiedy nasza paczka jest w niestandardowym folderze można ją wczytać tak
+
+```python
+#tu zakładam, że paczka jest umieszczona w jakimś folderze umieszczonym gdzieś względem pliku ze skryptem, ale module_path może być dowolne
+module_path = os.path.dirname(os.path.realpath(__file__)) + "/.."
+sys.path.append(module_path)
+```
