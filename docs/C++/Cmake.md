@@ -100,8 +100,16 @@ Zmienne są definiowane podczas przypisywania im wartości.
 list(APPEND EXTRA_LIBS MathFunctions)
 ```
 
-Przykładowe wartości 
+Aby zmienna została podmieniona przez generator na jej zawartość musi być ona umieszczona w klamrach, bez nich po prostu przekazujemy stringa.
+```cmake
+message(HEADERS)
+#>>> [cmake] HEADERS
+```
 
+```cmake
+message(${HEADERS})
+#>>> [cmake] /include/plik.hpp /inlude/plik2.hpp
+```
 
 
 TODO-uporządkować ten punkt
@@ -138,7 +146,18 @@ target_include_directories(Tutorial PUBLIC
                            )
 ```
 
+## Pliki
+### Szukanie i dodawanie plików
+
+```cmake
+#prosty sposób na wczytanie wszystkich plików z danego folderu do zmiennej
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR} "src/*")
+```
+
 ## Domyślne ścieżki w CMake
+
+
+- `CMAKE_SOURCE_DIR`
 
 TODO
 
