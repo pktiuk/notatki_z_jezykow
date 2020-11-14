@@ -23,9 +23,9 @@ print ('First argument:',  str(sys.argv[0]))
 print ('Second argument:',  str(sys.argv[1]))
 ```
 #### Zwracanie wartości
-    ```python 
-    sys.exit(numer)
-    ```
+```python 
+sys.exit(numer)
+```
 
 ### Funkcje we/wy
 ```python
@@ -33,6 +33,16 @@ pobrany_napis = input()
 print("Twój napis to: " + pobrany_napis)
 ```
  input() jest funkcją, która pobiera napis podany przez użytkownika ze standardowego wejścia (do entera) zwraca zmienną typu str
+
+
+ Dla strumieni:
+ ```python
+import sys
+
+for line in sys.stdin:
+    sys.stdout.write(line)
+ ```
+
 ## II
 ### Komentarze
 ```python
