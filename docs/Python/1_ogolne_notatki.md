@@ -748,8 +748,25 @@ print(data_modyfikacji)
 ```
 
 
+## Wielowątkowość
 
+```python
+import threading
 
+def foo():
+  print("Hello threading!")
+
+my_thread = threading.Thread(target=foo)
+
+my_thread.start()
+#>> Hello threading
+# kolejne uruhomienie za pomocą start rzuci nam RuntimeError
+```
+
+Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą 
+```python
+my_thread.join()
+```
 
 
 ### Testy z doctest
