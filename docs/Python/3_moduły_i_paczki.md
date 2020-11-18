@@ -8,6 +8,16 @@
 ## Zarządzanie paczkami
 pip i pip3 #TODO
 
+Do instalacji można używać samodzielnych aplikacji pip (i pip3)
+```
+pip3 install numpy
+```
+
+Można też wymusić od danej instancji pythona, aby zainstalował dla siebie daną paczkę (użyteczne gdy mamy wiele wresji).
+```
+python3 -m pip install numpy
+```
+
 ## Tworzenie i używanie własnych paczek
 ### Struktura
 Przykładowa struktura paczki
@@ -46,7 +56,7 @@ import sound.filters.karaoke
 Przy linkowaniu pomiędzy poszczególnymi elementami paczki zaleca się używanie poniższej konwencji:
 ```python
 #zakładamy, że jesteśmy w pliku filters/karaoke.py
-from . import echo 
+from . import echo
 from .. import formats
 from ..filters import equalizer
 ```
