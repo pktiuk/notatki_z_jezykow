@@ -1,9 +1,23 @@
 # 1 PythonNotatki
 ## I
+### Shebang
+Jest to pierwsza linia skryptu (nie tylko w pythonie), która określa za pomocą czego ma być wykonany skrypt (może być to bash, zsh, python)
+Mamy tutaj 2 możliwości:
+
+Ta bardziej uniwersalna (działa z wieloma systemami operacyjnymi)
+```python
+#!/usr/bin/env python3
+```
+Ta mniej uniwersalna, ale pozwalająca używać pythona z różnymi parametrami
+```python
+#!/usr/bin/python3
+```
+Np z po dodaniu parametru `-i` nadal pozostaniemy w pythonie po wykonaniu skryptu, co pozwoli nam np zajrzeć do zmiennych, które były użyte, lub łatwo użyć klas, albo metod, które zostały zdefiniowane w skrypcie.
+
 ### Funkcja main
 wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
 ```python
-#!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu 
+#!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu
 def main():
     print("Witaj świecie!")
 
@@ -14,16 +28,16 @@ if __name__ == "__main__":
 ```python
 # Print total number of arguments
 print ('Total number of arguments:', format(len(sys.argv)))
- 
+
 # Print all arguments
 print ('Argument List:', str(sys.argv))
- 
+
 # Print arguments one by one
 print ('First argument:',  str(sys.argv[0]))
 print ('Second argument:',  str(sys.argv[1]))
 ```
 #### Zwracanie wartości
-```python 
+```python
 sys.exit(numer)
 ```
 
@@ -99,7 +113,7 @@ Można łączyć kilka operatorów np:
 
 Inne operatory:
 - `is` - czy dwie zmienne są różnymi instancjami tego samego obiektu
-```python 
+```python
 s1={}
 s2={}
 
@@ -136,7 +150,7 @@ else: #gdy zaden z warunkow nie byl prawdziwy
     instrukcja8
 ```
 ### Pętle
-Po `for` (`foreach`) może się znajdować lista (obrót dla każdego elementu) 
+Po `for` (`foreach`) może się znajdować lista (obrót dla każdego elementu)
 Po while warunek logiczny (obroty dopóki prawda)
 ```python
 for i in range(0, 4):
@@ -237,7 +251,7 @@ lista.extend([97,98,99]) # metoda podobna po append, która przyjmuje jako argum
 print(lista)
 ## [1, False, 'Napis', (2.5+3.7j), 97, 98, 99]
 ```
-Operatory `+` i `*` mają zdefiniowane działanie w kontekście list. 
+Operatory `+` i `*` mają zdefiniowane działanie w kontekście list.
 `+`, tak jak w przypadku napisu, to konkatenacja, czyli połączenie dwóch list w jedną
 `*` zaś pozwala nam powielić daną listę:
 ```python
@@ -454,14 +468,14 @@ nasza_lambda(2)
 #>4
 
 ```
-Argumenty w lambdach można zapisywać tak samo jak w zwykłych funkcjach, mogą tam być wartości domyślne, 
+Argumenty w lambdach można zapisywać tak samo jak w zwykłych funkcjach, mogą tam być wartości domyślne,
 
 
 #### Zasięg i zmienne globalne
 W pythonie na ogół funkcje nie mogą edytować (mogą mieć dostęp, ale nie edytować) zmienne poza swoim zakresem.
 ```python
 c = 1 # global variable
-    
+
 def add():
     print(c)
     c = c + 2 # increment c by 2
@@ -507,12 +521,12 @@ class Osoba: #Definicja klasy o nazwie Osoba
         return Osoba.ile
 ```
 #### Metody
-Metodę możemy poznać min. także po pierwszym argumencie: `self`. 
+Metodę możemy poznać min. także po pierwszym argumencie: `self`.
 W języku Python metody przyjmują jako pierwszy parametr obiekt, na rzecz którego są wywoływane. W samym wywołaniu nie musimy go sami podawać. Wystarczy, że metoda jest napisana po kropce. Następnie następują trzy zwykłe parametry: imie, nazwisko oraz wiek.
 
 #### Konstruktor i destruktor
 Jest to taka metoda, która jest wywoływana, gdy obiekt jest tworzony. Jej celem jest zainicjowanie pól w instancji. Tu są definiowane parametry klasy.
-Konstruktor poznajemy po jego specjalnej nazwie: `__init__`. 
+Konstruktor poznajemy po jego specjalnej nazwie: `__init__`.
 Analogicznie działa destruktor (nazwa: `__del__`)
 Przy wywołaniu pomijamy argument self.
 ```python
@@ -531,7 +545,7 @@ Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. dekorator. Dek
 Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.
 
 #### Dekoratory
-```python 
+```python
 #foo jest dekoratorem, który wzbogaci naszą funkcję
 def foo(to_be_wrapped):
     def new_func(*args,**kwargs):
@@ -555,19 +569,19 @@ class Zwierze:
         print(f"Jestem zwierzęciem {self.nazwa}, mam {self.wiek} lat oraz wazę {self.waga} kg.")
     def urodziny(self):
         self.wiek += 1
-        
+
 class Mrowka(Zwierze):
     pass #Oznacza, że ciało jest puste
-    
+
 class Slon(Zwierze):
     def przedstaw_sie(self):
         print(f"Jestem słoniem {self.nazwa}, mam {self.wiek} lat oraz wazę {self.waga} kg.")
-        
+
 class Lew(Zwierze):
     def przedstaw_sie(self):
         super().przedstaw_sie()
         print("A tak w ogóle to jestem lwem")
-        
+
 class Papuga(Zwierze):
     def __init__(self, nazwa, wiek, waga, kolor):
         super().__init__(nazwa, wiek, waga)
@@ -588,7 +602,7 @@ def main():
     Dumboo = Slon("Dumboo", 77, 6000)
     Simba = Lew("Simba", 24, 100)
     Jago = Papuga("Jago", 32, 3, "czerwony")
-    jakis_zwierz = Zwierze("Katarzyna", 31, 80) 
+    jakis_zwierz = Zwierze("Katarzyna", 31, 80)
     print(f"isinstance(Dumboo, Slon): {isinstance(Dumboo, Slon)}")
     print(f"isinstance(Dumboo, Lew): {isinstance(Dumboo, Lew)}")
     print(f"isinstance(Jago, Papuga): {isinstance(Jago, Papuga)}")
@@ -616,17 +630,17 @@ class Zwierze(ABC):
         self.wiek=wiek
         self.waga=waga
         @abstractmethod #tutaj wymuszamy implementację tej metody w klasach pochodnych
-    def nazwa_gatunku(self): 
+    def nazwa_gatunku(self):
         pass
     def przedstaw_sie(self):
-        print(f"Jestem {self.nazwa_gatunku()}. Mam na imię {self.nazwa}, mam {self.wiek} lat oraz wazę {self.waga} kg.")  
+        print(f"Jestem {self.nazwa_gatunku()}. Mam na imię {self.nazwa}, mam {self.wiek} lat oraz wazę {self.waga} kg.")
     def urodziny(self):
         self.wiek += 1
-        
+
 class Slon(Zwierze):
     def nazwa_gatunku(self):
         return "Słoń"
-    
+
 class Lew(Zwierze):
     def nazwa_gatunku(self):
         return "Lew"
@@ -642,7 +656,7 @@ Jednak oczywiście używanie metod, zwłaszcza z przedrostkiem get_ czy set_, je
 class Zwierze:
     def __init__(self, wiek):
         self.wiek = wiek
-        
+
     @property
     def wiek(self):
         return self.__wiek
@@ -661,7 +675,7 @@ def main():
     print(jakis_zwierz.wiek)
     jakis_zwierz.wiek = 30
     print(jakis_zwierz.wiek)
-    
+
 if __name__ == "__main__":
     main()
 ## 200
@@ -713,7 +727,7 @@ except ZeroDivisionError as e:
     print(e)
 ```
 ```python
-with open(sciezka_do_pliku, 'w') as f: 
+with open(sciezka_do_pliku, 'w') as f:
 f.write("Trzeci wiersz")
 f.write("Czwarty wiersz")#jeżeli nie damy \n to oba wiersze są zapisane w tej samej linijce
 ```
@@ -763,7 +777,7 @@ my_thread.start()
 # kolejne uruhomienie za pomocą start rzuci nam RuntimeError
 ```
 
-Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą 
+Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą
 ```python
 my_thread.join()
 ```
@@ -773,7 +787,7 @@ my_thread.join()
 Jest to sposób na pisanie testów funkcji w jej definicji
 
 Składnia:
- - znajduje się pomiędzy `"""` i `"""` 
+ - znajduje się pomiędzy `"""` i `"""`
  - linie kodu są umieszczane po `>>>`
  - oczekiwane wyniki wpisujemy w miejscach w których powinny się wyświetlić po wykonaniu
 
