@@ -390,6 +390,11 @@ print(klucz)
 print(wartosc)
 print("-----")
 ```
+Przy printowaniu słowników (zwłaszcza tych skomplikowanych) warto użyć `pprint`
+```python
+import pprint
+pprint.pprint(duzy_slownik)
+```
 ## IV
 ### Funkcje
 Funkcje
