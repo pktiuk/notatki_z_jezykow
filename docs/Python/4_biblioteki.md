@@ -102,4 +102,9 @@ inspect.getsource(xyz)# wypisuje jak dana funkcja jest napisana
 #podobnie jak wyżej
 import ast
 ```
+
+# GDB
+
+[LINK](https://wiki.python.org/moin/DebuggingWithGdb)
+
 /TODO opisać dokładniej
