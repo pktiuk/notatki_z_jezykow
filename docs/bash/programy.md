@@ -119,3 +119,9 @@ Inne użyteczne (pełna lista jest w `man screen`):
 ## Networking
 
 `ifconfig` - zwraca informacje o wszystkich odstępnych interfejsach sieciowych, IP, adresy MAC etc.
+
+### Listowanie urządzeń w sieci lokalnej
+
+```
+sudo nmap -sn 192.168.1.0/24
+```
