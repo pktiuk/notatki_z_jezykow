@@ -28,6 +28,15 @@ slowo="slowo1 slowo2 sl3"
 slowo.split()
 >>>['slowo1', 'slowo2', 'sl3']
 ```
+### Pobieranie ścieżki/folderu obecnego skryptu
+```python
+import os
+
+os.path.abspath('') # obecny folder
+
+__file__ # zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)
+
+```
 
 ## Używanie kodu z C++
 boost lub ctypes
