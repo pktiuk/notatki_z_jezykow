@@ -50,7 +50,7 @@ print("Twój napis to: " + pobrany_napis)
 
 
  Dla strumieni:
- ```python
+ ```python   
 import sys
 
 for line in sys.stdin:
@@ -59,7 +59,7 @@ for line in sys.stdin:
 
 ## II
 ### Komentarze
-```python
+```python   
 """
 Komentarz na
 kilka linii
