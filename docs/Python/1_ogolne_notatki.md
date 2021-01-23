@@ -50,12 +50,12 @@ print("Twój napis to: " + pobrany_napis)
 
 
  Dla strumieni:
- ```python   
+```python   
 import sys
 
 for line in sys.stdin:
     sys.stdout.write(line)
- ```
+```
 
 ## II
 ### Komentarze
@@ -852,7 +852,7 @@ def factorial(n):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    ```
+```
 
 flaga "-v" przy uruchamianiu takiego skryptu sprawia, że wyświetlają się także raporty z poprawnych testów.
 
