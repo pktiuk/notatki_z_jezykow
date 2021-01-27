@@ -9,3 +9,11 @@ exec(open("./first.py").read())
 ```
 
 Dzięki temu po zakończeniu wykonywania nie wyjdziemy ze skryptu i będziemy mogli kontynuować jego pracę używając już zaimportowanych przez niego bibliotek oraz zmiennych, które utworzył.
+
+
+
+
+# Użycie modułów z C/C++
+
+Do tego warto użyć bibliotek booosta.
+

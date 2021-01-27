@@ -712,6 +712,51 @@ Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowuje
 
 Listę wbudowanych klas wyjątków znajdziemy pod docs.python.org/3/library/exceptions.html. Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne
 
+#### With
+
+Słowo kluczowe `with` pozwala na alternatywną (czystszą i czytelniejszą obsługę wyjątków)
+```python
+# file handling 
+
+# 1) without using with statement 
+file = open('file', 'w') 
+file.write('hello world !') 
+file.close() 
+
+# 2) without using with statement 
+file = open('file', 'w') 
+try: 
+	file.write('hello world') 
+finally: 
+	file.close() 
+
+# using with statement 
+with open('file', 'w') as file: 
+	file.write('hello world !') 
+```
+Słowo `with` pozwala na automatyczne zwalnianie zasobów (na przykładzie powyżej widać, że nie trzeba wołać `close()`) przy wyjątku.   
+Mechanizm ten korzysta z metod `__enter__()` i `__exit__()` dla używanego obiektu.
+
+Możemy wykorzystać ten mechanizm we własnych klasach
+```python
+# a simple file writer object 
+
+class Manager(object): 
+	def __init__(self, file_name): 
+		self.file_name = file_name 
+	
+	def __enter__(self): 
+		self.file = open(self.file_name, 'w') 
+		return self.file
+
+	def __exit__(self): 
+		self.file.close() 
+
+with Manager('file.txt') as xfile: 
+	xfile.write('hello world') 
+```
+
+
 ### Pliki
 ```python
 sciezka_do_pliku = r"C:\przykladowy.txt"
