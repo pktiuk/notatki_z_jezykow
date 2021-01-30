@@ -1,4 +1,4 @@
-# 1 PythonNotatki
+# PythonNotatki
 ## I
 ### Shebang
 Jest to pierwsza linia skryptu (nie tylko w pythonie), która określa za pomocą czego ma być wykonany skrypt (może być to bash, zsh, python)

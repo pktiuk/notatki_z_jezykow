@@ -1,4 +1,6 @@
-# Uruchamianie skryptu w trybie interaktywnym
+# Inne
+
+## Uruchamianie skryptu w trybie interaktywnym
 Z poziomu basha:
 ```bash
 python -i ./skrypt.py
@@ -13,7 +15,7 @@ Dzięki temu po zakończeniu wykonywania nie wyjdziemy ze skryptu i będziemy mo
 
 
 
-# Użycie modułów z C/C++
+## Użycie modułów z C/C++
 
 Do tego warto użyć bibliotek booosta.
 
