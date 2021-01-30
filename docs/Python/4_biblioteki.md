@@ -10,8 +10,8 @@
 Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera pakietów, a potem paczki pythonowskie pobieramy już pip-em.
 
 ### Operacje matematyczne
-** potęga
-2+3j liczba zespolona
+- `**` potęga  
+- `2+3j` liczba zespolona
 
 ## Wielowątkowość
 moduł threading
