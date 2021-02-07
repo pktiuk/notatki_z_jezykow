@@ -45,7 +45,8 @@ __file__ # zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)
 ```
 
 ## Używanie kodu z C++
-boost lub ctypes
+boost lub ctypes  
+//TODO przygotuj gista
 
 
 ## Przetwarzanie strumieniowe
