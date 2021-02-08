@@ -19,3 +19,4 @@ Dzięki temu po zakończeniu wykonywania nie wyjdziemy ze skryptu i będziemy mo
 
 Do tego warto użyć bibliotek booosta.
 
+Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TUTAJ](https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce)
