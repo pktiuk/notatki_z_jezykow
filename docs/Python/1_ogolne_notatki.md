@@ -230,10 +230,25 @@ pt1 = Point(1.0, 5.0)
 pt2 = Point(2.5, 1.5)
 
 from math import sqrt
-# use index referencing
+# wskazanie poprzez indeks
 line_length = sqrt((pt1[0]-pt2[0])**2 + (pt1[1]-pt2[1])**2)
- # use tuple unpacking
+ # rozpakowanie krotki
 x1, y1 = pt1
+```
+
+#### Funkcja zip
+
+Do operowania na krotkach przydatna jest funkcja wbudowana `zip` zwracająca iterator (nie listę) pozwalacjący iterować po protkach tworzonych z obiektów danych w funkcji.
+```python
+a = ("John", "Charles", "Mike")
+b = ("Jenny", "Christy", "Monica", "Vicky") # wartości nadmiarowe są pomijane
+
+for kr in zip(a, b):
+    print(kr)
+
+#('John', 'Jenny')
+#('Charles', 'Christy')
+#('Mike', 'Monica')
 ```
 
 ### Lista
