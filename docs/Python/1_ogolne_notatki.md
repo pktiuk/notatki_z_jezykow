@@ -50,7 +50,7 @@ print("Twój napis to: " + pobrany_napis)
 
 
  Dla strumieni:
-```python   
+```python
 import sys
 
 for line in sys.stdin:
@@ -59,7 +59,7 @@ for line in sys.stdin:
 
 ## II
 ### Komentarze
-```python   
+```python
 """
 Komentarz na
 kilka linii
@@ -149,6 +149,14 @@ else: #gdy zaden z warunkow nie byl prawdziwy
     instrukcja7
     instrukcja8
 ```
+
+#### Pusta zmienna
+
+Czasem `_` jest używane jako pusta zmienna jest to swego rodzaju odpowiednik `/dev/null`
+
+TODO dopisać i omówić przykłady:
+https://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python
+
 ### Pętle
 Po `for` (`foreach`) może się znajdować lista (obrót dla każdego elementu)
 Po while warunek logiczny (obroty dopóki prawda)
@@ -731,44 +739,44 @@ Listę wbudowanych klas wyjątków znajdziemy pod docs.python.org/3/library/exce
 
 Słowo kluczowe `with` pozwala na alternatywną (czystszą i czytelniejszą obsługę wyjątków)
 ```python
-# file handling 
+# file handling
 
-# 1) without using with statement 
-file = open('file', 'w') 
-file.write('hello world !') 
-file.close() 
+# 1) without using with statement
+file = open('file', 'w')
+file.write('hello world !')
+file.close()
 
-# 2) without using with statement 
-file = open('file', 'w') 
-try: 
-	file.write('hello world') 
-finally: 
-	file.close() 
+# 2) without using with statement
+file = open('file', 'w')
+try:
+	file.write('hello world')
+finally:
+	file.close()
 
-# using with statement 
-with open('file', 'w') as file: 
-	file.write('hello world !') 
+# using with statement
+with open('file', 'w') as file:
+	file.write('hello world !')
 ```
-Słowo `with` pozwala na automatyczne zwalnianie zasobów (na przykładzie powyżej widać, że nie trzeba wołać `close()`) przy wyjątku.   
+Słowo `with` pozwala na automatyczne zwalnianie zasobów (na przykładzie powyżej widać, że nie trzeba wołać `close()`) przy wyjątku.
 Mechanizm ten korzysta z metod `__enter__()` i `__exit__()` dla używanego obiektu.
 
 Możemy wykorzystać ten mechanizm we własnych klasach
 ```python
-# a simple file writer object 
+# a simple file writer object
 
-class Manager(object): 
-	def __init__(self, file_name): 
-		self.file_name = file_name 
-	
-	def __enter__(self): 
-		self.file = open(self.file_name, 'w') 
+class Manager(object):
+	def __init__(self, file_name):
+		self.file_name = file_name
+
+	def __enter__(self):
+		self.file = open(self.file_name, 'w')
 		return self.file
 
-	def __exit__(self): 
-		self.file.close() 
+	def __exit__(self):
+		self.file.close()
 
-with Manager('file.txt') as xfile: 
-	xfile.write('hello world') 
+with Manager('file.txt') as xfile:
+	xfile.write('hello world')
 ```
 
 
