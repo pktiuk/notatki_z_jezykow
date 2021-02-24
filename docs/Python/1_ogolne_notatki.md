@@ -190,6 +190,26 @@ Jeśli iterujemy po liście krotek możemy sobie je rozbić
 for i, line in enumerate(strings_list): #enumerate zwraca dla danej listy krotkę zawierającą numer i element z listy
     ###jakiś kod
 ```
+**Pętle jednolinijkowe (List Comprehensions)**
+Jednolinijkowe pętle zwracające np listę dobre dla prostych operacji
+
+```python
+newlist = [expression for item in iterable if condition == True]
+#albo bez if-a
+newlist = [x for x in range(10)] 
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+#daje to samo co:
+
+newlist = [x for x in fruits if "a" in x]
+```
+
 
 ## III
 
