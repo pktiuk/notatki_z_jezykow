@@ -85,6 +85,21 @@ def index(name):
     return {"klucz":"wartosc","a_tu":["bedzie","lista"]}
 ```
 
+
+## Zapisywanie
+
+### Pickle - zapisywanie zmiennych
+
+Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) pozwala na zapisywanie (i odczytywanie) danych i obiektór w pythonie w formie binarnej.  
+
+//TODO przykłady
+
+### Dill -zapisywanie całej sesji w pythonie
+Rozszerzeniem do pickla jest dill, pozwala on na zapisywanie załej sesji w pythonie do pliku, który można potem przywrócić.
+
+//todo przykład
+
+
 ## Debugowanie
 
 ### pdb
