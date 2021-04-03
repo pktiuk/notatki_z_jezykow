@@ -1,4 +1,4 @@
-# HTML
+# HTML i CSS
 
 Źródło tej notatki https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/HTML_basics
 
@@ -130,13 +130,115 @@ pole tekstowe i przycisk (bez JS-a bezuzyteczne)
 <button>GIT!</button>
 
 
+## CSS
 
-```html
-
-```
-
+CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być umieszczonyw pliku html, lub w oddzielnym pliku.
 
 
 ```html
+<html>
+<head>
+ <title>Learning CSS</title>
+<style>
+    body {
+        background-color: green;
+    }
+</style>
+</head>
 
+<body></body>
+</html>
 ```
+Osadzamy to za pomocą linku (ale nie tagoem a - anchor, tylko link)
+
+```html
+ <title>Learning CSS</title>
+<link href="style.css" rel="stylesheet">
+</head>
+```
+
+### Składnia CSS
+
+Poniżej widać, że przypisujemy dane parametry dla wszystkich elementów należących do tagu `body` tzn do wszystkich elementóœ dziedziczących po nim.
+
+```css
+body {
+  background-color: yellow;
+  font-family: sans-serif;
+}
+```
+
+Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak ammy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.
+
+**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką
+
+```html
+    <p class="mojaklasa">
+      Przykładowa klasa
+    </p>
+```
+
+```css
+.mojaklasa {
+  color: red;
+}
+```
+**ID** - tutaj zamiast kropki używamy `#`
+
+```html
+    <p id="moj_paragraf">
+      Przykładowa klasa
+    </p>
+```
+
+```css
+#moj_paragraf {
+  color: green;
+  border: 5px solid black
+}
+```
+
+Co ciekawe widać tutaj właściwość `border` - może ona mieć więcej niż jedną właściwość - tutaj są to grubość, styl i kolor.
+
+**Kilka elementów** wystarczy je wymienić po przecinku
+
+```css
+input,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+```
+
+**Elementy umieszczone względem innych** - jeśli chcemy oznaczyć wszystkie elementy znajdujące się wewnątrz innych to wypisujemy obok siebie, tylko bez przecinków
+
+```css
+#moj-element h2 {
+  color: black;
+} /* będzie dotyczyć tylko nagłówków h2 wewnątrz elementu z id moj-element */
+```
+
+
+**Wszystko**
+
+Za pomocą `*` można łatwo "złapać" wszystkie elementy.  
+Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ta właściwość zmiania liczenie rozmiaru, od teraz ustalony rozmiar dotyczy zawartości wraz z paddingiem, a nie tylko zawartości */
+}
+```
+
+Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np `padding` dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.
+### Box Model
+
+Jest to koncepcja mówiąca, że każdy element strony powinniśmy postrzegać jako prostokąt z zawartością charakteryzujący się takimi właściwościami jak szerokość wysokość etc.
+
+![](./assets/css-box-model.jpg)
+
+Dodatkowo jest jeszcze **fill area** czyli cała przestrzeń znajdująca się w obrębie granicy (border).
+
+I właśnie te parametry możemy złatwością dostosowywać za pomocą CSS-ów.
