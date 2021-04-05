@@ -123,10 +123,27 @@ Typy operatorów:
 - Matematyczne: `+` `-` `*` `/` `**` (potęgowanie)
 - Przypisywania: `=` `+=` `*=` `-=` `++` `--` etc
 - Boolowskie
-  - porównania: `>` `>=` `<` `<=` `==` `!=`
+  - porównania: `>` `>=` `<` `<=` `==` `!=` `===`
   - logiczne `&&` `||` `!`
 
 Kolejność operatorów jest taka jak w matematyce.
+
+##### `==` vs `===`
+
+Istnieją dwa operatory równości:
+
+- `===` - ścisły -  zwraca prawdę tylko i wyłącznie wtedy, gdy obie strony są takie same, nie bawi się w żadne konwersje etc.
+- `==` - jest nieco luźniejszy, pozwala sobie na konwersje pomiędzy typami jeśli wartości są różnych typów, poza tym ma inne "pomagające" mechanizmy, które w dłuższej prespektywie mogą powodować więcej błędów. (jeśli się da używaj `===`)
+
+```js
+19 === "19"
+// false
+
+19 == "19"
+// true
+```
+
+Podobnie do `===` działa `!==`
 
 #### Konwersja
 
@@ -215,7 +232,7 @@ linii w kodzie`);
 Syntax warunków jest zbliżony do C++
 
 ```js
-const wiek = 44;
+const wiek = prompt("podaj wiek"); //pojawi się okno z pytaniem
 
 if (wiek >= 18)
 {
@@ -229,6 +246,8 @@ if (true)
       console.log("Nie");
 else
       console.log("Tak");
+
+if (true) console.log("True to prawda");
 ```
 
 Mamy też tu switcha
