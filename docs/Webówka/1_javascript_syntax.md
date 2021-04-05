@@ -125,6 +125,7 @@ Typy operatorów:
 - Boolowskie
   - porównania: `>` `>=` `<` `<=` `==` `!=` `===`
   - logiczne `&&` `||` `!`
+- trójargumentowy ` ? : `
 
 Kolejność operatorów jest taka jak w matematyce.
 
@@ -269,6 +270,13 @@ switch (key) {
 }
 ```
 
+Jest też operator trójargumentowy ` ? : `
+
+```js
+wiek >= 18 ? console.log("Dorosły") : log.console("Nie Dorosły");
+// Albo
+console.log(wiek >= 18 ? "Dorosły" : "Nie Dorosły");
+```
 
 
 ```js
