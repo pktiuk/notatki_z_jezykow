@@ -255,7 +255,13 @@ Mamy też tu switcha
 ```js
 switch (key) {
       case value:
-            
+            fun1();
+            fun2();
+            break;
+
+      case value2:
+      case value3:// dla tych dwóch wartości będzie się dziać to samo
+            fun3();
             break;
 
       default:
