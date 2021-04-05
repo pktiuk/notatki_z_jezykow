@@ -83,6 +83,57 @@ console.log(typeof null);
 //>object
 ```
 
+#### Tablice (arrays)
+
+Są to kontenery w których trzymamy zmienne i obiekty
+
+```js
+const liczby = [22, 33, 45];
+const slowa = new Array("slowo1", "slowo2");
+
+console.log(liczby[0]);
+// 22
+
+// mamy tu zbliżone odliczanie do pythonowego
+console.log(liczby[-1]);
+// 45
+
+// co ciekawe mimo inicjalizacji jako const możemy zmieniać wartości w tablicy
+liczby[1] = 32;
+//Ale nie możemy usunąć samej tablicy
+```
+
+Tablice mogą zawierać różne wartości w kolejnych komórkach
+
+```js
+let osoba = ["Marian", "Kowalski", 22, ["Burek", "Kulka"]];
+```
+
+Operacje na tablicach
+
+```js
+let tablica = [];
+
+// rozmiar tablicy
+tablica.length
+// 0
+
+tablica.push(10); //teraz tablica zawiera 10
+// 1 - zwraca ona nową długośż naszej tablicy
+
+tablica.unshift(0) //tobi to samo co pop, tylko dodaje na początek
+
+tablica.pop(); //a po tej operacji jest znowu pusta
+// 10 - zwraca wartość z końca tablicy
+
+const inna = ["pierwszy", "drugi", "trzeci"];
+inna.indexOf("pierwszy");
+// 0
+
+inna.includes("trzeci");
+// true
+```
+
 #### Sposoby definiowania
 
 Jest kilka sposobów na definiowanie zmiennych. Służą do tego słowa kluczowe `let`, `var` i `const`.
@@ -130,7 +181,7 @@ Typy operatorów:
 
 Kolejność operatorów jest taka jak w matematyce.
 
-##### `==` vs `===`
+##### Operator `==` i `===`
 
 Istnieją dwa operatory równości:
 
@@ -287,6 +338,8 @@ Także są na ogół formatowane jako `camelCase`.
 !!! warning
     Niestety JS **nie wspiera** przeciążania funkcji. 
 
+Poniżej zwykłe deklaracje funkcji (function declaration).
+
 ```js
 function printHello()
 {
@@ -320,7 +373,7 @@ isApple();
 
 ### Funkcje anonimowe
 
-Tym określeniem określamy funkcje, które są przechowywane w zmiennych.
+Tym określeniem określamy funkcje, które są przechowywane w zmiennych. Określane także jako `function expression`.
 
 ```js
 let myFun = function () {
