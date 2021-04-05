@@ -20,7 +20,8 @@ W praktyce skrypty można tak pisać, ale nie jest to wygodne, dlatego używa si
 
 ## Zmienne
 
-Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (`new` `function` `class` etc)
+!!! warning
+    Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (`new` `function` `class` etc)
 
 ```js
 /* let 3liczba = 43; */
@@ -282,6 +283,9 @@ console.log(wiek >= 18 ? "Dorosły" : "Nie Dorosły");
 
 Definiujemy je używając słowa kluczowego `function`.  
 Także są na ogół formatowane jako `camelCase`.
+
+!!! warning
+    Niestety JS **nie wspiera** przeciążania funkcji. 
 
 ```js
 function printHello()
