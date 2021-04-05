@@ -314,7 +314,41 @@ isApple();
 // false
 ```
 
+### Funkcje anonimowe
+
+Tym określeniem określamy funkcje, które są przechowywane w zmiennych.
+
 ```js
+let myFun = function () {
+      lonsole.log("HelloFun");
+}
 
-
+myFun();
+// HelloFun
 ```
+
+### Funkcje strzałkowe
+
+Funkcje strzałkowe (arrow functions) to po prostu inny format funkcji przypominający wyrażenia lambda z innych języków.  
+Pozwala na krótszy zapis funkcji.
+
+```js
+const arrowFun = value => value+12;
+
+arrowFun(10);
+// 22
+
+const arrowFunMultiline = imie => {
+      console.log(`imie to ${imie}`);
+      return imie;
+}
+
+arrowFunMultiline("Jan");
+// imie to Jan
+// "Jan"
+
+const linkNames = (imie, nazwisko) => imie + " " + nazwisko;
+```
+
+
+
