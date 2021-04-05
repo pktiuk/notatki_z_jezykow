@@ -20,14 +20,6 @@ W praktyce skrypty można tak pisać, ale nie jest to wygodne, dlatego używa si
 
 ## Zmienne
 
-Do tworzenie zmiennych w JS używamy słowa kluczowego `let`.  
-JS nie wymusza niezmienności typów. (zalecanym stylem jest camelCase dla zmiennych)
-
-```js
-let mojaZmienna = 43;
-mojaZmienna = "teraz slowo"
-```
-
 Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (`new` `function` `class` etc)
 
 ```js
@@ -41,6 +33,11 @@ let $function =43 ; // ale za to $ jest dozwolony jako znak
 Warto pamiętać, że JS ma dynamiczne typowanie, czyli nie musimy definiować typów zmiennych, ponieważ to jest sprawdzane dynamicznie w trakcie pracy.  
 Poza tym możemy nadpisywać zmienne innymi typami.  
 
+```js
+let mojaZmienna = 43;
+mojaZmienna = "teraz slowo"
+```
+
 Zalecane formatowanie dla zmiennych to `camelCase`.
 
 #### Podstawowe
@@ -49,7 +46,7 @@ Zalecane formatowanie dla zmiennych to `camelCase`.
 //Number - zawsze zmiennoprzecinkowa (także dla całkowitych)
 let wiek = 22;
 
-//String
+//String - wartpamiętać, że można je definiować na 3 sposoby "", '' i ``
 let imie = "Marian";
 
 // Boolean
@@ -78,12 +75,118 @@ console.log(typeof nieWiadomo);
 // undefined
 ```
 
-Warto zwrócić uwagę na to co daje tutaj `null`. (Jest to wyjątek z któreym trzeba się pogodzić)
+Warto zwrócić uwagę na to co daje tutaj `null`. (Jest to wyjątek z którym trzeba się pogodzić)
 
 ```js
 console.log(typeof null);
 // object
 ```
+
+#### Sposoby definiowania
+
+Jest kilka sposobów na definiowanie zmiennych. Służą do tego słowa kluczowe `let`, `var` i `const`.
+
+**let** - definiowanie zwykłej zmienej wartości, za jego pomocą można też definiować puste zmienne.
+
+```js
+let num = 30;
+num = 32;
+
+let undef;
+```
+
+**var** - podobne do let lecz jest już przestarzałe i nie zaleca się jego używania.
+
+**const** - po prostu stałe zmienne
+
+```js
+const PI = 3.14;
+// PI = 1; - spowoduje TypeError
+
+// const unknown; - to też nie zadziała (SyntaxError)
+```
+
+Teoretycznie można pracować nawet bez definiowania zmiennych wg wymienionych wyżej sposobów.
+
+```js
+imie = "Jan";
+console.log(imie);
+// Jan
+```
+
+Tylko, że ta zmienna będzie wtedy odpowiednikiem zmiennej globalnej.
+
+#### Operatory
+
+Typy operatorów:
+
+- Matematyczne: `+` `-` `*` `/` `**` (potęgowanie)
+- Przypisywania: `=` `+=` `*=` `-=` `++` `--` etc
+- Boolowskie
+  - porównania: `>` `>=` `<` `<=` `==` `!=`
+  - logiczne `&&` `||` `!`
+
+Kolejność operatorów jest taka jak w matematyce.
+
+### Printowanie
+
+```js
+// aby wypisać wiadomośc można klasycznie połączyć stringi
+const wiek = 10;
+const wiadomosc = "Hej, mam " + wiek + "lat";
+console.log(wiadomosc);
+
+// Ale można to zrobić wygodniej warto pamiętać, że robimy to w ``, a nie w ''
+const wiadomosc2 = `Hej, mam ${wiek} lat`;
+console.log(wiadomosc2);
+```
+
+Ogólnie to obecnie ten drugi sposób definiowania jest wygodniejszy
+
+```js
+console.log('Wiele\n\
+linii w kodzie');
+
+//VS
+
+console.log(`Wiele
+linii w kodzie`);
+```
+
+## IF-y i warunki
+
+Syntax warunków jest zbliżony do C++
+
+```js
+const wiek = 44;
+
+if (wiek >= 18)
+{
+    console.log("Pełnoletni");
+}else
+{
+    console.log("Niepełnoletni");
+}
+
+if (true)
+      console.log("Nie");
+else
+      console.log("Tak");
+```
+
+Mamy też tu switcha
+
+```js
+switch (key) {
+      case value:
+            
+            break;
+
+      default:
+            break;
+}
+```
+
 
 
 ```js
