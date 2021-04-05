@@ -3,3 +3,4 @@ theme: material
 
 markdown_extensions:
   - codehilite
+  - admonition
