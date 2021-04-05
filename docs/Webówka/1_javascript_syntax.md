@@ -67,19 +67,19 @@ Dla sprawdzania typów ożywamy operatora `typeof`
 ```js
 let zmienna = 54;
 console.log(typeof zmienna);
-// number
+//>number
 typeof "Slowo";
-// "string"
+//>"string"
 let nieWiadomo;
 console.log(typeof nieWiadomo);
-// undefined
+//>undefined
 ```
 
 Warto zwrócić uwagę na to co daje tutaj `null`. (Jest to wyjątek z którym trzeba się pogodzić)
 
 ```js
 console.log(typeof null);
-// object
+//>object
 ```
 
 #### Sposoby definiowania
@@ -128,9 +128,66 @@ Typy operatorów:
 
 Kolejność operatorów jest taka jak w matematyce.
 
+#### Konwersja
+
+Aby dokonać konwersji trzeba po prostu użyć konstruktora danego typu.
+
+```js
+const rokStr = "2001";
+Number(rokStr);
+//>2001
+
+String(55);
+//>"55"
+```
+
+Tutaj w wypadku podania niewłaściwej wartości zamiast wyjątku dla liczby możemy dostać `NaN` (Not a Number)
+
+```js
+let a = Number("ff2");
+a;
+//>NaN
+
+typeof a; // Co ciekawe ten typ jest wciąż numerem
+"number"
+```
+
+Poza tym warto uważać na sprytną konwersję typów np przy printowaniu.  
+Na ogół działa to fajnie, ale operator `+` może trochę napsuć i być źródłem wielu błędów.
+
+```js
+"22" + 10;
+// 2210
+
+"22" - 10;
+// 12
+
+"22" - "10";
+// 12
+
+"22" - "10" + 55;
+// 67
+
+"22" - "10" + "55";
+// 1255
+```
+
+**Konwersja na Boola** - wartości, które przy konewrsji na boola dają `false`:
+
+- 0 - wartość liczbowa równa zero
+- ""
+- `undefined`
+- `null`
+- `NaN`
+
+Pozostałe konwertują się na wartość `true`
+
 ### Printowanie
 
 ```js
+console.log("Wiadomosc1" , 323);
+//> Wiadomosc1 323
+
 // aby wypisać wiadomośc można klasycznie połączyć stringi
 const wiek = 10;
 const wiadomosc = "Hej, mam " + wiek + "lat";
