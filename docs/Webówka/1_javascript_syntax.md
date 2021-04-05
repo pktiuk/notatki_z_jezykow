@@ -278,6 +278,41 @@ wiek >= 18 ? console.log("Dorosły") : log.console("Nie Dorosły");
 console.log(wiek >= 18 ? "Dorosły" : "Nie Dorosły");
 ```
 
+## Funkcje
+
+Definiujemy je używając słowa kluczowego `function`.  
+Także są na ogół formatowane jako `camelCase`.
+
+```js
+function printHello()
+{
+      console.log("Hello");
+}
+
+printHello();
+// Hello
+
+function isApple(fruit)
+{
+      if ( fruit == "apple")
+            return true;
+      else
+            return false;
+}
+```
+
+Co ciekawe nie wysypią się one nawet gdy damy im złą ilość argumentów
+
+```js
+printHello(23);
+// Hello
+
+isApple("apple",43);
+// true
+
+isApple();
+// false
+```
 
 ```js
 
