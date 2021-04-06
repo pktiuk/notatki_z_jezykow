@@ -407,5 +407,40 @@ arrowFunMultiline("Jan");
 const linkNames = (imie, nazwisko) => imie + " " + nazwisko;
 ```
 
+## Obiekty
 
+Obiekty tutaj wydają się nieco zbliżone do typowych słowników.
 
+```js
+const osoba = {
+      imie: "Marian",
+      nazwisko: "Nowak",
+      ur: 1999,
+
+      getAge: function () {
+            return 2021 - this.ur;
+      },
+}
+```
+
+Poszczególne elementy powinny być oddzielone przecinkami.  
+Dostęp do elementów danej klasy uzyskujemy za pomocą słowa `this`.
+
+```js
+// Dane można pozyskiwać na 2 sposoby
+osoba.imie;
+//Marian
+
+//Ten sposób jest nieco bardziej elastyczny i pozwala na nieco łatwiejsze zarządzanie polami
+osoba["imie"];
+//Marian
+
+// Możemy tutaj też łątwo edytować pola w klasie
+osoba.drugie_imie = "Zbigniew";
+
+osoba
+// Object { imie: "Marian", nazwisko: "Nowak", wiek: 25, drugie_imie: "Zbigniew" }
+
+osoba.getAge();
+// 22
+```
