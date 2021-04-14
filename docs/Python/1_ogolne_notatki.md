@@ -633,6 +633,29 @@ print("In main:", c)
 #>In main: 2
 ```
 
+#### Przekazywanie dowolnych argumentów (**kwargs i *args)
+
+Pozwalają one na umieszczeanie argumentów o dowolnej liczbie i nazwie w naszej funkcji. **args** przyjmuje je jako listę kolejnych elementów, zaś **kwargs** przyjmuje je jak słownik.
+
+```python
+def parametr_args(*args):
+    print("zawartość args: {}".format(args))
+
+parametr_args('python', 'spam', 'eggs', 'test')
+###zawartość args: ('spam', 'eggs', 'test')
+
+def parametr_kwargs(argument, **kwargs):
+    print("argument: {}".format(argument))
+    print("zawartość kwargs: {}".format(kwargs))
+
+parametr_kwargs(dodatkowy=48, nastepny=111, argument=12)
+
+# argument: 12
+# zawartość kwargs: {'dodatkowy': 48, 'nastepny': 111}
+```
+
+//TODO https://printpython.pl/poczatki/zadanie-z-gwiazdka/
+
 ### Obiekt
 
 ```python
