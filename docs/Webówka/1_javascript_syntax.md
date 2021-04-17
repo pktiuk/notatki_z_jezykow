@@ -115,7 +115,7 @@ Operacje na tablicach
 let tablica = [];
 
 // rozmiar tablicy
-tablica.length
+tablica.length;
 // 0
 
 tablica.push(10); //teraz tablica zawiera 10
@@ -328,6 +328,24 @@ Jest też operator trójargumentowy ` ? : `
 wiek >= 18 ? console.log("Dorosły") : log.console("Nie Dorosły");
 // Albo
 console.log(wiek >= 18 ? "Dorosły" : "Nie Dorosły");
+```
+
+## Pętle
+
+Nic ciekawego mamy 2 zwykłe typy pętli, `for` i `while`.
+
+```js
+for(let num=0;num <10;num++)
+{
+      if(num===5) continue; //ale skipujemy dla 5
+     console.log(`Printujemy po raz ${num+1}`) 
+}
+
+while(true)
+{
+      //nigdy nie kończąca się pętla
+      break; //no chyba, że użyję break
+}
 ```
 
 ## Funkcje
