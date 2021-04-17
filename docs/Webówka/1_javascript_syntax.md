@@ -462,3 +462,24 @@ osoba
 osoba.getAge();
 // 22
 ```
+
+## DOM - interakcja z elementami strony
+
+DOM (Document Object Model) -ustrukturyzowana reprezentacja dokumentów HTML.  
+Pozwala Javascriptowi na dostęp do jego elementów i manipulowanie nimi (zmiana stylu, tekstu, czy też stylu CSS).  
+
+Jest to drzewiasta struktura łącząca elementy rodziców z ich dziećmi.  
+
+![Drzewo DOM](https://www.guru99.com/images/JavaScript/javascript8_1.png)
+
+Korzeniem tej struktury jest `document`. Jest to klasa dostępna w JS-ie do której się odwołujemy, gdy chcemy wejść w interakcję z naszym dokumentem.
+
+Do manipulacji elementami zawartymi w dokumencie HTML wystarczy użyć metody `document.querySelector`, która zwróci nam obiekt reprezentujący dany element.
+
+```js
+document.querySelector('.message'); //W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id 
+
+document.querySelector('.message').textContent;
+//"Wiadomość"
+document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
+```
