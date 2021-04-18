@@ -26,3 +26,22 @@ Używając tych operatorów na ogół powinno się operować na wskaźnikach (al
      cout << *wskaznik << endl; //wypisze 3.14
 ```
 
+## Wątki
+
+Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
+
+```cpp
+#include <thread>
+
+// Start thread t1
+    std::thread t1(callable);
+  
+    // Wait for t1 to finish
+    t1.join();
+  
+    // t1 has finished do other stuff
+
+    //Wywołanie dla metody w klasie
+    std::thread t2(&Klasa::moja_metoda,&instancja_klasy, argument1, argument2, argument3);
+    t2.join();
+```
