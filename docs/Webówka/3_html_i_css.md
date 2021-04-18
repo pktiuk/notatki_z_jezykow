@@ -1,6 +1,6 @@
 # HTML i CSS
 
-Źródło tej notatki https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/HTML_basics
+Źródło tej notatki <https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/HTML_basics>
 
 HTML jest językiem znaczników (ang. markup language).  
 Składa się z serii znaczników (**tagów**), których używa się do zamknięcia, opakowania różnych części treści, tak aby wyglądały i/lub działały w określony sposób. Z pomocą tagów możesz ze słów czy obrazów zrobić linki do innych stron, etc.
@@ -13,6 +13,7 @@ Podstawową strukturą jest element.
 
 ![](./assets/budowa_paragrafu.png)
 Mamy tutaj:  
+
 - Tag otwierający
 - Tag zamykający
 - Zawartość  
@@ -23,12 +24,19 @@ Elementy mogą zawierać także atrybuty
 ![](./assets/atrybut.png)
 
 Atrybut zawsze powinien mieć:
- - Spację między nazwą tagu a nazwą atrybutu (lub innego atrybutu, jeśli dany element ma więcej atrybutów).
- - Nazwę atrybutu oraz znak równości.
- - Wartość podaną w "cudzysłowie"
+
+- Spację między nazwą tagu a nazwą atrybutu (lub innego atrybutu, jeśli dany element ma więcej atrybutów).
+- Nazwę atrybutu oraz znak równości.
+- Wartość podaną w "cudzysłowie"
 
 Atrybuty `class` i `id` są uniwersalnymi atrybutami dla wszystkich tagów. Pozwalają one na łatwe zarządzanie elementami strony poprzez przypisywane im identyfikatorów i określanie ich przynależności do różnych klas. (ID musi być unikalne, klasa już nie)
 Potem można używać tego do zmiany stylów w CSS, czy też w skryptacj w JS.
+
+Warto pamiętać, że elementy mogą mieć wiele klas jednocześnie
+
+```html
+<button class="btn again">Again!</button>
+```
 
 Elementy mogą się w sobie zagnieżdżać
 
@@ -61,17 +69,20 @@ Całość zawsze jest zawarta w tagach HTML.
 ```
 
 Opisy elementów:
- - `<!DOCTYPE html>` - typ dokumentu (opcjonalny)
- - `<html>` - element [html](https://developer.mozilla.org/pl/docs/Web/HTML/Element/html) zawiera całą treść strony i czasem nazwany jest elementem bazowym (ang. root element). Wskazuje, gdzie zaczyna i kończy się kod HTML.
- - `<head>` -element [head](https://developer.mozilla.org/pl/docs/Web/HTML/Element/head) to tzw. nagłówek strony. Ten element działa jak kontener dla wszystkich elementów, które chcesz umieścić na stronie HTML, ale nie w treści, które wyświetlasz przeglądającym twoją stronę. Ma on w sobie na ogół konfigurację.
- - `<body>` - element [body](https://developer.mozilla.org/pl/docs/Web/HTML/Element/body). Zawiera onczęść właściwą strony, czyli jej zawartość.
- - `<meta charset="utf-8">` - reprezentuje metadane, które nie mogą być reprezentowane przez inne elementy związane z metadanymi w HTML. Tutaj ustawia zestaw znaków.
- - `<title>` - Ustawia tytuł strony, który jest tytułem wyświetlanym na karcie przeglądarki
+
+- `<!DOCTYPE html>` - typ dokumentu (opcjonalny)
+- `<html>` - element [html](https://developer.mozilla.org/pl/docs/Web/HTML/Element/html) zawiera całą treść strony i czasem nazwany jest elementem bazowym (ang. root element). Wskazuje, gdzie zaczyna i kończy się kod HTML.
+- `<head>` -element [head](https://developer.mozilla.org/pl/docs/Web/HTML/Element/head) to tzw. nagłówek strony. Ten element działa jak kontener dla wszystkich elementów, które chcesz umieścić na stronie HTML, ale nie w treści, które wyświetlasz przeglądającym twoją stronę. Ma on w sobie na ogół konfigurację.
+- `<body>` - element [body](https://developer.mozilla.org/pl/docs/Web/HTML/Element/body). Zawiera onczęść właściwą strony, czyli jej zawartość.
+- `<meta charset="utf-8">` - reprezentuje metadane, które nie mogą być reprezentowane przez inne elementy związane z metadanymi w HTML. Tutaj ustawia zestaw znaków.
+- `<title>` - Ustawia tytuł strony, który jest tytułem wyświetlanym na karcie przeglądarki
 
 ### Tekst
 
 #### Nagłówek
+
 Nagłówki opisujemy jako h1 (najgłówniejszy), h2,h3...
+
 ```html
 <h1>My main title</h1>
 <h2>My top level heading</h2>
@@ -104,7 +115,8 @@ Aby utworzyć odnośnik musimy użyć prostego elementu — [a](https://develope
 ```html
 <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
 ```
- - href (hypertext reference) - link
+
+- href (hypertext reference) - link
 
 ### Obraz
 
@@ -113,27 +125,29 @@ Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 ```html
  <img src="images/firefox-icon.png" alt="My test image">
 ```
- - `src` - źródło obrazu
- - `alt` - tekst alternatywny - pokazuje się w razie problemów z wyświetleniem.
+
+- `src` - źródło obrazu
+- `alt` - tekst alternatywny - pokazuje się w razie problemów z wyświetleniem.
 
 ### DIV
 
 [div](https://developer.mozilla.org/pl/docs/Web/HTML/Element/div) - jest to element który nie robi nic. Służy on jako kontener, dzięki któremu można łatwo podzielić i pogrupować elementy.
 
 ### Wejścia
+
 pole tekstowe i przycisk (bez JS-a bezuzyteczne)
+
 ```html
 <input type="text" placeholder="Domyślny tekst" />
 <button>GIT!</button>
 ```
+
 <input type="text" placeholder="Domyślny tekst" />
 <button>GIT!</button>
-
 
 ## CSS
 
 CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być umieszczonyw pliku html, lub w oddzielnym pliku.
-
 
 ```html
 <html>
@@ -149,6 +163,7 @@ CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być um
 <body></body>
 </html>
 ```
+
 Osadzamy to za pomocą linku (ale nie tagoem a - anchor, tylko link)
 
 ```html
@@ -183,6 +198,7 @@ Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, m
   color: red;
 }
 ```
+
 **ID** - tutaj zamiast kropki używamy `#`
 
 ```html
@@ -218,7 +234,6 @@ button {
 } /* będzie dotyczyć tylko nagłówków h2 wewnątrz elementu z id moj-element */
 ```
 
-
 **Wszystko**
 
 Za pomocą `*` można łatwo "złapać" wszystkie elementy.  
@@ -233,6 +248,7 @@ Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.
 ```
 
 Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np `padding` dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.
+
 ### Box Model
 
 Jest to koncepcja mówiąca, że każdy element strony powinniśmy postrzegać jako prostokąt z zawartością charakteryzujący się takimi właściwościami jak szerokość wysokość etc.
