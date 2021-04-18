@@ -483,3 +483,13 @@ document.querySelector('.message').textContent;
 //"Wiadomość"
 document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
 ```
+
+### Odbieranie zdarzeń
+
+Aby odbierać zdarzenia z elementów wystarczy dodać funkcję będącą callbackiem dla danego wydarzenia powiązanego z tym elementem.
+
+```js
+document.querySelector('.myButton').addEventListener('click', function () {
+    console.log("pressed button");
+});
+```
