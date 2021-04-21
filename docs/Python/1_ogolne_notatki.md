@@ -993,13 +993,13 @@ print(data_modyfikacji)
 ```python
 import threading
 
-def foo():
-  print("Hello threading!")
+def foo(argument):
+  print("Hello threading! with argument: ", argument)
 
-my_thread = threading.Thread(target=foo)
+my_thread = threading.Thread(target=foo, args = ("slowo"))
 
 my_thread.start()
-#>> Hello threading
+#>> Hello threading with argument: slowo
 # kolejne uruhomienie za pomocą start rzuci nam RuntimeError
 ```
 
