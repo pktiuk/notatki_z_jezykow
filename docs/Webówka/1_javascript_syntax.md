@@ -476,12 +476,28 @@ Korzeniem tej struktury jest `document`. Jest to klasa dostępna w JS-ie do któ
 
 Do manipulacji elementami zawartymi w dokumencie HTML wystarczy użyć metody `document.querySelector`, która zwróci nam obiekt reprezentujący dany element.
 
+### Manipulacja elementami strony
+
 ```js
 document.querySelector('.message'); //W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id 
 
 document.querySelector('.message').textContent;
 //"Wiadomość"
 document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
+```
+
+Aby dostać się do stylu w CSS należy dostać się do parametru `style`.
+
+```css
+body {
+  font-family: sans-serif;
+  color: #eee;
+  background-color: rgb(36, 33, 33);
+}
+```
+
+```js
+document.querySelector('body').style.backgroundColor = '#60b347';
 ```
 
 ### Odbieranie zdarzeń
