@@ -1,26 +1,31 @@
 # Moduły i Paczki
 
-
 **Moduł** - plik pythonowy zawietający definicje i wyrażenia, nazwa pliku jest nazwą modułu z dodanym rozszerzeniem `.py` (`nazwa_modułu.py`). Wewnątrz modułu ta nazwa jest dostępna jako zmienna globalna `__name__`.
 
 **Paczka** - sposub na ustrukturyzowanie modułów ( pozwala to łatwo ustrukturyzować projekt)
 
 ## Zarządzanie paczkami
+
 pip i pip3 #TODO
 
 Do instalacji można używać samodzielnych aplikacji pip (i pip3)
-```
+
+```bash
 pip3 install numpy
 ```
 
 Można też wymusić od danej instancji pythona, aby zainstalował dla siebie daną paczkę (użyteczne gdy mamy wiele wresji).
-```
+
+```bash
 python3 -m pip install numpy
 ```
 
 ## Tworzenie i używanie własnych paczek
+
 ### Struktura
+
 Przykładowa struktura paczki
+
 ```
 sound/                          Top-level package
       __init__.py               Initialize the sound package
@@ -46,7 +51,9 @@ sound/                          Top-level package
               karaoke.py
               ...
 ```
+
 Aby wykorzystać zawartość pliku `karaoke.py` należy zaimportować:
+
 ```python
 import sound.filters.karaoke
 ```
@@ -54,6 +61,7 @@ import sound.filters.karaoke
 ### Wewnętrzne linkowanie
 
 Przy linkowaniu pomiędzy poszczególnymi elementami paczki zaleca się używanie poniższej konwencji:
+
 ```python
 #zakładamy, że jesteśmy w pliku filters/karaoke.py
 from . import echo
@@ -62,6 +70,7 @@ from ..filters import equalizer
 ```
 
 ## Wczytywanie paczki z danego folderu
+
 Kiedy nasza paczka jest w niestandardowym folderze można ją wczytać tak
 
 ```python

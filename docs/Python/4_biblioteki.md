@@ -2,18 +2,20 @@
 
 ## Różne linki
 
- - [Książka Zanurkuj w Pythonie](https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku) 📖
- - [Podstawowy tutorial ze strony learnpython](https://www.learnpython.org/)
-
+- [Książka Zanurkuj w Pythonie](https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku) 📖
+- [Podstawowy tutorial ze strony learnpython](https://www.learnpython.org/)
 
 ## Instalacja pakietów
+
 Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera pakietów, a potem paczki pythonowskie pobieramy już pip-em.
 
 ### Operacje matematyczne
+
 - `**` potęga  
 - `2+3j` liczba zespolona
 
 ## Wielowątkowość
+
 moduł threading
 
 multiprocessing - podobny, ale niekompatybilny
@@ -21,6 +23,7 @@ multiprocessing - podobny, ale niekompatybilny
 ## Manipulacja tekstem
 
 ### Stringi wielolinijkowe
+
 ```python
 slowa=""" linia1
 linia2
@@ -29,12 +32,15 @@ linia3
 ```
 
 ### Rozbijanie stringów po słowach
+
 ```python
 slowo="slowo1 slowo2 sl3"
 slowo.split()
 >>>['slowo1', 'slowo2', 'sl3']
 ```
+
 ### Pobieranie ścieżki/folderu obecnego skryptu
+
 ```python
 import os
 
@@ -45,13 +51,14 @@ __file__ # zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)
 ```
 
 ## Używanie kodu z C++
+
 boost lub ctypes  
 //TODO przygotuj gista
-
 
 ## Przetwarzanie strumieniowe
 
 ## Czas
+
 ```python
 import time
 time.sleep(60)#minuta
@@ -59,10 +66,12 @@ time.sleep(60)#minuta
 
 ## Aplikacje webowe
 
-### Django 
+### Django
+
 jest to dość duża zabawka
 
 ### Bottle
+
 Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku)
 
 ```python
@@ -80,11 +89,11 @@ run(host='0.0.0.0',port=8080) #nasza strona będzie dostępna tutaj
 ```
 
 albo możemy też chcieć wygenerować jsona
+
 ```python
 def index(name):
     return {"klucz":"wartosc","a_tu":["bedzie","lista"]}
 ```
-
 
 ## Zapisywanie
 
@@ -95,10 +104,10 @@ Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) poz
 //TODO przykłady
 
 ### Dill -zapisywanie całej sesji w pythonie
+
 Rozszerzeniem do pickla jest dill, pozwala on na zapisywanie załej sesji w pythonie do pliku, który można potem przywrócić.
 
 //todo przykład
-
 
 ## Debugowanie
 
@@ -109,7 +118,9 @@ import pdb
 pdb.set_trace() #w tej linii skrypt się zatrzyma i będzie można się rozejrzeć
 # (Pdb)
 ```
+
 zapytania w trybie debuggera :
+
 - w - where (na stosie)
 - u -up
 - d - down
@@ -121,6 +132,7 @@ Warto wtedy używać też:
 `locals()` - ładuje do słownika wszystkie obecnie dostępne funkcje
 
 ### inspect
+
 ```python
 import inspect
 
@@ -129,6 +141,7 @@ inspect.getsource(xyz)# wypisuje jak dana funkcja jest napisana
 ```
 
 ### ast
+
 ```python
 #podobnie jak wyżej
 import ast
