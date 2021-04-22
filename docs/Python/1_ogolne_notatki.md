@@ -708,16 +708,44 @@ Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zw
 
 #### Dekoratory
 
+Jest to element pozwalający na opakowanie naszej funkcji za pomocą innej wunkcji, aby wzbogacić jej funkcjonalność.  
+Funkcja dekorująca najczęściej przyjmuje funkcję dekorowaną i zwraca nową, wynikową funkcję, która ma zostać wykonana.
+
 ```python
 #foo jest dekoratorem, który wzbogaci naszą funkcję
 def foo(to_be_wrapped):
-    def new_func(*args,**kwargs):
+    def new_func(args,**kwargs):
         print("uwaga, będzie sześcian")
-    return to_be_wrapped
+        return to_be_wrapped(*args,**kwargs)  # warto je dodać aby argumenty zostały przekazane dalej do funkcji docelowej
+    
+    return new_func
 
 @foo #jeśli dodamy ten dekorator to użycie tej funkcji zostanie zmienione, tzn zamiast oryginalnej funkcji cube() otrzymamy "wzbogacone" cube drukujące komunikat przed drukowaniem
 def cube(d):
     return d ** 3 #podniesienie do potęgi 3
+
+cube(2)
+#uwaga, będzie sześcian
+#8
+```
+
+Ale warto pamiętać, że jeśli chcemy przygotowywać takie dekoratory wewnątrez klas to musimy pamiętać, żę nieco inaczej wygląda dostęp do `self`
+
+```python
+class Myclass:
+    # wydaje mi się, że tutaj dekorator musi być zdefiniowany jako pierwszy
+    def _add_loaded_location_to_token(decorated_fun, *args, **kwargs):
+        def output_fun(*args, **kwargs):
+            t = decorated_fun(*args, **kwargs)
+            t.location = args[0].current_location # po prostu self jest schowany pod pierwszym z argumentów
+            return t
+
+        return output_fun
+    
+    @_add_loaded_location_to_token
+    def get_token(self):
+        #kod
+        return token
 ```
 
 ### Dziedziczenie
