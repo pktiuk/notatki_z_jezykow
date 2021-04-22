@@ -39,6 +39,25 @@ slowo.split()
 >>>['slowo1', 'slowo2', 'sl3']
 ```
 
+### Formatowanie tekstu
+
+Formatowanie tekstu nie tylko w kontekście funkcji `print()`
+
+#### str.format()
+
+```python
+def hello(name):
+    print("Hello {name}".format(name=name))
+
+```
+
+#### f-stringi (Python 3.6+)
+
+```python
+def hello(name):
+    print(f"Hello {name}")
+```
+
 ### Pobieranie ścieżki/folderu obecnego skryptu
 
 ```python
