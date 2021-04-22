@@ -1034,10 +1034,16 @@ my_thread.start()
 # kolejne uruhomienie za pomocą start rzuci nam RuntimeError
 ```
 
-Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą
+Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą [join](https://docs.python.org/3/library/threading.html#threading.Thread.join)
 
 ```python
 my_thread.join()
+```
+
+lub
+
+```python
+my_thread.join(timeout=10)
 ```
 
 
