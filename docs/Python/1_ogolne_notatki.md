@@ -363,6 +363,9 @@ Odwoływanie się do wycinka listy
 print(lista[2:5])
 ## ['Nowy', (2.5+3.7j), 97]
 Elementy o numerach 2, 3, 4 (bez 5)
+
+"ala ma kota"[-4::] #elementy od trzeciego od końca aż do ostatniego
+#"kota"
 ```
 
 Podmiana
