@@ -1,6 +1,8 @@
 # Moduły i Paczki
 
-**Moduł** - plik pythonowy zawietający definicje i wyrażenia, nazwa pliku jest nazwą modułu z dodanym rozszerzeniem `.py` (`nazwa_modułu.py`). Wewnątrz modułu ta nazwa jest dostępna jako zmienna globalna `__name__`.
+**Moduł** - plik pythonowy zawietający definicje i wyrażenia, nazwa pliku jest nazwą modułu z dodanym rozszerzeniem `.py` (`nazwa_modułu.py`). Wewnątrz modułu ta nazwa jest dostępna jako zmienna globalna `__name__`.  
+Moduł jest jednym ze sposobów organizacji kodu w pythonie, na ogół w jednym module trzyma się blisko powiązane ze sobą definicje funkcji, klas etc.  
+Jeśli chodzi tu o grupowanie to warto zadbać tutaj o złoty środek (pliki nie muszą być duże, ani małe, muszą po prostu spójnie tworzyć logiczną całość).
 
 **Paczka** - sposub na ustrukturyzowanie modułów ( pozwala to łatwo ustrukturyzować projekt)
 

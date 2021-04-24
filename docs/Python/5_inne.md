@@ -20,3 +20,9 @@ Dzięki temu po zakończeniu wykonywania nie wyjdziemy ze skryptu i będziemy mo
 Do tego warto użyć bibliotek booosta.
 
 Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TUTAJ](https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce)
+
+## Guideline'y
+
+- [PEP 8](https://www.python.org/dev/peps/pep-0008/#module-level-dunder-names)
+- [Google](https://google.github.io/styleguide/pyguide.html)
+- [docs](https://docs.python-guide.org/writing/structure/)
