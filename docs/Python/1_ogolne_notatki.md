@@ -97,11 +97,12 @@ print(type(logiczna))
 ```
 
 Najważniejsze typy zmiennych:
-`bool`, wartość logiczna, tak lub nie, prawda (True) albo fałsz (False)
-`int`, liczba całkowita, np. -7, 0 czy 3:
-`float`, czyli wartość zmiennopozycyjna, można ją utożsamiać z wartościami rzeczywistymi, np. -0.67, 1.0, 3.14
-`complex`, czyli liczba zespolona, np. -7+8.5j. Warto pamiętać, że w Pythonie jednostką urojoną jest j, a nie i
-`str`, powszechnie znany w innych językach jako string, czyli napis. Napis poznajemy głównie po tym, że jest zapisany w cudzysłowie (i to odróżnia go choćby od nazwy zmiennej czy liczby, które nie są w cudzysłowach). Dodamy, że w języku Python nie ma znaczenia, czy posługujemy się pojedynczymi (') czy podwójnymi (") cudzysłowami
+
+- `bool`, wartość logiczna, tak lub nie, prawda (True) albo fałsz (False)
+- `int`, liczba całkowita, np. -7, 0 czy 3:
+- `float`, czyli wartość zmiennopozycyjna, można ją utożsamiać z wartościami rzeczywistymi, np. -0.67, 1.0, 3.14
+- `complex`, czyli liczba zespolona, np. -7+8.5j. Warto pamiętać, że w Pythonie jednostką urojoną jest j, a nie i
+- `str`, powszechnie znany w innych językach jako string, czyli napis. Napis poznajemy głównie po tym, że jest zapisany w cudzysłowie (i to odróżnia go choćby od nazwy zmiennej czy liczby, które nie są w cudzysłowach). Dodamy, że w języku Python nie ma znaczenia, czy posługujemy się pojedynczymi (') czy podwójnymi (") cudzysłowami
 
 Konwersja typów analogiczna dla przykładu poniżej
 
@@ -657,7 +658,7 @@ parametr_kwargs(dodatkowy=48, nastepny=111, argument=12)
 # zawartość kwargs: {'dodatkowy': 48, 'nastepny': 111}
 ```
 
-//TODO https://printpython.pl/poczatki/zadanie-z-gwiazdka/
+//TODO <https://printpython.pl/poczatki/zadanie-z-gwiazdka/>
 
 ### Obiekt
 
@@ -1021,6 +1022,10 @@ print(data_modyfikacji)
 
 ## Wielowątkowość
 
+Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie.  
+Z tego powodu domyślnie wątki są dobrym pomysłem w wypadku operacji IO, czy też innych zadaniach, które działając w tle nie konsumują czasu procesora.  
+Jeśli zaś chcemy w naszej pracy wykorzystać wiele rdzeni procesora równocześnie to warto użyć biblioteki [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
+
 ```python
 import threading
 
@@ -1034,7 +1039,7 @@ my_thread.start()
 # kolejne uruhomienie za pomocą start rzuci nam RuntimeError
 ```
 
-Przy dłuższym czasie wykonywania możemy poczejać na wątki za pomocą [join](https://docs.python.org/3/library/threading.html#threading.Thread.join)
+Przy dłuższym czasie wykonywania możemy poczekać na wątki za pomocą [join](https://docs.python.org/3/library/threading.html#threading.Thread.join)
 
 ```python
 my_thread.join()
@@ -1046,5 +1051,10 @@ lub
 my_thread.join(timeout=10)
 ```
 
+ Biblioteka multiprocessing opiera się na obrabianiu danych w ramach różnych procesów, dzięki czemu każdy proces ma własnego GIL-a, który nie wchodzi w drogę innym procesom.  
+
+ ```python
+# TODO przykład
+ ```
 
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
