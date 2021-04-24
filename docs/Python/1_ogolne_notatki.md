@@ -180,6 +180,14 @@ else: #gdy zaden z warunkow nie byl prawdziwy
     instrukcja8
 ```
 
+Warto także pamiętać o jednolinijkowym wariancie if-a:
+
+```python
+# a if condition else b
+print("Prawda") if True else print("Fałsz")
+#Prawda
+```
+
 #### Pusta zmienna
 
 Czasem `_` jest używane jako pusta zmienna jest to swego rodzaju odpowiednik `/dev/null`
