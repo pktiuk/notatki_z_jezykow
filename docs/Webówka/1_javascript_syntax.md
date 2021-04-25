@@ -1,8 +1,6 @@
 
 # Javascript
 
-
-
 ## Osadzanie skryptu w HTML-u
 
 W HTML-u skrypty umieszczane są wwenątrz tagów `script`.  
@@ -354,7 +352,7 @@ Definiujemy je używając słowa kluczowego `function`.
 Także są na ogół formatowane jako `camelCase`.
 
 !!! warning
-    Niestety JS **nie wspiera** przeciążania funkcji. 
+    Niestety JS **nie wspiera** przeciążania funkcji.
 
 Poniżej zwykłe deklaracje funkcji (function declaration).
 
@@ -495,6 +493,8 @@ body {
   background-color: rgb(36, 33, 33);
 }
 ```
+
+Trzeba tylko pamiętać, że wszystkie zmienne wewnątrz stylów (także liczby) muszą być podawane jako stringi.
 
 ```js
 document.querySelector('body').style.backgroundColor = '#60b347';

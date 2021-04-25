@@ -30,7 +30,7 @@ Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TU
 
 ## Implementacje Pythonowa
 
-Warto wiedzieć, że jest wiele implementacji pythona. Najbardzie znaną jest CPython napisany w C.  
+Warto wiedzieć, że jest wiele implementacji pythona. Najbardziej znaną jest CPython napisany w C.  
 Ze względu na wydajność warto się zapoznać z:
 
 - PyPy - kompilator typu JIT

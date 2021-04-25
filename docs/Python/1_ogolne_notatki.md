@@ -23,7 +23,7 @@ Np z po dodaniu parametru `-i` nadal pozostaniemy w pythonie po wykonaniu skrypt
 
 ### Funkcja main
 
-wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegos innego
+wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegoś innego
 
 ```python
 #!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu
@@ -127,7 +127,7 @@ Operatory Logiczne zwracają wartość logiczną (True/False)
 - `<=` - mniejsze równe, zwróćmy uwagę, że zapisujemy tak jak czytamy, nie ma operatora =< (równe mniejsze)
 - `>` - większe
 - `>=` - większe równe
-- `==` - równa się. Tutaj bardzo ważne jest, aby odróżniać operator przypisania (=) od operatora porównania równa się (==). To bardzo częsty błąd wśród początkujących programistów. Operator = nie jest symetryczny, ma na celu przekopiowanie wartości z prawej do lewej. W niektórych językach zapisuje się go jako <- (ale nie w Pythonie). Operator = nie ma nic wspólnego z wartościami logicznymi. Za to operator == jest operatorem zwracającym wartość logiczną, a co więcej, jest on operatorem symetryczym (nie ma znaczenia zamienienie kolejnością argumentów).
+- `==` - równa się. Tutaj bardzo ważne jest, aby odróżniać operator przypisania (=) od operatora porównania równa się (==). To bardzo częsty błąd wśród początkujących programistów. Operator = nie jest symetryczny, ma na celu przekopiowanie wartości z prawej do lewej. W niektórych językach zapisuje się go jako <- (ale nie w Pythonie). Operator = nie ma nic wspólnego z wartościami logicznymi. Za to operator == jest operatorem zwracającym wartość logiczną, a co więcej, jest on operatorem symetrycznym (nie ma znaczenia zamienienie kolejnością argumentów).
 - `!=` - nie równa się
 Operator koniunkcji, `and`, utożsamiany z polskim i. Zwraca wartość True wtedy i tylko wtedy, gdy oba argumenty są równe True
 Operator alternatywy, `or`, utożsamiany z polskim lub. Zwraca wartość True wtedy i tylko wtedy, gdy przynajmniej jeden argument jest równy True
@@ -169,18 +169,18 @@ Instrukcja warunkowa if
 if warunek:
     instrukcja1
     instrukcja2
-elif warunek2: # gdy warunek nieprawdziwy, sprawdz warunek2
+elif warunek2: # gdy warunek nieprawdziwy, sprawdź warunek2
     instrukcja3
     instrukcja4
-elif warunek3: #gdy warunek2 nieprawdziwy, sprawdz warunek3
+elif warunek3: #gdy warunek2 nieprawdziwy, sprawdź warunek3
     instrukcja5
     instrukcja6
-else: #gdy zaden z warunkow nie byl prawdziwy
+else: #gdy zaden z warunków nie byl prawdziwy
     instrukcja7
     instrukcja8
 ```
 
-Warto także pamiętać o jednolinijkowym wariancie if-a:
+Warto także pamiętać o jedno-linijkowym wariancie if-a:
 
 ```python
 # a if condition else b
@@ -216,7 +216,7 @@ print(i)
 i+=1
 
 liczby = [2, 3, 5]
-for liczba in iczby:
+for liczba in liczby:
 print(liczba)
 ## 2
 ## 3
@@ -278,7 +278,7 @@ W krotce możemy mieszać typy danych:
 krotka = (2, "Napis")
 print(krotka)
 ## (2, 'Napis')
-len(krotka) #dlugosc krotki
+len(krotka) #długość krotki
 ## 2
 ```
 
@@ -317,7 +317,7 @@ x1, y1 = pt1
 
 #### Funkcja zip
 
-Do operowania na krotkach przydatna jest funkcja wbudowana `zip` zwracająca iterator (nie listę) pozwalacjący iterować po protkach tworzonych z obiektów danych w funkcji.
+Do operowania na krotkach przydatna jest funkcja wbudowana `zip` zwracająca iterator (nie listę) pozwalający iterować po krotkach tworzonych z obiektów danych w funkcji.
 
 ```python
 a = ("John", "Charles", "Mike")
@@ -542,7 +542,7 @@ def printinfo( name, age = 35 ):
    "Prosta funkcja z domyślnymi wartościami"
    print("Name: ", name)
    print("Age ", age)
-   return;
+   return
 ```
 
 Funkcja może także przyjmować wiele argumentów
@@ -589,7 +589,7 @@ def funkcja( liczba1:99=12 , slowo1:str="sl", slowo2:"inne slowo"="inne") -> str
 
 ```
 
-Można potem je sprawdzić poprzez sięgnięcie do aotrybutu `__annotations__`
+Można potem je sprawdzić poprzez sięgnięcie do atrybutu `__annotations__`
 
 ```python
 >>>funkcja.__annotations__
@@ -720,7 +720,7 @@ Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zw
 
 #### Dekoratory
 
-Jest to element pozwalający na opakowanie naszej funkcji za pomocą innej wunkcji, aby wzbogacić jej funkcjonalność.  
+Jest to element pozwalający na opakowanie naszej funkcji za pomocą innej funkcji, aby wzbogacić jej funkcjonalność.  
 Funkcja dekorująca najczęściej przyjmuje funkcję dekorowaną i zwraca nową, wynikową funkcję, która ma zostać wykonana.
 
 ```python
@@ -741,7 +741,7 @@ cube(2)
 #8
 ```
 
-Ale warto pamiętać, że jeśli chcemy przygotowywać takie dekoratory wewnątrez klas to musimy pamiętać, żę nieco inaczej wygląda dostęp do `self`
+Ale warto pamiętać, że jeśli chcemy przygotowywać takie dekoratory wewnątrz klas to musimy pamiętać, żę nieco inaczej wygląda dostęp do `self`
 
 ```python
 class Myclass:
@@ -915,7 +915,7 @@ finally:
     print("Zwalniam zasób")
 ```
 
-Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowujemy go w konstrukcję try-except. Kod, który chcemy wykonać, a który może rzucić wyjątek, zapisujemy po try:. Następnie, na dole tego kodu, piszemy except, po czym piszemy nazwę klasy wyjątku, a także as, po którym mówimy, jakim identyfikatorem (w jakiej zmiennej) chcemy się odnosić do instancji tego wyjątku. Najważniejsza jest nazwa klasy, aby ustalić, jaki typ błędów łapiemy. Konkretna instancja, w przykładzie e, przydaje się, gdy np. chcemy wyświetlić komunikat błędu na ekran. Teoretycznie instanacja ma swoje pola, do których możemy się odnieść, jednak rzadko się z nich korzysta.
+Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowujemy go w konstrukcję try-except. Kod, który chcemy wykonać, a który może rzucić wyjątek, zapisujemy po try:. Następnie, na dole tego kodu, piszemy except, po czym piszemy nazwę klasy wyjątku, a także as, po którym mówimy, jakim identyfikatorem (w jakiej zmiennej) chcemy się odnosić do instancji tego wyjątku. Najważniejsza jest nazwa klasy, aby ustalić, jaki typ błędów łapiemy. Konkretna instancja, w przykładzie e, przydaje się, gdy np. chcemy wyświetlić komunikat błędu na ekran. Teoretycznie instancja ma swoje pola, do których możemy się odnieść, jednak rzadko się z nich korzysta.
 
 Listę wbudowanych klas wyjątków znajdziemy pod docs.python.org/3/library/exceptions.html. Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne
 
@@ -969,7 +969,7 @@ with Manager('file.txt') as xfile:
 ### Pliki
 
 ```python
-sciezka_do_pliku = r"C:\przykladowy.txt"
+ścieżka_do_pliku = r"C:\przykladowy.txt"
 #r sprawia, że / nie jest znakiem specjalnym
 f = open(sciezka_do_pliku)
 print(f.read())
@@ -1004,8 +1004,8 @@ f.closed #informuje czy już zamknięte
 
 With open flagi:
 -`r` -read
--`w` -write otiwera plik (i nadpisuje, jeżeli tam już coś jest)
--`a` -append (otiwera do zapisu i zaczyna na końcu tzn dopisuje)
+-`w` -write otwiera plik (i nadpisuje, jeżeli tam już coś jest)
+-`a` -append (otwiera do zapisu i zaczyna na końcu tzn dopisuje)
 
 #### Dane o plikach
 
@@ -1044,7 +1044,7 @@ my_thread = threading.Thread(target=foo, args = ("slowo"))
 
 my_thread.start()
 #>> Hello threading with argument: slowo
-# kolejne uruhomienie za pomocą start rzuci nam RuntimeError
+# kolejne uruchomienie za pomocą start rzuci nam RuntimeError
 ```
 
 Przy dłuższym czasie wykonywania możemy poczekać na wątki za pomocą [join](https://docs.python.org/3/library/threading.html#threading.Thread.join)
