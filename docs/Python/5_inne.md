@@ -40,3 +40,5 @@ Ze względu na kompatybilność:
 
 - Jython (java)
 - IronPython (C#)
+
+Pełna lista implementacji [link](https://wiki.python.org/moin/PythonImplementations)
