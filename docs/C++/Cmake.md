@@ -1,7 +1,11 @@
 # Cmake
-Na podstawie: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+
+Na podstawie: <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>
+
 ## Podstawy
+
 Mamy tu minimalny przykład
+
 ```cmake
 #na początku zawsze określamy min wersję CMake'a
 cmake_minimum_required(VERSION 3.10)
@@ -14,6 +18,7 @@ add_executable(Tutorial tutorial.cxx)
 ```
 
 ## Budowanie
+
 ```bash
 #warto stworzyć sobie nowy folder i w nim budować
 mkdir build; cd build
@@ -23,11 +28,12 @@ cmake --build #można tu też użyć po prostu make (Linux)
 
 ```
 
-
 ## Konfigurowalne pliki nagłówkowe
-Za pomocą CMake'a możemy generować pliki nagłówkowe zawierające zmienne oraz parametry zawarte w plikach CMake. 
+
+Za pomocą CMake'a możemy generować pliki nagłówkowe zawierające zmienne oraz parametry zawarte w plikach CMake.
 
 Przykładowo możemy w ten sposób zapisywać wersję naszego programu.
+
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 
@@ -43,7 +49,9 @@ target_include_directories(Tutorial PUBLIC
                            )
 
 ```
+
 Zawartość pliku TutorialConfig.h.in
+
 ```cpp
 // the configured options and settings for Tutorial
 #define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
@@ -62,13 +70,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 ## Biblioteki
 
 ### Tworzenie własnych
+
 Podobnie jak programy, za pomocą cmake'a możemy definiować też biblioteki
 W wypadku prostych bibliotek wewnątrz naszych preojektów wystarczy jednolinijkowy plik `CMakeLists.txt` w ich folderze.
+
 ```cmake
 # Dodaj bibliotekę o nazwie MathFunctions zawierającą plik mysqrt.cxx
 add_library(MathFunctions mysqrt.cxx)
 ```
+
 (Ta biblioteka znajduje się w folderze `MathFunctions` w głównym folderze projektu. W folderze tym mamy jeszcze plik nagłówkowy `MathFunctions.h`)
+
 ### Linkowanie bibliotek
 
 ```cmake
@@ -92,15 +104,26 @@ target_include_directories(Tutorial PUBLIC
 ## Logika
 
 ### Zmienne
+
 Zmienne są definiowane podczas przypisywania im wartości.
 
 - listy
+
 ```cmake
 # Dodanie elementu do listy
 list(APPEND EXTRA_LIBS MathFunctions)
+
+# Dodanie elementów do listy regexem (warto tu pamiętać, że domyślnie te
+# te ścieżki są globalne, więc aby je potem złapać regexem trzeba załóżyć, że zaczynają się od /
+file(GLOB TARGET_SRC "src/*.cpp" )
+
+# Usuwanie elementu z listy
+list(REMOVE_ITEM TARGET_SRC "/*main.cpp" )
+
 ```
 
 Aby zmienna została podmieniona przez generator na jej zawartość musi być ona umieszczona w klamrach, bez nich po prostu przekazujemy stringa.
+
 ```cmake
 message(HEADERS)
 #>>> [cmake] HEADERS
@@ -110,7 +133,6 @@ message(HEADERS)
 message(${HEADERS})
 #>>> [cmake] /include/plik.hpp /inlude/plik2.hpp
 ```
-
 
 TODO-uporządkować ten punkt
 
@@ -122,10 +144,13 @@ Są to parametry dla buildu, które będą potem także widoczne w narzędziach 
 option(USE_MYMATH "Use tutorial provided math implementation" ON)
 
 ```
+
 Ta opcja będzie widoczna z domyślną wartością `ON`
 
 ### IF-y
+
 W CMake'u możemy tworzyć całe wyrażenia warunkowe za pomocą wcześniej predefiniowanych amiennych.
+
 ```cmake
 if(USE_MYMATH)
   add_subdirectory(MathFunctions)
@@ -147,6 +172,7 @@ target_include_directories(Tutorial PUBLIC
 ```
 
 ## Pliki
+
 ### Szukanie i dodawanie plików
 
 ```cmake
@@ -156,7 +182,6 @@ file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR} "src/*")
 
 ## Domyślne ścieżki w CMake
 
-
 - `CMAKE_SOURCE_DIR`
 
 TODO
@@ -164,8 +189,6 @@ TODO
 ```cmake
 
 ```
-
-
 
 ```cmake
 
