@@ -20,3 +20,13 @@ git update-index --assume-unchanged <file>
 git update-index --no-assume-unchanged <file>
 
 ```
+
+## Sprzątanie
+
+```bash
+git reset #unstage all of files
+git checkout . #revert all local uncommitted changes
+git clean -fdx #remove all local untracked files
+```
+
+Usuwa wszystkie niezacommitowane zmiany.
