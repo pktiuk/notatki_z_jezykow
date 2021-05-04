@@ -14,12 +14,6 @@ Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera 
 - `**` potęga  
 - `2+3j` liczba zespolona
 
-## Wielowątkowość
-
-moduł threading
-
-multiprocessing - podobny, ale niekompatybilny
-
 ## Manipulacja tekstem
 
 ### Stringi wielolinijkowe
@@ -72,7 +66,7 @@ __file__ # zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)
 ## Używanie kodu z C++
 
 boost lub ctypes  
-//TODO przygotuj gista
+Przykład dla boosta: [link](https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce)
 
 ## Przetwarzanie strumieniowe
 
@@ -84,6 +78,17 @@ time.sleep(60)#minuta
 ```
 
 ## Aplikacje webowe
+
+### Proste hostowanie folderu
+
+KIedy chcesz w prosty sposób udostępnić dany folder w sieci.
+
+```bash
+python -m http.server #to udostępni pod adresem 8000
+
+#można też samodzielni wybrać port
+python -m http.server 8888
+```
 
 ### Django
 
