@@ -448,6 +448,8 @@ arrowFunMultiline("Jan");
 const linkNames = (imie, nazwisko) => imie + " " + nazwisko;
 ```
 
+Mają one dość elastyczny zapis, w wypadku jednego argumentu nie musimy używać nawiasów początkowych, podobnie wygląda sytuacja z klamerkami w któ©ych zawieramy nasze funkcje.
+
 ## Obiekty
 
 Obiekty tutaj wydają się nieco zbliżone do typowych słowników.
@@ -597,8 +599,9 @@ img.addEventListener('load', function() {console.log("Wczytano");});
 
 Na potrzeby przykładów korzystamy z darmowych API [stąd](https://github.com/public-apis/).
 
+Wcześniej używało się do tego XMLHttpRequest.
+
 ```js
-//stary sposób wołania
 const request = new XMLHttpRequest();
 request.open('GET','https://restcountries.eu/rest/v2/name/poland');
 wynik = request.send();
@@ -615,3 +618,35 @@ request.addEventListener('load',() =>{
       })
 
 ```
+
+Jednak obecnie ta metoda jest przestarzała i zamiast tego używa się fetch, które zwraca nam Obietnicę (promise). Jest to tymczasowy obiekt w którym znajdziemy wynik operacji asynchronicznej jak już się wykona.  
+Dzięki takiemu podejściu nie musimy polegać na callbackach, które mogą być problematyczne.
+
+```js
+const promise = fetch('https://restcountries.eu/rest/v2/name/poland');
+
+```
+
+Taka obietnica po zakończeniu zadania może zmienić swój stan na spełnioną, lub odrzuconą.  
+Jak już została wykonana to możemy ją skonsumować.  
+Do tego warto używać metody `then` do której przekazujemy co ma zostać zrobione z otrzymanymi danymi.
+
+```js
+
+fetch('https://restcountries.eu/rest/v2/name/poland').then(function(response){
+      console.log(response);//wypisze nam całą klasę odpowiedzi z kodem statusu etc
+      const new_promise = response.json(); //zwraca sparsowany obiekt, ale jest też kolejną obietnicą
+})
+```
+
+Używając tych mechanizmów można łatwo łączyć wiele żądań w ciągi.
+
+```js
+const getCountryData = function (country) {
+  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+    .then(response => {response.json();}) //po otrzymaniu odpowiedzi parsujemy ją asynchronicznie
+    .then(data => { console.log(data); }); //po sparsowaniu w końcu możemy ją wyświetlić
+};
+```
+
+Mamy tu jedno żądanie, które po wykonaniu ma zwrócić kolejną obietnicę, która po spełnieniu ma nam wyświetlić sparsowany wynik.
