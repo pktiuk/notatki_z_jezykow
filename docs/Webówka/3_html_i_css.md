@@ -249,6 +249,16 @@ Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.
 
 Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np `padding` dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.
 
+#### Użyteczne wartości
+
+ - [opacity](https://developer.mozilla.org/pl/docs/Web/CSS/opacity) - przezroczystość określana od 0 do 1 (przydatna do chowania i pokazywania elementów)
+ - [display](https://www.w3schools.com/CSSref/pr_class_display.asp) - sposób w jaki sposób powinny być ułożone elementy w danym pojemniku. Przykładowe wartości:
+   - `none` - elementy nie będą renderowane
+   - `inline` - elementy będą ułożone w linii
+   - `flex`
+
+//TODO opisz dokładniej display
+
 ### Box Model
 
 Jest to koncepcja mówiąca, że każdy element strony powinniśmy postrzegać jako prostokąt z zawartością charakteryzujący się takimi właściwościami jak szerokość wysokość etc.

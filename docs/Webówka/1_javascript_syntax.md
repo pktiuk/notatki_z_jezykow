@@ -132,6 +132,17 @@ inna.includes("trzeci");
 // true
 ```
 
+**Iterowanie po tablicach**
+
+```js
+const lista = ["a", "b", "c",];
+for (const [num, elem] of lista.entries())
+{
+      console.log(`Indeks: ${num} Zawartosc: ${elem}`);
+}
+
+```
+
 #### Sposoby definiowania
 
 Jest kilka sposobów na definiowanie zmiennych. Służą do tego słowa kluczowe `let`, `var` i `const`.
@@ -346,6 +357,20 @@ while(true)
 }
 ```
 
+Poza tym mamy jeszcze forEach w dwóch wariantach.
+
+```js
+const tablica = [0,11,22,33,44];
+
+for (const i of tablica)
+{
+      console.log(i);
+}
+
+// Metoda forEach
+tablica.forEach(function(i){console.log(i);});
+```
+
 ## Funkcje
 
 Definiujemy je używając słowa kluczowego `function`.  
@@ -476,13 +501,47 @@ Do manipulacji elementami zawartymi w dokumencie HTML wystarczy użyć metody `d
 
 ### Manipulacja elementami strony
 
+W praktyce 
+
 ```js
-document.querySelector('.message'); //W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id 
+document.querySelector('.message'); 
+//W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id 
 
 document.querySelector('.message').textContent;
 //"Wiadomość"
 document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
 ```
+
+#### Dodawanie elementów
+
+Do dodawanie elementów w HTML-u używa się metody [Element.insertAdjacentHTML()](https://developer.mozilla.org/pl/docs/Web/API/Element/insertAdjacentHTML).  
+Pozwala ona nam wstawić dowolny tekst (element) względem wybranego elementu.
+
+```js
+element.insertAdjacentHTML(position, text);
+```
+
+`position` może przyjmować wartości:
+
+- 'beforebegin': przed element -em.
+- 'afterbegin': W środku element-u przed jego pierwszym dzieckiem.
+- 'beforeend': W środku elementu po jego ostatnim dziecku.
+- 'afterend': Po element-cie 
+
+Odpowiadają one takim wstawienion:
+
+```html
+<!-- beforebegin -->
+<p>
+  <!-- afterbegin -->
+  foo
+  <!-- beforeend -->
+</p>
+<!-- afterend -->
+```
+
+
+#### CSS
 
 Aby dostać się do stylu w CSS należy dostać się do parametru `style`.
 
@@ -508,4 +567,51 @@ Aby odbierać zdarzenia z elementów wystarczy dodać funkcję będącą callbac
 document.querySelector('.myButton').addEventListener('click', function () {
     console.log("pressed button");
 });
+```
+
+Warto pamiętać, że możemy odbierać zdarzenia nie tylko z elementów, lecz także z dokumentu jako całości. Np poprzez odbieranie wciśnięć.
+
+```js
+document.addEventListener('keydown', function (e) {
+  console.log(e);
+});
+//keydown { target: body, key: "Escape", charCode: 0, keyCode: 27 }
+```
+
+## Komunikacja zewnętrzna i funkcje asynchroniczne
+
+Aby zapobiec marnowaniu czasu niektóre funkcje w JS-ie zostały zaimplementowane asynchronicznie.
+
+```js
+const img =document.querySelector('.dog');
+img.src = "dog.jpg"; // I właśnie to wczytywanie będzie asynchroniczne
+
+//Jak już się wczyta to odpalony zostanie ten event
+img.addEventListener('load', function() {console.log("Wczytano");});
+
+```
+
+### AJAX
+
+**AJAX** - Async JavaScript And XML. Pozwala asynchronicznie komunikować się z zewnętrznymi serwerami (wysyłać żądania etc). Kiedyś opierało się to na użyciu XML-a, ale od iluś lat używa się jednak JSONa.
+
+Na potrzeby przykładów korzystamy z darmowych API [stąd](https://github.com/public-apis/).
+
+```js
+//stary sposób wołania
+const request = new XMLHttpRequest();
+request.open('GET','https://restcountries.eu/rest/v2/name/poland');
+wynik = request.send();
+
+
+
+var polska;
+request.addEventListener('load',() =>{
+      console.log(this.responseText);
+//po otrzymaniu wyświetli nam się cały surowy tekst JSONa,
+//który trzeba przekształcić w jakiś sensowny obiekt
+      [polska] = JSON.parse(this.responseText);
+      //json parse zwraca listę obiektów, więc bierzemy tylko pierwszy
+      })
+
 ```
