@@ -1065,4 +1065,92 @@ my_thread.join(timeout=10)
 # TODO przykład
  ```
 
+## ⚠️Rzeczy na które należy uważać⚠️
+
+Różne cechy oraz właściwości pythona na które trzeba uważać podczas pisania w pythonie zwłaszcza, gdy nie jest on pierwszym językiem.
+
+### Wszystko jest referencją
+
+Warto pamiętać, że w pythonie prawie wszystko jest referencją.  
+Np przekazując do funkcji coś bardziej skomplikowanego niż np liczba przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.
+
+
+Dla liczby jest przekazywana kopia
+
+```python
+def fun(num):
+    num = num+10
+    print(num)
+
+liczba = 1
+fun(liczba)
+# 10
+print(liczba)
+#1
+```
+
+Dla wszystkiego, co jest bardziej skomplikowane mamy referencję
+
+```python
+class Numer:
+    def __init__(self,num):
+        self.num = num
+
+n = Numer(1)
+
+def fun2(numer):
+    numer.num = numer.num+10
+    print(numer.num)
+
+print(n.num)
+# 1
+fun2(n)
+# 11
+print(n.num)
+# 11
+```
+
+Jeśli chcemy tutaj zapobiec takim problemom warto zastanowić się nad użyciem modułu `copy`
+
+```python
+import copy
+
+x = copy.copy(y)        # płytka kopia
+x = copy.deepcopy(y)    # kopia głęboka rekursywnie kopiująca wszystkie elementy naszej klasy
+```
+
+### Inicjalizowanie zmiennych
+
+Skoro wszystko jest referencją to trzeba też o tym pamiętać przy podawaniu domyślnych wartości dla funkcji.  
+[link](https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument)
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Node(object):
+    num: int
+    children: list
+    def __init__(self, num, children=[]):
+        self.num = num
+        self.children = children
+    
+
+n1 = Node(1)
+n2 = Node(2)
+print(n1)
+# Node(num=1, children=[])
+print(n2)
+# Node(num=2, children=[])
+
+n1.children.append(3)
+print(n1)
+#Node(num=1, children=[3])
+print(n2)
+#Node(num=2, children=[3])
+```
+
+Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inicjalizować to dopiero, wewnątrz konstruktora.
+
+
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
