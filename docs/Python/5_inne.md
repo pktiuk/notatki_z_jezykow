@@ -42,3 +42,15 @@ Ze względu na kompatybilność:
 - IronPython (C#)
 
 Pełna lista implementacji [link](https://wiki.python.org/moin/PythonImplementations)
+
+## Dokumentowanie
+
+### Diagramy klas
+
+Do tego można użyć:
+
+- pyreverse - chyba najprostsze (do pobrania z pipa)
+
+```bash
+pyreverse -o png moje_klasy.py
+```
