@@ -260,6 +260,28 @@ Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.
 
 Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np `padding` dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.
 
+#### Zmienne CSS
+
+[Zmienne CSS](https://developer.mozilla.org/pl/docs/Web/CSS/Using_CSS_custom_properties) mogą zawierać różne wartości dostępne w całym dokumencie.
+
+```css
+/* najprościej jest zadeklarować je w roocie, wtedy są dostępne wszędzie */
+:root {
+  --glowny-kolor-tla: brown;
+}
+
+.blok {
+  --glowny-kolor-tla: green;
+}
+
+.jeden {
+  color: white;
+  background-color: var(--glowny-kolor-tla);/* przy użyciu musi być to umieszczone w var()*/
+}
+/*Jeśli element .jeden znajdzie się wewnątrz elementu .blok, wtedy wartość zmiennej z
+roota zostanie przesłonięta przez wartość zadaną w bloku*/
+```
+
 #### Użyteczne wartości
 
  - [opacity](https://developer.mozilla.org/pl/docs/Web/CSS/opacity) - przezroczystość określana od 0 do 1 (przydatna do chowania i pokazywania elementów)
