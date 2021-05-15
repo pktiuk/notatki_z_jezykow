@@ -561,9 +561,7 @@ Stworzenie elementu (którego jeszcze nie dodajemy do naszego DOM-a)
 
 ```js
 const my_element = document.createElement('div'); //to co dostaliśmy zachowuje się jak każdy element zdobyty za pomocą np query selectora
-my_element.classList.add('my-created-class');
-my_element.textContent ="Trochę tekstu";
-my_element.innerHTML ="<h1>Trochę tekstu tylko inaczej</h1>";
+
 
 document.body.prepend(my_element); //po wstawieniu naszego elementu do dokumentu nasz obiekt może być nadal używany 
 //możemy np zmienić położenie naszego elementu
@@ -574,6 +572,22 @@ document.body.append(my_element); // przeniesie to nasz element bo może istnie�
 my_element.remove(); // usuwa ten element
 ```
 
+#### Edycja elementu
+
+```js
+
+my_element.classList.add('my-created-class');
+my_element.textContent ="Trochę tekstu";
+my_element.innerHTML ="<h1>Trochę tekstu tylko inaczej</h1>";
+
+// zmiana atrybutów elementów
+my_element.color = "green"; // dla standardowych możemy się do nich dostać przez pole w klasie
+my_element.setAttribute("creator", "Marian"); //to się za to sprawdzi dla niestandardowych
+
+// jedynym wyjątkiem dla niestandardowych atrybutów są atrybuty data-.....
+// <button data-version-number=0/>
+mybtn.dataset.versionNum = 32;
+```
 
 #### CSS
 
