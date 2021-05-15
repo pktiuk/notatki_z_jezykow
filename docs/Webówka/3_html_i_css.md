@@ -116,7 +116,18 @@ Aby utworzyć odnośnik musimy użyć prostego elementu — [a](https://develope
 <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
 ```
 
-- href (hypertext reference) - link
+- href (hypertext reference) - link (może to być link nie tylko do innej strony, lecz także do elementu  tej samej strony)
+
+```html
+<a href="#section--1">Sekcja 1</a>
+<!-- .... -->
+
+
+<section class="section" id="section--1">
+<!-- Tu nas przeniesie kliknięcie -->
+```
+
+Jeśli nasz link będzie prowadził do `#` to zostaniemy przeniesieni na początek strony.
 
 ### Obraz
 
@@ -185,7 +196,7 @@ body {
 
 Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak ammy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.
 
-**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką
+**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką ` . `
 
 ```html
     <p class="mojaklasa">

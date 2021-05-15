@@ -514,7 +514,22 @@ document.querySelector('.message').textContent;
 document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
 ```
 
-#### Dodawanie elementów
+#### Znajdowanie elementów
+
+```js
+document.querySelector('.message');  //szuka po nazwie i zwraca pierwszy pasujący
+document.querySelectorAll('.message'); //jak wyżej, tylko zwraca listę wszystkich elementów
+
+document.documentElement; //zwraca nam całe drzewo dokumentu
+document.body; //analogicznie
+document.head;
+
+document.getElementById('element1'); // zwraca nam element po ID (bez potrzeby używania krokek, czy haszów przy nazwach)
+document.getElementsByTagName("button"); //Elements - czyli zwróci nam listę elementów typu button
+document.getElementsByClassName("moja_klasa");
+```
+
+#### Dodawanie i tworzenie elementów
 
 Do dodawanie elementów w HTML-u używa się metody [Element.insertAdjacentHTML()](https://developer.mozilla.org/pl/docs/Web/API/Element/insertAdjacentHTML).  
 Pozwala ona nam wstawić dowolny tekst (element) względem wybranego elementu.
@@ -540,6 +555,23 @@ Odpowiadają one takim wstawienion:
   <!-- beforeend -->
 </p>
 <!-- afterend -->
+```
+
+Stworzenie elementu (którego jeszcze nie dodajemy do naszego DOM-a)
+
+```js
+const my_element = document.createElement('div'); //to co dostaliśmy zachowuje się jak każdy element zdobyty za pomocą np query selectora
+my_element.classList.add('my-created-class');
+my_element.textContent ="Trochę tekstu";
+my_element.innerHTML ="<h1>Trochę tekstu tylko inaczej</h1>";
+
+document.body.prepend(my_element); //po wstawieniu naszego elementu do dokumentu nasz obiekt może być nadal używany 
+//możemy np zmienić położenie naszego elementu
+document.body.append(my_element); // przeniesie to nasz element bo może istnieć tylko jedna instancja obiektu w DOM-ie
+// jesli chcemy kopiować to trzeba użyć .cloneNode(true)
+
+
+my_element.remove(); // usuwa ten element
 ```
 
 
