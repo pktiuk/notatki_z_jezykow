@@ -593,6 +593,22 @@ Trzeba tylko pamiętać, że wszystkie zmienne wewnątrz stylów (także liczby)
 document.querySelector('body').style.backgroundColor = '#60b347';
 ```
 
+Należy pamiętać o tym, że pobierając style w sposób pokazany powyżej pobieramy tylko style określonych elementów.
+
+```js
+const bt =document.querySelector('#my-btn');
+bt.style.width; //to zwróci nam wartość tylko i wyłącznie wtedy, gdy dany przycisk miał to zapisane bezpośrednio 
+// (nie np gdy ta wartość jest dziedziczona po klasie, typie, albo jest zapisana w pliku CSS)
+
+getComputedStyle(bt).color; // to nam zawsze zwróci jakąś wartość
+```
+
+Podobnie możemy manipulować zmiennymi CSSowymi
+
+```js
+document.documentElement.style.setProperty('--background-color', "red");
+```
+
 ### Odbieranie zdarzeń
 
 Aby odbierać zdarzenia z elementów wystarczy dodać funkcję będącą callbackiem dla danego wydarzenia powiązanego z tym elementem.
