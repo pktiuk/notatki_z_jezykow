@@ -1,5 +1,16 @@
 # Testowanie
 
+Do testów wykorzystujemy słowo kluczowe assert
+
+```python
+x = "hello"
+
+#if condition returns False, AssertionError is raised:
+assert x == "goodbye", "x should be 'hello'"
+```
+
+jeśli to co znajdzie się w assercie zwraca true to nic się nie dzieje, zaś jeśli jest to fałsz to rzuca wyjątek `AssertionError`. Wiadommość zawartą w tym wyjątku możemy podać po przecinku.
+
 W pythonie jest kilka frameworków do testów: [pytest](https://docs.pytest.org/en/latest/getting-started.html), doctest i [unittest](https://docs.python.org/3/library/unittest.html#module-unittest)
 
 Jeśli chodzi o strukturę testów to warto zwrócić uwagę na to, jak są one znajdowane. [Conventions for Python test discovery (pytest)](https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery)
@@ -81,7 +92,7 @@ flaga "-v" przy uruchamianiu takiego skryptu sprawia, że wyświetlają się tak
 
 ## Pytest
 
-Jeden z najpopularniejszych sposobów testowania [link](https://docs.pytest.org/en/latest/getting-started.html).  
+Jeden z najpopularniejszych sposobów testowania [link](https://docs.pytest.org/en/latest/getting-started.html).
 Pytest odpala wszystkie pliki `test_*.py` i `*_test.py` z naszego folderu. I uruchamia wszystkie funkcje zwawierające `test_` w nazwie (także metody zdefiniowanych klas).
 
 Pozwala na łtew testowanie klas, wyjątków etc
