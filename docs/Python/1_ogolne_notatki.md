@@ -1154,3 +1154,4 @@ Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inic
 
 
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
+// yield, operator :=
