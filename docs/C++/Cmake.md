@@ -24,8 +24,15 @@ add_executable(Tutorial tutorial.cxx)
 mkdir build; cd build
 
 cmake SCIEZKA_DO_FOLDERU_GLOWNEGO # zwykle do folderu z plikiem CMakeLists.txt
-cmake --build #można tu też użyć po prostu make (Linux)
+cmake --build . #można tu też użyć po prostu make (Linux)
+```
 
+Inne użyteczne komendy
+
+```bash
+cmake --build . --target help # wypisanie celów w ramach projektu
+
+cmake --build . --target # budowanie danego celu
 ```
 
 ## Konfigurowalne pliki nagłówkowe
