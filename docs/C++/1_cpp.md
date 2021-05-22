@@ -45,3 +45,31 @@ Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
     std::thread t2(&Klasa::moja_metoda,&instancja_klasy, argument1, argument2, argument3);
     t2.join();
 ```
+
+## Funkcje
+
+### Lambdy
+
+Składnia lambdy:
+- `[]` - Tu podajemy listę przechwytywania
+  - `[x]` - przechwytuje obiekt x (tylko odczyt)
+  - `[&x]` - przechwytuje obiekt x (odczyt i zapis)
+  - `[=]` - dowolny obiekt ze scope'a do odczytu
+  - `[&]` - dowolny obiekt ze scope'a do odczytu i zapisu
+- `()` - argumenty, jakie ma przyjmować wyrażenie lambda. (Opcjonalne) 
+- atrybuty wyrażenia lambda, z możliwych atrybutów w tym momencie najistotniejszy jest mutable, który sprawia że zmienne przechwycone przez wartość mogą być modyfikowane wewnątrz ciała wyrażenia. (Opcjonalne)
+- `-> T` - typ zwracany (Opcjonalne)
+- `{}` - ciało wyrażenia
+
+```cpp
+//Najprostsza możliwa lambda
+[] { }();
+
+[]( int a )->float
+{
+    if( a < 0 )
+         return 0;
+   
+    return a * 0.5f;
+}
+```
