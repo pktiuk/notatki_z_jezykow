@@ -105,3 +105,23 @@ Do usuwania kontenerów służą `docker container prune` i `docker container rm
 
 ### Składnia pliku dockerfile
 
+Plik [dockerfile](https://docs.docker.com/engine/reference/builder/#format) opisuje kolejne operacje pokazujące, jak powinien być zbudowany nasz obraz.
+
+Przykładowy plik dockerfile:
+
+```docker
+# wybierz obraz bazowy od którego zaczynasz konstruowanie
+FROM ubuntu:latest
+
+# Ustaw zmienne środowiskowe
+ENV APP_USER=user
+
+# Wykonaj daną komendę, np zainstaluj potrzebne pakiety etc.
+RUN apt install -y firefox
+
+# określ położenie folderu roboczego w którym odpalane są komendy
+WORKDIR /home/user
+
+# Kopiuj pliki z hosta do systemu plików wewnątrz kontenera
+COPY ./plik /home/user/
+```
