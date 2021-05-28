@@ -72,6 +72,10 @@ for line in sys.stdin:
     sys.stdout.write(line)
 ```
 
+### Importowanie bibliotek etc
+
+TODO
+
 ## II
 
 ### Komentarze
