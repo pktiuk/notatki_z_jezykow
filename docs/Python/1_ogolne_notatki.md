@@ -1,6 +1,6 @@
-# PythonNotatki
+# Podstawy Pythona 🐍
 
-## I
+## Quickstart
 
 ### Shebang
 
@@ -76,7 +76,7 @@ for line in sys.stdin:
 
 TODO
 
-## II
+## Podstawy
 
 ### Komentarze
 
@@ -237,8 +237,9 @@ for i, line in enumerate(strings_list): #enumerate zwraca dla danej listy krotk�
     ###jakiś kod
 ```
 
-**Pętle jednolinijkowe (List Comprehensions)**
-Jednolinijkowe pętle zwracające np listę dobre dla prostych operacji
+#### Pętle jednolinijkowe (List Comprehensions)
+
+Jednolinijkowe pętle zwracające np listę dobre dla prostych operacji, użyteczne do szybkiego generowania tablic.
 
 ```python
 newlist = [expression for item in iterable if condition == True]
@@ -256,8 +257,6 @@ for x in fruits:
 
 newlist = [x for x in fruits if "a" in x]
 ```
-
-## III
 
 ### Krotka (tuple)
 
@@ -524,8 +523,6 @@ import pprint
 pprint.pprint(duzy_slownik)
 ```
 
-## IV
-
 ### Funkcje
 
 Funkcje
@@ -672,57 +669,7 @@ parametr_kwargs(dodatkowy=48, nastepny=111, argument=12)
 
 //TODO <https://printpython.pl/poczatki/zadanie-z-gwiazdka/>
 
-### Obiekt
-
-```python
-class Osoba: #Definicja klasy o nazwie Osoba
-    ile = 0 # pole statyczne
-    def __init__(self, imie, nazwisko, wiek): #Definicja konstruktora
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.wiek = wiek
-    def przedstaw_sie(self):
-        print(f"Jestem {self.imie} {self.nazwisko}. Mam {self.wiek} lat.")
-    def urodziny(self):
-        wiek_przed = self.wiek
-        self.wiek += 1
-    return wiek_przed
-    def __del__(self): # destruktor, czyli kod, który wykonuje się podczas niszczenia obiektu
-    @staticmethod
-    def policz():
-        return Osoba.ile
-```
-
-#### Metody
-
-Metodę możemy poznać min. także po pierwszym argumencie: `self`.
-W języku Python metody przyjmują jako pierwszy parametr obiekt, na rzecz którego są wywoływane. W samym wywołaniu nie musimy go sami podawać. Wystarczy, że metoda jest napisana po kropce. Następnie następują trzy zwykłe parametry: imie, nazwisko oraz wiek.
-
-#### Konstruktor i destruktor
-
-Jest to taka metoda, która jest wywoływana, gdy obiekt jest tworzony. Jej celem jest zainicjowanie pól w instancji. Tu są definiowane parametry klasy.
-Konstruktor poznajemy po jego specjalnej nazwie: `__init__`.
-Analogicznie działa destruktor (nazwa: `__del__`)
-Przy wywołaniu pomijamy argument self.
-
-```python
-Jan = Osoba("Jan", "Nowak", 48)
-Jan = None #Wymuszenie destrukcji obiektu
-```
-
-#### Widoczność elementów
-
-W języku Python nie ma pól prywatnych w klasie: nie jesteśmy w stanie w praktyce czegokolwiek “ukryć”. Jednak są pewne zasady nazewnictwa, które działają raczej na zasadzie porozumienia, niż będące prawdziwą barierą. I tak, gdy poprzedzimy nazwę jednym znakiem podkreślenia `_`, oznajmiamy, że dany element nie jest uwzględniony w dokumentacji, może się zmienić, raczej nie należy z niego korzystać, a środowisko programistyczne nie będzie nam go podpowiadać. Przykładowo pole `_imie`, np. `self._imie`, czy `self._metoda()`.
-
-Gdy użyjemy dwóch znaków podkreślenia `__`, zachowanie jest trochę inne: dane pole czy metoda nie będzie widoczna pod tą nazwą wcale, ale za to będzie można się do niego odwołać (dla nazwy `__element`) poprzez `_nazwaklasy.__element`.
-
-#### Statyczne
-
-Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się poprzez nazwę klasy. Np `Osoba.ile`
-Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. dekorator. Dekoratory (zaczynające się od `@`) służą do modyfikacji definiowanej funkcji lub metody w określony sposób. W ten właśnie sposób oznaczamy metodę statyczną.
-Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.
-
-#### Dekoratory
+#### Dekoratory funkcji
 
 Jest to element pozwalający na opakowanie naszej funkcji za pomocą innej funkcji, aby wzbogacić jej funkcjonalność.  
 Funkcja dekorująca najczęściej przyjmuje funkcję dekorowaną i zwraca nową, wynikową funkcję, która ma zostać wykonana.
@@ -762,6 +709,74 @@ class Myclass:
     def get_token(self):
         #kod
         return token
+```
+
+## Obiektówka
+
+### Obiekt
+
+```python
+class Osoba: #Definicja klasy o nazwie Osoba
+    ile = 0 # pole statyczne
+    def __init__(self, imie, nazwisko, wiek): #Definicja konstruktora
+        self.imie = imie
+        self.nazwisko = nazwisko
+        self.wiek = wiek
+    def przedstaw_sie(self):
+        print(f"Jestem {self.imie} {self.nazwisko}. Mam {self.wiek} lat.")
+    def urodziny(self):
+        wiek_przed = self.wiek
+        self.wiek += 1
+    return wiek_przed
+    def __del__(self): # destruktor, czyli kod, który wykonuje się podczas niszczenia obiektu
+    @staticmethod
+    def policz():
+        return Osoba.ile
+```
+
+#### Metody
+
+Metodę możemy poznać min. także po pierwszym argumencie: `self`.
+W języku Python metody przyjmują jako pierwszy parametr obiekt, na rzecz którego są wywoływane. W samym wywołaniu nie musimy go sami podawać. Wystarczy, że metoda jest napisana po kropce. Następnie następują trzy zwykłe parametry: imie, nazwisko oraz wiek.
+
+##### Konstruktor i destruktor
+
+Jest to taka metoda, która jest wywoływana, gdy obiekt jest tworzony. Jej celem jest zainicjowanie pól w instancji. Tu są definiowane parametry klasy.
+Konstruktor poznajemy po jego specjalnej nazwie: `__init__`.
+Analogicznie działa destruktor (nazwa: `__del__`)
+Przy wywołaniu pomijamy argument self.
+
+```python
+Jan = Osoba("Jan", "Nowak", 48)
+Jan = None #Wymuszenie destrukcji obiektu
+```
+
+#### Widoczność elementów
+
+W języku Python nie ma pól prywatnych w klasie: nie jesteśmy w stanie w praktyce czegokolwiek “ukryć”. Jednak są pewne zasady nazewnictwa, które działają raczej na zasadzie porozumienia, niż będące prawdziwą barierą. I tak, gdy poprzedzimy nazwę jednym znakiem podkreślenia `_`, oznajmiamy, że dany element nie jest uwzględniony w dokumentacji, może się zmienić, raczej nie należy z niego korzystać, a środowisko programistyczne nie będzie nam go podpowiadać. Przykładowo pole `_imie`, np. `self._imie`, czy `self._metoda()`.
+
+Gdy użyjemy dwóch znaków podkreślenia `__`, zachowanie jest trochę inne: dane pole czy metoda nie będzie widoczna pod tą nazwą wcale, ale za to będzie można się do niego odwołać (dla nazwy `__element`) poprzez `_nazwaklasy.__element`.
+
+#### Statyczne
+
+Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się poprzez nazwę klasy. Np `Osoba.ile`
+Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. [dekorator](#dekoratory-funkcji).
+Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.  
+
+Jeśli jednak chcemy aby nasza metoda miała jakieś informacje na temat naszej klasy można użyć dekoratora `@classmethod`, który różni się tym, że klasaobiektu (nie instancja) jest przekazywana dalej. [Porównanie na stacku](https://stackoverflow.com/questions/136097/difference-between-staticmethod-and-classmethod)
+
+```python
+class A(object):
+    def foo(self, x):
+        print(f"executing foo({self}, {x})")
+
+    @classmethod
+    def class_foo(cls, x):
+        print(f"executing class_foo({cls}, {x})")
+
+    @staticmethod
+    def static_foo(x):
+        print(f"executing static_foo({x})")
 ```
 
 ### Dziedziczenie
@@ -856,7 +871,7 @@ class Lew(Zwierze):
         return "Lew"
 ```
 
-Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma co najmniej jedną metodę abstrakcyjną) w języku Python jest wprowadzony trochę sztucznie. Klasa bazowa (abstrakcyjna) musi dziedziczyć po sztucznej klasie ABC, a metoda abstrakcyjna jest opatrzona dekoratorem @abstractmethod. Zwróćmy uwagę, że jedno i drugie zostało zaimportowane. Jednak po tych czynnościach rzeczywiście nie jesteśmy w stanie stworzyć instancji klasy bazowej.
+Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma co najmniej jedną metodę abstrakcyjną) w języku Python jest wprowadzony trochę sztucznie. Klasa bazowa (abstrakcyjna) musi dziedziczyć po sztucznej klasie ABC, a metoda abstrakcyjna jest opatrzona dekoratorem `@abstractmethod`. Zwróćmy uwagę, że jedno i drugie zostało zaimportowane. Jednak po tych czynnościach rzeczywiście nie jesteśmy w stanie stworzyć instancji klasy bazowej.
 
 Zwróćmy uwagę na ten zaawansowany mechanizm: w klasie Zwierze tworzymy metodę, zakładamy, co ta metoda będzie zwracać, a następnie korzystamy z niej w innej metodzie, pomimo, że prawdziwa jej implementacja nastąpi dopiero w klasie pochodnej. Dzięki temu musimy napisać mniej kodu w klasach pochodnych: musimy jedynie zaimplementować metodę nazwa_gatunku(), jednak nie musimy już od zera pisać kodu na przedstawienie zwierzęta. Jedynie w klasie Papuga, gdzie wprowadziliśmy nowe pole, dopisujemy kod odpowiedzialny za wypisanie jego wartości.
 
@@ -896,7 +911,7 @@ if __name__ == "__main__":
 ## 30
 ```
 
-## V
+## Inne
 
 ### Wyjątki
 
