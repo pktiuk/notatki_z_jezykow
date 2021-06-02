@@ -176,3 +176,7 @@ import ast
 [LINK](https://wiki.python.org/moin/DebuggingWithGdb)
 
 /TODO opisać dokładniej
+
+
+
+/TODO opisać działanie libki subprocess (czyli jak ogarnąć prawdziwą wielowątkowość w pythonie), oraz uruchamianie procesów.
