@@ -849,7 +849,7 @@ if __name__ == "__main__":
 Uniemożliwia tworzenie instancji danej klasy. Przydatne przy klasach bazowych [dokumentacja](https://docs.python.org/3/library/abc.html)
 
 ```python
-from abd import ABC
+from abc import ABC
 
 class Zwierze(ABC):
     def __init__(self,nazwa, wiek, waga):
