@@ -846,15 +846,18 @@ if __name__ == "__main__":
 
 ### Abstrakcja
 
-Uniemożliwia tworzenie instancji danej klasy. Przydatne przy klasach bazowych
+Uniemożliwia tworzenie instancji danej klasy. Przydatne przy klasach bazowych [dokumentacja](https://docs.python.org/3/library/abc.html)
 
 ```python
+from abd import ABC
+
 class Zwierze(ABC):
     def __init__(self,nazwa, wiek, waga):
         self.nazwa=nazwa
         self.wiek=wiek
         self.waga=waga
-        @abstractmethod #tutaj wymuszamy implementację tej metody w klasach pochodnych
+
+    @abstractmethod #tutaj wymuszamy implementację tej metody w klasach pochodnych
     def nazwa_gatunku(self):
         pass
     def przedstaw_sie(self):
@@ -1174,3 +1177,4 @@ Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inic
 
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
 // yield, operator :=
+// from __future__ import annotations (ewaluacja definicji z kodu, które pojawiają się później)
