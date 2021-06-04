@@ -941,7 +941,20 @@ finally:
 
 Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowujemy go w konstrukcję try-except. Kod, który chcemy wykonać, a który może rzucić wyjątek, zapisujemy po try:. Następnie, na dole tego kodu, piszemy except, po czym piszemy nazwę klasy wyjątku, a także as, po którym mówimy, jakim identyfikatorem (w jakiej zmiennej) chcemy się odnosić do instancji tego wyjątku. Najważniejsza jest nazwa klasy, aby ustalić, jaki typ błędów łapiemy. Konkretna instancja, w przykładzie e, przydaje się, gdy np. chcemy wyświetlić komunikat błędu na ekran. Teoretycznie instancja ma swoje pola, do których możemy się odnieść, jednak rzadko się z nich korzysta.
 
-Listę wbudowanych klas wyjątków znajdziemy pod docs.python.org/3/library/exceptions.html. Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne
+Listę wbudowanych klas wyjątków znajdziemy [tutaj](docs.python.org/3/library/exceptions.html). Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne
+
+```python
+try:
+    fun()
+except RuntimeError as err:
+    print(f"Dostaliśmy wyjątek Runtime o treści: {err.args[0]}")
+except TypeError as err:
+    print("Niedozwolona operacja")
+except (MojError, NameError):
+    print("Wystąpił jeszcze inny error")
+finally:
+    print("Podczas wykonywania wystąpił błąd, zamykam apkę") # ten wykona się po każdym z wyjątków
+```
 
 #### With
 
