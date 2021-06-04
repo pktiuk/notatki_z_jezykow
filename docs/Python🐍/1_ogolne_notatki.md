@@ -880,6 +880,35 @@ Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma 
 
 Zwróćmy uwagę na ten zaawansowany mechanizm: w klasie Zwierze tworzymy metodę, zakładamy, co ta metoda będzie zwracać, a następnie korzystamy z niej w innej metodzie, pomimo, że prawdziwa jej implementacja nastąpi dopiero w klasie pochodnej. Dzięki temu musimy napisać mniej kodu w klasach pochodnych: musimy jedynie zaimplementować metodę nazwa_gatunku(), jednak nie musimy już od zera pisać kodu na przedstawienie zwierzęta. Jedynie w klasie Papuga, gdzie wprowadziliśmy nowe pole, dopisujemy kod odpowiedzialny za wypisanie jego wartości.
 
+/TODO jak poradzić sobie z tym?
+```python
+class Zwierze(ABC):
+    def __init__(self,nazwa, wiek, waga):
+        self.nazwa=nazwa
+        self.wiek=wiek
+        self.waga=waga
+
+    @abstractmethod #tutaj wymuszamy implementację tej metody w klasach pochodnych
+    def nazwa_gatunku(self):
+        pass
+
+    def urodziny(self):
+        self.wiek += 1
+
+class Slon(Zwierze):
+    def __init__(self,nazwa, wiek, waga):
+        syper().__init__(self,nazwa, wiek, waga)
+    def nazwa_gatunku(self):
+        return self.nazwa
+
+class Slon(Zwierze):
+    def __init__(self,nazwa, wiek, waga):
+        syper().__init__(self,nazwa, wiek, waga)
+
+    # def nazwa_gatunku(self): bez implementowania nazwy, bo przecież zwykły skoń ma dobrą
+    #     return self.nazwa
+```
+
 ### Hermetyzacja
 
 Polega na odcinanie użytkownikowi dostępu do pól, aby operował tylko metodami klasy.
