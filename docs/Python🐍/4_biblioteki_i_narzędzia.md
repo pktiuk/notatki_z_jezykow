@@ -27,6 +27,8 @@ linia3
 
 ### Rozbijanie stringów po słowach
 
+`string.split(separator, maxsplit)` - domyślny separator to jakikolwiek whitespace, maxsplit- domyślnie -1 (opisuje na ile fragmentów maksymalnie możemy dzielić stringa)
+
 ```python
 slowo="slowo1 slowo2 sl3"
 slowo.split()
