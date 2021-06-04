@@ -48,6 +48,8 @@ print ('First argument:',  str(sys.argv[0]))
 print ('Second argument:',  str(sys.argv[1]))
 ```
 
+Do parsowania bardziej skomplikowanych argumentów warto użyć biblioteki [argparse](https://docs.python.org/3/howto/argparse.html)
+
 #### Zwracanie wartości
 
 ```python

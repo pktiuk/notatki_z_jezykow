@@ -117,3 +117,12 @@ class TestClass:
         x = "hello"
         assert hasattr(x, "check")
 ```
+
+### Pokrycie testami
+
+Przy testach można sobie wygenerować raport pokrycia kodu
+
+```bash
+pytest --cov=./nazwa_paczki/ 
+coverage xml #konwertuje plik .coverage do raportu w xml-u
+```
