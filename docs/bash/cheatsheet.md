@@ -46,7 +46,7 @@ cut
 
 ```
 ```bash
-
+TODO
 
 ```
 
@@ -57,7 +57,18 @@ cut
 
 ## Argumenty
 
+TODO
 
+
+## Procesy
+
+Łączniki:
+
+ - `&&` -wykonaj kolejny proces, jeśli poprzedni się powiedzie (retcode 0)
+ - `||` - wykonaj następny, gdy poprzedni to porażka
+ - `&` - proces jest utuchamiany w tle (jego pid można zdobyć za pomocą `$!`)
+
+TODO więcej
 
 
 
@@ -129,7 +140,8 @@ fi
 
 
 ```bash
-
+TODO
 
 ```
+
 
