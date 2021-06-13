@@ -77,9 +77,18 @@ Opisy elementów:
 - `<meta charset="utf-8">` - reprezentuje metadane, które nie mogą być reprezentowane przez inne elementy związane z metadanymi w HTML. Tutaj ustawia zestaw znaków.
 - `<title>` - Ustawia tytuł strony, który jest tytułem wyświetlanym na karcie przeglądarki
 
-### Tekst
 
-#### Nagłówek
+### Przykładowe elementy i tagi
+
+#### Komentarze
+
+```html
+<!-- tekst komentarza -->
+```
+
+#### Tekst
+
+##### Nagłówek `<h1>`
 
 Nagłówki opisujemy jako h1 (najgłówniejszy), h2,h3...
 
@@ -90,15 +99,25 @@ Nagłówki opisujemy jako h1 (najgłówniejszy), h2,h3...
 <h4>My sub-subheading</h4>
 ```
 
-#### Paragraf
+##### Podstawy
 
-Służą one do dzielenia tekstu na paragrafy
+Paragrafy (`<p>`) służą do dzielenia tekstu na paragrafy
 
 ```html
 <p>This is a single paragraph</p>
+
+<b>Tekst pogrubiony</b> <!-- Jest to markup fizyczny alternatywą logiczną jest znacznik <strong> -->
+
+
+<i>tekst kursywą</i>
+<code>Tekst czcionką programistyczną</code>
+
+<br> <!-- Znak nowej linii -->
 ```
 
-#### Lista
+##### Lista `<ul>` `<ol>`
+
+unordered list `<ul>` - lista nieuporządkowana
 
 ```html
 <ul>
@@ -108,7 +127,19 @@ Służą one do dzielenia tekstu na paragrafy
 </ul>
 ```
 
-#### Linki
+ordered list `<ol>` - lista uporządkowana.
+
+Jest dla niej kilka typów np: `A` -oznaczanie kolejnych punktów jako abc `i` - osnaczanie rzymskimi cyframi
+
+```html
+<ol>
+  <li>pierwszy</li>
+  <li>drugi</li>
+  <li>trzeci</li>
+</ol>
+```
+
+##### Linki `<a>`
 
 Aby utworzyć odnośnik musimy użyć prostego elementu — [a](https://developer.mozilla.org/pl/docs/Web/HTML/Element/a) — "a" jest skrótem od angielskiego "anchor".
 
@@ -129,7 +160,13 @@ Aby utworzyć odnośnik musimy użyć prostego elementu — [a](https://develope
 
 Jeśli nasz link będzie prowadził do `#` to zostaniemy przeniesieni na początek strony.
 
-### Obraz
+Możemy też łatwo tworzyć własne kotwice
+
+```html
+<a name="moja_sekcja">Moja sekcja</a>
+```
+
+#### Obraz `<img>`
 
 Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
 
@@ -140,7 +177,7 @@ Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 - `src` - źródło obrazu
 - `alt` - tekst alternatywny - pokazuje się w razie problemów z wyświetleniem.
 
-### DIV
+#### DIV `<div>`
 
 [div](https://developer.mozilla.org/pl/docs/Web/HTML/Element/div) - jest to element który nie robi nic. Służy on jako kontener, dzięki któremu można łatwo podzielić i pogrupować elementy.
 
@@ -155,6 +192,8 @@ pole tekstowe i przycisk (bez JS-a bezuzyteczne)
 
 <input type="text" placeholder="Domyślny tekst" />
 <button>GIT!</button>
+
+## Przekierowywanie strony TODO
 
 ## CSS
 
