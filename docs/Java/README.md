@@ -636,7 +636,7 @@ Hierarchia klas wyjątków
 
 Delegowanie wyjątków "w górę"
 
- ```java
+```java
  public class Example3 {
     public static void notMainYet(String[] args) throws IOException {
     try(BufferedReader br = new BufferedReader(new FileReader("/testing.txt")))
