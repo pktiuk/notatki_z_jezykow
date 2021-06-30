@@ -177,7 +177,9 @@ Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 - `src` - źródło obrazu
 - `alt` - tekst alternatywny - pokazuje się w razie problemów z wyświetleniem.
 
-#### DIV `<div>`
+#### Organizacja rzeczy na stronie
+
+##### DIV `<div>`
 
 [div](https://developer.mozilla.org/pl/docs/Web/HTML/Element/div) - jest to element który nie robi nic. Służy on jako kontener, dzięki któremu można łatwo podzielić i pogrupować elementy.
 
@@ -193,11 +195,25 @@ pole tekstowe i przycisk (bez JS-a bezuzyteczne)
 <input type="text" placeholder="Domyślny tekst" />
 <button>GIT!</button>
 
+##### SPAN `<span>`
+
+Tak jak `<div>` nie robi nic, po prostu pozwala łatwo zapanować nad elementami tekstu.
+
+```html
+<h1>
+  słowo
+  <span class="highlight">ważne słowo</span>
+  Kolejne słowo<br />
+</h1>
+```
+
+Możemy w ten sposób łatwo zarządzać jakimiś fragmentami tekstu przypisując je np do klas.
+
 ## Przekierowywanie strony TODO
 
 ## CSS
 
-CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być umieszczonyw pliku html, lub w oddzielnym pliku.
+CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być umieszczony w pliku html, lub w oddzielnym pliku.
 
 ```html
 <html>
@@ -214,7 +230,7 @@ CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być um
 </html>
 ```
 
-Osadzamy to za pomocą linku (ale nie tagoem a - anchor, tylko link)
+Osadzamy to za pomocą linku (ale nie tagiem a - anchor, tylko link)
 
 ```html
  <title>Learning CSS</title>
@@ -224,7 +240,7 @@ Osadzamy to za pomocą linku (ale nie tagoem a - anchor, tylko link)
 
 ### Składnia CSS
 
-Poniżej widać, że przypisujemy dane parametry dla wszystkich elementów należących do tagu `body` tzn do wszystkich elementóœ dziedziczących po nim.
+Poniżej widać, że przypisujemy dane parametry dla wszystkich elementów należących do tagu `body` tzn do wszystkich elementów dziedziczących po nim.
 
 ```css
 body {
@@ -233,9 +249,10 @@ body {
 }
 ```
 
-Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak ammy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.
+Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak mamy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.
 
-**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką ` . `
+**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką ` . `  
+Klasa może być też łączona z typem np `p.moja_klasa` - czyli wszystkie paragrafy należące to tej klasy.
 
 ```html
     <p class="mojaklasa">
@@ -299,6 +316,17 @@ Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.
 
 Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np `padding` dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.
 
+#### Wartości wymiarów
+
+Wszelkie wymiary mogą być opisywane z użyciem dwóch typów [jednostek](https://www.w3schools.com/CSSref/css_units.asp):
+
+- **Bezwzględnych** - `px` `cm` `mm` `in` `pt` (piksele, centymetry, milimetry, cale, punkty etc) - wszystkie te (za wyjątkiem pikseli) skalują się do wymiarów urządzenia
+- **Względnych** - te już są nieco bardziej skomplikowane:
+  - `%` - procent wymiarów rodzica
+  - `vw` `vh` - 1% wysokości lub szerokości okna przeglądarki
+  - `em` - liczone względem rozmiaru fontu elementu (2em to rozmiar 2 razy większy niż obecny font)
+  - inne...
+
 #### Zmienne CSS
 
 [Zmienne CSS](https://developer.mozilla.org/pl/docs/Web/CSS/Using_CSS_custom_properties) mogą zawierać różne wartości dostępne w całym dokumencie.
@@ -335,8 +363,15 @@ roota zostanie przesłonięta przez wartość zadaną w bloku*/
 
 Jest to koncepcja mówiąca, że każdy element strony powinniśmy postrzegać jako prostokąt z zawartością charakteryzujący się takimi właściwościami jak szerokość wysokość etc.
 
-![](./assets/css-box-model.jpg)
+Właściwości te to:
+
+- [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
+- [border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+- [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
+
+![box model](./assets/css-box-model.jpg)
 
 Dodatkowo jest jeszcze **fill area** czyli cała przestrzeń znajdująca się w obrębie granicy (border).
 
-I właśnie te parametry możemy złatwością dostosowywać za pomocą CSS-ów.
+I właśnie te parametry możemy z łatwością dostosowywać za pomocą CSS-ów.
+
