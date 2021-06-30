@@ -151,3 +151,39 @@ document.addEventListener('keydown', function (e) {
 });
 //keydown { target: body, key: "Escape", charCode: 0, keyCode: 27 }
 ```
+
+## Co można znaleźć w DOM-ie
+
+### Właściwości globalne
+
+[Window](https://developer.mozilla.org/en-US/docs/Web/API/Window/window) jest globalnym obiektem [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window).  
+W pewnym sensie to z jego wnętrza operujemy, bo `window.window.pageYOffset` zwraca to samo co `pageYOffset`.
+Z jego pomocą można łatwo ustalić jego wymiary, obecne położenie na stronie i tym podobne.  
+
+
+Przykładowe właściwości i metody obiektu window:
+
+- `pageYOffset` `pageXOffset` - obecne położenie (tylko odczyt), czyli o ile pikseli przewinęliśmy
+
+Warto także pamiętać o takich obiektach jak `document` oraz `screen` (zawiera informacje na temat wymiarów ekranu itp).
+
+### Metody dla elementów
+
+Przydatne metody dla klasy bazowej [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
+
+- [scrollTo(x,y)](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo), [scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) - ten drugi nieco nowszy
+
+### Przydatne właściwości elementów
+
+**Wymiary i położenie**
+
+```js
+element.getBoundingClientRect();
+```
+
+zwróci
+
+```json
+DOMRect { x: 30, y: -1054.9000244140625, width: 115.69999694824219, height: 28.79998779296875, top: -1054.9000244140625, right: 145.6999969482422, bottom: -1026.1000366210938, left: 30 }
+```
+wartości `x` oraz `y` pokazują położenie względem lewej i góry okna (viewport-u, nie strony), to znaczy, że mogą się zmieniać wraz z przewijaniem.
