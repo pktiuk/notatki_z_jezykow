@@ -421,12 +421,14 @@ Pola klasy – specyfikatory
 - `volatile` – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków
 
 **Dostęp do pól**
-| Specyfikator Dostępu | Klasa              | Klasa Pochodna      | Klasy z tego samego pakietu | Wszystkie klasy    |
-| -------------------- | ------------------ | ------------------- | --------------------------- | ------------------ |
-| private              | :heavy_check_mark: |                     |                             |                    |
-| protected            | :heavy_check_mark: | :heavy_check_mark:* | :heavy_check_mark:          |                    |
-| public               | :heavy_check_mark: | :heavy_check_mark:  | :heavy_check_mark:          | :heavy_check_mark: |
-| (package)            | :heavy_check_mark: |                     | :heavy_check_mark:          |                    |
+
+|Specyfikator Dostępu|Klasa  |Klasa Pochodna|Klasy z tego samego pakietu|Wszystkie klasy|
+|--------------------|-------|--------------|---------------------------|---------------|
+|    private         |   ✔️   |              |                           |               |
+|    protected       |   ✔️   |      ✔️       |              ✔️            |               |
+|    public          |   ✔️   |      ✔️       |              ✔️            |       ✔️       |
+|    (package)       |   ✔️   |              |              ✔️            |               |
+
 *Tylko przy odwołaniu niejawnym do pól klasy bazowej
 
 Pole i metoda jednej klasy mogą nosić taką samą nazwę:
