@@ -1,5 +1,50 @@
 # Zbiór informacji o C++
 
+## Przekazywanie argumentów do funkcji
+
+W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.
+
+
+- poprzez **kopię** - w domyślnym wypadku do naszej funkcji przekazywana jest kopia naszego obiektu.  
+O ile to nie jest problem przy liczbach to przy większych obiektach to to może być już problem.  
+- poprzez **wskaźnik** - jest to opcja zalecana bardziej przy kodzie napisanym w czystym C, czy też w wypadku, gdy chcemy sobie zastrzec możliwość przekazania pustego wskaźnika.
+- poprzez **referencję** - jest to sposób zbliżony do wskaźnika, do funkcji przekazujemy referencję do naszego obiektu.
+
+```cpp
+class Klasa
+{
+private:
+    /* data */
+public:
+    Klasa(/* args */)
+    {
+        std::cout << "Wołanie konstruktora\n";
+    }
+
+    Klasa(const Klasa& other)
+    {
+        std::cout << "Wołanie konstruktora kopiującego\n";
+    }
+};
+
+void funkcja_zwykla(Klasa k) {}
+void funkcja_pointer(Klasa *k) {}
+void funkcja_referencja(Klasa &k) {}
+
+int main()
+{
+    Klasa k = Klasa();
+    std::cout << "funkcja_zwykla:\n";
+    funkcja_zwykla(k);
+    std::cout << "funkcja_pointer:\n";
+    funkcja_pointer(&k);
+    std::cout << "funkcja_referencja:\n";
+    funkcja_referencja(k);
+}
+```
+
+W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.  
+Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
 
 ## Templatki
 
@@ -73,3 +118,7 @@ Składnia lambdy:
     return a * 0.5f;
 }
 ```
+
+## Słowa kluczowe
+
+explicit TODO
