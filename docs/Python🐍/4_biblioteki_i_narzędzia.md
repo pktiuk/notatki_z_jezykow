@@ -96,9 +96,33 @@ python -m http.server 8888
 
 jest to dość duża zabawka
 
+### Flask
+
+Jeden z mikroframeworków, pozwala dość szybko napisać jakąś aplikację REST-ową.
+
+```python
+from flask import Flask, request, response
+
+app = Flask(__name__)
+
+@app.route('/', methods=["GET", "POST"])
+def hello_world():
+    if request.method == "GET":
+        return "Hello"
+
+    if request.method == "POST":
+        return "you posted something"
+
+if __name__ == '__main__':
+    app.run()
+__main__':
+   app.run()
+```
+
 ### Bottle
 
-Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku)
+Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku).  
+Podobna do flaska.
 
 ```python
 from bottle import route,run,template
