@@ -713,6 +713,28 @@ class Myclass:
         return token
 ```
 
+### Statyczne pola funkcji
+
+Odpowiednikiem zmiennych typu `static` wewnątrz funkcji jest pole funkcji. [źródło](https://stackoverflow.com/questions/279561/what-is-the-python-equivalent-of-static-variables-inside-a-function)
+
+```python
+def myfunc():
+  myfunc.counter += 1
+  print myfunc.counter
+
+# atrybut musi być gdzieś zainicjalizowany
+myfunc.counter = 0
+```
+
+Można też dodać atrybut w ten sposób:
+
+```python
+def myfunc():
+  if not hasattr(myfunc, "counter"):
+     myfunc.counter = 0  # it doesn't exist yet, so initialize it
+  myfunc.counter += 1
+```
+
 ## Obiektówka
 
 ### Obiekt
