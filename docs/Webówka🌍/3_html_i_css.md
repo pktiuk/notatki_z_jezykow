@@ -12,12 +12,12 @@ Składa się z serii znaczników (**tagów**), których używa się do zamknięc
 Podstawową strukturą jest element.
 
 ![](./assets/budowa_paragrafu.png)
-Mamy tutaj:  
+Mamy tutaj:
 
 - Tag otwierający
 - Tag zamykający
 - Zawartość  
-Razem tworzą one nasz element
+  Razem tworzą one nasz element
 
 Elementy mogą zawierać także atrybuty
 
@@ -48,7 +48,7 @@ Elementy mogą być też **puste** - gdy nie zawierają żadnej treści.
 Nie muszą wtedy mieć tagu zamykającego.
 
 ```html
-<img src="images/firefox-icon.png" alt="My test image">
+<img src="images/firefox-icon.png" alt="My test image" />
 ```
 
 ### Struktura plików
@@ -59,11 +59,11 @@ Całość zawsze jest zawarta w tagach HTML.
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>My test page</title>
   </head>
   <body>
-    <img src="images/firefox-icon.png" alt="My test image">
+    <img src="images/firefox-icon.png" alt="My test image" />
   </body>
 </html>
 ```
@@ -76,7 +76,6 @@ Opisy elementów:
 - `<body>` - element [body](https://developer.mozilla.org/pl/docs/Web/HTML/Element/body). Zawiera onczęść właściwą strony, czyli jej zawartość.
 - `<meta charset="utf-8">` - reprezentuje metadane, które nie mogą być reprezentowane przez inne elementy związane z metadanymi w HTML. Tutaj ustawia zestaw znaków.
 - `<title>` - Ustawia tytuł strony, który jest tytułem wyświetlanym na karcie przeglądarki
-
 
 ### Przykładowe elementy i tagi
 
@@ -106,13 +105,14 @@ Paragrafy (`<p>`) służą do dzielenia tekstu na paragrafy
 ```html
 <p>This is a single paragraph</p>
 
-<b>Tekst pogrubiony</b> <!-- Jest to markup fizyczny alternatywą logiczną jest znacznik <strong> -->
-
+<b>Tekst pogrubiony</b>
+<!-- Jest to markup fizyczny alternatywą logiczną jest znacznik <strong> -->
 
 <i>tekst kursywą</i>
 <code>Tekst czcionką programistyczną</code>
 
-<br> <!-- Znak nowej linii -->
+<br />
+<!-- Znak nowej linii -->
 ```
 
 ##### Lista `<ul>` `<ol>`
@@ -147,15 +147,15 @@ Aby utworzyć odnośnik musimy użyć prostego elementu — [a](https://develope
 <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
 ```
 
-- href (hypertext reference) - link (może to być link nie tylko do innej strony, lecz także do elementu  tej samej strony)
+- href (hypertext reference) - link (może to być link nie tylko do innej strony, lecz także do elementu tej samej strony)
 
 ```html
 <a href="#section--1">Sekcja 1</a>
 <!-- .... -->
 
-
 <section class="section" id="section--1">
-<!-- Tu nas przeniesie kliknięcie -->
+  <!-- Tu nas przeniesie kliknięcie -->
+</section>
 ```
 
 Jeśli nasz link będzie prowadził do `#` to zostaniemy przeniesieni na początek strony.
@@ -171,7 +171,7 @@ Możemy też łatwo tworzyć własne kotwice
 Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
 
 ```html
- <img src="images/firefox-icon.png" alt="My test image">
+<img src="images/firefox-icon.png" alt="My test image" />
 ```
 
 - `src` - źródło obrazu
@@ -188,8 +188,7 @@ Używamy do tego tagu [img](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 pole tekstowe i przycisk (bez JS-a bezuzyteczne)
 
 ```html
-<input type="text" placeholder="Domyślny tekst" />
-<button>GIT!</button>
+<input type="text" placeholder="Domyślny tekst" /> <button>GIT!</button>
 ```
 
 <input type="text" placeholder="Domyślny tekst" />
@@ -217,16 +216,16 @@ CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być um
 
 ```html
 <html>
-<head>
- <title>Learning CSS</title>
-<style>
-    body {
+  <head>
+    <title>Learning CSS</title>
+    <style>
+      body {
         background-color: green;
-    }
-</style>
-</head>
+      }
+    </style>
+  </head>
 
-<body></body>
+  <body></body>
 </html>
 ```
 
@@ -236,6 +235,12 @@ Osadzamy to za pomocą linku (ale nie tagiem a - anchor, tylko link)
  <title>Learning CSS</title>
 <link href="style.css" rel="stylesheet">
 </head>
+```
+
+Możemy też przypisać dany styl do poszczególnych elementów
+
+```html
+<div style="display: flex; flex-direction: column"></div>
 ```
 
 ### Składnia CSS
@@ -251,13 +256,11 @@ body {
 
 Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak mamy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.
 
-**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką ` . `  
+**Klasa** - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką `.`  
 Klasa może być też łączona z typem np `p.moja_klasa` - czyli wszystkie paragrafy należące to tej klasy.
 
 ```html
-    <p class="mojaklasa">
-      Przykładowa klasa
-    </p>
+<p class="mojaklasa">Przykładowa klasa</p>
 ```
 
 ```css
@@ -269,15 +272,13 @@ Klasa może być też łączona z typem np `p.moja_klasa` - czyli wszystkie para
 **ID** - tutaj zamiast kropki używamy `#`
 
 ```html
-    <p id="moj_paragraf">
-      Przykładowa klasa
-    </p>
+<p id="moj_paragraf">Przykładowa klasa</p>
 ```
 
 ```css
 #moj_paragraf {
   color: green;
-  border: 5px solid black
+  border: 5px solid black;
 }
 ```
 
@@ -343,7 +344,9 @@ Wszelkie wymiary mogą być opisywane z użyciem dwóch typów [jednostek](https
 
 .jeden {
   color: white;
-  background-color: var(--glowny-kolor-tla);/* przy użyciu musi być to umieszczone w var()*/
+  background-color: var(
+    --glowny-kolor-tla
+  ); /* przy użyciu musi być to umieszczone w var()*/
 }
 /*Jeśli element .jeden znajdzie się wewnątrz elementu .blok, wtedy wartość zmiennej z
 roota zostanie przesłonięta przez wartość zadaną w bloku*/
@@ -351,11 +354,11 @@ roota zostanie przesłonięta przez wartość zadaną w bloku*/
 
 #### Użyteczne wartości
 
- - [opacity](https://developer.mozilla.org/pl/docs/Web/CSS/opacity) - przezroczystość określana od 0 do 1 (przydatna do chowania i pokazywania elementów)
- - [display](https://www.w3schools.com/CSSref/pr_class_display.asp) - sposób w jaki sposób powinny być ułożone elementy w danym pojemniku. Przykładowe wartości:
-   - `none` - elementy nie będą renderowane
-   - `inline` - elementy będą ułożone w linii
-   - `flex`
+- [opacity](https://developer.mozilla.org/pl/docs/Web/CSS/opacity) - przezroczystość określana od 0 do 1 (przydatna do chowania i pokazywania elementów)
+- [display](https://www.w3schools.com/CSSref/pr_class_display.asp) - sposób w jaki sposób powinny być ułożone elementy w danym pojemniku. Przykładowe wartości:
+  - `none` - elementy nie będą renderowane
+  - `inline` - elementy będą ułożone w linii
+  - `flex`
 
 //TODO opisz dokładniej display
 
@@ -374,4 +377,3 @@ Właściwości te to:
 Dodatkowo jest jeszcze **fill area** czyli cała przestrzeń znajdująca się w obrębie granicy (border).
 
 I właśnie te parametry możemy z łatwością dostosowywać za pomocą CSS-ów.
-
