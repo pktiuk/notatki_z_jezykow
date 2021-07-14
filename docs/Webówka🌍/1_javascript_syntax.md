@@ -1,4 +1,3 @@
-
 # Javascript Syntax
 
 ## Osadzanie skryptu w HTML-u
@@ -9,32 +8,30 @@ W praktyce skrypty można tak pisać, ale nie jest to wygodne, dlatego używa si
 ```html
 <script src="plik_ze_sryptem.js"></script>
 
-
 <script>
-////Tutaj skrypty
+  ////Tutaj skrypty
 </script>
-
 ```
 
 ## Zmienne
 
 !!! warning
-    Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (`new` `function` `class` etc)
+Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (`new` `function` `class` etc)
 
 ```js
 /* let 3liczba = 43; */
 /* let function = 3; */
-let $function =43 ; // ale za to $ jest dozwolony jako znak
+let $function = 43; // ale za to $ jest dozwolony jako znak
 ```
 
 ### Typy zmiennych
 
 Warto pamiętać, że JS ma dynamiczne typowanie, czyli nie musimy definiować typów zmiennych, ponieważ to jest sprawdzane dynamicznie w trakcie pracy.  
-Poza tym możemy nadpisywać zmienne innymi typami.  
+Poza tym możemy nadpisywać zmienne innymi typami.
 
 ```js
 let mojaZmienna = 43;
-mojaZmienna = "teraz slowo"
+mojaZmienna = "teraz slowo";
 ```
 
 Zalecane formatowanie dla zmiennych to `camelCase`.
@@ -58,7 +55,6 @@ let jeszczeNieOkreslone;
 let nic = null;
 
 // Symbol (ES2015) - unikatowa wartość, której nie można zmienić
-
 ```
 
 Dla sprawdzania typów ożywamy operatora `typeof`
@@ -119,7 +115,7 @@ tablica.length;
 tablica.push(10); //teraz tablica zawiera 10
 // 1 - zwraca ona nową długośż naszej tablicy
 
-tablica.unshift(0) //tobi to samo co pop, tylko dodaje na początek
+tablica.unshift(0); //tobi to samo co pop, tylko dodaje na początek
 
 tablica.pop(); //a po tej operacji jest znowu pusta
 // 10 - zwraca wartość z końca tablicy
@@ -135,12 +131,10 @@ inna.includes("trzeci");
 **Iterowanie po tablicach**
 
 ```js
-const lista = ["a", "b", "c",];
-for (const [num, elem] of lista.entries())
-{
-      console.log(`Indeks: ${num} Zawartosc: ${elem}`);
+const lista = ["a", "b", "c"];
+for (const [num, elem] of lista.entries()) {
+  console.log(`Indeks: ${num} Zawartosc: ${elem}`);
 }
-
 ```
 
 #### Sposoby definiowania
@@ -186,7 +180,7 @@ Typy operatorów:
 - Boolowskie
   - porównania: `>` `>=` `<` `<=` `==` `!=` `===`
   - logiczne `&&` `||` `!`
-- trójargumentowy ` ? : `
+- trójargumentowy `? :`
 
 Kolejność operatorów jest taka jak w matematyce.
 
@@ -194,14 +188,14 @@ Kolejność operatorów jest taka jak w matematyce.
 
 Istnieją dwa operatory równości:
 
-- `===` - ścisły -  zwraca prawdę tylko i wyłącznie wtedy, gdy obie strony są takie same, nie bawi się w żadne konwersje etc.
+- `===` - ścisły - zwraca prawdę tylko i wyłącznie wtedy, gdy obie strony są takie same, nie bawi się w żadne konwersje etc.
 - `==` - jest nieco luźniejszy, pozwala sobie na konwersje pomiędzy typami jeśli wartości są różnych typów, poza tym ma inne "pomagające" mechanizmy, które w dłuższej prespektywie mogą powodować więcej błędów. (jeśli się da używaj `===`)
 
 ```js
-19 === "19"
+19 === "19";
 // false
 
-19 == "19"
+19 == "19";
 // true
 ```
 
@@ -228,7 +222,7 @@ a;
 //>NaN
 
 typeof a; // Co ciekawe ten typ jest wciąż numerem
-"number"
+("number");
 ```
 
 Poza tym warto uważać na sprytną konwersję typów np przy printowaniu.  
@@ -264,7 +258,7 @@ Pozostałe konwertują się na wartość `true`
 ### Printowanie
 
 ```js
-console.log("Wiadomosc1" , 323);
+console.log("Wiadomosc1", 323);
 //> Wiadomosc1 323
 
 // aby wypisać wiadomośc można klasycznie połączyć stringi
@@ -280,8 +274,10 @@ console.log(wiadomosc2);
 Ogólnie to obecnie ten drugi sposób definiowania jest wygodniejszy
 
 ```js
-console.log('Wiele\n\
-linii w kodzie');
+console.log(
+  "Wiele\n\
+linii w kodzie"
+);
 
 //VS
 
@@ -296,18 +292,14 @@ Syntax warunków jest zbliżony do C++
 ```js
 const wiek = prompt("podaj wiek"); //pojawi się okno z pytaniem
 
-if (wiek >= 18)
-{
-    console.log("Pełnoletni");
-}else
-{
-    console.log("Niepełnoletni");
+if (wiek >= 18) {
+  console.log("Pełnoletni");
+} else {
+  console.log("Niepełnoletni");
 }
 
-if (true)
-      console.log("Nie");
-else
-      console.log("Tak");
+if (true) console.log("Nie");
+else console.log("Tak");
 
 if (true) console.log("True to prawda");
 ```
@@ -316,22 +308,22 @@ Mamy też tu switcha
 
 ```js
 switch (key) {
-      case value:
-            fun1();
-            fun2();
-            break;
+  case value:
+    fun1();
+    fun2();
+    break;
 
-      case value2:
-      case value3:// dla tych dwóch wartości będzie się dziać to samo
-            fun3();
-            break;
+  case value2:
+  case value3: // dla tych dwóch wartości będzie się dziać to samo
+    fun3();
+    break;
 
-      default:
-            break;
+  default:
+    break;
 }
 ```
 
-Jest też operator trójargumentowy ` ? : `
+Jest też operator trójargumentowy `? :`
 
 ```js
 wiek >= 18 ? console.log("Dorosły") : log.console("Nie Dorosły");
@@ -344,31 +336,30 @@ console.log(wiek >= 18 ? "Dorosły" : "Nie Dorosły");
 Nic ciekawego mamy 2 zwykłe typy pętli, `for` i `while`.
 
 ```js
-for(let num=0;num <10;num++)
-{
-      if(num===5) continue; //ale skipujemy dla 5
-     console.log(`Printujemy po raz ${num+1}`) 
+for (let num = 0; num < 10; num++) {
+  if (num === 5) continue; //ale skipujemy dla 5
+  console.log(`Printujemy po raz ${num + 1}`);
 }
 
-while(true)
-{
-      //nigdy nie kończąca się pętla
-      break; //no chyba, że użyję break
+while (true) {
+  //nigdy nie kończąca się pętla
+  break; //no chyba, że użyję break
 }
 ```
 
 Poza tym mamy jeszcze forEach w dwóch wariantach.
 
 ```js
-const tablica = [0,11,22,33,44];
+const tablica = [0, 11, 22, 33, 44];
 
-for (const i of tablica)
-{
-      console.log(i);
+for (const i of tablica) {
+  console.log(i);
 }
 
 // Metoda forEach
-tablica.forEach(function(i){console.log(i);});
+tablica.forEach(function (i) {
+  console.log(i);
+});
 ```
 
 ## Funkcje
@@ -377,25 +368,21 @@ Definiujemy je używając słowa kluczowego `function`.
 Także są na ogół formatowane jako `camelCase`.
 
 !!! warning
-    Niestety JS **nie wspiera** przeciążania funkcji.
+Niestety JS **nie wspiera** przeciążania funkcji.
 
 Poniżej zwykłe deklaracje funkcji (function declaration).
 
 ```js
-function printHello()
-{
-      console.log("Hello");
+function printHello() {
+  console.log("Hello");
 }
 
 printHello();
 // Hello
 
-function isApple(fruit)
-{
-      if ( fruit == "apple")
-            return true;
-      else
-            return false;
+function isApple(fruit) {
+  if (fruit == "apple") return true;
+  else return false;
 }
 ```
 
@@ -405,7 +392,7 @@ Co ciekawe nie wysypią się one nawet gdy damy im złą ilość argumentów
 printHello(23);
 // Hello
 
-isApple("apple",43);
+isApple("apple", 43);
 // true
 
 isApple();
@@ -418,8 +405,8 @@ Tym określeniem określamy funkcje, które są przechowywane w zmiennych. Okre�
 
 ```js
 let myFun = function () {
-      lonsole.log("HelloFun");
-}
+  lonsole.log("HelloFun");
+};
 
 myFun();
 // HelloFun
@@ -431,15 +418,15 @@ Funkcje strzałkowe (arrow functions) to po prostu inny format funkcji przypomin
 Pozwala na krótszy zapis funkcji.
 
 ```js
-const arrowFun = value => value+12;
+const arrowFun = (value) => value + 12;
 
 arrowFun(10);
 // 22
 
-const arrowFunMultiline = imie => {
-      console.log(`imie to ${imie}`);
-      return imie;
-}
+const arrowFunMultiline = (imie) => {
+  console.log(`imie to ${imie}`);
+  return imie;
+};
 
 arrowFunMultiline("Jan");
 // imie to Jan
@@ -456,14 +443,14 @@ Obiekty tutaj wydają się nieco zbliżone do typowych słowników.
 
 ```js
 const osoba = {
-      imie: "Marian",
-      nazwisko: "Nowak",
-      ur: 1999,
+  imie: "Marian",
+  nazwisko: "Nowak",
+  ur: 1999,
 
-      getAge: function () {
-            return 2021 - this.ur;
-      },
-}
+  getAge: function () {
+    return 2021 - this.ur;
+  },
+};
 ```
 
 Poszczególne elementy powinny być oddzielone przecinkami.  
@@ -481,7 +468,7 @@ osoba["imie"];
 // Możemy tutaj też łątwo edytować pola w klasie
 osoba.drugie_imie = "Zbigniew";
 
-osoba
+osoba;
 // Object { imie: "Marian", nazwisko: "Nowak", wiek: 25, drugie_imie: "Zbigniew" }
 
 osoba.getAge();
@@ -493,12 +480,13 @@ osoba.getAge();
 Aby zapobiec marnowaniu czasu niektóre funkcje w JS-ie zostały zaimplementowane asynchronicznie.
 
 ```js
-const img =document.querySelector('.dog');
+const img = document.querySelector(".dog");
 img.src = "dog.jpg"; // I właśnie to wczytywanie będzie asynchroniczne
 
 //Jak już się wczyta to odpalony zostanie ten event
-img.addEventListener('load', function() {console.log("Wczytano");});
-
+img.addEventListener("load", function () {
+  console.log("Wczytano");
+});
 ```
 
 ### AJAX
@@ -511,28 +499,24 @@ Wcześniej używało się do tego XMLHttpRequest.
 
 ```js
 const request = new XMLHttpRequest();
-request.open('GET','https://restcountries.eu/rest/v2/name/poland');
+request.open("GET", "https://restcountries.eu/rest/v2/name/poland");
 wynik = request.send();
 
-
-
 var polska;
-request.addEventListener('load',() =>{
-      console.log(this.responseText);
-//po otrzymaniu wyświetli nam się cały surowy tekst JSONa,
-//który trzeba przekształcić w jakiś sensowny obiekt
-      [polska] = JSON.parse(this.responseText);
-      //json parse zwraca listę obiektów, więc bierzemy tylko pierwszy
-      })
-
+request.addEventListener("load", () => {
+  console.log(this.responseText);
+  //po otrzymaniu wyświetli nam się cały surowy tekst JSONa,
+  //który trzeba przekształcić w jakiś sensowny obiekt
+  [polska] = JSON.parse(this.responseText);
+  //json parse zwraca listę obiektów, więc bierzemy tylko pierwszy
+});
 ```
 
 Jednak obecnie ta metoda jest przestarzała i zamiast tego używa się fetch, które zwraca nam Obietnicę (promise). Jest to tymczasowy obiekt w którym znajdziemy wynik operacji asynchronicznej jak już się wykona.  
 Dzięki takiemu podejściu nie musimy polegać na callbackach, które mogą być problematyczne.
 
 ```js
-const promise = fetch('https://restcountries.eu/rest/v2/name/poland');
-
+const promise = fetch("https://restcountries.eu/rest/v2/name/poland");
 ```
 
 Taka obietnica po zakończeniu zadania może zmienić swój stan na spełnioną, lub odrzuconą.  
@@ -540,11 +524,10 @@ Jak już została wykonana to możemy ją skonsumować.
 Do tego warto używać metody `then` do której przekazujemy co ma zostać zrobione z otrzymanymi danymi.
 
 ```js
-
-fetch('https://restcountries.eu/rest/v2/name/poland').then(function(response){
-      console.log(response);//wypisze nam całą klasę odpowiedzi z kodem statusu etc
-      const new_promise = response.json(); //zwraca sparsowany obiekt, ale jest też kolejną obietnicą
-})
+fetch("https://restcountries.eu/rest/v2/name/poland").then(function (response) {
+  console.log(response); //wypisze nam całą klasę odpowiedzi z kodem statusu etc
+  const new_promise = response.json(); //zwraca sparsowany obiekt, ale jest też kolejną obietnicą
+});
 ```
 
 Używając tych mechanizmów można łatwo łączyć wiele żądań w ciągi.
@@ -552,9 +535,56 @@ Używając tych mechanizmów można łatwo łączyć wiele żądań w ciągi.
 ```js
 const getCountryData = function (country) {
   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-    .then(response => {response.json();}) //po otrzymaniu odpowiedzi parsujemy ją asynchronicznie
-    .then(data => { console.log(data); }); //po sparsowaniu w końcu możemy ją wyświetlić
+    .then((response) => {
+      response.json();
+    }) //po otrzymaniu odpowiedzi parsujemy ją asynchronicznie
+    .then((data) => {
+      console.log(data);
+    }); //po sparsowaniu w końcu możemy ją wyświetlić
 };
 ```
 
 Mamy tu jedno żądanie, które po wykonaniu ma zwrócić kolejną obietnicę, która po spełnieniu ma nam wyświetlić sparsowany wynik.
+
+#### Wysyłanie żądań z zawartością
+
+Wysyłanie żądania zawierającego JSONa
+
+Stary sposób:
+
+```js
+let xhr = new XMLHttpRequest();
+let url = "https://httpbin.org/post";
+
+xhr.open("POST", url, true); //true mówi, że ma być asynchronicznie
+xhr.setRequestHeader("Content-Type", "application/json"); //kiedy jsona trzeba określić jaki to typ zawartości
+xhr.onreadystatechange = function () {
+  console.log("Jest git");
+  console.log(this.responseText);
+};
+var data = JSON.stringify({ imie: "Jan", wiek: 12 });
+xhr.send(data);
+```
+
+Nowy sposób:
+
+```js
+fetch("https://httpbin.org/post", {
+  method: "post",
+  headers: {
+    Accept: "application/json, text/plain",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ imie: "Jan", wiek: 12 }),
+})
+  .then((res) => res.json())
+  .then((res) => console.log(res));
+```
+
+Tutaj drugim argumentam fetcha jest odpowiednik obiektu [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request).
+
+Warto zwrócić tu uwagę na pola:
+
+- `method` - określa typ żądania
+- `headers` - mamy tutaj typowe nagłówki http [lista](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), za ich pomocą ustalamy np jaki typ danych wysyłamy (`Content-Type`), czy też jakie dane jesteśmy w stanie przyjąć (`Accept`).
+- `body` - już samo ciało żądania, tutaj warto pamiętać, że najczęściej wysyłamy je w postaci stringa
