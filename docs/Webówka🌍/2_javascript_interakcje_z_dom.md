@@ -1,9 +1,9 @@
 # Javascript DOM - Interakcje i właściwości
 
 DOM (Document Object Model) -ustrukturyzowana reprezentacja dokumentów HTML.  
-Pozwala Javascriptowi na dostęp do jego elementów i manipulowanie nimi (zmiana stylu, tekstu, czy też stylu CSS).  
+Pozwala Javascriptowi na dostęp do jego elementów i manipulowanie nimi (zmiana stylu, tekstu, czy też stylu CSS).
 
-Jest to drzewiasta struktura łącząca elementy rodziców z ich dziećmi.  
+Jest to drzewiasta struktura łącząca elementy rodziców z ich dziećmi.
 
 ![Drzewo DOM](https://www.guru99.com/images/JavaScript/javascript8_1.png)
 
@@ -13,28 +13,28 @@ Do manipulacji elementami zawartymi w dokumencie HTML wystarczy użyć metody `d
 
 ## Manipulacja elementami strony
 
-W praktyce 
+W praktyce
 
 ```js
-document.querySelector('.message'); 
-//W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id 
+document.querySelector(".message");
+//W nawiasie podajemy jego identyfikator, analogicznie jak w CSS-ie .klasa lub #id
 
-document.querySelector('.message').textContent;
+document.querySelector(".message").textContent;
 //"Wiadomość"
-document.querySelector('.message').textContent="Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
+document.querySelector(".message").textContent = "Nowa wiadomość"; // w tym momencie zmieni się tekst zawarty w tym elemencie
 ```
 
 ### Znajdowanie elementów
 
 ```js
-document.querySelector('.message');  //szuka po nazwie i zwraca pierwszy pasujący
-document.querySelectorAll('.message'); //jak wyżej, tylko zwraca listę wszystkich elementów
+document.querySelector(".message"); //szuka po nazwie i zwraca pierwszy pasujący
+document.querySelectorAll(".message"); //jak wyżej, tylko zwraca listę wszystkich elementów
 
 document.documentElement; //zwraca nam całe drzewo dokumentu
 document.body; //analogicznie
 document.head;
 
-document.getElementById('element1'); // zwraca nam element po ID (bez potrzeby używania krokek, czy haszów przy nazwach)
+document.getElementById("element1"); // zwraca nam element po ID (bez potrzeby używania krokek, czy haszów przy nazwach)
 document.getElementsByTagName("button"); //Elements - czyli zwróci nam listę elementów typu button
 document.getElementsByClassName("moja_klasa");
 ```
@@ -53,7 +53,7 @@ element.insertAdjacentHTML(position, text);
 - 'beforebegin': przed element -em.
 - 'afterbegin': W środku element-u przed jego pierwszym dzieckiem.
 - 'beforeend': W środku elementu po jego ostatnim dziecku.
-- 'afterend': Po element-cie 
+- 'afterend': Po element-cie
 
 Odpowiadają one takim wstawienion:
 
@@ -70,14 +70,12 @@ Odpowiadają one takim wstawienion:
 Stworzenie elementu (którego jeszcze nie dodajemy do naszego DOM-a)
 
 ```js
-const my_element = document.createElement('div'); //to co dostaliśmy zachowuje się jak każdy element zdobyty za pomocą np query selectora
+const my_element = document.createElement("div"); //to co dostaliśmy zachowuje się jak każdy element zdobyty za pomocą np query selectora
 
-
-document.body.prepend(my_element); //po wstawieniu naszego elementu do dokumentu nasz obiekt może być nadal używany 
+document.body.prepend(my_element); //po wstawieniu naszego elementu do dokumentu nasz obiekt może być nadal używany
 //możemy np zmienić położenie naszego elementu
 document.body.append(my_element); // przeniesie to nasz element bo może istnieć tylko jedna instancja obiektu w DOM-ie
 // jesli chcemy kopiować to trzeba użyć .cloneNode(true)
-
 
 my_element.remove(); // usuwa ten element
 ```
@@ -85,10 +83,11 @@ my_element.remove(); // usuwa ten element
 ### Edycja elementu
 
 ```js
+my_element.classList.add("my-created-class");
+my_element.textContent = "Trochę tekstu";
 
-my_element.classList.add('my-created-class');
-my_element.textContent ="Trochę tekstu";
-my_element.innerHTML ="<h1>Trochę tekstu tylko inaczej</h1>";
+// Ten jest chyba najbardziej uniwersalny przy prostych zastosowaniach
+my_element.innerHTML = "<h1>Trochę tekstu tylko inaczej</h1>";
 
 // zmiana atrybutów elementów
 my_element.color = "green"; // dla standardowych możemy się do nich dostać przez pole w klasie
@@ -114,14 +113,14 @@ body {
 Trzeba tylko pamiętać, że wszystkie zmienne wewnątrz stylów (także liczby) muszą być podawane jako stringi.
 
 ```js
-document.querySelector('body').style.backgroundColor = '#60b347';
+document.querySelector("body").style.backgroundColor = "#60b347";
 ```
 
 Należy pamiętać o tym, że pobierając style w sposób pokazany powyżej pobieramy tylko style określonych elementów.
 
 ```js
-const bt =document.querySelector('#my-btn');
-bt.style.width; //to zwróci nam wartość tylko i wyłącznie wtedy, gdy dany przycisk miał to zapisane bezpośrednio 
+const bt = document.querySelector("#my-btn");
+bt.style.width; //to zwróci nam wartość tylko i wyłącznie wtedy, gdy dany przycisk miał to zapisane bezpośrednio
 // (nie np gdy ta wartość jest dziedziczona po klasie, typie, albo jest zapisana w pliku CSS)
 
 getComputedStyle(bt).color; // to nam zawsze zwróci jakąś wartość
@@ -130,7 +129,7 @@ getComputedStyle(bt).color; // to nam zawsze zwróci jakąś wartość
 Podobnie możemy manipulować zmiennymi CSSowymi
 
 ```js
-document.documentElement.style.setProperty('--background-color', "red");
+document.documentElement.style.setProperty("--background-color", "red");
 ```
 
 ## Odbieranie zdarzeń
@@ -138,15 +137,15 @@ document.documentElement.style.setProperty('--background-color', "red");
 Aby odbierać zdarzenia z elementów wystarczy dodać funkcję będącą callbackiem dla danego wydarzenia powiązanego z tym elementem.
 
 ```js
-document.querySelector('.myButton').addEventListener('click', function () {
-    console.log("pressed button");
+document.querySelector(".myButton").addEventListener("click", function () {
+  console.log("pressed button");
 });
 ```
 
 Warto pamiętać, że możemy odbierać zdarzenia nie tylko z elementów, lecz także z dokumentu jako całości. Np poprzez odbieranie wciśnięć.
 
 ```js
-document.addEventListener('keydown', function (e) {
+document.addEventListener("keydown", function (e) {
   console.log(e);
 });
 //keydown { target: body, key: "Escape", charCode: 0, keyCode: 27 }
@@ -158,8 +157,7 @@ document.addEventListener('keydown', function (e) {
 
 [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window/window) jest globalnym obiektem [Window](https://developer.mozilla.org/en-US/docs/Web/API/Window).  
 W pewnym sensie to z jego wnętrza operujemy, bo `window.window.pageYOffset` zwraca to samo co `pageYOffset`.
-Z jego pomocą można łatwo ustalić jego wymiary, obecne położenie na stronie i tym podobne.  
-
+Z jego pomocą można łatwo ustalić jego wymiary, obecne położenie na stronie i tym podobne.
 
 Przykładowe właściwości i metody obiektu window:
 
@@ -186,4 +184,5 @@ zwróci
 ```json
 DOMRect { x: 30, y: -1054.9000244140625, width: 115.69999694824219, height: 28.79998779296875, top: -1054.9000244140625, right: 145.6999969482422, bottom: -1026.1000366210938, left: 30 }
 ```
+
 wartości `x` oraz `y` pokazują położenie względem lewej i góry okna (viewport-u, nie strony), to znaczy, że mogą się zmieniać wraz z przewijaniem.

@@ -255,6 +255,21 @@ Na ogół działa to fajnie, ale operator `+` może trochę napsuć i być źró
 
 Pozostałe konwertują się na wartość `true`
 
+#### Praca ze stringami
+
+Mamy tutaj standardowe metody do pracy z ciągami znaków, podobne nieco do tych pythonowych.
+
+Mamy:
+
+- `split(separator=" ")`
+- `replace(co,na_co)`, `replaceAll(co,na_co)`
+
+
+```js
+let slowo = "";
+
+```
+
 ### Printowanie
 
 ```js
