@@ -151,6 +151,10 @@ document.addEventListener("keydown", function (e) {
 //keydown { target: body, key: "Escape", charCode: 0, keyCode: 27 }
 ```
 
+Warto wiedzieć, żę w wypadku funkcji wołanych przez zdarzenia mamy w nich dostęp do słowa kluczowego `this` - reprezentuje ono wskaźnik na obiekt, który uruchomił dane wydarzenie.
+
+//TODO przykład
+
 ## Co można znaleźć w DOM-ie
 
 ### Właściwości globalne

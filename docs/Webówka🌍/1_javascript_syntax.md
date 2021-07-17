@@ -264,10 +264,8 @@ Mamy:
 - `split(separator=" ")`
 - `replace(co,na_co)`, `replaceAll(co,na_co)`
 
-
 ```js
 let slowo = "";
-
 ```
 
 ### Printowanie
@@ -451,6 +449,34 @@ const linkNames = (imie, nazwisko) => imie + " " + nazwisko;
 ```
 
 Mają one dość elastyczny zapis, w wypadku jednego argumentu nie musimy używać nawiasów początkowych, podobnie wygląda sytuacja z klamerkami w któ©ych zawieramy nasze funkcje.
+
+Różnią się też nieco implementacją, nie jest dla nich tworzony `this`, ani obiekt `arguments`.
+
+```js
+const fun1 = function () {
+  console.log(this); // undefined
+};
+
+const fun2 = () => {
+  console.log(this); // zwróci globalny obiekt window
+};
+```
+
+### Kolejność (hoisting)
+
+Przy deklarowaniu funkcji nie musimy się martwić kolejnością ich deklaracji, ponieważ ich deklaracje są doczytywane wcześniej (ale na ich użycie musimy poczekać).
+
+```js
+const fun1 = function () {
+  fun2();
+};
+
+const fun2 = function () {
+  console.log("ok");
+};
+
+fun1(); //ale ta już musi być po deklaracji
+```
 
 ## Obiekty
 
