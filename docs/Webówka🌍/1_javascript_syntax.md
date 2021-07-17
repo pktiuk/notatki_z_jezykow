@@ -137,6 +137,22 @@ for (const [num, elem] of lista.entries()) {
 }
 ```
 
+**Rozmontowywanie tablic**
+
+```js
+// tworzymy trzy zmienne (x, y, z), które bęzą zawierać poszczególne elementy
+const [x, y, z] = [1, 2, 3];
+const [, dwa, , cztery] = [1, 2, 3, 4, 5]; //nie musimy brać wszystkich elementów z danej tablicy
+```
+
+Możemy też w ten sposób definiować zmienne domyślne (jeśli w tablicy nie ma danego elementu do domyślnie jest Undefined)
+
+```js
+const [x = 1, , z = 3] = [0, 1];
+```
+
+Ten mechanizm pozwala na łatwe zwracanie wielu elementów z funkcji, podobnie do krotek z pythona.
+
 #### Sposoby definiowania
 
 Jest kilka sposobów na definiowanie zmiennych. Służą do tego słowa kluczowe `let`, `var` i `const`.
@@ -478,6 +494,36 @@ const fun2 = function () {
 fun1(); //ale ta już musi być po deklaracji
 ```
 
+### Zmienne proste vs złożone (kopia vs referencja)
+
+Przy pracy ze zmiennymi warto pamiętać o tym, że jedynie proste typy zmiennych są kopiowane przy przekazywaniu dalej (Number, String, Boolean, Undefined, Null, Symbol, BigInt), w pozostałych przypadkach przekazywana jest referencja.
+
+```js
+let x = 1;
+let y = x;
+y = 2;
+console.log(x);
+// 1
+console.log(y);
+// 2
+
+let d1 = { x: 1 };
+let d2 = d1;
+
+d2.x = 2; //niechcący nadpisaliśmy wartość x obiektu d1
+console.log(d1);
+//{ x: 2 }
+console.log(d2);
+//{ x: 2 }
+```
+
+Aby temu zapobiec można użyć operatora `Object.assign()` - łączy on ze sobą 2 obiekty, wystarczy połączyć nasz z jakimś pustym.  
+Towrzy on jednak tylko płytką kopię.
+
+```js
+let kopia = Object.assign({}, d1);
+```
+
 ## Obiekty
 
 Obiekty tutaj wydają się nieco zbliżone do typowych słowników.
@@ -629,3 +675,7 @@ Warto zwrócić tu uwagę na pola:
 - `method` - określa typ żądania
 - `headers` - mamy tutaj typowe nagłówki http [lista](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), za ich pomocą ustalamy np jaki typ danych wysyłamy (`Content-Type`), czy też jakie dane jesteśmy w stanie przyjąć (`Accept`).
 - `body` - już samo ciało żądania, tutaj warto pamiętać, że najczęściej wysyłamy je w postaci stringa
+
+## Włączanie zewnętrznych bibliotek
+
+TODO
