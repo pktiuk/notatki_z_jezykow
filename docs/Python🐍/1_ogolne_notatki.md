@@ -63,9 +63,9 @@ pobrany_napis = input()
 print("Twój napis to: " + pobrany_napis)
 ```
 
- input() jest funkcją, która pobiera napis podany przez użytkownika ze standardowego wejścia (do entera) zwraca zmienną typu str
+input() jest funkcją, która pobiera napis podany przez użytkownika ze standardowego wejścia (do entera) zwraca zmienną typu str
 
- Dla strumieni:
+Dla strumieni:
 
 ```python
 import sys
@@ -124,8 +124,8 @@ Operatory:
 - mnożenie (`*`)
 - dzielenie (`/`)
 - reszta z dzielenia, modulo (`%`)
-Analogiczne co C operatory `-=`, `*=`, `/=`, `%=`...
-UWAGA! Brak operatorów `++` i `--`
+  Analogiczne co C operatory `-=`, `*=`, `/=`, `%=`...
+  UWAGA! Brak operatorów `++` i `--`
 
 Operatory Logiczne zwracają wartość logiczną (True/False)
 
@@ -135,9 +135,9 @@ Operatory Logiczne zwracają wartość logiczną (True/False)
 - `>=` - większe równe
 - `==` - równa się. Tutaj bardzo ważne jest, aby odróżniać operator przypisania (=) od operatora porównania równa się (==). To bardzo częsty błąd wśród początkujących programistów. Operator = nie jest symetryczny, ma na celu przekopiowanie wartości z prawej do lewej. W niektórych językach zapisuje się go jako <- (ale nie w Pythonie). Operator = nie ma nic wspólnego z wartościami logicznymi. Za to operator == jest operatorem zwracającym wartość logiczną, a co więcej, jest on operatorem symetrycznym (nie ma znaczenia zamienienie kolejnością argumentów).
 - `!=` - nie równa się
-Operator koniunkcji, `and`, utożsamiany z polskim i. Zwraca wartość True wtedy i tylko wtedy, gdy oba argumenty są równe True
-Operator alternatywy, `or`, utożsamiany z polskim lub. Zwraca wartość True wtedy i tylko wtedy, gdy przynajmniej jeden argument jest równy True
-Operator zaprzeczenia, `not`, utożsamiany z polskim nie. Zwraca wartość przeciwną, niż argument
+  Operator koniunkcji, `and`, utożsamiany z polskim i. Zwraca wartość True wtedy i tylko wtedy, gdy oba argumenty są równe True
+  Operator alternatywy, `or`, utożsamiany z polskim lub. Zwraca wartość True wtedy i tylko wtedy, gdy przynajmniej jeden argument jest równy True
+  Operator zaprzeczenia, `not`, utożsamiany z polskim nie. Zwraca wartość przeciwną, niż argument
 
 Można łączyć kilka operatorów np:
 `czy_wiek_produkcyjny = 18 <= wiek <= 65` - w pythonie porównania rozwijane są tak jak w matematyce, czyli np możemy też napisać `2 <= 4 < 8`, co zwróci nam `True`
@@ -648,7 +648,7 @@ print("In main:", c)
 #>In main: 2
 ```
 
-#### Przekazywanie dowolnych argumentów (**kwargs i *args)
+#### Przekazywanie dowolnych argumentów (\*\*kwargs i \*args)
 
 Pozwalają one na umieszczeanie argumentów o dowolnej liczbie i nazwie w naszej funkcji. **args** przyjmuje je jako listę kolejnych elementów, zaś **kwargs** przyjmuje je jak słownik.
 
@@ -682,7 +682,7 @@ def foo(to_be_wrapped):
     def new_func(args,**kwargs):
         print("uwaga, będzie sześcian")
         return to_be_wrapped(*args,**kwargs)  # warto je dodać aby argumenty zostały przekazane dalej do funkcji docelowej
-    
+
     return new_func
 
 @foo #jeśli dodamy ten dekorator to użycie tej funkcji zostanie zmienione, tzn zamiast oryginalnej funkcji cube() otrzymamy "wzbogacone" cube drukujące komunikat przed drukowaniem
@@ -706,7 +706,7 @@ class Myclass:
             return t
 
         return output_fun
-    
+
     @_add_loaded_location_to_token
     def get_token(self):
         #kod
@@ -785,7 +785,7 @@ Gdy użyjemy dwóch znaków podkreślenia `__`, zachowanie jest trochę inne: da
 
 Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się poprzez nazwę klasy. Np `Osoba.ile`
 Sama metoda statyczna ma nad sobą napis `@staticmethod`. To tzw. [dekorator](#dekoratory-funkcji).
-Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.  
+Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.
 
 Jeśli jednak chcemy aby nasza metoda miała jakieś informacje na temat naszej klasy można użyć dekoratora `@classmethod`, który różni się tym, że klasaobiektu (nie instancja) jest przekazywana dalej. [Porównanie na stacku](https://stackoverflow.com/questions/136097/difference-between-staticmethod-and-classmethod)
 
@@ -903,6 +903,7 @@ Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma 
 Zwróćmy uwagę na ten zaawansowany mechanizm: w klasie Zwierze tworzymy metodę, zakładamy, co ta metoda będzie zwracać, a następnie korzystamy z niej w innej metodzie, pomimo, że prawdziwa jej implementacja nastąpi dopiero w klasie pochodnej. Dzięki temu musimy napisać mniej kodu w klasach pochodnych: musimy jedynie zaimplementować metodę nazwa_gatunku(), jednak nie musimy już od zera pisać kodu na przedstawienie zwierzęta. Jedynie w klasie Papuga, gdzie wprowadziliśmy nowe pole, dopisujemy kod odpowiedzialny za wypisanie jego wartości.
 
 /TODO jak poradzić sobie z tym?
+
 ```python
 class Zwierze(ABC):
     def __init__(self,nazwa, wiek, waga):
@@ -934,7 +935,7 @@ class Slon(Zwierze):
 ### Hermetyzacja
 
 Polega na odcinanie użytkownikowi dostępu do pól, aby operował tylko metodami klasy.
-Jednak oczywiście używanie metod, zwłaszcza z przedrostkiem get_czy set_, jest mniej wygodne. Dlatego nowoczesne języki programowania umożliwiają tworzenie tzw. właściwości (ang. property). Z punktu widzenia możliwości, są to po prostu metody, jednak z punktu widzenia zapisu i wygody, przypominają one pola.
+Jednak oczywiście używanie metod, zwłaszcza z przedrostkiem get, czy set, jest mniej wygodne. Dlatego nowoczesne języki programowania umożliwiają tworzenie tzw. właściwości (ang. property). Z punktu widzenia możliwości, są to po prostu metody, jednak z punktu widzenia zapisu i wygody, przypominają one pola.
 
 ```python
 class Zwierze:
@@ -1091,9 +1092,10 @@ f.closed #informuje czy już zamknięte
 ```
 
 With open flagi:
--`r` -read
--`w` -write otwiera plik (i nadpisuje, jeżeli tam już coś jest)
--`a` -append (otwiera do zapisu i zaczyna na końcu tzn dopisuje)
+
+- `r` -read
+- `w` -write otwiera plik (i nadpisuje, jeżeli tam już coś jest)
+- `a` -append (otwiera do zapisu i zaczyna na końcu tzn dopisuje)
 
 #### Dane o plikach
 
@@ -1147,13 +1149,106 @@ lub
 my_thread.join(timeout=10)
 ```
 
- Biblioteka multiprocessing opiera się na obrabianiu danych w ramach różnych procesów, dzięki czemu każdy proces ma własnego GIL-a, który nie wchodzi w drogę innym procesom.  
+## Wieloprocesowość
 
- ```python
-# TODO przykład
- ```
+Biblioteka multiprocessing opiera się na obrabianiu danych w ramach różnych procesów, dzięki czemu każdy proces ma własnego GIL-a, który nie wchodzi w drogę innym procesom. Poza tym jest w obsłudze dość podobna do wątków.
+(niby są takie metody w bibliotece jak `os.fork()`, ale są one dość niskopoziomowe i niezbyt przenośne)
 
-## ⚠️Rzeczy na które należy uważać⚠️
+```python
+from multiprocessing import Process
+import os
+
+def work(id):
+    print(f'this is process {os.getpid()} called by {id}')
+
+
+def main():
+    procesy = [Process(target=work, args=(number, )) for number in range(5)]
+    for proces in procesy:
+        proces.start()
+
+    while procesy:
+        procesy.pop().join()
+
+#> this is process 10749 called by 0
+#> this is process 10750 called by 1
+#> this is process 10751 called by 2
+#> this is process 10753 called by 4
+#> this is process 10752 called by 3
+```
+
+### Komunikacja międzyprocesowa
+
+W tym wypadku nie mamy już wspólnej pamięci z której możemy korzystać.  
+Dlatego stworzone są następujące mechanizmy:
+
+- `multiprocessing.Queque` - prawie to samo co zwykła kolejka (`queque.Queque`. Praktycznie nie ma różnic w użyciu.
+- `multiprocessing.Pipe` - mechanizm nieco zbliżony do gniazd sieciowych
+- `multiprocessing.sharedtypes` - pozwala stworzyć typy z C we wspólnej puli pamięci międzyprocesowej
+
+Do łatwego zarządzani pulą dostępnych procesów mamy obiekt [Pool](https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers). Pozwala ustalić liczbę procesów, które możemy stworzyć jednocześnie. Dla wygody pracy i łatwego przełączania się między procesami i wątkami przy użyciu tego API mamy paczkę `multiprocessing.dummy.Pool` (te same interfejsy, tylko, że działa na wątkach).
+
+#### Pipe
+
+[Pipe](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Pipe) - jest to w pełni dupleksowe połączenie działające podobnie do gniazd (patrz [socket module](https://docs.python.org/3/library/socket.html) ) z tą różnicą, że pozwala on na wysyłanie nie tylko ciągów bajtów, lecz także serializowalne obiekty (patrz [pickle](https://docs.python.org/3/library/pickle.html) ).
+
+Konstruktor tworzy dwa obiekty do odbioru i nadawania, które możemy przekazać do naszego procesu.
+
+```python
+from multiprocessing import Process, Pipe
+
+def f(conn):
+    conn.send([42, None, 'hello'])
+    conn.close()
+
+if __name__ == '__main__':
+    parent_conn, child_conn = Pipe()
+    p = Process(target=f, args=(child_conn,))
+    p.start()
+    print(parent_conn.recv())   # prints "[42, None, 'hello']"
+    p.join()
+```
+
+#### Sharedtypes
+
+Mamy tutaj klasy `Value` i `Array`, warto tu pamiętać o tym, że aby zabezpieczyć się przed równoczesnym pisaniem i czytaniem trzeba używać dołączonych mutexów (`Lock`, `RLock`, `Semaphore`).
+
+```python
+class Point(Structure):
+    _fields_ = [('x', c_double), ('y', c_double)]
+
+def modify(n, x, s, A):
+    n.value **= 2
+    x.value **= 2
+    s.value = s.value.upper()
+    for a in A:
+        a.x **= 2
+        a.y **= 2
+
+if __name__ == '__main__':
+    lock = Lock()
+
+    n = Value('i', 7)
+    x = Value(c_double, 1.0/3.0, lock=False)
+    s = Array('c', b'hello world', lock=lock)
+    A = Array(Point, [(1.875,-6.25), (-5.75,2.0), (2.375,9.5)], lock=lock)
+
+    p = Process(target=modify, args=(n, x, s, A))
+    p.start()
+    p.join()
+
+    print(n.value)
+    print(x.value)
+    print(s.value)
+    print([(a.x, a.y) for a in A])
+
+#> 49
+#> 0.1111111111111111
+#> HELLO WORLD
+#> [(3.515625, 39.0625), (33.0625, 4.0), (5.640625, 90.25)]
+```
+
+## Rzeczy na które należy uważać⚠️
 
 Różne cechy oraz właściwości pythona na które trzeba uważać podczas pisania w pythonie zwłaszcza, gdy nie jest on pierwszym językiem.
 
@@ -1161,7 +1256,6 @@ Różne cechy oraz właściwości pythona na które trzeba uważać podczas pisa
 
 Warto pamiętać, że w pythonie prawie wszystko jest referencją.  
 Np przekazując do funkcji coś bardziej skomplikowanego niż np liczba przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.
-
 
 Dla liczby jest przekazywana kopia
 
@@ -1222,7 +1316,7 @@ class Node(object):
     def __init__(self, num, children=[]):
         self.num = num
         self.children = children
-    
+
 
 n1 = Node(1)
 n2 = Node(2)
@@ -1240,7 +1334,6 @@ print(n2)
 
 Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inicjalizować to dopiero, wewnątrz konstruktora.
 
-
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
 // yield, operator :=
-// from __future__ import annotations (ewaluacja definicji z kodu, które pojawiają się później)
+// from **future** import annotations (ewaluacja definicji z kodu, które pojawiają się później)
