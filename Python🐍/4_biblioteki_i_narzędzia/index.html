@@ -1,0 +1,1381 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
+    
+    
+      
+        <title>Różne użyteczne biblioteki i narzędzia - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.89dc9fe3.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rozne-uzyteczne-biblioteki-i-narzedzia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header-nav__button md-logo" aria-label="Notatki z języków">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Notatki z języków
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Różne użyteczne biblioteki i narzędzia
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/pktiuk/notatki_z_jezykow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/pktiuk/notatki_z_jezykow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Mały zbiór notatek" class="md-nav__link">
+      Mały zbiór notatek
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Architektura🏗️
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Architektura🏗️
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" title="Wzorce projektowe" class="md-nav__link">
+      Wzorce projektowe
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      C++
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="C++" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        C++
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/1_cpp/" title="Zbiór informacji o C++" class="md-nav__link">
+      Zbiór informacji o C++
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/Cmake/" title="Cmake" class="md-nav__link">
+      Cmake
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/dokumentowanie_kodu/" title="Dokumentowanie kodu - Doxygen" class="md-nav__link">
+      Dokumentowanie kodu - Doxygen
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Java
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Java" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java Notatki" class="md-nav__link">
+      Java Notatki
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Narzędzia
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Narzędzia" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Narzędzia
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/gdb/" title="Używanie GDB" class="md-nav__link">
+      Używanie GDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/git/" title="Przydatne komendy git" class="md-nav__link">
+      Przydatne komendy git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/narzedzia/" title="Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem" class="md-nav__link">
+      Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Python🐍
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Python🐍
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1_ogolne_notatki/" title="Podstawy Pythona 🐍" class="md-nav__link">
+      Podstawy Pythona 🐍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3_modu%C5%82y_i_paczki/" title="Moduły i Paczki" class="md-nav__link">
+      Moduły i Paczki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Różne użyteczne biblioteki i narzędzia
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Różne użyteczne biblioteki i narzędzia" class="md-nav__link md-nav__link--active">
+      Różne użyteczne biblioteki i narzędzia
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rozne-linki" class="md-nav__link">
+    Różne linki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacja-pakietow" class="md-nav__link">
+    Instalacja pakietów
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalacja pakietów">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operacje-matematyczne" class="md-nav__link">
+    Operacje matematyczne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacja-tekstem" class="md-nav__link">
+    Manipulacja tekstem
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulacja tekstem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringi-wielolinijkowe" class="md-nav__link">
+    Stringi wielolinijkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rozbijanie-stringow-po-sowach" class="md-nav__link">
+    Rozbijanie stringów po słowach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-tekstu" class="md-nav__link">
+    Formatowanie tekstu
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatowanie tekstu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strformat" class="md-nav__link">
+    str.format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-stringi-python-36" class="md-nav__link">
+    f-stringi (Python 3.6+)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pobieranie-sciezkifolderu-obecnego-skryptu" class="md-nav__link">
+    Pobieranie ścieżki/folderu obecnego skryptu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzywanie-kodu-z-c" class="md-nav__link">
+    Używanie kodu z C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przetwarzanie-strumieniowe" class="md-nav__link">
+    Przetwarzanie strumieniowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czas" class="md-nav__link">
+    Czas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-webowe" class="md-nav__link">
+    Aplikacje webowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikacje webowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proste-hostowanie-folderu" class="md-nav__link">
+    Proste hostowanie folderu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask" class="md-nav__link">
+    Flask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottle" class="md-nav__link">
+    Bottle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zapisywanie" class="md-nav__link">
+    Zapisywanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Zapisywanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pickle-zapisywanie-zmiennych" class="md-nav__link">
+    Pickle - zapisywanie zmiennych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dill-zapisywanie-caej-sesji-w-pythonie" class="md-nav__link">
+    Dill -zapisywanie całej sesji w pythonie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugowanie" class="md-nav__link">
+    Debugowanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugowanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdb" class="md-nav__link">
+    pdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspect" class="md-nav__link">
+    inspect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ast" class="md-nav__link">
+    ast
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5_inne/" title="Inne" class="md-nav__link">
+      Inne
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../6_testowanie/" title="Testowanie" class="md-nav__link">
+      Testowanie
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Webówka🌍
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Webówka🌍
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" title="Javascript Syntax" class="md-nav__link">
+      Javascript Syntax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" title="Javascript DOM - Interakcje i właściwości" class="md-nav__link">
+      Javascript DOM - Interakcje i właściwości
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" title="HTML i CSS" class="md-nav__link">
+      HTML i CSS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Bash
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Bash" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Bash
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/cheatsheet/" title="Bash - podstawowe komendy ściągawka" class="md-nav__link">
+      Bash - podstawowe komendy ściągawka
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/programy/" title="Programy" class="md-nav__link">
+      Programy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/regex/" title="Wyrażenia regularne (Regexy)" class="md-nav__link">
+      Wyrażenia regularne (Regexy)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rozne-linki" class="md-nav__link">
+    Różne linki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacja-pakietow" class="md-nav__link">
+    Instalacja pakietów
+  </a>
+  
+    <nav class="md-nav" aria-label="Instalacja pakietów">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operacje-matematyczne" class="md-nav__link">
+    Operacje matematyczne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacja-tekstem" class="md-nav__link">
+    Manipulacja tekstem
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulacja tekstem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringi-wielolinijkowe" class="md-nav__link">
+    Stringi wielolinijkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rozbijanie-stringow-po-sowach" class="md-nav__link">
+    Rozbijanie stringów po słowach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-tekstu" class="md-nav__link">
+    Formatowanie tekstu
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatowanie tekstu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strformat" class="md-nav__link">
+    str.format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-stringi-python-36" class="md-nav__link">
+    f-stringi (Python 3.6+)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pobieranie-sciezkifolderu-obecnego-skryptu" class="md-nav__link">
+    Pobieranie ścieżki/folderu obecnego skryptu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzywanie-kodu-z-c" class="md-nav__link">
+    Używanie kodu z C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przetwarzanie-strumieniowe" class="md-nav__link">
+    Przetwarzanie strumieniowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czas" class="md-nav__link">
+    Czas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-webowe" class="md-nav__link">
+    Aplikacje webowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikacje webowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proste-hostowanie-folderu" class="md-nav__link">
+    Proste hostowanie folderu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask" class="md-nav__link">
+    Flask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottle" class="md-nav__link">
+    Bottle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zapisywanie" class="md-nav__link">
+    Zapisywanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Zapisywanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pickle-zapisywanie-zmiennych" class="md-nav__link">
+    Pickle - zapisywanie zmiennych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dill-zapisywanie-caej-sesji-w-pythonie" class="md-nav__link">
+    Dill -zapisywanie całej sesji w pythonie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugowanie" class="md-nav__link">
+    Debugowanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugowanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pdb" class="md-nav__link">
+    pdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspect" class="md-nav__link">
+    inspect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ast" class="md-nav__link">
+    ast
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pktiuk/notatki_z_jezykow/edit/master/docs/Python🐍/4_biblioteki_i_narzędzia.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="rozne-uzyteczne-biblioteki-i-narzedzia">Różne użyteczne biblioteki i narzędzia</h1>
+<h2 id="rozne-linki">Różne linki</h2>
+<ul>
+<li><a href="https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku">Książka Zanurkuj w Pythonie</a> 📖</li>
+<li><a href="https://www.learnpython.org/">Podstawowy tutorial ze strony learnpython</a></li>
+</ul>
+<h2 id="instalacja-pakietow">Instalacja pakietów</h2>
+<p>Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera pakietów, a potem paczki pythonowskie pobieramy już pip-em.</p>
+<h3 id="operacje-matematyczne">Operacje matematyczne</h3>
+<ul>
+<li><code>**</code> potęga  </li>
+<li><code>2+3j</code> liczba zespolona</li>
+</ul>
+<h2 id="manipulacja-tekstem">Manipulacja tekstem</h2>
+<h3 id="stringi-wielolinijkowe">Stringi wielolinijkowe</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">slowa</span><span class="o">=</span><span class="s2">&quot;&quot;&quot; linia1</span>
+<span class="s2">linia2</span>
+<span class="s2">linia3</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+
+<h3 id="rozbijanie-stringow-po-sowach">Rozbijanie stringów po słowach</h3>
+<p><code>string.split(separator, maxsplit)</code> - domyślny separator to jakikolwiek whitespace, maxsplit- domyślnie -1 (opisuje na ile fragmentów maksymalnie możemy dzielić stringa)</p>
+<div class="codehilite"><pre><span></span><code><span class="n">slowo</span><span class="o">=</span><span class="s2">&quot;slowo1 slowo2 sl3&quot;</span>
+<span class="n">slowo</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="p">[</span><span class="s1">&#39;slowo1&#39;</span><span class="p">,</span> <span class="s1">&#39;slowo2&#39;</span><span class="p">,</span> <span class="s1">&#39;sl3&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<h3 id="formatowanie-tekstu">Formatowanie tekstu</h3>
+<p>Formatowanie tekstu nie tylko w kontekście funkcji <code>print()</code></p>
+<h4 id="strformat">str.format()</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+
+
+<h4 id="f-stringi-python-36">f-stringi (Python 3.6+)</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="pobieranie-sciezkifolderu-obecnego-skryptu">Pobieranie ścieżki/folderu obecnego skryptu</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># obecny folder</span>
+
+<span class="vm">__file__</span> <span class="c1"># zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)</span>
+</code></pre></div>
+
+
+<h2 id="uzywanie-kodu-z-c">Używanie kodu z C++</h2>
+<p>boost lub ctypes<br />
+Przykład dla boosta: <a href="https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce">link</a></p>
+<h2 id="przetwarzanie-strumieniowe">Przetwarzanie strumieniowe</h2>
+<h2 id="czas">Czas</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="c1">#minuta</span>
+</code></pre></div>
+
+
+<h2 id="aplikacje-webowe">Aplikacje webowe</h2>
+<h3 id="proste-hostowanie-folderu">Proste hostowanie folderu</h3>
+<p>KIedy chcesz w prosty sposób udostępnić dany folder w sieci.</p>
+<div class="codehilite"><pre><span></span><code>python -m http.server <span class="c1">#to udostępni pod adresem 8000</span>
+
+<span class="c1">#można też samodzielni wybrać port</span>
+python -m http.server <span class="m">8888</span>
+</code></pre></div>
+
+
+<h3 id="django">Django</h3>
+<p>jest to dość duża zabawka</p>
+<h3 id="flask">Flask</h3>
+<p>Jeden z mikroframeworków, pozwala dość szybko napisać jakąś aplikację REST-ową.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Hello&quot;</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;you posted something&quot;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">__main__</span><span class="s1">&#39;:</span>
+   <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+
+<h3 id="bottle">Bottle</h3>
+<p>Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku).<br />
+Podobna do flaska.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span><span class="n">run</span><span class="p">,</span><span class="n">template</span>
+
+<span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/hello/&lt;name&gt;&#39;</span><span class="p">)</span> <span class="c1">#@route to dekorator</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;Hello {{name}} &lt;br/&gt;?&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span> <span class="c1">#otrzymamy prostego html-a</span>
+
+<span class="c1">#index = route(&#39;//hello/&lt;name&gt;&#39;)(index) #ten sam wynik, w sytuacji bez @route</span>
+
+
+<span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span> <span class="c1">#nasza strona będzie dostępna tutaj</span>
+</code></pre></div>
+
+
+<p>albo możemy też chcieć wygenerować jsona</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;klucz&quot;</span><span class="p">:</span><span class="s2">&quot;wartosc&quot;</span><span class="p">,</span><span class="s2">&quot;a_tu&quot;</span><span class="p">:[</span><span class="s2">&quot;bedzie&quot;</span><span class="p">,</span><span class="s2">&quot;lista&quot;</span><span class="p">]}</span>
+</code></pre></div>
+
+
+<h2 id="zapisywanie">Zapisywanie</h2>
+<h3 id="pickle-zapisywanie-zmiennych">Pickle - zapisywanie zmiennych</h3>
+<p>Pythonowa biblioteka <a href="https://docs.python.org/3/library/pickle.html">Pickle</a> pozwala na zapisywanie (i odczytywanie) danych i obiektór w pythonie w formie binarnej.  </p>
+<p>//TODO przykłady</p>
+<h3 id="dill-zapisywanie-caej-sesji-w-pythonie">Dill -zapisywanie całej sesji w pythonie</h3>
+<p>Rozszerzeniem do pickla jest dill, pozwala on na zapisywanie załej sesji w pythonie do pliku, który można potem przywrócić.</p>
+<p>//todo przykład</p>
+<h2 id="debugowanie">Debugowanie</h2>
+<h3 id="pdb">pdb</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pdb</span>
+<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span> <span class="c1">#w tej linii skrypt się zatrzyma i będzie można się rozejrzeć</span>
+<span class="c1"># (Pdb)</span>
+</code></pre></div>
+
+
+<p>zapytania w trybie debuggera :</p>
+<ul>
+<li>w - where (na stosie)</li>
+<li>u -up</li>
+<li>d - down</li>
+<li>c/continue - continue</li>
+<li>args - wyświetla wszystkie argumenty, jakie dana funkcja otrzymała (ta w której obecnie jesteśmy)
+Poza tym reszta rzeczy odpowiada zwykłemu pisaniu w pythonie, możemy zmieniać zmienne, printować je, uruchamiać pętle etc.</li>
+</ul>
+<p>Warto wtedy używać też:
+<code>locals()</code> - ładuje do słownika wszystkie obecnie dostępne funkcje</p>
+<h3 id="inspect">inspect</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="n">inspect</span><span class="o">.</span><span class="n">getsource</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="c1"># wypisuje jak dana funkcja jest napisana</span>
+</code></pre></div>
+
+
+<h3 id="ast">ast</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">#podobnie jak wyżej</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+</code></pre></div>
+
+
+<h1 id="gdb">GDB</h1>
+<p><a href="https://wiki.python.org/moin/DebuggingWithGdb">LINK</a></p>
+<p>/TODO opisać dokładniej</p>
+<p>/TODO opisać działanie libki subprocess (czyli jak ogarnąć prawdziwą wielowątkowość w pythonie), oraz uruchamianie procesów.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../3_modu%C5%82y_i_paczki/" title="Moduły i Paczki" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Moduły i Paczki
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../5_inne/" title="Inne" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Inne
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

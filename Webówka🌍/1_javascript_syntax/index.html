@@ -1,0 +1,1908 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
+    
+    
+      
+        <title>Javascript Syntax - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.89dc9fe3.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-syntax" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header-nav__button md-logo" aria-label="Notatki z języków">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Notatki z języków
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Javascript Syntax
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/pktiuk/notatki_z_jezykow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/pktiuk/notatki_z_jezykow/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Mały zbiór notatek" class="md-nav__link">
+      Mały zbiór notatek
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Architektura🏗️
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Architektura🏗️
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" title="Wzorce projektowe" class="md-nav__link">
+      Wzorce projektowe
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      C++
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="C++" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        C++
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/1_cpp/" title="Zbiór informacji o C++" class="md-nav__link">
+      Zbiór informacji o C++
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/Cmake/" title="Cmake" class="md-nav__link">
+      Cmake
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../C%2B%2B/dokumentowanie_kodu/" title="Dokumentowanie kodu - Doxygen" class="md-nav__link">
+      Dokumentowanie kodu - Doxygen
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Java
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Java" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Java/" title="Java Notatki" class="md-nav__link">
+      Java Notatki
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Narzędzia
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Narzędzia" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Narzędzia
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/gdb/" title="Używanie GDB" class="md-nav__link">
+      Używanie GDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/git/" title="Przydatne komendy git" class="md-nav__link">
+      Przydatne komendy git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Narz%C4%99dzia/narzedzia/" title="Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem" class="md-nav__link">
+      Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Python🐍
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Python🐍
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" title="Podstawy Pythona 🐍" class="md-nav__link">
+      Podstawy Pythona 🐍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" title="Moduły i Paczki" class="md-nav__link">
+      Moduły i Paczki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" title="Różne użyteczne biblioteki i narzędzia" class="md-nav__link">
+      Różne użyteczne biblioteki i narzędzia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python%F0%9F%90%8D/5_inne/" title="Inne" class="md-nav__link">
+      Inne
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python%F0%9F%90%8D/6_testowanie/" title="Testowanie" class="md-nav__link">
+      Testowanie
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Webówka🌍
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Webówka🌍
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Javascript Syntax
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Javascript Syntax" class="md-nav__link md-nav__link--active">
+      Javascript Syntax
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#osadzanie-skryptu-w-html-u" class="md-nav__link">
+    Osadzanie skryptu w HTML-u
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typy-zmiennych" class="md-nav__link">
+    Typy zmiennych
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy zmiennych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podstawowe" class="md-nav__link">
+    Podstawowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablice-arrays" class="md-nav__link">
+    Tablice (arrays)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sposoby-definiowania" class="md-nav__link">
+    Sposoby definiowania
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operatory" class="md-nav__link">
+    Operatory
+  </a>
+  
+    <nav class="md-nav" aria-label="Operatory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-i" class="md-nav__link">
+    Operator == i ===
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konwersja" class="md-nav__link">
+    Konwersja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-ze-stringami" class="md-nav__link">
+    Praca ze stringami
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printowanie" class="md-nav__link">
+    Printowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-y-i-warunki" class="md-nav__link">
+    IF-y i warunki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-anonimowe" class="md-nav__link">
+    Funkcje anonimowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-strzakowe" class="md-nav__link">
+    Funkcje strzałkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kolejnosc-hoisting" class="md-nav__link">
+    Kolejność (hoisting)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne-proste-vs-zozone-kopia-vs-referencja" class="md-nav__link">
+    Zmienne proste vs złożone (kopia vs referencja)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obiekty" class="md-nav__link">
+    Obiekty
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiekty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie" class="md-nav__link">
+    Tworzenie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototypy" class="md-nav__link">
+    Prototypy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettery-i-settery" class="md-nav__link">
+    Gettery i settery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#komunikacja-zewnetrzna-i-funkcje-asynchroniczne" class="md-nav__link">
+    Komunikacja zewnętrzna i funkcje asynchroniczne
+  </a>
+  
+    <nav class="md-nav" aria-label="Komunikacja zewnętrzna i funkcje asynchroniczne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajax" class="md-nav__link">
+    AJAX
+  </a>
+  
+    <nav class="md-nav" aria-label="AJAX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wysyanie-zadan-z-zawartoscia" class="md-nav__link">
+    Wysyłanie żądań z zawartością
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waczanie-zewnetrznych-bibliotek" class="md-nav__link">
+    Włączanie zewnętrznych bibliotek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2_javascript_interakcje_z_dom/" title="Javascript DOM - Interakcje i właściwości" class="md-nav__link">
+      Javascript DOM - Interakcje i właściwości
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3_html_i_css/" title="HTML i CSS" class="md-nav__link">
+      HTML i CSS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Bash
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Bash" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Bash
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/cheatsheet/" title="Bash - podstawowe komendy ściągawka" class="md-nav__link">
+      Bash - podstawowe komendy ściągawka
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/programy/" title="Programy" class="md-nav__link">
+      Programy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/regex/" title="Wyrażenia regularne (Regexy)" class="md-nav__link">
+      Wyrażenia regularne (Regexy)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#osadzanie-skryptu-w-html-u" class="md-nav__link">
+    Osadzanie skryptu w HTML-u
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typy-zmiennych" class="md-nav__link">
+    Typy zmiennych
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy zmiennych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podstawowe" class="md-nav__link">
+    Podstawowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablice-arrays" class="md-nav__link">
+    Tablice (arrays)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sposoby-definiowania" class="md-nav__link">
+    Sposoby definiowania
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operatory" class="md-nav__link">
+    Operatory
+  </a>
+  
+    <nav class="md-nav" aria-label="Operatory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operator-i" class="md-nav__link">
+    Operator == i ===
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konwersja" class="md-nav__link">
+    Konwersja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-ze-stringami" class="md-nav__link">
+    Praca ze stringami
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printowanie" class="md-nav__link">
+    Printowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-y-i-warunki" class="md-nav__link">
+    IF-y i warunki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-anonimowe" class="md-nav__link">
+    Funkcje anonimowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-strzakowe" class="md-nav__link">
+    Funkcje strzałkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kolejnosc-hoisting" class="md-nav__link">
+    Kolejność (hoisting)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne-proste-vs-zozone-kopia-vs-referencja" class="md-nav__link">
+    Zmienne proste vs złożone (kopia vs referencja)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obiekty" class="md-nav__link">
+    Obiekty
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiekty">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie" class="md-nav__link">
+    Tworzenie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototypy" class="md-nav__link">
+    Prototypy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettery-i-settery" class="md-nav__link">
+    Gettery i settery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#komunikacja-zewnetrzna-i-funkcje-asynchroniczne" class="md-nav__link">
+    Komunikacja zewnętrzna i funkcje asynchroniczne
+  </a>
+  
+    <nav class="md-nav" aria-label="Komunikacja zewnętrzna i funkcje asynchroniczne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajax" class="md-nav__link">
+    AJAX
+  </a>
+  
+    <nav class="md-nav" aria-label="AJAX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wysyanie-zadan-z-zawartoscia" class="md-nav__link">
+    Wysyłanie żądań z zawartością
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waczanie-zewnetrznych-bibliotek" class="md-nav__link">
+    Włączanie zewnętrznych bibliotek
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/pktiuk/notatki_z_jezykow/edit/master/docs/Webówka🌍/1_javascript_syntax.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="javascript-syntax">Javascript Syntax</h1>
+<h2 id="osadzanie-skryptu-w-html-u">Osadzanie skryptu w HTML-u</h2>
+<p>W HTML-u skrypty umieszczane są wwenątrz tagów <code>script</code>.<br />
+W praktyce skrypty można tak pisać, ale nie jest to wygodne, dlatego używa się osadzania skryptów.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;plik_ze_sryptem.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="c1">////Tutaj skrypty</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<h2 id="zmienne">Zmienne</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Zmienne nie mogą zaczynać się od liczb, ani nazywać się jak słowa kluczowe w JS (<code>new</code> <code>function</code> <code>class</code> etc)</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">/* let 3liczba = 43; */</span>
+<span class="cm">/* let function = 3; */</span>
+<span class="kd">let</span> <span class="nx">$function</span> <span class="o">=</span> <span class="mi">43</span><span class="p">;</span> <span class="c1">// ale za to $ jest dozwolony jako znak</span>
+</code></pre></div>
+
+
+<h3 id="typy-zmiennych">Typy zmiennych</h3>
+<p>Warto pamiętać, że JS ma dynamiczne typowanie, czyli nie musimy definiować typów zmiennych, ponieważ to jest sprawdzane dynamicznie w trakcie pracy.<br />
+Poza tym możemy nadpisywać zmienne innymi typami.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">mojaZmienna</span> <span class="o">=</span> <span class="mi">43</span><span class="p">;</span>
+<span class="nx">mojaZmienna</span> <span class="o">=</span> <span class="s2">&quot;teraz slowo&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p>Zalecane formatowanie dla zmiennych to <code>camelCase</code>.</p>
+<h4 id="podstawowe">Podstawowe</h4>
+<div class="codehilite"><pre><span></span><code><span class="c1">//Number - zawsze zmiennoprzecinkowa (także dla całkowitych)</span>
+<span class="kd">let</span> <span class="nx">wiek</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+
+<span class="c1">//String - wartpamiętać, że można je definiować na 3 sposoby &quot;&quot;, &#39;&#39; i ``</span>
+<span class="kd">let</span> <span class="nx">imie</span> <span class="o">=</span> <span class="s2">&quot;Marian&quot;</span><span class="p">;</span>
+
+<span class="c1">// Boolean</span>
+<span class="kd">let</span> <span class="nx">isTrue</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">//Undefined</span>
+<span class="kd">let</span> <span class="nx">jeszczeNieOkreslone</span><span class="p">;</span>
+
+<span class="c1">// Null</span>
+<span class="kd">let</span> <span class="nx">nic</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="c1">// Symbol (ES2015) - unikatowa wartość, której nie można zmienić</span>
+</code></pre></div>
+
+
+<p>Dla sprawdzania typów ożywamy operatora <code>typeof</code></p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">zmienna</span> <span class="o">=</span> <span class="mi">54</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">zmienna</span><span class="p">);</span>
+<span class="c1">//&gt;number</span>
+<span class="k">typeof</span> <span class="s2">&quot;Slowo&quot;</span><span class="p">;</span>
+<span class="c1">//&gt;&quot;string&quot;</span>
+<span class="kd">let</span> <span class="nx">nieWiadomo</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">nieWiadomo</span><span class="p">);</span>
+<span class="c1">//&gt;undefined</span>
+</code></pre></div>
+
+
+<p>Warto zwrócić uwagę na to co daje tutaj <code>null</code>. (Jest to wyjątek z którym trzeba się pogodzić)</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">null</span><span class="p">);</span>
+<span class="c1">//&gt;object</span>
+</code></pre></div>
+
+
+<h4 id="tablice-arrays">Tablice (arrays)</h4>
+<p>Są to kontenery w których trzymamy zmienne i obiekty</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">liczby</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">45</span><span class="p">];</span>
+<span class="kr">const</span> <span class="nx">slowa</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&quot;slowo1&quot;</span><span class="p">,</span> <span class="s2">&quot;slowo2&quot;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">liczby</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="c1">// 22</span>
+
+<span class="c1">// mamy tu zbliżone odliczanie do pythonowego</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">liczby</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+<span class="c1">// 45</span>
+
+<span class="c1">// co ciekawe mimo inicjalizacji jako const możemy zmieniać wartości w tablicy</span>
+<span class="nx">liczby</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="c1">//Ale nie możemy usunąć samej tablicy</span>
+</code></pre></div>
+
+
+<p>Tablice mogą zawierać różne wartości w kolejnych komórkach</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">osoba</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Marian&quot;</span><span class="p">,</span> <span class="s2">&quot;Kowalski&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Burek&quot;</span><span class="p">,</span> <span class="s2">&quot;Kulka&quot;</span><span class="p">]];</span>
+</code></pre></div>
+
+
+<p>Operacje na tablicach</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">tablica</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// rozmiar tablicy</span>
+<span class="nx">tablica</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="c1">// 0</span>
+
+<span class="nx">tablica</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">//teraz tablica zawiera 10</span>
+<span class="c1">// 1 - zwraca ona nową długośż naszej tablicy</span>
+
+<span class="nx">tablica</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//tobi to samo co pop, tylko dodaje na początek</span>
+
+<span class="nx">tablica</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span> <span class="c1">//a po tej operacji jest znowu pusta</span>
+<span class="c1">// 10 - zwraca wartość z końca tablicy</span>
+
+<span class="kr">const</span> <span class="nx">inna</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pierwszy&quot;</span><span class="p">,</span> <span class="s2">&quot;drugi&quot;</span><span class="p">,</span> <span class="s2">&quot;trzeci&quot;</span><span class="p">];</span>
+<span class="nx">inna</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;pierwszy&quot;</span><span class="p">);</span>
+<span class="c1">// 0</span>
+
+<span class="nx">inna</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;trzeci&quot;</span><span class="p">);</span>
+<span class="c1">// true</span>
+</code></pre></div>
+
+
+<p><strong>Iterowanie po tablicach</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">[</span><span class="nx">num</span><span class="p">,</span> <span class="nx">elem</span><span class="p">]</span> <span class="k">of</span> <span class="nx">lista</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Indeks: </span><span class="si">${</span><span class="nx">num</span><span class="si">}</span><span class="sb"> Zawartosc: </span><span class="si">${</span><span class="nx">elem</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><strong>Rozmontowywanie tablic</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// tworzymy trzy zmienne (x, y, z), które bęzą zawierać poszczególne elementy</span>
+<span class="kr">const</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kr">const</span> <span class="p">[,</span> <span class="nx">dwa</span><span class="p">,</span> <span class="p">,</span> <span class="nx">cztery</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span> <span class="c1">//nie musimy brać wszystkich elementów z danej tablicy</span>
+</code></pre></div>
+
+
+<p>Możemy też w ten sposób definiować zmienne domyślne (jeśli w tablicy nie ma danego elementu do domyślnie jest Undefined)</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="p">[</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">,</span> <span class="nx">z</span> <span class="o">=</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+</code></pre></div>
+
+
+<p>Ten mechanizm pozwala na łatwe zwracanie wielu elementów z funkcji, podobnie do krotek z pythona.</p>
+<h4 id="sposoby-definiowania">Sposoby definiowania</h4>
+<p>Jest kilka sposobów na definiowanie zmiennych. Służą do tego słowa kluczowe <code>let</code>, <code>var</code> i <code>const</code>.</p>
+<p><strong>let</strong> - definiowanie zwykłej zmienej wartości, za jego pomocą można też definiować puste zmienne.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nx">num</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">undef</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p><strong>var</strong> - podobne do let lecz jest już przestarzałe i nie zaleca się jego używania.</p>
+<p><strong>const</strong> - po prostu stałe zmienne</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+<span class="c1">// PI = 1; - spowoduje TypeError</span>
+
+<span class="c1">// const unknown; - to też nie zadziała (SyntaxError)</span>
+</code></pre></div>
+
+
+<p>Teoretycznie można pracować nawet bez definiowania zmiennych wg wymienionych wyżej sposobów.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">imie</span> <span class="o">=</span> <span class="s2">&quot;Jan&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">imie</span><span class="p">);</span>
+<span class="c1">// Jan</span>
+</code></pre></div>
+
+
+<p>Tylko, że ta zmienna będzie wtedy odpowiednikiem zmiennej globalnej.</p>
+<h4 id="operatory">Operatory</h4>
+<p>Typy operatorów:</p>
+<ul>
+<li>Matematyczne: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>**</code> (potęgowanie)</li>
+<li>Przypisywania: <code>=</code> <code>+=</code> <code>*=</code> <code>-=</code> <code>++</code> <code>--</code> etc</li>
+<li>Boolowskie</li>
+<li>porównania: <code>&gt;</code> <code>&gt;=</code> <code>&lt;</code> <code>&lt;=</code> <code>==</code> <code>!=</code> <code>===</code></li>
+<li>logiczne <code>&amp;&amp;</code> <code>||</code> <code>!</code></li>
+<li>trójargumentowy <code>? :</code></li>
+</ul>
+<p>Kolejność operatorów jest taka jak w matematyce.</p>
+<h5 id="operator-i">Operator <code>==</code> i <code>===</code></h5>
+<p>Istnieją dwa operatory równości:</p>
+<ul>
+<li><code>===</code> - ścisły - zwraca prawdę tylko i wyłącznie wtedy, gdy obie strony są takie same, nie bawi się w żadne konwersje etc.</li>
+<li><code>==</code> - jest nieco luźniejszy, pozwala sobie na konwersje pomiędzy typami jeśli wartości są różnych typów, poza tym ma inne "pomagające" mechanizmy, które w dłuższej prespektywie mogą powodować więcej błędów. (jeśli się da używaj <code>===</code>)</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="mi">19</span> <span class="o">===</span> <span class="s2">&quot;19&quot;</span><span class="p">;</span>
+<span class="c1">// false</span>
+
+<span class="mi">19</span> <span class="o">==</span> <span class="s2">&quot;19&quot;</span><span class="p">;</span>
+<span class="c1">// true</span>
+</code></pre></div>
+
+
+<p>Podobnie do <code>===</code> działa <code>!==</code></p>
+<h4 id="konwersja">Konwersja</h4>
+<p>Aby dokonać konwersji trzeba po prostu użyć konstruktora danego typu.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">rokStr</span> <span class="o">=</span> <span class="s2">&quot;2001&quot;</span><span class="p">;</span>
+<span class="nb">Number</span><span class="p">(</span><span class="nx">rokStr</span><span class="p">);</span>
+<span class="c1">//&gt;2001</span>
+
+<span class="nb">String</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+<span class="c1">//&gt;&quot;55&quot;</span>
+</code></pre></div>
+
+
+<p>Tutaj w wypadku podania niewłaściwej wartości zamiast wyjątku dla liczby możemy dostać <code>NaN</code> (Not a Number)</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="s2">&quot;ff2&quot;</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">;</span>
+<span class="c1">//&gt;NaN</span>
+
+<span class="k">typeof</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">// Co ciekawe ten typ jest wciąż numerem</span>
+<span class="p">(</span><span class="s2">&quot;number&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Poza tym warto uważać na sprytną konwersję typów np przy printowaniu.<br />
+Na ogół działa to fajnie, ale operator <code>+</code> może trochę napsuć i być źródłem wielu błędów.</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;22&quot;</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// 2210</span>
+
+<span class="s2">&quot;22&quot;</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// 12</span>
+
+<span class="s2">&quot;22&quot;</span> <span class="o">-</span> <span class="s2">&quot;10&quot;</span><span class="p">;</span>
+<span class="c1">// 12</span>
+
+<span class="s2">&quot;22&quot;</span> <span class="o">-</span> <span class="s2">&quot;10&quot;</span> <span class="o">+</span> <span class="mi">55</span><span class="p">;</span>
+<span class="c1">// 67</span>
+
+<span class="s2">&quot;22&quot;</span> <span class="o">-</span> <span class="s2">&quot;10&quot;</span> <span class="o">+</span> <span class="s2">&quot;55&quot;</span><span class="p">;</span>
+<span class="c1">// 1255</span>
+</code></pre></div>
+
+
+<p><strong>Konwersja na Boola</strong> - wartości, które przy konewrsji na boola dają <code>false</code>:</p>
+<ul>
+<li>0 - wartość liczbowa równa zero</li>
+<li>""</li>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>NaN</code></li>
+</ul>
+<p>Pozostałe konwertują się na wartość <code>true</code></p>
+<h4 id="praca-ze-stringami">Praca ze stringami</h4>
+<p>Mamy tutaj standardowe metody do pracy z ciągami znaków, podobne nieco do tych pythonowych.</p>
+<p>Mamy:</p>
+<ul>
+<li><code>split(separator=" ")</code></li>
+<li><code>replace(co,na_co)</code>, <code>replaceAll(co,na_co)</code></li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">slowo</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h3 id="printowanie">Printowanie</h3>
+<div class="codehilite"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Wiadomosc1&quot;</span><span class="p">,</span> <span class="mi">323</span><span class="p">);</span>
+<span class="c1">//&gt; Wiadomosc1 323</span>
+
+<span class="c1">// aby wypisać wiadomośc można klasycznie połączyć stringi</span>
+<span class="kr">const</span> <span class="nx">wiek</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">wiadomosc</span> <span class="o">=</span> <span class="s2">&quot;Hej, mam &quot;</span> <span class="o">+</span> <span class="nx">wiek</span> <span class="o">+</span> <span class="s2">&quot;lat&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wiadomosc</span><span class="p">);</span>
+
+<span class="c1">// Ale można to zrobić wygodniej warto pamiętać, że robimy to w ``, a nie w &#39;&#39;</span>
+<span class="kr">const</span> <span class="nx">wiadomosc2</span> <span class="o">=</span> <span class="sb">`Hej, mam </span><span class="si">${</span><span class="nx">wiek</span><span class="si">}</span><span class="sb"> lat`</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wiadomosc2</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Ogólnie to obecnie ten drugi sposób definiowania jest wygodniejszy</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="s2">&quot;Wiele\n\</span>
+<span class="s2">linii w kodzie&quot;</span>
+<span class="p">);</span>
+
+<span class="c1">//VS</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Wiele</span>
+<span class="sb">linii w kodzie`</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2 id="if-y-i-warunki">IF-y i warunki</h2>
+<p>Syntax warunków jest zbliżony do C++</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">wiek</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;podaj wiek&quot;</span><span class="p">);</span> <span class="c1">//pojawi się okno z pytaniem</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">wiek</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Pełnoletni&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Niepełnoletni&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Nie&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Tak&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;True to prawda&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Mamy też tu switcha</p>
+<div class="codehilite"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="nx">value</span><span class="o">:</span>
+    <span class="nx">fun1</span><span class="p">();</span>
+    <span class="nx">fun2</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
+
+  <span class="k">case</span> <span class="nx">value2</span><span class="o">:</span>
+  <span class="k">case</span> <span class="nx">value3</span><span class="o">:</span> <span class="c1">// dla tych dwóch wartości będzie się dziać to samo</span>
+    <span class="nx">fun3</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
+
+  <span class="k">default</span><span class="o">:</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Jest też operator trójargumentowy <code>? :</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">wiek</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="o">?</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Dorosły&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="nx">log</span><span class="p">.</span><span class="nx">console</span><span class="p">(</span><span class="s2">&quot;Nie Dorosły&quot;</span><span class="p">);</span>
+<span class="c1">// Albo</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wiek</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="o">?</span> <span class="s2">&quot;Dorosły&quot;</span> <span class="o">:</span> <span class="s2">&quot;Nie Dorosły&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2 id="petle">Pętle</h2>
+<p>Nic ciekawego mamy 2 zwykłe typy pętli, <code>for</code> i <code>while</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">num</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">num</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="mi">5</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span> <span class="c1">//ale skipujemy dla 5</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Printujemy po raz </span><span class="si">${</span><span class="nx">num</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//nigdy nie kończąca się pętla</span>
+  <span class="k">break</span><span class="p">;</span> <span class="c1">//no chyba, że użyję break</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Poza tym mamy jeszcze forEach w dwóch wariantach.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">tablica</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">tablica</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Metoda forEach</span>
+<span class="nx">tablica</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<h2 id="funkcje">Funkcje</h2>
+<p>Definiujemy je używając słowa kluczowego <code>function</code>.<br />
+Także są na ogół formatowane jako <code>camelCase</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Niestety JS <strong>nie wspiera</strong> przeciążania funkcji.</p>
+<p>Poniżej zwykłe deklaracje funkcji (function declaration).</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">printHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">printHello</span><span class="p">();</span>
+<span class="c1">// Hello</span>
+
+<span class="kd">function</span> <span class="nx">isApple</span><span class="p">(</span><span class="nx">fruit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">fruit</span> <span class="o">==</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Co ciekawe nie wysypią się one nawet gdy damy im złą ilość argumentów</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">printHello</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span>
+<span class="c1">// Hello</span>
+
+<span class="nx">isApple</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">43</span><span class="p">);</span>
+<span class="c1">// true</span>
+
+<span class="nx">isApple</span><span class="p">();</span>
+<span class="c1">// false</span>
+</code></pre></div>
+
+
+<h3 id="funkcje-anonimowe">Funkcje anonimowe</h3>
+<p>Tym określeniem określamy funkcje, które są przechowywane w zmiennych. Określane także jako <code>function expression</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">myFun</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">lonsole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;HelloFun&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">myFun</span><span class="p">();</span>
+<span class="c1">// HelloFun</span>
+</code></pre></div>
+
+
+<h3 id="funkcje-strzakowe">Funkcje strzałkowe</h3>
+<p>Funkcje strzałkowe (arrow functions) to po prostu inny format funkcji przypominający wyrażenia lambda z innych języków.<br />
+Pozwala na krótszy zapis funkcji.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">arrowFun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">value</span> <span class="o">+</span> <span class="mi">12</span><span class="p">;</span>
+
+<span class="nx">arrowFun</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="c1">// 22</span>
+
+<span class="kr">const</span> <span class="nx">arrowFunMultiline</span> <span class="o">=</span> <span class="p">(</span><span class="nx">imie</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`imie to </span><span class="si">${</span><span class="nx">imie</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">imie</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">arrowFunMultiline</span><span class="p">(</span><span class="s2">&quot;Jan&quot;</span><span class="p">);</span>
+<span class="c1">// imie to Jan</span>
+<span class="c1">// &quot;Jan&quot;</span>
+
+<span class="kr">const</span> <span class="nx">linkNames</span> <span class="o">=</span> <span class="p">(</span><span class="nx">imie</span><span class="p">,</span> <span class="nx">nazwisko</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">imie</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">nazwisko</span><span class="p">;</span>
+</code></pre></div>
+
+
+<p>Mają one dość elastyczny zapis, w wypadku jednego argumentu nie musimy używać nawiasów początkowych, podobnie wygląda sytuacja z klamerkami w któ©ych zawieramy nasze funkcje.</p>
+<p>Różnią się też nieco implementacją, nie jest dla nich tworzony <code>this</code>, ani obiekt <code>arguments</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">fun1</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">fun2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// zwróci globalny obiekt window</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<h3 id="kolejnosc-hoisting">Kolejność (hoisting)</h3>
+<p>Przy deklarowaniu funkcji nie musimy się martwić kolejnością ich deklaracji, ponieważ ich deklaracje są doczytywane wcześniej (ale na ich użycie musimy poczekać).</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">fun1</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">fun2</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">fun2</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">fun1</span><span class="p">();</span> <span class="c1">//ale ta już musi być po deklaracji</span>
+</code></pre></div>
+
+
+<h3 id="zmienne-proste-vs-zozone-kopia-vs-referencja">Zmienne proste vs złożone (kopia vs referencja)</h3>
+<p>Przy pracy ze zmiennymi warto pamiętać o tym, że jedynie proste typy zmiennych są kopiowane przy przekazywaniu dalej (Number, String, Boolean, Undefined, Null, Symbol, BigInt), w pozostałych przypadkach przekazywana jest referencja.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="c1">// 2</span>
+
+<span class="kd">let</span> <span class="nx">d1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">d2</span> <span class="o">=</span> <span class="nx">d1</span><span class="p">;</span>
+
+<span class="nx">d2</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//niechcący nadpisaliśmy wartość x obiektu d1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d1</span><span class="p">);</span>
+<span class="c1">//{ x: 2 }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d2</span><span class="p">);</span>
+<span class="c1">//{ x: 2 }</span>
+</code></pre></div>
+
+
+<p>Aby temu zapobiec można użyć operatora <code>Object.assign()</code> - łączy on ze sobą 2 obiekty, wystarczy połączyć nasz z jakimś pustym.<br />
+Towrzy on jednak tylko płytką kopię.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">kopia</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">d1</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2 id="obiekty">Obiekty</h2>
+<p>Obiekty mogą być tworzone na dwa sposoby.</p>
+<h3 id="tworzenie">Tworzenie</h3>
+<p><strong>Jako wyrażenie</strong> (expression) - sposób nieco zbliżony do opisu słownika. Otrzymujemy od razu gotową instancję naszej klasy.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">osoba</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">imie</span><span class="o">:</span> <span class="s2">&quot;Marian&quot;</span><span class="p">,</span>
+  <span class="nx">nazwisko</span><span class="o">:</span> <span class="s2">&quot;Nowak&quot;</span><span class="p">,</span>
+  <span class="nx">ur</span><span class="o">:</span> <span class="mi">1999</span><span class="p">,</span>
+
+  <span class="nx">getAge</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">2021</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">ur</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>Poszczególne elementy powinny być oddzielone przecinkami.</p>
+<p><strong>Deklaracja</strong> - tworzymy deklarację klasy i potem możemy (używając operatora <code>new</code> tworzyć jej instancje)</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">class</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">instancja</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Dostęp do elementów danej klasy uzyskujemy za pomocą słowa <code>this</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Dane można pozyskiwać na 2 sposoby</span>
+<span class="nx">osoba</span><span class="p">.</span><span class="nx">imie</span><span class="p">;</span>
+<span class="c1">//Marian</span>
+
+<span class="c1">//Ten sposób jest nieco bardziej elastyczny i pozwala na nieco łatwiejsze zarządzanie polami</span>
+<span class="nx">osoba</span><span class="p">[</span><span class="s2">&quot;imie&quot;</span><span class="p">];</span>
+<span class="c1">//Marian</span>
+
+<span class="c1">// Możemy tutaj też łątwo edytować pola w klasie</span>
+<span class="nx">osoba</span><span class="p">.</span><span class="nx">drugie_imie</span> <span class="o">=</span> <span class="s2">&quot;Zbigniew&quot;</span><span class="p">;</span>
+
+<span class="nx">osoba</span><span class="p">;</span>
+<span class="c1">// Object { imie: &quot;Marian&quot;, nazwisko: &quot;Nowak&quot;, wiek: 25, drugie_imie: &quot;Zbigniew&quot; }</span>
+
+<span class="nx">osoba</span><span class="p">.</span><span class="nx">getAge</span><span class="p">();</span>
+<span class="c1">// 22</span>
+</code></pre></div>
+
+
+<h3 id="prototypy">Prototypy</h3>
+<p>Prototyp jest deklaracją zawierającą definicje, które są współdzielone między instancjami. Każda instancja ma dostęp do pól i metod prototypu.</p>
+<p>Jest to przydatne, gdy chcemy coś zmienić we wszystkich instancjach danego obiektu bez ingerowania w niego.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">class</span> <span class="nx">Rectangle</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// dla obiektu prototype dla instancji __proto__</span>
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">field</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">rect</span><span class="p">.</span><span class="nx">field</span><span class="p">();</span> <span class="c1">// to nam zwróci 100</span>
+
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">;</span> <span class="c1">//zwróci nam prototyp bazowego obiektu</span>
+</code></pre></div>
+
+
+<h3 id="gettery-i-settery">Gettery i settery</h3>
+<p>Pozwalają na używanie niektórych metod tak, jakby były polami.<br />
+Settery są bardzo przydatne podczas walidacji danych.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">owner</span><span class="o">:</span> <span class="s2">&quot;Jonas&quot;</span><span class="p">,</span>
+  <span class="nx">movements</span><span class="o">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">530</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+
+  <span class="nx">get</span> <span class="nx">latest</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">movements</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="p">},</span>
+
+  <span class="nx">set</span> <span class="nx">latest</span><span class="p">(</span><span class="nx">mov</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">movements</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">mov</span><span class="p">);</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">account</span><span class="p">.</span><span class="nx">latest</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+<span class="nx">account</span><span class="p">.</span><span class="nx">latest</span><span class="p">;</span>
+</code></pre></div>
+
+
+<h2 id="komunikacja-zewnetrzna-i-funkcje-asynchroniczne">Komunikacja zewnętrzna i funkcje asynchroniczne</h2>
+<p>Aby zapobiec marnowaniu czasu niektóre funkcje w JS-ie zostały zaimplementowane asynchronicznie.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.dog&quot;</span><span class="p">);</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;dog.jpg&quot;</span><span class="p">;</span> <span class="c1">// I właśnie to wczytywanie będzie asynchroniczne</span>
+
+<span class="c1">//Jak już się wczyta to odpalony zostanie ten event</span>
+<span class="nx">img</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Wczytano&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<h3 id="ajax">AJAX</h3>
+<p><strong>AJAX</strong> - Async JavaScript And XML. Pozwala asynchronicznie komunikować się z zewnętrznymi serwerami (wysyłać żądania etc). Kiedyś opierało się to na użyciu XML-a, ale od iluś lat używa się jednak JSONa.</p>
+<p>Na potrzeby przykładów korzystamy z darmowych API <a href="https://github.com/public-apis/">stąd</a>.</p>
+<p>Wcześniej używało się do tego XMLHttpRequest.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;https://restcountries.eu/rest/v2/name/poland&quot;</span><span class="p">);</span>
+<span class="nx">wynik</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">polska</span><span class="p">;</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="c1">//po otrzymaniu wyświetli nam się cały surowy tekst JSONa,</span>
+  <span class="c1">//który trzeba przekształcić w jakiś sensowny obiekt</span>
+  <span class="p">[</span><span class="nx">polska</span><span class="p">]</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="c1">//json parse zwraca listę obiektów, więc bierzemy tylko pierwszy</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>Jednak obecnie ta metoda jest przestarzała i zamiast tego używa się fetch, które zwraca nam Obietnicę (promise). Jest to tymczasowy obiekt w którym znajdziemy wynik operacji asynchronicznej jak już się wykona.<br />
+Dzięki takiemu podejściu nie musimy polegać na callbackach, które mogą być problematyczne.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://restcountries.eu/rest/v2/name/poland&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Taka obietnica po zakończeniu zadania może zmienić swój stan na spełnioną, lub odrzuconą.<br />
+Jak już została wykonana to możemy ją skonsumować.<br />
+Do tego warto używać metody <code>then</code> do której przekazujemy co ma zostać zrobione z otrzymanymi danymi.</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://restcountries.eu/rest/v2/name/poland&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span> <span class="c1">//wypisze nam całą klasę odpowiedzi z kodem statusu etc</span>
+  <span class="kr">const</span> <span class="nx">new_promise</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span> <span class="c1">//zwraca sparsowany obiekt, ale jest też kolejną obietnicą</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<p>Używając tych mechanizmów można łatwo łączyć wiele żądań w ciągi.</p>
+<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">getCountryData</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">country</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://restcountries.eu/rest/v2/name/</span><span class="si">${</span><span class="nx">country</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="p">})</span> <span class="c1">//po otrzymaniu odpowiedzi parsujemy ją asynchronicznie</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">});</span> <span class="c1">//po sparsowaniu w końcu możemy ją wyświetlić</span>
+<span class="p">};</span>
+</code></pre></div>
+
+
+<p>Mamy tu jedno żądanie, które po wykonaniu ma zwrócić kolejną obietnicę, która po spełnieniu ma nam wyświetlić sparsowany wynik.</p>
+<h4 id="wysyanie-zadan-z-zawartoscia">Wysyłanie żądań z zawartością</h4>
+<p>Wysyłanie żądania zawierającego JSONa</p>
+<p>Stary sposób:</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">//true mówi, że ma być asynchronicznie</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">);</span> <span class="c1">//kiedy jsona trzeba określić jaki to typ zawartości</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Jest git&quot;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="nx">imie</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="nx">wiek</span><span class="o">:</span> <span class="mi">12</span> <span class="p">});</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div>
+
+
+<p>Nowy sposób:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">method</span><span class="o">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">Accept</span><span class="o">:</span> <span class="s2">&quot;application/json, text/plain&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="nx">imie</span><span class="o">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="nx">wiek</span><span class="o">:</span> <span class="mi">12</span> <span class="p">}),</span>
+<span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">));</span>
+</code></pre></div>
+
+
+<p>Tutaj drugim argumentam fetcha jest odpowiednik obiektu <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/Request">Request</a>.</p>
+<p>Warto zwrócić tu uwagę na pola:</p>
+<ul>
+<li><code>method</code> - określa typ żądania</li>
+<li><code>headers</code> - mamy tutaj typowe nagłówki http <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">lista</a>, za ich pomocą ustalamy np jaki typ danych wysyłamy (<code>Content-Type</code>), czy też jakie dane jesteśmy w stanie przyjąć (<code>Accept</code>).</li>
+<li><code>body</code> - już samo ciało żądania, tutaj warto pamiętać, że najczęściej wysyłamy je w postaci stringa</li>
+</ul>
+<h2 id="waczanie-zewnetrznych-bibliotek">Włączanie zewnętrznych bibliotek</h2>
+<p>TODO</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Python%F0%9F%90%8D/6_testowanie/" title="Testowanie" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Testowanie
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../2_javascript_interakcje_z_dom/" title="Javascript DOM - Interakcje i właściwości" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Javascript DOM - Interakcje i właściwości
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
