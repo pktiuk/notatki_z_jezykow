@@ -526,7 +526,11 @@ let kopia = Object.assign({}, d1);
 
 ## Obiekty
 
-Obiekty tutaj wydają się nieco zbliżone do typowych słowników.
+Obiekty mogą być tworzone na dwa sposoby.
+
+### Tworzenie
+
+**Jako wyrażenie** (expression) - sposób nieco zbliżony do opisu słownika. Otrzymujemy od razu gotową instancję naszej klasy.
 
 ```js
 const osoba = {
@@ -540,7 +544,21 @@ const osoba = {
 };
 ```
 
-Poszczególne elementy powinny być oddzielone przecinkami.  
+Poszczególne elementy powinny być oddzielone przecinkami.
+
+**Deklaracja** - tworzymy deklarację klasy i potem możemy (używając operatora `new` tworzyć jej instancje)
+
+```js
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+let instancja = new Rectangle(0, 0);
+```
+
 Dostęp do elementów danej klasy uzyskujemy za pomocą słowa `this`.
 
 ```js
@@ -560,6 +578,55 @@ osoba;
 
 osoba.getAge();
 // 22
+```
+
+### Prototypy
+
+Prototyp jest deklaracją zawierającą definicje, które są współdzielone między instancjami. Każda instancja ma dostęp do pól i metod prototypu.
+
+Jest to przydatne, gdy chcemy coś zmienić we wszystkich instancjach danego obiektu bez ingerowania w niego.
+
+```js
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+let rect = new Rectangle(10, 10);
+
+// dla obiektu prototype dla instancji __proto__
+Rectangle.prototype.field = function () {
+  return this.height * this.width;
+};
+
+rect.field(); // to nam zwróci 100
+
+Rectangle.__proto__; //zwróci nam prototyp bazowego obiektu
+```
+
+### Gettery i settery
+
+Pozwalają na używanie niektórych metod tak, jakby były polami.  
+Settery są bardzo przydatne podczas walidacji danych.
+
+```js
+const account = {
+  owner: "Jonas",
+  movements: [200, 530, 120, 300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+account.latest = 23;
+account.latest;
 ```
 
 ## Komunikacja zewnętrzna i funkcje asynchroniczne
