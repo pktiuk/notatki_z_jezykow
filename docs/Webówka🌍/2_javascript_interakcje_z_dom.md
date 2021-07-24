@@ -41,7 +41,7 @@ document.getElementsByClassName("moja_klasa");
 
 ### Dodawanie i tworzenie elementów
 
-Do dodawanie elementów w HTML-u używa się metody [Element.insertAdjacentHTML()](https://developer.mozilla.org/pl/docs/Web/API/Element/insertAdjacentHTML).  
+Do dodawanie elementów w HTML-u używa się metody [Element.insertAdjacentHTML()](https://developer.mozilla.org/pl/docs/Web/API/Element/insertAdjacentHTML) albo [insertAdjacentElement()](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement).  
 Pozwala ona nam wstawić dowolny tekst (element) względem wybranego elementu.
 
 ```js
@@ -80,7 +80,9 @@ document.body.append(my_element); // przeniesie to nasz element bo może istnie�
 my_element.remove(); // usuwa ten element
 ```
 
-### Edycja elementu
+W niektórych przypadkach zamiast `createElement()` trzeba użyć [createElementNS()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS) (np w wypadku elementów wewnątrz svg).
+
+### Edycja elementu oraz atrybutów
 
 ```js
 my_element.classList.add("my-created-class");
