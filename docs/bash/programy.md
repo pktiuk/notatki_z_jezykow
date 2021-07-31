@@ -4,7 +4,7 @@ Otwarcie nowej sesji
 screeen []
 
 Wyjście z sesji
-Ctrl+a , potem 
+Ctrl+a , potem
 
 lista aktywnych sesji
 screen -ls
@@ -115,6 +115,43 @@ Inne użyteczne (pełna lista jest w `man screen`):
 └──────────────┴────────────────┴─────────────────────────────────────────────────────┘
 ```
 
+## Zdobywanie informacji o systemie
+
+### Ogólne informacje o systemie
+
+uname przydaje się do ogólnych informacji o systemi operacyjnym, architekturze procesora i kernelu.
+
+```bash
+uname
+```
+
+### Miejsce na dyskach
+
+```bash
+df
+
+#df --block-size=1M poda ci rozmiar w gigabajtach
+```
+
+Może być przydatne w bombinacji z `du`, które może pokazywać ile miejsca zajmują dane foldery i pliki.
+(terminalowa alternatywa dla apki `baobab` [link](https://wiki.gnome.org/Apps/DiskUsageAnalyzer))
+
+```bash
+du -d 1
+# 1760    ./docs
+# 9876    ./.git
+# 12      ./.github
+# 8       ./.vscode
+# 11672   .
+```
+
+### Hardware
+
+`lsusb` - przydatne do sprawdzania tego, jakie urządzenia usb mamy podłączone
+
+```bash
+lsusb
+```
 
 ## Networking
 
@@ -125,3 +162,8 @@ Inne użyteczne (pełna lista jest w `man screen`):
 ```
 sudo nmap -sn 192.168.1.0/24
 ```
+
+## Montowanie
+
+mount
+TODO
