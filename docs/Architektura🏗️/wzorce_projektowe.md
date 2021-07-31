@@ -1,4 +1,4 @@
-<script src="mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://pktiuk.github.io/notatki_z_jezykow/Architektura%F0%9F%8F%97%EF%B8%8F/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script>
 
 ## Wzorce projektowe
 
@@ -47,6 +47,12 @@ class Singleton
 
 ### Strukturalne
 
+#### Adapter
+
+#### Proxy
+
+#### Fasada
+
 ### Behawioralne
 
 ### nieposortowane TODO
@@ -57,10 +63,6 @@ Zamiast tworzyć obiekty w klasie przekazujemy jej zależne klasy.
 
 - inicjalizacja nie następuje w naszych klasach z logiką biznesową (PKI wykład 8 30 min to było omwione)
 
-#### Fasada
-
 #### Obserwator
-
-#### Proxy
 
 #### MVC - porządnie omówione
