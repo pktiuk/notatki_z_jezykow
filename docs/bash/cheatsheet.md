@@ -41,19 +41,27 @@ strings PLIK
 
 #### Dzielenie dłuższych łańcuchów znaków
 
-```bash
-cut
+Najprostszym narzędziem do teog jest komenda `cut`
 
+- `-b` byte - wydziela poszczególne bajty
+
+```bash
+echo "abcdefgh" | cut -b 1,3,5-6
+# acef
 ```
 
-```bash
+- `-d` delimiter - dzielenie separatorem (używane razem z `-f` określającym, które z części mają być przekazane dalej)
 
+```bash
+echo "abc def ghi" | cut -d " " -f 2
+# def
 
 ```
+W wypadku, gdy chcemy wydzielić samą nazwę pliku ze ścieżki warto użyć komendy `basename`
 
 ```bash
-TODO
-
+basename /sciezka/do/pliku/plik.txt
+# plik.txt
 ```
 
 ## Argumenty
