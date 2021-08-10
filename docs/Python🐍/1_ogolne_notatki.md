@@ -599,6 +599,18 @@ Można potem je sprawdzić poprzez sięgnięcie do atrybutu `__annotations__`
 {'liczba1': 99, 'slowo1': <class 'str'>, 'slowo2': 'inne slowo', 'return': <class 'str'>}
 ```
 
+W razie problemów spowodowanych kolejnością deklaracji różnych elementów w pliku warto użyć specjalnego importu
+
+```python
+from __future__ import annotations # bez niego poniższy kod by nie działał
+
+def fun(i: A): #moglibyśmy otzymać błąd mówiący o odnoszeniu się do nieistniejącej klasy
+    pass
+
+class A:
+    pass
+```
+
 #### Wyrażenia lambda
 
 Lambdy to są funkcje, które można w dość podręczny sposób zdefiniować
