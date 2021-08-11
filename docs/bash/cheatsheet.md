@@ -39,9 +39,15 @@ strings służy do wypisywania stringów z plików binarnych (dobrze współdzia
 strings PLIK
 ```
 
+Inne przydatne flagi grepa
+
+|                       |                                                    |
+| --------------------- | -------------------------------------------------- |
+| `-v` `--invert-match` | odwrócony grep, przekazuje tylko to, co nie pasuje |
+
 #### Dzielenie dłuższych łańcuchów znaków
 
-Najprostszym narzędziem do teog jest komenda `cut`
+`cut` - proste wycinanie fragmentów tekstu
 
 - `-b` byte - wydziela poszczególne bajty
 
@@ -50,18 +56,38 @@ echo "abcdefgh" | cut -b 1,3,5-6
 # acef
 ```
 
-- `-d` delimiter - dzielenie separatorem (używane razem z `-f` określającym, które z części mają być przekazane dalej)
+```bash
+echo "qwer tyui xxx" | cut -d " " -f 2 #-d delimiter (separator) -f pole
+#tyui
+```
+
+`-f` przyjmuje liczby w następujących formatach: `N`, `N-M`, `-M`, `N-`, `X,Y,Z`
+
+`head` - służy do operowania na liniach
 
 ```bash
-echo "abc def ghi" | cut -d " " -f 2
-# def
-
+TODO head
 ```
+
 W wypadku, gdy chcemy wydzielić samą nazwę pliku ze ścieżki warto użyć komendy `basename`
 
 ```bash
 basename /sciezka/do/pliku/plik.txt
 # plik.txt
+```
+
+#### Manipulacja tekstem
+
+`sed` służy do nieco bardziej zaawansowanych manipulacji
+
+```bash
+echo "abcdefbc" | sed "s/bc/BC/" # zamień pierwszy pasujący ciąg (bc) na BC
+#aBCdefbc
+```
+
+```bash
+TODO
+
 ```
 
 ## Argumenty
@@ -99,7 +125,7 @@ Zwroty przydatne przy obsłudze argumentów
 | $0       | Nazwa wołanej komendy/skryptu                    |
 | $1 $2 $3 | poszczególne argumenty (pierwszy, drugi, trzeci) |
 | $#       | Liczba argumentów                                |
-| $*       | Wszystkie argumenty jako jeden string            |
+| $\*      | Wszystkie argumenty jako jeden string            |
 | $@       | Wszystkie argumenty jako lista                   |
 
 ## Procesy
