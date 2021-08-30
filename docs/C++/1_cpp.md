@@ -4,9 +4,8 @@
 
 W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.
 
-
 - poprzez **kopię** - w domyślnym wypadku do naszej funkcji przekazywana jest kopia naszego obiektu.
-O ile to nie jest problem przy liczbach to przy większych obiektach to to może być już problem.
+  O ile to nie jest problem przy liczbach to przy większych obiektach to to może być już problem.
 - poprzez **wskaźnik** - jest to opcja zalecana bardziej przy kodzie napisanym w czystym C, czy też w wypadku, gdy chcemy sobie zastrzec możliwość przekazania pustego wskaźnika.
 - poprzez **referencję** - jest to sposób zbliżony do wskaźnika, do funkcji przekazujemy referencję do naszego obiektu.
 
@@ -48,7 +47,37 @@ Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, al
 
 ## Templatki
 
-//TODO
+Pozwalają kompilatorowi na łatwą autogenerację kodu.
+
+Templatka metody
+
+```cpp
+template <class myType>
+myType GetMax (myType a, myType b) {
+ return (a>b?a:b);
+}
+```
+
+Templatka klasy
+
+```cpp
+template <class T>
+class mypair {
+    T values [2];
+  public:
+    mypair (T first, T second)
+    {
+      values[0]=first; values[1]=second;
+    }
+};
+```
+
+Specjalizacje templatek - pozwalają na łatwe doprecyzowanie implementacji dla pewnych ścićle określonych typów.
+
+```cpp
+template <class T> class mycontainer { ... };
+template <> class mycontainer <char> { ... };
+```
 
 ## Typy castów (operatorów rzutowania)
 
@@ -96,6 +125,7 @@ Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
 ### Lambdy
 
 Składnia lambdy:
+
 - `[]` - Tu podajemy listę przechwytywania
   - `[x]` - przechwytuje obiekt x (tylko odczyt)
   - `[&x]` - przechwytuje obiekt x (odczyt i zapis)
@@ -126,7 +156,6 @@ explicit TODO
 ## Nowości z C++20
 
 [Pełna lista z omówieniem](https://oleksandrkvl.github.io/2021/04/02/cpp-20-overview.html)
-
 
 ## Do zrobienia
 
