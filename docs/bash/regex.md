@@ -22,13 +22,14 @@ Do ich escape'owania na ogół wystarcza `\`.
 
 ## Grupy i zakresy
 
-|           |                                                                                    |
-| --------- | ---------------------------------------------------------------------------------- |
-| [a-c]     | znaki z zakresu a-c. Mogą być łączone w większe grupy (np. [a-deA-D1-4])           |
-| [^a-c]    | Zaprzeczenie znakom z danego zakresu (nie a nie b i nie c)                         |
-| `(aIbIc)` | Alternatywa a lub lub c (zamiast I powinny tam być linie pionowe)                  |
-| `*`       | Znak/wyrażenie znajdujący się przed gwiazdką może pojawić się dowolną ilość razy   |
-| `+`       | Znak/wyrażenie sprzed plusa pojawi się dowolnie wiele razy (ale co najmniej 1 raz) |
+|             |                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------- |
+| [a-c]       | znaki z zakresu a-c. Mogą być łączone w większe grupy (np. [a-deA-D1-4])           |
+| [^a-c]      | Zaprzeczenie znakom z danego zakresu (nie a nie b i nie c)                         |
+| `(aIbIc)`   | Alternatywa a lub lub c (zamiast I powinny tam być linie pionowe)                  |
+| `*`         | Znak/wyrażenie znajdujący się przed gwiazdką może pojawić się dowolną ilość razy   |
+| `+`         | Znak/wyrażenie sprzed plusa pojawi się dowolnie wiele razy (ale co najmniej 1 raz) |
+| `(?!slowo)` | zaprzeczenie - wyklucz wyniki zawierające `slowo` (negative lookahead)             |
 
 ## Podmienianie znaków
 
