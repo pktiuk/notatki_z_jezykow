@@ -1313,6 +1313,20 @@ x = copy.copy(y)        # płytka kopia
 x = copy.deepcopy(y)    # kopia głęboka rekursywnie kopiująca wszystkie elementy naszej klasy
 ```
 
+Typy, które są przekazywane przez referencję określamy mianem `mutowalnych`
+
+| Niemutowalne | Mutowalne           |
+| ------------ | ------------------- |
+| int          | lista               |
+| float        | słownik             |
+| complex      | bytearray           |
+| bool         | obiekty użytkownika |
+| string       |                     |
+| tuple        |                     |
+| range        |                     |
+| frozenset    |                     |
+| bytes        |                     |
+
 ### Inicjalizowanie zmiennych
 
 Skoro wszystko jest referencją to trzeba też o tym pamiętać przy podawaniu domyślnych wartości dla funkcji.  
