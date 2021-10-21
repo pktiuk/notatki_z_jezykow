@@ -20,3 +20,7 @@ Narzędzia do monitorowania - długa lista https://www.ubuntupit.com/most-compre
 - najaktywniejsze forki danego repo - [tu](https://techgaun.github.io/active-forks/index.html)
 - ststystyki użytkownika - [Coderstats](https://coderstats.net/)
 - Graf gwiazdek - [star-history](https://star-history.t9t.io/?ref=producthunt)
+
+## Inne
+
+- [SearchCode](https://searchcode.com/) - przeszukiwanie baz z kodem źródłowym. Przydatne, gdy chcesz znaleźć przykłady wywoływania danej funkcji.
