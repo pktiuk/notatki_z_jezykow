@@ -1267,9 +1267,41 @@ Różne cechy oraz właściwości pythona na które trzeba uważać podczas pisa
 ### Wszystko jest referencją
 
 Warto pamiętać, że w pythonie prawie wszystko jest referencją.  
-Np przekazując do funkcji coś bardziej skomplikowanego niż np liczba przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.
+Np przekazując coś do funkcji przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.
 
-Dla liczby jest przekazywana kopia
+Warto tutaj zapoznać się z pojęciem `mutowalności`.  
+Obiekty mutowalne to takie, których nowe instancje są tworzone podczas zmiany wartości.
+
+```python
+def fun(x):
+    print(id(x)) #id() wypisuje identyfikator danej zmiennej
+    x+=1
+    print(id(x))
+
+num=32
+print(id(num))
+fun(num)
+
+>> 9789984
+>> 9789984 # Widać tutaj, że funkcja operuje na tej samej instancji liczby
+>> 9790016 # po zmianie wartości do identyfikatora x jest już przypisany inny obiekt
+```
+
+Z tego powodu przekazywanie mutowalnej wartości do funkcji można traktować jako przekazanie kopii, a przekazanie niemutowalnej jako przekazanie referencji lub wskaźnika (w języku C++).
+
+| Niemutowalne | Mutowalne           |
+| ------------ | ------------------- |
+| int          | lista               |
+| float        | słownik             |
+| complex      | bytearray           |
+| bool         | obiekty użytkownika |
+| string       |                     |
+| tuple        |                     |
+| range        |                     |
+| frozenset    |                     |
+| bytes        |                     |
+
+Przykłady działania:
 
 ```python
 def fun(num):
@@ -1282,8 +1314,6 @@ fun(liczba)
 print(liczba)
 #1
 ```
-
-Dla wszystkiego, co jest bardziej skomplikowane mamy referencję
 
 ```python
 class Numer:
@@ -1312,20 +1342,6 @@ import copy
 x = copy.copy(y)        # płytka kopia
 x = copy.deepcopy(y)    # kopia głęboka rekursywnie kopiująca wszystkie elementy naszej klasy
 ```
-
-Typy, które są przekazywane przez referencję określamy mianem `mutowalnych`
-
-| Niemutowalne | Mutowalne           |
-| ------------ | ------------------- |
-| int          | lista               |
-| float        | słownik             |
-| complex      | bytearray           |
-| bool         | obiekty użytkownika |
-| string       |                     |
-| tuple        |                     |
-| range        |                     |
-| frozenset    |                     |
-| bytes        |                     |
 
 ### Inicjalizowanie zmiennych
 
