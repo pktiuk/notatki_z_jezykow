@@ -84,7 +84,7 @@ Mamy tutaj typowe rodzaje pól takie jak:
 
 - CharField
 - IntegerField
-- ForeignKey - klucz obcy
+- ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ForeignKey)
 - ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/3.2/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
 - etc.
 
@@ -138,20 +138,71 @@ People.objects.exclude(surname="Kowalski)
 People.objects.get(pesel=12345678) #gdy chcemy uzyskać jeden wynik
 ```
 
-Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. MOżemy też używaćróżnych prefixów.
+#### Filtrowanie
+
+Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. [link](https://docs.djangoproject.com/en/3.2/topics/db/queries/)
 
 ```python
 People.objects.filter(surname__startswith="Kowalski)
 ```
 
-TODO więczej przykładów by się przydało
+Filtry można też łatwo ze sobą łączyć zanim przejdziemy do wykonania zapytania wykorzystując klasę `Q`:
+
+```python
+from django.db.models import Q
+
+q = Q()
+if param_1 != 'all':
+    q &= Q(param_1__name=param_1)
+if param_2 != 'all':
+    q &= Q(param_2__name=param_2)
+class_var = ClassName.objects.filter(q)
+
+#LUB
+
+q = {}
+if param_1 != 'all':
+    q.update({'param_1__name': param_1})
+if param_2 != 'all':
+    q.update({'param_2__name': param_2})
+class_var = ClassName.objects.filter(**q)
+```
+
+Przy odpowiednim wykorzystaniu kluczy obcych można także wykonywać proste filtry na łączeniach. [link](https://docs.djangoproject.com/en/3.2/topics/db/queries/#backwards-related-objects). Przydaje się tu argument `related_name`.
+
+```python
+class Sessions(models.Model):
+    sessionId = models.AutoField(primary_key=True)
+
+class Ip(models.Model):
+    ipId = models.AutoField(primary_key=True)
+
+class Affiliation(models.Model):
+    affiliationId = models.AutoField(primary_key=True)
+    ip = models.ForeignKey("Ip", null=False, db_column="ipId")
+    session = models.ForeignKey(
+        "Sessions",
+        related_name="affiliation_session"
+    )
+
+
+#potem można wołać
+Sessions.objects.filter(affiliation_session__ip_id=X)
+```
+
+TODO więcej przykładów by się przydało
 
 ## Widoki
 
 [link](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
 
 Widok jest typem strony internetowej generowany przez django.  
-Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane.
+Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane. W wielu wypadkach pozwalają na swoiste zautomatyzowanie danej strony
+
+```python
+class UserLogin(LoginView):
+    template_name = 'sjopinie_app/login.html'
+```
 
 ## Panel Administratora
 
@@ -160,3 +211,28 @@ https://docs.djangoproject.com/en/3.2/intro/tutorial02/#introducing-the-django-a
 ## REST API
 
 Do pracy z API RESTowym zaleca się użycie specjalnego frameworka https://www.django-rest-framework.org/tutorial/quickstart/
+
+## Widoki dla RESTa
+
+Używanie widoków pozwala łatwo zautomatyzować wyświetlanie danych. Za jednym zamachem możemy wystawić API reagujące na wszystkie typy zapytań (GET, PUT, POST, DELETE)
+
+Można do tego wykorzystać na przykład własną klasę dziedziczącą po `viewsets.ModelViewSet`. Dzięki temu dostaniemy nie tulko :gołe" API, lecz także django wygeneruje interfejs sieciowy do korzystania z tego API, w razie zgdybyśmy otowrzyli go w przeglądarce.
+
+```python
+from rest_framework import viewsets
+
+#prosty widok na listę przedmiotów posortowanych alfabetycznie
+class SubjectViewSet(viewsets.ModelViewSet):
+    queryset = Subject.objects.all().order_by('name')
+    serializer_class = SubjectSerializer
+
+# tu już nieco bardziej skomplikowany widok, reagujący na podawane parametry
+# Przykładowa ścieżka: lecturers/?name=Marian
+class LecturerViewSet(viewsets.ModelViewSet):
+    serializer_class = LecturerSerializer
+
+    def get_queryset(self):
+        lecturer_name = self.request.query_params.get('name')
+        queryset = Lecturer.objects.filter(name=lecturer_name)
+        return queryset
+```
