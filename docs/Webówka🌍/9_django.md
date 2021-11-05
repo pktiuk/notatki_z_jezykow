@@ -136,6 +136,9 @@ People.objects.all()
 People.objects.filter(name="Jan")
 People.objects.exclude(surname="Kowalski)
 People.objects.get(pesel=12345678) #gdy chcemy uzyskać jeden wynik
+
+p1 = Poeple.objects.create(name="Marian",surname="Nowak") #stworzenie instancji modelu
+p1.save() #zapisanie do bazy
 ```
 
 #### Filtrowanie
@@ -212,7 +215,11 @@ https://docs.djangoproject.com/en/3.2/intro/tutorial02/#introducing-the-django-a
 
 Do pracy z API RESTowym zaleca się użycie specjalnego frameworka https://www.django-rest-framework.org/tutorial/quickstart/
 
-## Widoki dla RESTa
+### Serializacja
+
+[link](https://www.django-rest-framework.org/api-guide/serializers/)
+
+### Widoki dla RESTa
 
 Używanie widoków pozwala łatwo zautomatyzować wyświetlanie danych. Za jednym zamachem możemy wystawić API reagujące na wszystkie typy zapytań (GET, PUT, POST, DELETE)
 
@@ -236,3 +243,57 @@ class LecturerViewSet(viewsets.ModelViewSet):
         queryset = Lecturer.objects.filter(name=lecturer_name)
         return queryset
 ```
+
+## Inne
+
+### Praca z użytkownikami
+
+Django pozwala włatwy sposób dodać uzytkowników do naszej aplikacji. [link](https://docs.djangoproject.com/en/3.2/topics/auth/default/)
+
+Możemy tutaj uzyć gotowego modelu `django.contrib.auth.models.User`. Jeśli ten obiekt nam nie pasuje, zawsze możemy go [przystosować do swoich potrzeb](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#custom-users-and-the-built-in-auth-forms).
+
+Do zalogowania uzytkownika z pomocą włanego formularza możemy wykorzystać metodę authenticate.
+
+```python
+from django.contrib.auth import authenticate
+user = authenticate(username='john', password='secret')
+if user is not None:
+    # A backend authenticated the credentials
+else:
+    # No backend authenticated the credentials
+```
+
+Potem będziemy mogli sprawdzać przychodzące żądania pod kątem tego, czy pochodzą od jakiegoś użytkownika.
+
+```python
+if request.user.is_authenticated:
+    # Do something for authenticated users.
+    ...
+else:
+    # Do something for anonymous users.
+    ...
+```
+
+Dla prostego zastrzegania treśli tylko dla uzytkowaników możemy uzywać dekoratorów.
+
+```python
+# dla funkcji
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def my_view(request):
+    ...
+
+
+#dla klas widoków
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class MyView(LoginRequiredMixin, View):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+
+# dla innych wypadków np w serializerze
+self.context['request'].user
+```
+
+Używając tych mechanizmów możemy także tworzyć grupy uzytkowników z różnymi uprawnieniami.
