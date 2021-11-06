@@ -202,10 +202,41 @@ TODO więcej przykładów by się przydało
 Widok jest typem strony internetowej generowany przez django.  
 Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane. W wielu wypadkach pozwalają na swoiste zautomatyzowanie danej strony
 
+Widok może być klasą lub funkcją zwracającą JSON-a, lub stronę w HTMLu.
+
 ```python
 class UserLogin(LoginView):
     template_name = 'sjopinie_app/login.html'
 ```
+
+```python
+from django.shortcuts import render
+
+from .models import Question
+
+
+def index(request):
+    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    #kontekst pozwala na późniejsze wykorzystywanie wartości w kodzie templatki
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
+```
+
+Przykładowy schemat strony dla powyższego przykładu
+
+```html
+{% if latest_question_list %}
+<ul>
+  {% for question in latest_question_list %}
+  <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
+```
+
+Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanych wartości.
 
 ## Panel Administratora
 
