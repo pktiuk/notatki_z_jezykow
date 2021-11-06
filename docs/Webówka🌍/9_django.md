@@ -305,7 +305,7 @@ else:
     ...
 ```
 
-Dla prostego zastrzegania treśli tylko dla uzytkowaników możemy uzywać dekoratorów.
+Dla prostego zastrzegania treści tylko dla użytkowników możemy używać dekoratorów.
 
 ```python
 # dla funkcji
@@ -327,4 +327,14 @@ class MyView(LoginRequiredMixin, View):
 self.context['request'].user
 ```
 
-Używając tych mechanizmów możemy także tworzyć grupy uzytkowników z różnymi uprawnieniami.
+Możemy także wprowadzać zmiany bezpośrednio na poziomie szablonów.
+
+```html
+{% if user.is_authenticated %}
+<h1>Witaj {{user.get_username}}</h1>
+{% else %}
+<h1>Witaj nieznajomy</h1>
+{% endif %}
+```
+
+Używając tych mechanizmów możemy także tworzyć grupy użytkowników z różnymi uprawnieniami.
