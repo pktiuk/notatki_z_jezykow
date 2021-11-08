@@ -338,3 +338,69 @@ Możemy także wprowadzać zmiany bezpośrednio na poziomie szablonów.
 ```
 
 Używając tych mechanizmów możemy także tworzyć grupy użytkowników z różnymi uprawnieniami.
+
+### Formularze
+
+Formularze są jednym z najpopularniejszych sposobów na zbieranie danych od użytkowników. Django jest wyposażone w kilka mechanizmów wspomagających pracę z nimi. ([omówienie formularzy w django](https://docs.djangoproject.com/en/3.2/topics/forms/), [dokumentacja mozilli](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form))
+
+Formularze możemy tworzyć ręcznie umieszczasjąc je bezpośrednio w schemacie strony
+
+```html
+<form action="/your-name/" method="post">
+  <label for="your_name">Your name: </label>
+  <input
+    id="your_name"
+    type="text"
+    name="your_name"
+    value="{{ current_name }}"
+  />
+  <input type="submit" value="OK" />
+</form>
+```
+
+Możemy też do tego wykorzystać klasę [Form](https://docs.djangoproject.com/en/3.2/ref/forms/api/#django.forms.Form), która sama wygeneruje nam formularz.
+
+```python
+from django import forms
+
+class NameForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100)
+```
+
+Następnie łączymy ten formularz z widokiem, który go obsługuje.(W przykładzie poniżej żądanie jest obsługiwane przez ten sam widok, który udostępnia formularz)
+
+```python
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
+from .forms import NameForm
+
+def get_name(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html', {'form': form})
+```
+
+Wykorzystany schemat `name.html`:
+
+```html
+<form action="/your-name/" method="post">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Submit" />
+</form>
+```
+
+`csrf_token` jest sposobem na użycie ochrony przeciwko [CSRF](https://pl.wikipedia.org/wiki/Cross-site_request_forgery)
