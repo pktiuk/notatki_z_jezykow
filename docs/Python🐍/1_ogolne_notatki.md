@@ -999,6 +999,8 @@ try:
 except ValueError as e:
     print("Och nie, coś poszło nie tak! Szczegóły poniżej:")
     print(e)
+else:
+    print("Obyło się bez wyjątków")
 finally:
     print("Zwalniam zasób")
 ```
@@ -1270,7 +1272,7 @@ Warto pamiętać, że w pythonie prawie wszystko jest referencją.
 Np przekazując coś do funkcji przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.
 
 Warto tutaj zapoznać się z pojęciem `mutowalności`.  
-Obiekty mutowalne to takie, których nowe instancje są tworzone podczas zmiany wartości.
+Obiekty niemutowalne to takie, których nowe instancje są tworzone podczas zmiany wartości.
 
 ```python
 def fun(x):
