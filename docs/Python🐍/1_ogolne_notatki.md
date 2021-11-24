@@ -78,6 +78,20 @@ for line in sys.stdin:
 
 TODO
 
+Przykładowe importy.
+
+```python
+import math
+
+from collections import namedtuple
+
+from django.contrib.auth.forms import (
+    AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm,
+)
+```
+
+więcej informacji w [opisie paczek](./3_moduły_i_paczki.md).
+
 ## Podstawy
 
 ### Komentarze
