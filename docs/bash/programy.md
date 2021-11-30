@@ -8,14 +8,16 @@ Ctrl+a , potem
 
 lista aktywnych sesji
 screen -ls
+
 > There is a screen on:
->        21512.pts-4.komp-pc (07.08.2020 12:54:54)   (Attached)
->1 Socket in /run/screen/S-komp.
+> 21512.pts-4.komp-pc (07.08.2020 12:54:54) (Attached)
+> 1 Socket in /run/screen/S-komp.
 
 Dołącz do jednej z sesji
 screen -r [numer_sesji]
 
 Uruchom skrypt w sesji i odłącz się od sesji (dobre do startupu)
+
 ```bash
 screen -d -m moj_skrypt_albo_komenda
 ```
@@ -32,6 +34,7 @@ Podstawowe:
 - `C-a \` - zakmnij wszystkie okna i zakończ sesję
 
 Inne użyteczne (pełna lista jest w `man screen`):
+
 ```
 ┌──────────────┬────────────────┬─────────────────────────────────────────────────────┐
 │C-a '         │ (select)       │ Prompt for a window name or number to switch to.    │
@@ -161,6 +164,12 @@ lsusb
 
 ```
 sudo nmap -sn 192.168.1.0/24
+```
+
+### Wypisywanie portów na których maszyna nasłuchuje
+
+```bash
+netstat -plnt
 ```
 
 ## Montowanie
