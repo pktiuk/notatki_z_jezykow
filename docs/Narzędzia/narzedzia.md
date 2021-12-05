@@ -21,6 +21,21 @@ Narzędzia do monitorowania - długa lista https://www.ubuntupit.com/most-compre
 - ststystyki użytkownika - [Coderstats](https://coderstats.net/)
 - Graf gwiazdek - [star-history](https://star-history.t9t.io/?ref=producthunt)
 
+## Dla chcących postawić sobie jakiś serwer
+
+Poszukiwanie VPS-a:
+
+- [mikr.us](https://mikr.us/) - fajne i tanie serwery dla amatorów, jest trochę [dokumentacji](https://www.notion.so/MIKR-US-Don-t-Panic-5c3bdde2e0b545e7866524fc117446c3) i fajna społeczność ( [FB](https://www.facebook.com/groups/mikrusy) i [Discord](https://discord.gg/hFcqJGkppq))
+- [Oracle free tier](https://www.oracle.com/pl/cloud/free/) - darmowe serwery VPS or oracle. Omówienie: [link pepper](https://www.pepper.pl/promocje/oracle-cloud-free-tier-darmowe-vpsy-z-ipv4-459055)
+- [serverhunter](https://www.serverhunter.com/) - wyszukiwarka tanich VPSów (gdy mikrus nie starcza)
+
+Oganianie domen:
+
+- [cloudflare](https://dash.cloudflare.com/) - dzięki ich czshowaniu zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6
+- [tld-list](https://tld-list.com/) - porównywarka cen domen
+
 ## Inne
 
 - [SearchCode](https://searchcode.com/) - przeszukiwanie baz z kodem źródłowym. Przydatne, gdy chcesz znaleźć przykłady wywoływania danej funkcji.
+- [zerotier](https://www.zerotier.com/) - chyba najprostszy VPN
+  - Gdy chcemy w sieci zerotiera postawić serwer DNS https://github.com/zerotier/zeronsd
