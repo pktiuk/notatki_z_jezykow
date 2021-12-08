@@ -37,6 +37,10 @@ Inspirowane [artykułem](https://bulldogjob.pl/news/1503-jak-git-rebase-pomoze-c
 
 ```bash
 git rebase -i JAK_DALEKO
+#np
+git rebase -i HEAD~3 #3 commity do tyłu
+#lub
+git rebase -i master
 ```
 
 To jak głęboki ma być nasz rebase możemy określić jako ilość commitów (`HEAD~9` - czyli 9 commitów do tyłu), czy też względem innego brancha (np. mając feature branch wychodzęcy z mastera możemy zrobić rebase względem mastera).
