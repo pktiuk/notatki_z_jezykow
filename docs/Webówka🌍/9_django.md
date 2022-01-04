@@ -149,7 +149,9 @@ Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. M
 People.objects.filter(surname__startswith="Kowalski)
 ```
 
-Filtry można też łatwo ze sobą łączyć zanim przejdziemy do wykonania zapytania wykorzystując klasę `Q`:
+Filtry można też łatwo ze sobą łączyć zanim przejdziemy do wykonania zapytania wykorzystując klasę `Q`.
+
+Do łączenia możemy wykorzystać operatory: `|=` (lub) oraz `&=` (i).
 
 ```python
 from django.db.models import Q
