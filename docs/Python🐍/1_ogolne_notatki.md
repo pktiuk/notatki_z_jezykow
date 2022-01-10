@@ -801,6 +801,27 @@ Jan = Osoba("Jan", "Nowak", 48)
 Jan = None #Wymuszenie destrukcji obiektu
 ```
 
+##### Własne operatory
+
+W pythonie można w prosty sposób dodawać własne operatory do klas. Możemy w prosty sposób sprawić, że korzystanie z naszych klas będzie wygodniejsze.
+
+```python
+class C:
+    __str__(self):
+
+```
+
+| Operator | Nazwa funkcji                  | Opis                                                                             |
+| -------- | ------------------------------ | -------------------------------------------------------------------------------- |
+| `str()`  | `__str__(self)`                | Funkcja generująca stringa dla danej klasy. Przydatne do debugowania i nie tylko |
+| `+`      | `__add__(a,b)`                 | Dodawanie                                                                        |
+| `[]`     | `__getitem__(self,index)`      | Te kilka jest potrzebne do poprawnego zaimplementowania operatora `[]`           |
+| `[]`     | `__setitem__(self,index,item)` |                                                                                  |
+| `[]`     | `__delitem__(self.index)`      |                                                                                  |
+
+[Pełniejsza lista operatorów](https://docs.python.org/3/library/operator.html)
+#TODO popraw i rozbuduj
+
 #### Widoczność elementów
 
 W języku Python nie ma pól prywatnych w klasie: nie jesteśmy w stanie w praktyce czegokolwiek “ukryć”. Jednak są pewne zasady nazewnictwa, które działają raczej na zasadzie porozumienia, niż będące prawdziwą barierą. I tak, gdy poprzedzimy nazwę jednym znakiem podkreślenia `_`, oznajmiamy, że dany element nie jest uwzględniony w dokumentacji, może się zmienić, raczej nie należy z niego korzystać, a środowisko programistyczne nie będzie nam go podpowiadać. Przykładowo pole `_imie`, np. `self._imie`, czy `self._metoda()`.
