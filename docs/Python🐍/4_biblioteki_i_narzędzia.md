@@ -11,7 +11,7 @@ Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera 
 
 ### Operacje matematyczne
 
-- `**` potęga  
+- `**` potęga
 - `2+3j` liczba zespolona
 
 ## Manipulacja tekstem
@@ -115,8 +115,6 @@ def hello_world():
 
 if __name__ == '__main__':
     app.run()
-__main__':
-   app.run()
 ```
 
 ### Bottle
@@ -149,7 +147,7 @@ def index(name):
 
 ### Pickle - zapisywanie zmiennych
 
-Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) pozwala na zapisywanie (i odczytywanie) danych i obiektór w pythonie w formie binarnej.  
+Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) pozwala na zapisywanie (i odczytywanie) danych i obiektór w pythonie w formie binarnej.
 
 //TODO przykłady
 
@@ -176,7 +174,7 @@ zapytania w trybie debuggera :
 - d - down
 - c/continue - continue
 - args - wyświetla wszystkie argumenty, jakie dana funkcja otrzymała (ta w której obecnie jesteśmy)
-Poza tym reszta rzeczy odpowiada zwykłemu pisaniu w pythonie, możemy zmieniać zmienne, printować je, uruchamiać pętle etc.
+  Poza tym reszta rzeczy odpowiada zwykłemu pisaniu w pythonie, możemy zmieniać zmienne, printować je, uruchamiać pętle etc.
 
 Warto wtedy używać też:
 `locals()` - ładuje do słownika wszystkie obecnie dostępne funkcje
@@ -202,7 +200,5 @@ import ast
 [LINK](https://wiki.python.org/moin/DebuggingWithGdb)
 
 /TODO opisać dokładniej
-
-
 
 /TODO opisać działanie libki subprocess (czyli jak ogarnąć prawdziwą wielowątkowość w pythonie), oraz uruchamianie procesów.
