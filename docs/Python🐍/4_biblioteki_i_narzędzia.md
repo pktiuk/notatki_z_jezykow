@@ -81,6 +81,22 @@ time.sleep(60)#minuta
 
 ## Aplikacje webowe
 
+### Wykonywanie zapytań w HTMLu - requests
+
+Najprostszą i najwygodniejszą biblioteką jest [requests](https://docs.python-requests.org/en/latest/)
+
+```python
+import requests
+
+data = {"name": "Marian"}
+response = requests.get("http://127.0.0.1:5000/", json=data)
+r.text
+# { "id": "3123424", ...
+r.json() # zwróci ospowiedź jako słownik
+r.status
+# 200
+```
+
 ### Proste hostowanie folderu
 
 KIedy chcesz w prosty sposób udostępnić dany folder w sieci.
@@ -94,7 +110,7 @@ python -m http.server 8888
 
 ### Django
 
-jest to dość duża zabawka
+jest to dość duża zabawka [link](../Webówka🌍/9_django.html)
 
 ### Flask
 
