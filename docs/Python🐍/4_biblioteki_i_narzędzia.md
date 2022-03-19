@@ -110,7 +110,7 @@ python -m http.server 8888
 
 ### Django
 
-jest to dość duża zabawka [link](../Webówka🌍/9_django.html)
+jest to dość duża zabawka [link](../Webówka🌍/9_django)
 
 ### Flask
 
