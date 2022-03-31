@@ -2,6 +2,8 @@
 
 Służy do routowania i zarządzania połączeniami przychodzącymi na dany serwer.
 
+Jeśli nie chcesz robić niczego skomplikowanego to polecam po prostu użyć apki [Nginx proxy manager](https://nginxproxymanager.com/). Zrobisz większość rzeczy z pomocą prostego GUI.
+
 ## Instalacja i odpalenie
 
 ```bash
