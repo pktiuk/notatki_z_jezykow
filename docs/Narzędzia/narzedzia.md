@@ -31,8 +31,14 @@ Poszukiwanie VPS-a:
 
 Oganianie domen:
 
-- [cloudflare](https://dash.cloudflare.com/) - dzięki ich czshowaniu zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6
+- [cloudflare](https://dash.cloudflare.com/) - must-have gdy masz jakąś domenę i nią zarządzasz
+  - Cloudflare Proxy - zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6
+  - [Tunelowanie](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/) - pozwala wystawiać do sieci serwery z sieci lokalnych pozbawione publicznych adresów
 - [tld-list](https://tld-list.com/) - porównywarka cen domen
+
+Inne
+
+- [ngrok](https://ngrok.com/) - pozwala łatwo udostępniać serwisy z urządzeń w sieci lokalnej. Dobre do prototypowania oraz prostych stron
 
 ## Inne
 
