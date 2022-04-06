@@ -613,6 +613,14 @@ Można potem je sprawdzić poprzez sięgnięcie do atrybutu `__annotations__`
 {'liczba1': 99, 'slowo1': <class 'str'>, 'slowo2': 'inne slowo', 'return': <class 'str'>}
 ```
 
+W niektórych wypadkach może pojawić się potrzeba zaimportowania oczekiwanych elementów
+
+```python
+from typing import Tuple
+def foo(x:int, y:int) -> Tuple[int, int]:
+    return (x*y, y//2)
+```
+
 W razie problemów spowodowanych kolejnością deklaracji różnych elementów w pliku warto użyć specjalnego importu
 
 ```python
