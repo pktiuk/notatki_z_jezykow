@@ -820,7 +820,7 @@ class C:
 | `[]`     | `__delitem__(self.index)`      |                                                                                  |
 
 [Pełniejsza lista operatorów](https://docs.python.org/3/library/operator.html)
-#TODO popraw i rozbuduj
+TODO popraw i rozbuduj
 
 #### Widoczność elementów
 
@@ -1014,6 +1014,51 @@ if __name__ == "__main__":
 ## 0
 ## 30
 ```
+
+### Specjalne typy obiektów
+
+Jest lika szczególnie użytecznych typów obiektów nad którymi warto się pochylić
+
+**Enum** - Obiekty wyliczeniowe. Jest kilka rodzajów enumów: `Enum`, `IntEnum`, `Flag` oraz `IntFlag`. [link](https://docs.python.org/3/library/enum.html)
+
+```python
+from enum import Enum, auto
+class Color(Enum):
+    RED = auto()
+    BLUE = auto()
+    GREEN = auto()
+```
+
+**dataclass** - specjalny dekorator dla obiektu dodający automatycznie wiele dodatkowych udogodnień pozwalających uniknąć mozolnego pisania logiki. [link](https://docs.python.org/3/library/dataclasses.html)
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class InventoryItem:
+    """Class for keeping track of an item in inventory."""
+    name: str
+    unit_price: float
+    quantity_on_hand: int = 0
+
+    def total_cost(self) -> float:
+        return self.unit_price * self.quantity_on_hand
+```
+
+Taki obiekt może otrzymać (w zależności od paramterów):
+
+- automatycznie wygenerowany konstruktor:
+
+```python
+def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
+    self.name = name
+    self.unit_price = unit_price
+    self.quantity_on_hand = quantity_on_hand
+```
+
+- operatory porównania (`=`, `<`,`>` etc.)
+- funkcję haszującą
+- etc...
 
 ## Inne
 
