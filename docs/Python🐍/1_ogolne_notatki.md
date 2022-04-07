@@ -625,7 +625,8 @@ Możliwe są też adnotacje dla elementów klasy [PEP-526](https://peps.python.o
 
 ```python
 class Starship:
-    stats: ClassVar[Dict[str, int]] = {}
+    stats: ClassVar[dict[str, int]] = {} # class variable - pole klasy
+    damage: int = 10                     # instance variable - pole instancji
 ```
 
 W razie problemów spowodowanych kolejnością deklaracji różnych elementów w pliku warto użyć specjalnego importu
@@ -782,8 +783,8 @@ def myfunc():
 
 ```python
 class Osoba: #Definicja klasy o nazwie Osoba
-    ile = 0 # pole statyczne
-    imie: str # (to nie pole statyczne) adnotacja typu dla wartości
+    ile = 0 # pole klasy
+    imie: str # adnotacja typu dla pola instancji
     def __init__(self, imie, nazwisko, wiek): #Definicja konstruktora
         self.imie = imie
         self.nazwisko = nazwisko
@@ -799,6 +800,8 @@ class Osoba: #Definicja klasy o nazwie Osoba
     def policz():
         return Osoba.ile
 ```
+
+Obiekty w pythonie nie mają pól statycznych działających tak jak w innych językach (jak np C++). Tutaj zmiana pola klasy nie zmienia wartości tego pola dla innych instancji [link](https://stackoverflow.com/questions/68645/static-class-variables-and-methods-in-python).
 
 #### Metody
 
