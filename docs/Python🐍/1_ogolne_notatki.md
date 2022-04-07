@@ -621,6 +621,13 @@ def foo(x:int, y:int) -> Tuple[int, int]:
     return (x*y, y//2)
 ```
 
+Możliwe są też adnotacje dla elementów klasy [PEP-526](https://peps.python.org/pep-0526/)
+
+```python
+class Starship:
+    stats: ClassVar[Dict[str, int]] = {}
+```
+
 W razie problemów spowodowanych kolejnością deklaracji różnych elementów w pliku warto użyć specjalnego importu
 
 ```python
@@ -776,6 +783,7 @@ def myfunc():
 ```python
 class Osoba: #Definicja klasy o nazwie Osoba
     ile = 0 # pole statyczne
+    imie: str # (to nie pole statyczne) adnotacja typu dla wartości
     def __init__(self, imie, nazwisko, wiek): #Definicja konstruktora
         self.imie = imie
         self.nazwisko = nazwisko
