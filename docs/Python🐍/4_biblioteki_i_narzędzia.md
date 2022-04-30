@@ -54,6 +54,16 @@ def hello(name):
     print(f"Hello {name}")
 ```
 
+Wg [dokumentacji](https://peps.python.org/pep-0498/#format-specifiers) używając tej metody możemy wprowadzać dodatkowe zmiany w tekście
+
+```python
+width = 10
+precision = 4
+value = decimal.Decimal('12.34567')
+f'result: {value:{width}.{precision}}'
+#12.35
+```
+
 ### Pobieranie ścieżki/folderu obecnego skryptu
 
 ```python
