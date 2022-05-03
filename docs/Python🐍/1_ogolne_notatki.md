@@ -1231,7 +1231,11 @@ print(data_modyfikacji)
 ## 2018-12-21 10:46:54
 ```
 
-## Wielowątkowość
+## Poprawianie wydajności
+
+Najczęściej, aby poprawić wydajność aplikacji pisanych w pythonie trzeba się skoncentrować na pełniejszym wykorzystaniu mocy procesora. Jest na to kilka sposobów.
+
+### Wielowątkowość
 
 Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie.  
 Z tego powodu domyślnie wątki są dobrym pomysłem w wypadku operacji IO, czy też innych zadaniach, które działając w tle nie konsumują czasu procesora.  
@@ -1262,7 +1266,7 @@ lub
 my_thread.join(timeout=10)
 ```
 
-## Wieloprocesowość
+### Wieloprocesowość
 
 Biblioteka multiprocessing opiera się na obrabianiu danych w ramach różnych procesów, dzięki czemu każdy proces ma własnego GIL-a, który nie wchodzi w drogę innym procesom. Poza tym jest w obsłudze dość podobna do wątków.
 (niby są takie metody w bibliotece jak `os.fork()`, ale są one dość niskopoziomowe i niezbyt przenośne)
@@ -1360,6 +1364,51 @@ if __name__ == '__main__':
 #> HELLO WORLD
 #> [(3.515625, 39.0625), (33.0625, 4.0), (5.640625, 90.25)]
 ```
+
+### Asynchroniczność
+
+Wykorzystuje ona korutyny ([coroutines](https://docs.python.org/3/glossary.html#term-coroutine)).
+
+Biblioteką wykorzystywaną do asynchroniczności jest [asyncio](https://docs.python.org/3/library/asyncio-task.html)
+
+```python
+>>> import asyncio
+
+>>> async def main():
+...     print('hello')
+...     await asyncio.sleep(1) #w tym momencie oddajemy kontrolę na sekundę
+                               #w tym czasie CPU może popracować nad czymś innym
+...     print('world')
+
+>>> asyncio.run(main())
+hello
+world
+```
+
+Słowa kluczowe:
+
+- `async` - służy do oznaczania funkcji, które są korutynami
+- `await` - służy do oznaczania momentu w którym musimy poczekać na wykonanie jakiejś korutyny
+
+```python
+async def main():
+    task1 = asyncio.create_task(
+        say_after(1, 'hello'))
+
+    task2 = asyncio.create_task(
+        say_after(2, 'world'))
+
+    print(f"started at {time.strftime('%X')}")
+
+    # Wait until both tasks are completed (should take
+    # around 2 seconds.)
+    await task1
+    await task2
+
+    print(f"finished at {time.strftime('%X')}")
+```
+
+TODO ukończyć ten rozdział
 
 ## Rzeczy na które należy uważać⚠️
 
@@ -1480,4 +1529,3 @@ Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inic
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
 // yield, operator :=
 // from **future** import annotations (ewaluacja definicji z kodu, które pojawiają się później)
-// async await
