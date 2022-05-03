@@ -1369,7 +1369,7 @@ if __name__ == '__main__':
 
 Wykorzystuje ona korutyny ([coroutines](https://docs.python.org/3/glossary.html#term-coroutine)).
 
-Biblioteką wykorzystywaną do asynchroniczności jest [asyncio](https://docs.python.org/3/library/asyncio-task.html)
+Biblioteką wykorzystywaną do asynchroniczności jest asyncio. Tutoriale [pythondocs](https://docs.python.org/3/library/asyncio-task.html), [realpython](https://realpython.com/async-io-python/).
 
 ```python
 >>> import asyncio
@@ -1387,8 +1387,16 @@ world
 
 Słowa kluczowe:
 
-- `async` - służy do oznaczania funkcji, które są korutynami
-- `await` - służy do oznaczania momentu w którym musimy poczekać na wykonanie jakiejś korutyny
+- `async` i `async with` - służą do oznaczania funkcji, które są korutynami
+- `await` - służy do oznaczania momentu w którym musimy poczekać na wykonanie jakiejś korutyny. W tym momencie przekazujemy kontrolę do pętli zdarzeń.
+
+```python
+async def g():
+    # Pause here and come back to g() when f() is ready
+    r = await f()
+    return r
+
+```
 
 ```python
 async def main():
