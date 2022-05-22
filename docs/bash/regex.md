@@ -29,7 +29,9 @@ Do ich escape'owania na ogół wystarcza `\`.
 | `(aIbIc)`   | Alternatywa a lub lub c (zamiast I powinny tam być linie pionowe)                  |
 | `*`         | Znak/wyrażenie znajdujący się przed gwiazdką może pojawić się dowolną ilość razy   |
 | `+`         | Znak/wyrażenie sprzed plusa pojawi się dowolnie wiele razy (ale co najmniej 1 raz) |
+| `?`         | Znak/wyrażenie pojawia się 0 lub 1 raz                                             |
 | `(?!slowo)` | zaprzeczenie - wyklucz wyniki zawierające `slowo` (negative lookahead)             |
+| I           | alternatywa(nie litera i, lecz beleczka) - rzecz polewej albo po prawej            |
 
 ## Podmienianie znaków
 
