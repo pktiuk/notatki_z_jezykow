@@ -1,5 +1,8 @@
 site_name: Notatki z języków
-theme: material
+theme:
+  name: material
+  palette:
+    scheme: slate
 
 repo_name: pktiuk/notatki_z_jezykow
 repo_url: https://github.com/pktiuk/notatki_z_jezykow
