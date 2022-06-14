@@ -41,9 +41,11 @@ strings PLIK
 
 Inne przydatne flagi grepa
 
-|                       |                                                    |
-| --------------------- | -------------------------------------------------- |
-| `-v` `--invert-match` | odwrócony grep, przekazuje tylko to, co nie pasuje |
+|                              |                                                    |
+| ---------------------------- | -------------------------------------------------- |
+| `-v` `--invert-match`        | odwrócony grep, przekazuje tylko to, co nie pasuje |
+| `-B`, `--before-context=ILE` | Wypisz ILE linii po przed znaleziskiem wyświetlić  |
+| `-A`, `--after-context=ILE`  | Wypisz ILE linii po znalezisku wyświetlić          |
 
 #### Dzielenie dłuższych łańcuchów znaków
 
