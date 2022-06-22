@@ -46,7 +46,9 @@ Pliki:
 - views.py - poszczególne widoki znajdujące się w naszej aplikacji, możemy tutaj wystawić poszczególne API RESTowe, lub stronki w HTMLu
 - tests.py
 
-Dodatkoew pliki mogące się tu znajdować:
+![Django mvt](./assets/django_mvt.png)
+
+Dodatkowe pliki mogące się tu znajdować:
 
 - serializers.py - [link](https://docs.djangoproject.com/en/3.2/topics/serialization/) klasy wykorzystywane do serializacji modeli na inne formaty (np. json, lub xml)
 
