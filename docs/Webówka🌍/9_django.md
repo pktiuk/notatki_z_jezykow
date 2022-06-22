@@ -52,6 +52,8 @@ Dodatkowe pliki mogące się tu znajdować:
 
 - serializers.py - [link](https://docs.djangoproject.com/en/3.2/topics/serialization/) klasy wykorzystywane do serializacji modeli na inne formaty (np. json, lub xml)
 
+Przy większych projektach warto rozsądne rozszerzenie powyższego schematu [przykład](https://github.com/Mischback/django-project-skeleton)
+
 ## Zarządzanie i praca z projektem
 
 Do tego wykorzystywany jest skrypcik `manage.py` znajdujący się w głównym folderze projektu.
