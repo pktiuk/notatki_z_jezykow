@@ -158,7 +158,9 @@ lsusb
 
 ## Networking
 
-`ifconfig` - zwraca informacje o wszystkich odstępnych interfejsach sieciowych, IP, adresy MAC etc.
+`ip` - kombajn do sieciówki w Linuxie
+
+`ifconfig` (już przestarzałe) - zwraca informacje o wszystkich odstępnych interfejsach sieciowych, IP, adresy MAC etc. Zamiast niego zaleca się `ip addr`
 
 ### Listowanie urządzeń w sieci lokalnej
 
@@ -168,8 +170,10 @@ sudo nmap -sn 192.168.1.0/24
 
 ### Wypisywanie portów na których maszyna nasłuchuje
 
+`ss` apka do badania gniazd
+
 ```bash
-netstat -plnt
+ss -plnt #p - procesy l-listening n-numeric t-tcp
 ```
 
 ## Montowanie
