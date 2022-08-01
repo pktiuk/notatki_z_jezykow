@@ -203,7 +203,10 @@ TODO więcej przykładów by się przydało
 
 ## Widoki
 
-[link](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
+[link - Writing your first Django app, part 3](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
+
+[The Django template language](https://docs.djangoproject.com/en/4.0/ref/templates/language/)
+
 
 Widok jest typem strony internetowej generowany przez django.  
 Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane. W wielu wypadkach pozwalają na swoiste zautomatyzowanie danej strony
