@@ -1,5 +1,7 @@
 # Zbiór informacji o C++
 
+Oficjalna dokumentacja i zalecenia: [ISO CPP GUIDELINES](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+
 ## Przekazywanie argumentów do funkcji
 
 W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.
