@@ -2,6 +2,7 @@
 
 ## Różne linki
 
+- Stronka agregująca w jedny miejscu najpotrzebniejsze API z bibliotek pythonowych: https://overapi.com/python
 - [Książka Zanurkuj w Pythonie](https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku) 📖
 - [Podstawowy tutorial ze strony learnpython](https://www.learnpython.org/)
 
