@@ -44,8 +44,79 @@ int main()
 }
 ```
 
+program wypisze:
+
+```
+Wołanie konstruktora
+funkcja_zwykla:
+Wołanie konstruktora kopiującego
+funkcja_pointer:
+funkcja_referencja:
+```
+
 W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
 Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
+
+## Klasy
+
+### Funkcje wirtualne
+
+są oznaczane za pomocą słowa kluczowego `virtual`.
+
+```cpp
+class Base {
+   public:
+    virtual void print() {
+        cout << "Base Function" << endl;
+    }
+};
+
+class Derived : public Base {
+   public:
+    void print() {
+        cout << "Derived Function" << endl;
+    }
+};
+
+int main() {
+    Derived derived1;
+
+    // pointer of Base type that points to derived1
+    Base* base1 = &derived1;
+
+    // calls member function of Derived class
+    base1->print();
+
+    return 0;
+}
+```
+
+Podczas pracy z funkcjami wirtualnymi [dobrą praktyką](https://stackoverflow.com/questions/39932391/should-i-use-virtual-override-or-both-keywords) jest korzystanie ze specyfikatora [override](https://en.cppreference.com/w/cpp/language/override).  
+Dzięki jego użyciu w klasie potomnej będziemy mieć pewność, że ta funkcja w klasie bazowej jest wirtualna.
+
+```cpp
+struct A
+{
+    virtual void foo();
+    void bar();
+    virtual ~A();
+};
+ 
+// member functions definitions of struct A:
+void A::foo() { std::cout << "A::foo();\n"; }
+A::~A() { std::cout << "A::~A();\n"; }
+ 
+struct B : A
+{
+//  void foo() const override; // Error: B::foo does not override A::foo
+                               // (signature mismatch)
+    void foo() override; // OK: B::foo overrides A::foo
+//  void bar() override; // Error: A::bar is not virtual
+    ~B() override; // OK: `override` can also be applied to virtual
+                   // special member functions, e.g. destructors
+};
+```
+
 
 ## Templatki
 
