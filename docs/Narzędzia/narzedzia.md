@@ -2,8 +2,8 @@
 
 ## Praca z maszynami poprzez sieć
 
-- [cockpit](https://cockpit-project.org/) - pozwala w prosty sposób monitorować serwer (poprzez apkę webową możemy się zalogować, uruchomić terminal, sprawdzać obciążenie, logi etc)
-  - Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować 
+- [cockpit](https://cockpit-project.org/) - pozwala w prosty sposób monitorować serwer (poprzez apkę webową możemy się zalogować, uruchomić terminal, sprawdzać obciążenie, logi etc) ( [link to konfiguracji](https://cockpit-project.org/guide/latest/cockpit.conf.5))
+  - Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować //TODO 
 - [linux-dash](https://afaqurk.github.io/linux-dash/#/system-status) - nieco prostsza alternatywa od cockpita
 
 Narzędzia do monitorowania - długa lista https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/
