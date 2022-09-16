@@ -3,17 +3,30 @@
 ## Praca z maszynami poprzez sieć
 
 - [cockpit](https://cockpit-project.org/) - pozwala w prosty sposób monitorować serwer (poprzez apkę webową możemy się zalogować, uruchomić terminal, sprawdzać obciążenie, logi etc) ( [link to konfiguracji](https://cockpit-project.org/guide/latest/cockpit.conf.5))
-  - Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować //TODO 
+  - Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować //TODO
+
 - [linux-dash](https://afaqurk.github.io/linux-dash/#/system-status) - nieco prostsza alternatywa od cockpita
 
-Narzędzia do monitorowania - długa lista https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/
+Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/>
+
+<details>
+  <summary>COckpit + cloudflare tunnel</summary>
+  <code>cat /etc/cockpit/cockpit.conf
+[WebService]
+Origins = <https://dashboard.xxxxx.ca> wss://dashboard.xxxxx.ca
+ProtocolHeader = X-Forwarded-Proto
+AllowUnencrypted = true</code>
+
+[github source](https://github.com/cockpit-project/cockpit/issues/16396)
+
+</details>
 
 ## Dokumentacja
 
 - doxygen
-- https://readthedocs.org/
+- <https://readthedocs.org/>
 - mkdocs
-- https://jekyllrb.com/
+- <https://jekyllrb.com/>
 
 ## Statystyki githuba i repozytoriów
 
@@ -45,4 +58,4 @@ Inne
 
 - [SearchCode](https://searchcode.com/) - przeszukiwanie baz z kodem źródłowym. Przydatne, gdy chcesz znaleźć przykłady wywoływania danej funkcji.
 - [zerotier](https://www.zerotier.com/) - chyba najprostszy VPN
-  - Gdy chcemy w sieci zerotiera postawić serwer DNS https://github.com/zerotier/zeronsd
+  - Gdy chcemy w sieci zerotiera postawić serwer DNS <https://github.com/zerotier/zeronsd>
