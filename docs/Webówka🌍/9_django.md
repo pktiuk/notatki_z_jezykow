@@ -1,6 +1,6 @@
 # Django
 
-Warto zajrzeć tutaj: https://docs.djangoproject.com/en/3.2/intro/tutorial01/
+Warto zajrzeć tutaj: <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>
 
 ## Struktura projektu
 
@@ -139,7 +139,10 @@ Przydatne [metody do wykonywania zapytań](https://docs.djangoproject.com/en/3.2
 People.objects.all()
 People.objects.filter(name="Jan")
 People.objects.exclude(surname="Kowalski)
-People.objects.get(pesel=12345678) #gdy chcemy uzyskać jeden wynik
+
+# gdy chcemy uzyskać jeden wynik oraz wiemy, że taki wynik istnieje
+# jeśli nie istnieje to dostaniemy wyjątek Entry.DoesNotExist
+People.objects.get(pesel=12345678)
 
 p1 = Poeple.objects.create(name="Marian",surname="Nowak") #stworzenie instancji modelu
 p1.save() #zapisanie do bazy
@@ -207,7 +210,6 @@ TODO więcej przykładów by się przydało
 
 [The Django template language](https://docs.djangoproject.com/en/4.0/ref/templates/language/)
 
-
 Widok jest typem strony internetowej generowany przez django.  
 Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane. W wielu wypadkach pozwalają na swoiste zautomatyzowanie danej strony
 
@@ -249,11 +251,11 @@ Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanyc
 
 ## Panel Administratora
 
-https://docs.djangoproject.com/en/3.2/intro/tutorial02/#introducing-the-django-admin
+<https://docs.djangoproject.com/en/3.2/intro/tutorial02/#introducing-the-django-admin>
 
 ## REST API
 
-Do pracy z API RESTowym zaleca się użycie specjalnego frameworka https://www.django-rest-framework.org/tutorial/quickstart/
+Do pracy z API RESTowym zaleca się użycie specjalnego frameworka <https://www.django-rest-framework.org/tutorial/quickstart/>
 
 ### Serializacja
 
