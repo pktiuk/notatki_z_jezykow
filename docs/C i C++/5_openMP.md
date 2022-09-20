@@ -1,6 +1,6 @@
 # Programming with OpenMP
 
-OpenMP is an open API specification for easy parallel programming in C and C++. [Main website](http://www.openmp.org)
+OpenMP is an open, multi-platform API specification for easy parallel programming in Fortran, C and C++. [Main website](http://www.openmp.org)
 
 OpenMP programming is mainly based on compiler directives.
 
@@ -26,7 +26,17 @@ for (i=0; i<n; i++)
 }
 ```
 
+Compile it with
+
+```bash
+gcc -fopenmp prg-omp.c
+```
+
 Loop iterations are shared among threads. All the variables are shared except loop variable `i`, which is private.
+
+## Cmake
+
+//TODO
 
 ## Threads management
 
@@ -40,6 +50,12 @@ omp_get_num_threads(); // returns the number of threads
 omp_get_thread_num(); // returns the identifier of the thread (starting from 0, main thread is always 0)
 ```
 
+We can also use env variable `OMP_NUM_THREADS`
+
+```bash
+OMP_NUM_THREADS=10 app
+```
+
 ## Loop Parallelization
 
 General usage
@@ -51,6 +67,8 @@ for (index=first; test_expr; increment_expr) {
 }
 ```
 
+**NOTE** - inside of loop we can't use `break` `continue` etc (//TODO check this sentence)
+
 Thank to clause we may define variables scope, way of obtaining results etc.
 
 Clauses:
@@ -61,7 +79,7 @@ Clauses:
 - firstprivate, lastprivate
 - default - forces to specify scope of all of variables
 
-By default all of variables are shared with following exceptions:
+By default all of variables are **shared** with following exceptions:
 
 - Index variable of the parallelized loop
 - Local variables of the called subroutines (except if they are declared static)
@@ -74,4 +92,52 @@ sum = 0;
 for (i=0; i<n; i++) {
   sum = sum + x[i]*x[i];
 }
+```
+
+**Reduction** - allows easy aggregation of results
+
+`reduction (operator : list)`
+
+Available operators: `+`, `*`, `-`, `&`, `|`, `ˆ`, `&&`, `||`, `max`, `min`
+
+**firstprivate, lastprivate** - in general private variables have undefined value during the first execution and after execution
+
+- `firstprivate` initializes to the value of selected variable the begining of the block.
+
+```c
+#include <stdio.h>
+#include <omp.h>
+
+int main (void)
+{
+    int i = 10;
+    #pragma omp parallel firstprivate(i)
+    {
+        //in case of regular private variable we would get random values
+        printf("thread %d: i = %d\n", omp_get_thread_num(), i);
+        i = 1000;
+    }
+    printf("i = %d\n", i);
+    return 0;
+}
+```
+
+- `lastprivate` the value of the variable after the block is the one of the “last” iteration of the loop
+
+```c
+alpha = 5.0;
+#pragma omp parallel for firstprivate(alpha) lastprivate(i)
+for (i=0; i<n; i++) {
+  z[i] = alpha*x[i];
+}
+k = i;
+/* i has value n*/
+```
+
+**if clause** - runs loop in pararell only if the expression is true (because of the overhead linked with initializing threads)
+
+```c
+#pragma omp parallel for if(n>5000)
+for (i=0; i<n; i++)
+  z[i] = a*x[i] + y[i];
 ```
