@@ -1,4 +1,4 @@
-# Java Notatki
+# Java podstawy
 
 ## Narzędzia
 
@@ -412,7 +412,9 @@ Konstruktory – specyfikacja dostępu
 - `public` - każda klasa może tworzyć obiekty danej klasy
 - brak specyfikatora dostępu - każda klasa z tego samego pakietu może tworzyć obiekty danej klasy
 
-Pola klasy – specyfikatory
+### Pola klasy
+
+**Specyfikatory**
 
 - `private`, `public`, `protected`, (package) – specyfikacja dostępu
 - `static` – deklaracja pola statycznego (przynależnego do klasy, a nie – jej obiektów)
