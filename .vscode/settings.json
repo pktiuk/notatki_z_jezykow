@@ -1,6 +1,9 @@
 {
-    "cSpell.language": "en,pl-PL",
-    "cSpell.words": [
-        "booosta"
-    ]
+  "cSpell.language": "en,pl-PL",
+  "cSpell.words": ["booosta"],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
