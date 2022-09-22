@@ -424,14 +424,14 @@ Konstruktory – specyfikacja dostępu
 
 **Dostęp do pól**
 
-|Specyfikator Dostępu|Klasa  |Klasa Pochodna|Klasy z tego samego pakietu|Wszystkie klasy|
-|--------------------|-------|--------------|---------------------------|---------------|
-|    private         |   ✔️   |              |                           |               |
-|    protected       |   ✔️   |      ✔️       |              ✔️            |               |
-|    public          |   ✔️   |      ✔️       |              ✔️            |       ✔️       |
-|    (package)       |   ✔️   |              |              ✔️            |               |
+| Specyfikator Dostępu | Klasa | Podklasa z tego samego pakietu | Podklasy z innego pakietu | Wszystkie klasy |
+| -------------------- | ----- | ------------------------------ | ------------------------- | --------------- |
+| private              | ✔️    |                                |                           |                 |
+| protected            | ✔️    | ✔️                             | ✔️                        |                 |
+| public               | ✔️    | ✔️                             | ✔️                        | ✔️              |
+| (package)            | ✔️    | ✔️                             |                           |                 |
 
-*Tylko przy odwołaniu niejawnym do pól klasy bazowej
+\*Tylko przy odwołaniu niejawnym do pól klasy bazowej
 
 Pole i metoda jednej klasy mogą nosić taką samą nazwę:
 
