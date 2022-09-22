@@ -51,8 +51,8 @@ Java ma **statyczne typowanie** tzn, że raz zdefiniowana zmienna nie zmienia sw
 Wbudowane typy proste
 
 - całkowitoliczbowe, kodowane U2
-  - `byte`   jednobajtowy
-  - `short`  dwubajtowy
+  - `byte` jednobajtowy
+  - `short` dwubajtowy
   - `int` czterobajtowy
   - `long` ośmiobajtowy
 - zmiennoprzecinkowe, kodowane IEEE 754
@@ -116,6 +116,7 @@ Typy referencyjne:
 - tablice,
 - klasy,
 - interfejsy.
+
 Zmienna referencyjna odnosi się do miejsca pamięci, w którym pomieszczono daną lub
 wektor danych reprezentowanych tą zmienną.
 Java nie zna typu wskaźnikowego, tzn. jawnego korzystania z adresów.
@@ -125,7 +126,7 @@ Java nie zna typu wskaźnikowego, tzn. jawnego korzystania z adresów.
 - nazwa zmiennej rozpoczyna się małą literą,
 - nazwa klasy rozpoczyna się wielką literą,
 - kolejne słowa w nazwie rozpoczyna się wielką literą, np. isVisible,
-- znak podkreślenia (_) jest wprawdzie poprawny w nazwie, ale powinien być używany jedynie w nazwach stałych.
+- znak podkreślenia (\_) jest wprawdzie poprawny w nazwie, ale powinien być używany jedynie w nazwach stałych.
 
 ### Cykl życia obiektu
 
@@ -204,7 +205,7 @@ Kolekcje a typy uogólnione:
 
 - Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. `List.insert(Object o)`
 - Wersje parametryzowane typem – np. `List<MojTyp>.insert(MojTyp o)`
-Klasy parametryzowane typem - przykład
+- Klasy parametryzowane typem - przykład
 
 ```java
 public class CircularBuffer<T> {
@@ -270,8 +271,9 @@ Interfejs `Map`:
 - get(key)
 - containsKey(key)
 - containsValue(value)
+
 ![alt text](./assets/MapMethods.png "Title")
-  
+
 Parametryzacja np:
 `Map<String,Float>`
 
@@ -403,7 +405,7 @@ Wywołania konstruktorów:
 `new Stack();`
 `new Stack(123);`
 Odpowiednikiem **destrukotrów** jest metoda `finalize()`
-Jeśli w klasie nie zdefiniowano żadnego konstruktora, tworzony jest automatycznie  domyślny konstruktor (pusty)
+Jeśli w klasie nie zdefiniowano żadnego konstruktora, tworzony jest automatycznie domyślny konstruktor (pusty)
 Klasy dziedziczące korzystają z konstruktora pustego, jeżeli go nie ma to należy samodzielnie wywołać inny
 Konstruktory – specyfikacja dostępu
 
@@ -538,7 +540,7 @@ Metody klasy Object, które mogą być nadpisane:
 - clone
 - equals, hashCode - porównywanie obiektów
 - finalize - destruktor
-- toString - zamienia obiekt w klasę String pozwalając na "tekstowy wydruk" zawartości  za pomocą `System.out.println`
+- toString - zamienia obiekt w klasę String pozwalając na "tekstowy wydruk" zawartości za pomocą `System.out.println`
 
 Metody final (nie mogą być nadpisane):
 
@@ -552,7 +554,7 @@ Object createNewInstanceOf(Object obj) {
     return obj.getClass().newInstance(); //Nowa instancja tego samego obiektu
     }
 
- ```
+```
 
 - notify
 - notifyAll
@@ -560,12 +562,12 @@ Object createNewInstanceOf(Object obj) {
 
 ## Interfejs
 
- **Interfejs** – typ referencyjny, zawierający deklaracje metod, implementacje domyślne metod, pola stałe, metody statyczne, interfejsy i klasy
+**Interfejs** – typ referencyjny, zawierający deklaracje metod, implementacje domyślne metod, pola stałe, metody statyczne, interfejsy i klasy
 
- ```java
- [modyfikatory] interface NazwaInterfejsu [extends Interfejs1,…]
+```java
+[modyfikatory] interface NazwaInterfejsu [extends Interfejs1,…]
 {
-    // ciało interfejsu
+   // ciało interfejsu
 }
 ```
 
@@ -676,7 +678,7 @@ Budowa:
 ```java
 
 module com.mycompany.factories {
-    exports com.mycompany.interfaces;  //exports opisuje które paczki mają być dostępne w pozostałych modułach 
+    exports com.mycompany.interfaces;  //exports opisuje które paczki mają być dostępne w pozostałych modułach
     exports com.mycompany.factories;
 
     requires modulename;  //requires opisujeod jakich modułów zależy ten moduł
@@ -727,7 +729,7 @@ public class MyRunnable implements Runnable {
     public void run() {
         System.out.println("Hello from a thread!");
     }
-    public static void main(String args[]) 
+    public static void main(String args[])
     {
         (new Thread(new MyRunnable())).start();
     }
@@ -741,7 +743,7 @@ public class HelloThread extends Thread {
     public void run() {
     System.out.println("Hello from a thread!");
     }
-    public static void main(String args[]) 
+    public static void main(String args[])
     {
         (new HelloThread()).start();
     }
@@ -771,7 +773,7 @@ public class Test3 {
         try {
             p.join(); //join-oczekiwanie
         }
-        catch(InterruptedException e) 
+        catch(InterruptedException e)
         {
             e.printStackTrace();
         }
@@ -796,9 +798,9 @@ class Producent […]
 
 class Konsument […]
     public void run() {
-        try 
+        try
         {
-            for(int i=0; i<6; i++) 
+            for(int i=0; i<6; i++)
             {
                 int w;
                 synchronized(schowek) {
@@ -846,7 +848,7 @@ Przy takim schemacie działania należy zawsze:
 - Pamiętać o nadaniu zmiennej warunkowej odpowiedniej wartości (unikanie zakleszczeń)
 - Obsługiwać monitor po zajęciu zamka (IllegalStateException)
 
-### java.util.concurrent.locks.*
+### java.util.concurrent.locks.\*
 
 Obiekty ułatwiające synchronizację wątków - Połączenie funkcjonalności zamka i monitora w jednym obiekcie, implementującym interfejs `Lock`
 
@@ -990,7 +992,7 @@ Metody klasy Properties:
 
 1. Załadowanie atrybutów przy starcie
 
- ```java
+```java
 Properties p=new Properties();
 FileInputStream is=new FileInputStream("my.properties");
 p.load(is);
