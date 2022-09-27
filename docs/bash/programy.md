@@ -180,3 +180,38 @@ ss -plnt #p - procesy l-listening n-numeric t-tcp
 
 mount
 TODO
+
+## SSH
+
+SSH służy do zdalnego podłącznia się do powłoki systemów.
+
+Łączymy się komendą `ssh login@adres`
+
+Na przykład
+
+```bash
+marian@192.168.0.32
+
+root@serwer.moj.pl
+
+# Tutaj loginem jest pracownik@firma.com a adresem serwer.com
+pracownik@firma.com@serwer.com
+```
+
+Po zalogowaniu na ogół musimy ręcznie wpisywać hasło.  
+Aby tego nie robić możemy dodać klucz publiczny do naszej maszyny.
+
+Dodatanie klucza do maszyny
+
+```bash
+ssh-copy-id login@adres
+```
+
+Aby uprościć wpisywanie adresów maszyn (oraz konfigurację) w terminalu możemy dopisać je do pliku `~/.ssh/config`
+
+```txt
+Host fajnyserwer
+  HostName 198.43.32.33
+  User pawel
+  Port 9999
+```
