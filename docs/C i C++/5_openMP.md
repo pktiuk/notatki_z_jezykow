@@ -56,6 +56,12 @@ We can also use env variable `OMP_NUM_THREADS`
 OMP_NUM_THREADS=10 app
 ```
 
+### Scheduling 
+
+`schedule(type[,chunk])`
+
+//TODO S2 - slajd 24
+
 ## Loop Parallelization
 
 General usage
@@ -141,3 +147,191 @@ k = i;
 for (i=0; i<n; i++)
   z[i] = a*x[i] + y[i];
 ```
+
+## Parallel Regions
+
+Pragma `parallel` executes block of code in replicated threads.
+
+```c
+#pragma omp parallel [clause [clause ...]]
+{
+// block
+}
+```
+
+Example
+
+```c
+#pragma omp parallel private(myid)
+{
+  myid = omp_get_thread_num();
+  printf("I am thread %d\n",myid);
+}
+```
+
+They are used for sharing work in a bit different manner. 
+
+- Each thread works on a part of the data structure, or
+- Each thread performs a different operation
+
+Possible mechanisms for worksharing:
+
+- Based on the thread identifier
+
+```c
+#pragma omp parallel private(myid)
+{
+  nthreads = omp_get_num_threads();
+  myid = omp_get_thread_num();
+  dowork(myid, nthreads);
+}
+```
+
+- Parallel task queue
+
+```c
+int get_next_task() {
+  static int index = 0;
+  int result;
+  #pragma omp critical
+  {
+    if (index==MAXIDX) result=-1;
+    else { index++; result=index; }
+  }
+  return result;
+}
+...
+int myindex;
+#pragma omp parallel private(myindex)
+{
+  myindex = get_next_task();
+  while (myindex>-1) {
+    process_task(myindex);
+    myindex = get_next_task();
+  }
+}
+```
+
+- Using OpenMP specific constructs - thank to them programmer doesn't have to worry about splitting workload. Types:
+  - for construct to split iterations of loops
+  - Sections to distinguish different parts of the code
+  - Code to be executed by a single thread
+
+
+### Worksharing constructs
+
+#### The `for` construct
+
+```c
+#pragma omp parallel
+{
+  ...
+  #pragma omp for
+  for (i=1; i<n; i++)
+    b[i] = (a[i] + a[i-1]) / 2.0;
+}
+```
+
+The loop iterations are **not** replicated but shared among the threads
+`parallel` and `for` directives can be combined in one.
+
+#### Loop Construct - `nowait` 
+
+`nowait` Clause - removes implicit barrier after for loop
+
+```c
+void a8(int n, int m, float *a, float *b, float *y, float *z)
+{
+  int i;
+  #pragma omp parallel
+  {
+    #pragma omp for nowait
+    for (i=1; i<n; i++)
+      b[i] = (a[i] + a[i-1]) / 2.0;
+
+    //loop below can start execution before the one above will finish
+    #pragma omp for
+    for (i=0; i<m; i++)
+      y[i] = sqrt(z[i]);
+  }
+}
+```
+
+
+#### `sections` Construct 
+
+represents pliece of code, which can be split into small independent sections
+
+- Individually they represent little work, or
+- Each fragment is inherently sequential
+It can also be combined with parallel
+
+```c
+#pragma omp parallel sections
+{
+  #pragma omp section
+  Xaxis();
+  #pragma omp section
+  Yaxis();
+  #pragma omp section
+  Zaxis();
+}
+```
+
+A thread may execute more than one section
+Clauses: private, first/lastprivate, reduction, nowait
+
+#### `single` and `master` Construct
+
+Code fragments that must be executed by a single thread
+
+```c
+#pragma omp parallel
+{
+  // we will see info about starting and ending work1
+  // only once
+  #pragma omp single
+    printf("work1 starts\n");
+  
+  //Other threads will wait until "work1 starts" will be printed
+  work1();
+
+  #pragma omp single
+    printf("work1 ends\n");
+
+
+  #pragma omp single nowait
+    printf("work1 ended, work2 starts\n");
+  work2();
+}
+```
+
+`master` Directive
+
+
+Differences with single:
+
+- It does not require all threads to reach this construction
+- There is no implicit barrier (other threads simply skip this code)
+
+```c
+#pragma omp parallel
+{
+  #pragma omp master
+    printf("Begin work\n");
+  #pragma omp for
+    for (i=0; i<n; i++)
+      calc1();
+  
+  #pragma omp master
+    printf("Work finished (by master)\n");
+}
+```
+//TODO ask about this
+//Will master thread wait with printing "Work finished (by master)" untill others will finish???
+
+
+Some allowed clauses: private, firstprivate, nowait
+
+## Synchronization
+
