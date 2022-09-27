@@ -2,6 +2,8 @@
 
 Warto zajrzeć tutaj: <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>
 
+https://bulldogjob.pl/readme/architektura-django
+
 ## Struktura projektu
 
 Projekt w django tuż po stworzeniu (`django-admin startproject mysite`) wygląda mniej więcej tak:
