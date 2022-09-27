@@ -323,15 +323,80 @@ Differences with single:
     for (i=0; i<n; i++)
       calc1();
   
+  //this will be launched after finishing loop above
   #pragma omp master
-    printf("Work finished (by master)\n");
+    printf("Work finished\n");
 }
 ```
-//TODO ask about this
-//Will master thread wait with printing "Work finished (by master)" untill others will finish???
-
 
 Some allowed clauses: private, firstprivate, nowait
 
 ## Synchronization
 
+The main point of synchronization is avoiding race conditions.
+
+The most basic way of avoiding this is mutual exclusion. (directive `critical`, `atomic` or locks - `_lock`  routines).
+
+### `critical` directive
+
+`#pragma omp critical [(Name)]`
+
+Allows execution of critical section by only one thread at once
+
+```c
+cur_max = -100000;
+#pragma omp parallel for
+for (i=0; i<n; i++) {
+  #pragma omp critical
+  if (a[i] > cur_max) {
+    cur_max = a[i];
+  }
+}
+```
+
+When a thread reaches the `if` block (the critical section), it waits until no other thread is executing it at the same time.
+
+Code above is not optimal, because entering critical section costs, and we can limit it
+
+```c
+cur_max = -100000;
+#pragma omp parallel for
+for (i=0; i<n; i++) {
+  if (a[i] > cur_max) {
+    #pragma omp critical
+    if (a[i] > cur_max)
+      cur_max = a[i];
+  }
+}
+```
+
+We can also use named critical sections
+
+```c
+cur_max = -100000;
+cur_min = 100000;
+#pragma omp parallel for
+for (i=0; i<n; i++) {
+  if (a[i] > cur_max) {
+    #pragma omp critical (maxlock)
+    if (a[i] > cur_max)
+      cur_max = a[i];
+  }
+  if (a[i] < cur_min) {
+    #pragma omp critical (minlock)
+    if (a[i] < cur_min)
+      cur_min = a[i];
+  }
+}
+```
+
+### `atomic` directive
+
+It is much more efficient than critical section, but is simpler.
+
+```c
+#pragma omp atomic
+x <binop>= exp
+```
+
+where `<binop>` can be `+, *, -, /, %, &, |, ^, <<, >>`
