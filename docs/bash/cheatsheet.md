@@ -21,6 +21,24 @@ Sprawdzanie co jest czym oraz do czego służy
 find -name a*n.java
 ```
 
+### Pisanie do plików
+
+Każda aplikacja ma wejście (`stdin`) oraz dwa wyjścia (`stdout`-zwykłe i `stderr`-dla błędów)
+
+Z pomocą poniższych komend możemy przekierowywać wyjścia programów do urządzeń lub plików
+
+| Komenda     | Działanie                                                    |
+| ----------- | ------------------------------------------------------------ |
+| `<`         | deviceredirects stdin to the device                          |
+| `>>`        | deviceredirects stdout to the device (appends to the end)    |
+| `>` device  | redirects stdout to the device (overwrites previous content) |
+| `2>` device | redirects stderr to the device (overwrites previous content) |
+| `2>&1`      | redirects stderr to the device associated to stdout          |
+
+```bash
+cat logi.log | grep "10-10-2022" > logs_from_10-10-2022.log
+```
+
 ## Obróbka tekstu
 
 #### Wyszukiwanie wzorca
@@ -47,7 +65,7 @@ Inne przydatne flagi grepa
 | `-B`, `--before-context=ILE` | Wypisz ILE linii po przed znaleziskiem wyświetlić  |
 | `-A`, `--after-context=ILE`  | Wypisz ILE linii po znalezisku wyświetlić          |
 
-#### Dzielenie dłuższych łańcuchów znaków
+### Dzielenie dłuższych łańcuchów znaków
 
 `cut` - proste wycinanie fragmentów tekstu
 
@@ -78,7 +96,7 @@ basename /sciezka/do/pliku/plik.txt
 # plik.txt
 ```
 
-#### Manipulacja tekstem
+### Manipulacja tekstem
 
 `sed` służy do nieco bardziej zaawansowanych manipulacji
 
