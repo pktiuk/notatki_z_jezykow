@@ -415,18 +415,53 @@ function isApple(fruit) {
 }
 ```
 
-Co ciekawe nie wysypią się one nawet gdy damy im złą ilość argumentów
+### Argumenty funkcji
+
+Funckcję mającą `n` argumentów możemy wywołać używając:
+
+- `n` argumentów
 
 ```js
 printHello(23);
 // Hello
+```
 
-isApple("apple", 43);
+- więcej niż `n` argumentów - nieoczekiwane argumenty są ignorowane
+
+```js
+isApple("apple", 43); //drugi argument jest ignorowany
 // true
+```
 
-isApple();
+- mniej niż `n` argumentów - brakujące mają wartość `undefined`
+
+```js
+isApple(); //pierwszy argument ma wartość "undefined"
 // false
 ```
+
+Do argumentów możemy odwołać się poprzez:
+
+- nazwę
+- pseudo-listę `arguments`
+
+```js
+function greetings() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log("Hi, " + arguments[i]);
+  }
+
+  //Hi, Tom
+}
+```
+
+W razie potrzeby możemy wymusić liczbę argumentów
+
+```js
+function f(x,y) {if (arguments.length != 2)...
+```
+
+Właśnie przez ten śmietnik nie mamy przeciążania funkcji.
 
 ### Funkcje anonimowe
 
@@ -494,6 +529,35 @@ const fun2 = function () {
 fun1(); //ale ta już musi być po deklaracji
 ```
 
+### Dostęp do zmiennych w funkcji zagnieżdżonej
+
+Funkcjie zdefiniowane we wnętrzu innuch funkcji mają dostęp do wszystkich zmiennych które są dostępne w wybranym zakresie.
+
+```js
+var global = "this is global";
+function scopeFunction() {
+  alsoGlobal = "This is also global!";
+  var notGlobal = "This is private to scopeFunction!";
+  function subFunction() {
+    alert(notGlobal); // We can still access notGlobal in this child function.
+    stillGlobal = "No var keyword so this is global!";
+    var isPrivate = "This is private to subFunction!";
+  }
+  alert(stillGlobal); // This is an error since we haven't executed subfunction
+  subFunction(); // execute subfunction
+  alert(stillGlobal); // This will output 'No var keyword so this is global!'
+  alert(isPrivate); // This generate an error since isPrivate is private to
+  // subfunction().
+  alert(global); // outputs: 'this is global'
+}
+
+alert(global); // outputs: 'this is global'
+alert(alsoGlobal); // generates an error since we haven't run scopeFunction yet.
+scopeFunction();
+alert(alsoGlobal); // outputs: 'This is also global!';
+alert(notGlobal); // generates an error.
+```
+
 ### Zmienne proste vs złożone (kopia vs referencja)
 
 Przy pracy ze zmiennymi warto pamiętać o tym, że jedynie proste typy zmiennych są kopiowane przy przekazywaniu dalej (Number, String, Boolean, Undefined, Null, Symbol, BigInt), w pozostałych przypadkach przekazywana jest referencja.
@@ -518,7 +582,7 @@ console.log(d2);
 ```
 
 Aby temu zapobiec można użyć operatora `Object.assign()` - łączy on ze sobą 2 obiekty, wystarczy połączyć nasz z jakimś pustym.  
-Towrzy on jednak tylko płytką kopię.
+Tworzy on jednak tylko płytką kopię.
 
 ```js
 let kopia = Object.assign({}, d1);
@@ -643,6 +707,53 @@ img.addEventListener("load", function () {
 });
 ```
 
+//TODO add obrazek https://www.google.com/search?q=javascript+main+thread+event+queue&sxsrf=ALiCzsa8Pc3xNZVsnB7g2sBxgdnyPUljVw:1664364932726&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiFv93Esrf6AhXOh_0HHWrZD2YQ_AUoAXoECAIQAw&biw=1753&bih=850&dpr=1.09#imgrc=BQyez2KT8p8KzM
+//Oisujący jak działa pętla zdarzeń
+
+Warto pamiętać, że eventy z pępli zdarzeń mają miejsce tylko wtedy, gdy w głównym wątku nic nie jest przetwarzane
+
+<details>
+  <summary>Przykład</summary>
+
+```js
+function fibo(n) {
+  return n < 2 ? 1 : fibo(n - 2) + fibo(n - 1);
+}
+
+function showMessage(m, u) {
+  console.log(m + ": The result is: " + u);
+}
+
+console.log("Starting the process...");
+// Wait for 10 ms in order to show the message...
+setTimeout(function () {
+  console.log("M1: My first message...");
+}, 10);
+// Several seconds are needed in order to
+// complete this call: fibo(40)
+let j = fibo(40);
+// M2 is written before M1 is shown. Why?
+showMessage("M2", j);
+// M3 is written after M1. Why?
+setTimeout(function () {
+  showMessage("M3", j);
+}, 1);
+```
+
+Powyższy kod drukuje:
+
+```
+C:\> node turnQueue.js
+Starting the process...
+M2: The result is: 165580141
+M1: My first message...
+M3: The result is: 165580141
+```
+
+Po dokładniejsze wyjaśnienia zajrzyj do [Javascript - Inne informacje](./4_javascript_inne.html)
+
+</details>
+
 ### AJAX
 
 **AJAX** - Async JavaScript And XML. Pozwala asynchronicznie komunikować się z zewnętrznymi serwerami (wysyłać żądania etc). Kiedyś opierało się to na użyciu XML-a, ale od iluś lat używa się jednak JSONa.
@@ -676,6 +787,22 @@ const promise = fetch("https://restcountries.eu/rest/v2/name/poland");
 Taka obietnica po zakończeniu zadania może zmienić swój stan na spełnioną, lub odrzuconą.  
 Jak już została wykonana to możemy ją skonsumować.  
 Do tego warto używać metody `then` do której przekazujemy co ma zostać zrobione z otrzymanymi danymi.
+
+```js
+then(onFulfilled);
+then(onFulfilled, onRejected);
+
+then(
+  (value) => {
+    /* fulfillment handler */
+  },
+  (reason) => {
+    /* rejection handler */
+  }
+);
+```
+
+W wypadku błędu, lud odrzucenia rządania możemy też wykorzystać `catch()` na końcu łańcuszka.
 
 ```js
 fetch("https://restcountries.eu/rest/v2/name/poland").then(function (response) {
@@ -742,6 +869,32 @@ Warto zwrócić tu uwagę na pola:
 - `method` - określa typ żądania
 - `headers` - mamy tutaj typowe nagłówki http [lista](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), za ich pomocą ustalamy np jaki typ danych wysyłamy (`Content-Type`), czy też jakie dane jesteśmy w stanie przyjąć (`Accept`).
 - `body` - już samo ciało żądania, tutaj warto pamiętać, że najczęściej wysyłamy je w postaci stringa
+
+### Runkcje asynchroniczne
+
+Do zdefiniowania funkcji asynchronicznej (zwracającej obietnicę) wykorzystujemy słowo kluczowe `async`.
+
+```js
+// Variation of program in slide 38...
+const fs = require("fs");
+function readFilePromise(filename) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filename, (err, data) => {
+      if (err) reject(err + "");
+      else resolve(data + "");
+    });
+  });
+}
+async function readTwoFiles() {
+  try {
+    console.log(await readFilePromise("readfile.js"));
+    console.log(await readFilePromise("doesntExist.js"));
+  } catch (err) {
+    console.error(err + "");
+  }
+}
+readTwoFiles();
+```
 
 ## Włączanie zewnętrznych bibliotek
 
