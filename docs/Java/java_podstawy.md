@@ -143,11 +143,11 @@ Operator – funkcja podana w notacji operatorowej - z 1, 2 lub 3 argumentami
 (operandami).
 
 - 1-argumentowe operatory mogą być przedrostkowe i przyrostkowe:
-operator operand // notacja przedrostkowa
-operand operator // notacja przyrostkowa
+  operator operand // notacja przedrostkowa
+  operand operator // notacja przyrostkowa
   - przedrostkowe i przyrostkowe `++` i `--`
 - 2-argumentowe operatory występują pomiędzy swoimi operandami:
-operand1 operator operand2
+  operand1 operator operand2
   - Działania matematyczne`+`,`-`,`*`,`/`,`%`
   - Porównania `>`,`>=`,`==`,`<=`,`<`,`!=`
   - Tylko dla wartości logicznych:
@@ -168,7 +168,7 @@ operand1 operator operand2
     - op1=op2
     - `*=`,`+=`,`-=`,`|=`,`%=`itp...
 - 3-argumentowy operator (jedyny w Javie):
-operand1 ? operand2 : operand3
+  operand1 ? operand2 : operand3
   - `op1?op2:op3` gdy op1 jest „true”, zwraca op2, w przeciwnym razie zwraca op3
 - Inne
   - `typ[]`/`typ[liczba]` deklaracja tablicy
@@ -244,8 +244,7 @@ jednokierunkowym (Iterator) i dwukierunkowym (ListIterator). Kolekcje można ró
 
 Podstawowe zależności pomiędzy interfejsami kolekcji:
 
-- Collection określa zachowanie najogólniejszego zbioru obiektów,
-mogącego zawierać obiekty identyczne
+- Collection określa zachowanie najogólniejszego zbioru obiektów,mogącego zawierać obiekty identyczne
 - Set „rozszerza” Collection: nie dopuszcza duplikatów
 - List rozszerza Collection, dopuszczając indeksowanie przez pozycję obiektu
 - Map definiuje funkcjonalności podobne do Collection, ale nie jest z nim spokrewniony
@@ -255,11 +254,11 @@ mogącego zawierać obiekty identyczne
 `Collection` i `Iterator`:
 
 - Metody „jednostkowe”
-add, contains, remove
+  add, contains, remove
 - Metody zbiorcze
-addAll, containsAll, removeAll, retainAll (dla teorii zbiorów różnica zbiorów iloczyn itp.)
+  addAll, containsAll, removeAll, retainAll (dla teorii zbiorów różnica zbiorów iloczyn itp.)
 - Inne
-clear, isEmpty, size, toArray
+  clear, isEmpty, size, toArray
 - iterator – produkuje nowy iterator (na początku na nic nie wskazuje, jest przed pierwszym elementem)
   - hasNext
   - next - przeskakuje dalej i zwraca kolejny element (wskazywał pierwszy, po przeskoku zwraca drugi itd.)
@@ -294,17 +293,9 @@ Standardowe algorytmy: klasa Collections
 
 Mamy dwa sposoby porządkowania kolekcji obiektów:
 
-- Interfejs Comparable zapewnia automatyczny naturalny porządek
-dla klas go implementujących.
-W interfejsie deklarowana jest metoda compareTo(obj)
-- Interfejs Comparator umożliwia programiście wyznaczenie własnego
-sposobu porządkowania obiektów.
-W tym interfejsie występują dwie metody:
-– int compare(o1,o2)
-Ma dawać jako wynik wartość ujemną, zero lub wartość dodatnią
-stosownie do tego, czy pierwszy argument jest mniejszy, równy bądź
-większy od drugiego.
-– boolean equals(Object obj)
+- Interfejs Comparable zapewnia automatyczny naturalny porządek dla klas go implementujących.
+  W interfejsie deklarowana jest metoda compareTo(obj)
+- Interfejs Comparator umożliwia programiście wyznaczenie własnego sposobu porządkowania obiektów.
 
 #### Implementacje Biblioteczne kolekcji
 
@@ -312,10 +303,10 @@ większy od drugiego.
 Właściwości:
 
 1. Implementują wszystkie opcjonalne operacje
-Mamy gwarancję, że nie wystąpi UnsupportedOperationException
+   Mamy gwarancję, że nie wystąpi UnsupportedOperationException
 2. Nie są synchronizowane
-Mamy gwarancję, że przy współbieżnej modyfikacji i przeglądaniu wystąpi
-ConcurrentModificationException
+   Mamy gwarancję, że przy współbieżnej modyfikacji i przeglądaniu wystąpi
+   ConcurrentModificationException
 3. Są serializowalne i posiadają metodę `clone()`.
 
 - HashSet – funkcja skrótu indeksuje miejsce w tablicy, gdzie znajduje się element; jeśli skrót się powiela, tworzona jest lista elementów. Średni czas dostępu do elementu praktycznie stały. Tablica może zmieniać swój rozmiar.
@@ -363,7 +354,7 @@ Słowa kluczowe:
 
 - `break` bez etykiety – kończy wykonywanie aktualnej wewnętrznej instrukcji sterującej switch, for, while, do-while
 - instrukcja break z etykietą – kończy wykonywanie zewnętrznego switch, for, while, do-while o danej etykiecie:
-`break etykieta_instrukcji;`
+  `break etykieta_instrukcji;`
 - `continue` kończy bieżącą iterację wewnętrznej pętli
 - `continue` z etykietą -analogicznie
 - `return` – powrót z wykonywanej metody
@@ -487,7 +478,7 @@ Deklaracja metody – specyfikacja
 - typu wyniku
 - nazwy
 - listy argumentów formalnych (typy proste lub referencje do obiektów)
-`public Object push(Object item)`
+  `public Object push(Object item)`
 
 Wszystkie możliwe elementy nagłówka definicji metody (w ich kolejności)
 
@@ -510,8 +501,7 @@ Można zwrócić
 - obiekt (referencja) np. `return new String();`
 
 - Metody przeciążone różnią się liczbą lub typem parametrów
-- Metoda nadpisana (polimorficzna) ma tę samą sygnaturę, co metoda w klasie
-bazowej. Nie może rozszerzać zbioru zgłaszanych wyjątków.
+- Metoda nadpisana (polimorficzna) ma tę samą sygnaturę, co metoda w klasie bazowej. Nie może rozszerzać zbioru zgłaszanych wyjątków.
 
 **Odwołania w metodach**
 
@@ -614,8 +604,7 @@ arytmetyczne lub błędy dostępu do pamięci danych programu), nie są sprawdza
 Np. są nimi:
 
 - wyjątki arytmetyczne (np. dzielenie przez zero),
-- wyjątki wskazań (np. próba odwołania do obiektu poprzez zerową referencję, próba
-rzutowania na obiekt niewłaściwej klasy),
+- wyjątki wskazań (np. próba odwołania do obiektu poprzez zerową referencję, próba rzutowania na obiekt niewłaściwej klasy),
 - wyjątki indeksowania (np. odwołanie do elementu tablicy poprzez zły indeks).
 
 Wyrzucenie wyjątku:
