@@ -707,11 +707,8 @@ img.addEventListener("load", function () {
 });
 ```
 
-//TODO add obrazek https://www.google.com/search?q=javascript+main+thread+event+queue&sxsrf=ALiCzsa8Pc3xNZVsnB7g2sBxgdnyPUljVw:1664364932726&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiFv93Esrf6AhXOh_0HHWrZD2YQ_AUoAXoECAIQAw&biw=1753&bih=850&dpr=1.09#imgrc=BQyez2KT8p8KzM
-//Oisujący jak działa pętla zdarzeń
-
 Warto pamiętać, że eventy z pętli zdarzeń mają miejsce **tylko** wtedy, gdy w głównym wątku nic nie jest przetwarzane.  
-Po dokładniejsze wyjaśnienia zajrzyj do [Javascript - Inne informacje](./4_javascript_inne.html)
+Po dokładniejsze wyjaśnienia zajrzyj do [Javascript - Inne informacje](./4_javascript_inne.md)
 
 ### AJAX
 
