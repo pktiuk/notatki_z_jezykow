@@ -166,7 +166,21 @@ num = 32;
 let undef;
 ```
 
-**var** - podobne do let lecz jest już przestarzałe i nie zaleca się jego używania.
+**var** - podobne do let lecz jest już przestarzałe i nie zaleca się jego używania. Var jest dużo bardziej bugogenne
+
+```js
+function f() {
+  for (var let_i = 0; let_i < 5; let_i++) {
+    console.log("let_i: " + let_i);
+  }
+
+  for (var var_i = 0; var_i < 5; var_i++) {
+    console.log("let_i: " + let_i); // to będzie działać dobrze
+  }
+}
+```
+
+Na dodatek pozwala ono używać zmiennej przed jej zadeklarowaniem.
 
 **const** - po prostu stałe zmienne
 
@@ -440,6 +454,13 @@ isApple(); //pierwszy argument ma wartość "undefined"
 // false
 ```
 
+- Możemy także przekazać do funkcji listę argumentów, które będą zmapowane na kolejne argumenty
+
+```js
+let vector = ["apple", 2, 3, 4];
+isApple(...vector);
+```
+
 Do argumentów możemy odwołać się poprzez:
 
 - nazwę
@@ -691,6 +712,35 @@ const account = {
 
 account.latest = 23;
 account.latest;
+```
+
+### Dziedziczenie
+
+Używając słowa kluczowego extends możemy także tworzeyć hiererchie klas
+
+```js
+class Animal {
+  //	nazwa;
+  constructor(nazwa) {
+    this.nazwa = nazwa;
+  }
+  habla() {}
+  nazwaAnimal() {
+    return this.nazwa;
+  }
+}
+
+class Pies extends Animal {
+  constructor() {
+    super("Pies");
+  }
+  habla() {
+    return "hau";
+  }
+}
+
+let perro = new Perro();
+console.log(perro.nazwaAnimal() + " dice " + perro.habla());
 ```
 
 ## Komunikacja zewnętrzna i funkcje asynchroniczne
