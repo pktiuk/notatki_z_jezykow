@@ -27,6 +27,29 @@ Zastosowania:
 
 ## Zarządzanie modułami
 
+Są 2 sposoby na importowanie modułów
+
+- **ESM** - (imo lepszy)
+
+```js
+import React from 'react';
+
+import {foo, bar} from './myLib';
+
+...
+import * as fs from 'node:fs/promises';
+...
+
+export default function() {
+  // your Function
+};
+export const function1() {...};
+export const function2() {...};
+
+```
+
+- **CJS** (CommonJS)
+
 Korzystając z funkcji `require()` możemy włączać inne moduły do naszego programu
 
 ```js
@@ -111,7 +134,12 @@ Istnieją 4 warianty:
 
 Wszystkie z nich są klasami typu `EventEmitter`, posiadają one zdarzenia:
 
-- Readable: `readable`, `data`, `end`, `close`, `error`.
+- Readable:
+  - `readable`
+  - `data` - część informacji została odczytana (linia)
+  - `end` - strumień zamknął obecne połączenie
+  - `close` - strumień TCP został zamknięty całkowicie (nie będzie już przyjmował nowych połączeń)
+  - `error`.
 - Writable: `drain`, `finish`, `pipe`, `unpipe`.
 
 Przykłady:
@@ -120,9 +148,28 @@ Przykłady:
 - Writable: process.stdout, process.stderr, files, HTTP requests (client), HTTP responses (server),...
 - Duplex: TCP sockets, files,...
 
+```js
+const st = require('./Circle.js')
+const os = require('os')
+process.stdout.write("Radius of the circle: ")
+process.stdin.resume() // Needed for initiating the reads from stdin.
+process.stdin.setEncoding("utf8") // … for reading strings instead of “Buffers”.
+// Endless loop. Every time we read a radius its circumference is printed and a new
+radius is requested
+process.stdin.on("data", function(str) {
+  // The string that has been read is “str”. Remove its trailing endline.
+  let rd = str.slice(0, str.length - os.EOL.length)
+  console.log("Circumference for radius " + rd + " is " + st.circumference(rd))
+  console.log(" ")
+  process.stdout.write("Radius of the circle: ")
+})
+// The “end” event is generated when STDIN is closed. [Ctrl]+[D] in UNIX.
+process.stdin.on("end", function() {console.log("Terminating...")})
+```
+
 ### Moduł sieciowy - net
 
-Służy do zarządzania gniazdami TCP
+Służy do zarządzania gniazdami TCP. [Dokumentacja](https://nodejs.org/api/net.html)
 
 - net.Server: TCP server.
   - Generated using `net.createServer([options,][connectionlistener])`.
@@ -175,5 +222,40 @@ client.on("data", function (data) {
 });
 client.on("end", function () {
   console.log("client disconnected");
+});
+```
+
+### Moduł HTTP
+
+Pomaga przy implementacji serwerów webowych (oraz klientów) [Dokumentacja](https://nodejs.org/api/http.html)
+
+Klasy:
+
+- `http.Server` - modeluje web serwer
+- `http.ClientRequest` - zapytanie
+  - Jest to strumień oraz EventEmitter
+  - Wydarzenia: `response`, `socket`, `connect`, `upgrade`, `continue`
+- `http.ServerResponse`
+- `http.IncomingMessage`
+
+```js
+const http = require("http");
+const hostname = "127.0.0.1";
+const port = 3000;
+const server = http.createServer((req, res) => {
+  // res is a ServerResponse.
+  // Its setHeader() method sets the response header.
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  // The end() method is needed to communicate that both the header
+  // and body of the response have already been sent. As a result, the response can
+  // be considered complete. Its optional argument may be used for including the
+  // last part of the body section.
+  res.end("Hello World\n");
+});
+// listen() is used in an http.Server in order to start listening for
+// new connections. It sets the port and (optionally) the IP address.
+server.listen(port, hostname, () => {
+  console.log("Server running at http://" + hostname + ":" + port + "/");
 });
 ```
