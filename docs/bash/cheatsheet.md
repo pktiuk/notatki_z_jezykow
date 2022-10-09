@@ -110,6 +110,25 @@ TODO
 
 ```
 
+## Zmienne
+
+Zmienną tworzymy za pomocą znaku `=`, który przypisuje wartość do dane identyfikatora. `identyfikator=wartość`.  
+Aby uzyskać dostęp do zawartości używamy `$` przed nazwą zmiennej.
+
+```bash
+$ msg=”Hello World”
+$ echo $msg
+Hello World
+```
+
+### Wstawianie zmiennych w tekst
+
+Jest kilka sposobów, aby mieć w sktyptach tekst, który jest zależny od sytuacji. Możemy do tego wykorzystywać:
+
+- Zmienne `/my/path/to/${EDITED_FILE}`
+- Wyniki funkcji ` dsd
+-
+
 ## Argumenty
 
 Każda funkcja, czy też skrypt bashowy może mieć przekazywane poprzez proste podanie ich po wywołaniu.
@@ -160,7 +179,7 @@ TODO więcej
 
 ## Warunki
 
-Warunki sprawdza się za pomocą komenty `test` z odpowiednimi flagami.
+Warunki sprawdza się za pomocą komendy `test` z odpowiednimi flagami.
 Można to także robić za pomocą wmieszczając warunek w nawiasach `[]`.
 Możliwy jest też wariant z dwoma nawiasami `[[ cośtam ]]` jest on wspierany przez wszystkie nowsze systemy używające Basha, ale mimo wszystko może byc on niekompatybilny ze starszymi.
 
@@ -221,7 +240,44 @@ fi
 
 ### Pętle
 
-```bash
-TODO
+**for** - iteruje po liście
 
+```bash
+for variable in valuelist
+do
+    something
+done
 ```
+
+Listą mogą być argumenty programu
+
+```bash
+#!/bin/bash
+echo The number of arguments is: $#
+echo The entered command line is: $0 $@
+echo The command arguments are:
+for i in "$@"
+do
+    echo $i
+done
+```
+
+... albo pliki w folderze
+
+```bash
+for k in *
+do
+    cp $k $k.bak
+    echo $k copy created
+done
+```
+
+lub wynik komendy (używamy do tego `$()`)
+
+```bash
+for i in $(ls)
+do
+    echo $i
+done
+```
+
