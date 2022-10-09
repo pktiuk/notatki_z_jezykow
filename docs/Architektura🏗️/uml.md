@@ -25,6 +25,10 @@ Poszczególne klasy mają wyróżnioną nazwę oraz atrybuty takie jak:
 
 Możemy je pokazwać jako sama nazwa, opcjonalnie wzbogacona o typ, argumenty i inne cechy. Dozwolone są tylko typy bazowe (`integer`, `real`, `char`, `string`, etc.) bez klas.
 
+Ogólnny schemat:
+
+`[visibility] Name [: Type] [=initial value]`
+
 ![bank](assets/uml-BankAccount1.svg.png)
 
 Możemy także określać widoczność atrybutów
@@ -34,18 +38,32 @@ Możemy także określać widoczność atrybutów
 - `−` dla private – prywatny, dostępny tylko w obrębie klasy (przy atrybucie statycznym) lub obiektu (przy atrybucie zwykłym)
 - `~` dla package – pakiet, dostępny w obrębie danego pakietu, projektu.
 
+### Zależności pomiędzy klasami
+
 Zależności pomiędzy poszczególnymi klasami opisujemy za pomocą związków (powiązań)
 
 ![strzałki](assets/Uml_classes_relations.svg)
 
 - **Zależność** (ang. dependency) – najsłabszy związek znaczeniowy między klasami, gdy jedna z klas używa innej. Na diagramie klas oznaczana `------->` przerywaną linią zakończoną strzałką wskazującą kierunek zależności
-- **Asocjacja** (ang. association) wskazuje na silniejsze powiązanie pomiędzy obiektami danych klas (np. firma zatrudnia pracowników). Na diagramie asocjację oznacza się za pomocą linii `_______`. Nazwy cech (np. zatrudniony, zatrudniający) wraz z krotnością umieszcza się w punkcie docelowym asocjacji. Nazwę asocjacji podaje się pośrodku (np. zatrudnia).  
-![Asocjacja](assets/UML_association_role_example.gif)
+- **Asocjacja** (ang. association) wskazuje na silniejsze powiązanie pomiędzy obiektami danych klas (np. firma zatrudnia pracowników). Na diagramie asocjację oznacza się za pomocą linii. Nazwy cech (np. zatrudniony, zatrudniający) wraz z krotnością umieszcza się w punkcie docelowym asocjacji. Nazwę asocjacji podaje się pośrodku (np. zatrudnia).  
+  ![Asocjacja](assets/UML_association_role_example.gif)
 - **Generalizacja** lub **dziedziczenie** - wypełniona strzałka wskazuje na klasę bazową względem pochodnej
+  ![Generalizacja specjalizacja](assets/uml_generalization_specialization.png)
 - **Agregacja** (ang. aggregation) reprezentuje związek typu całość-część, czyli jakaś większa całość jest rozbita na elementy. Oznacza to, że elementy częściowe mogą należeć do większej całości, jednak również mogą istnieć bez niej (np. koła i samochód).
 - **Kompozycja** (ang. composition), jest silniejszą formą agregacji. W związku kompozycji, części należą tylko do jednej całości, a ich okres życia jest wspólny — razem z całością niszczone są również części. W dużej mierze jest to kwestia umowna, zależna od danego systemu.  
-![Aggregation Composition](assets/uml-AggregationAndComposition.svg.png)
+  ![Aggregation Composition](assets/uml-AggregationAndComposition.svg.png)
 
+W wypadku asocjacji możemy także określić krotność zależności
+
+- `0` brak instancji (rzadkie)
+- `0..1` Zero albo jedna
+- `1` ,`1..1` dokładnie jedna
+- `0..*`, `*` Zero albo więcej instancji
+- `1..*` Jedna, albo więcej
+
+Niektóre asocjacje same w sobie mogą być reprezentowane poprzez klasy. Np w wypadkach, gdy musza przechowywać więcej własnych danych.  
+Są to **klasy asocjacyjne** (`Link classes`)
+![Link class](assets/uml_link_classes.png)
 
 ## Diagram aktywności
 
