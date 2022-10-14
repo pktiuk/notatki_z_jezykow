@@ -83,10 +83,10 @@ echo "qwer tyui xxx" | cut -d " " -f 2 #-d delimiter (separator) -f pole
 
 `-f` przyjmuje liczby w następujących formatach: `N`, `N-M`, `-M`, `N-`, `X,Y,Z`
 
-`head` - służy do operowania na liniach
+`head` - służy do pokazywania tylko wybranych linii.
 
 ```bash
-TODO head
+cat ./dlugi_plik.log | head -n 100 #drukuje tylko 100 pierwszych linii
 ```
 
 W wypadku, gdy chcemy wydzielić samą nazwę pliku ze ścieżki warto użyć komendy `basename`
