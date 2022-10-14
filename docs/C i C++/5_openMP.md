@@ -301,7 +301,7 @@ Code fragments that must be executed by a single thread
 
 
   #pragma omp single nowait
-    printf("work1 ended, work2 starts\n");
+    printf("work1 ended in all of the threads, work2 started\n");
   work2();
 }
 ```
@@ -400,3 +400,6 @@ x <binop>= exp
 ```
 
 where `<binop>` can be `+, *, -, /, %, &, |, ^, <<, >>`
+
+//TODO ask about this ❗
+// std::cout << "xx"
