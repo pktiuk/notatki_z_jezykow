@@ -1,5 +1,7 @@
 # Wyrażenia regularne (Regexy)
 
+Świetna strona do ekspreymentowania z wyrażeniami regularnymi [Regex101](https://regex101.com/)
+
 ## Znaki
 
 | symbol | Opis                                         |
@@ -16,6 +18,7 @@
 | $      | koniec wyrażenia lub/EOL/EOF                 |
 | \Z     | koniec wyrażenia                             |
 | .      | Jakikolwiek znak (nie licząc nowej linii \n) |
+| `\.`   | Kropka `.` (w grepie jednak trzeba dać `\\.` |
 
 Znaki specjalne: `^ [ . $ { * ( \+ ) | ? < >`  
 Do ich escape'owania na ogół wystarcza `\`.
