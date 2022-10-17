@@ -167,6 +167,36 @@ Zwroty przydatne przy obsłudze argumentów
 | $\*      | Wszystkie argumenty jako jeden string            |
 | $@       | Wszystkie argumenty jako lista                   |
 
+### xargs
+
+Jeśli chcemy wykorzystywać wyjścia mechanizm strumieni do przekazywania argumentów to możemy użyć także komendy [xargs](https://man7.org/linux/man-pages/man1/xargs.1.html)
+
+```bash
+#Wywołanie komendy rm dla każdego znalezionego pliku
+find /path -type f -print | xargs rm
+```
+
+Flagi:
+
+- `-n` - maksymalna liczba argumentów
+- `-d`, `--delimiter` - podział na części (komenda zostanie wywołana wielokrotnie)
+
+```bash
+echo -n 123-456-7890 | xargs echo
+#> 123-456-7890
+echo -n "123-456-789" | xargs -n 1 -d - echo
+#> 123
+#> 456
+#> 789
+```
+
+- `-I`, `-i`, `--replace=` pozwala na elastyczne wstawianie otrzymanego argumentu
+
+```bash
+#Stworzy pliki 123.txt 456.txt 789.txt
+echo -n "123-456-789" | xargs -d - -n 1 -I{} echo {}.txt
+```
+
 ## Procesy
 
 Łączniki:
@@ -280,4 +310,3 @@ do
     echo $i
 done
 ```
-
