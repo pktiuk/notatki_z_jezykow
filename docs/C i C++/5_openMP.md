@@ -56,7 +56,7 @@ We can also use env variable `OMP_NUM_THREADS`
 OMP_NUM_THREADS=10 app
 ```
 
-### Scheduling 
+### Scheduling
 
 `schedule(type[,chunk])`
 
@@ -169,7 +169,7 @@ Example
 }
 ```
 
-They are used for sharing work in a bit different manner. 
+They are used for sharing work in a bit different manner.
 
 - Each thread works on a part of the data structure, or
 - Each thread performs a different operation
@@ -217,7 +217,6 @@ int myindex;
   - Sections to distinguish different parts of the code
   - Code to be executed by a single thread
 
-
 ### Worksharing constructs
 
 #### The `for` construct
@@ -235,7 +234,7 @@ int myindex;
 The loop iterations are **not** replicated but shared among the threads
 `parallel` and `for` directives can be combined in one.
 
-#### Loop Construct - `nowait` 
+#### Loop Construct - `nowait`
 
 `nowait` Clause - removes implicit barrier after for loop
 
@@ -257,14 +256,13 @@ void a8(int n, int m, float *a, float *b, float *y, float *z)
 }
 ```
 
-
-#### `sections` Construct 
+#### `sections` Construct
 
 represents pliece of code, which can be split into small independent sections
 
 - Individually they represent little work, or
 - Each fragment is inherently sequential
-It can also be combined with parallel
+  It can also be combined with parallel
 
 ```c
 #pragma omp parallel sections
@@ -292,7 +290,7 @@ Code fragments that must be executed by a single thread
   // only once
   #pragma omp single
     printf("work1 starts\n");
-  
+
   //Other threads will wait until "work1 starts" will be printed
   work1();
 
@@ -308,7 +306,6 @@ Code fragments that must be executed by a single thread
 
 `master` Directive
 
-
 Differences with single:
 
 - It does not require all threads to reach this construction
@@ -322,7 +319,7 @@ Differences with single:
   #pragma omp for
     for (i=0; i<n; i++)
       calc1();
-  
+
   //this will be launched after finishing loop above
   #pragma omp master
     printf("Work finished\n");
@@ -335,7 +332,7 @@ Some allowed clauses: private, firstprivate, nowait
 
 The main point of synchronization is avoiding race conditions.
 
-The most basic way of avoiding this is mutual exclusion. (directive `critical`, `atomic` or locks - `_lock`  routines).
+The most basic way of avoiding this is mutual exclusion. (directive `critical`, `atomic` or locks - `_lock` routines).
 
 ### `critical` directive
 
@@ -392,7 +389,7 @@ for (i=0; i<n; i++) {
 
 ### `atomic` directive
 
-It is much more efficient than critical section, but is simpler.
+It is much more efficient than critical section, but supports only very simple operations.
 
 ```c
 #pragma omp atomic
@@ -400,6 +397,51 @@ x <binop>= exp
 ```
 
 where `<binop>` can be `+, *, -, /, %, &, |, ^, <<, >>`
+
+```c
+#pragma omp parallel for shared(x, index, n)
+for (i=0; i<n; i++) {
+  #pragma omp atomic
+  x[index[i]] += work1(i);
+}
+```
+
+### `barrier` directive
+
+When reaching a barrier, threads wait for the rest to arrive
+
+```c
+#pragma omp parallel private(index)
+{
+  index = generate_next_index();
+  while (index>0) {
+    add_index(index);
+    index = generate_next_index();
+  }
+  #pragma omp barrier
+  index = get_next_index();
+  while (index>0) {
+    process_index(index);
+    index = get_next_index();
+  }
+}
+```
+
+### `ordered` directive
+
+Ensures, that portions of code in the loops are executed in the original sequential order
+
+```c
+#pragma omp parallel for ordered
+for (i=0; i<n; i++) {
+  a[i] = ...
+  /* complex computation */
+  #pragma omp ordered
+  fprintf(fd, "%d %g\n", i, a[i]);
+}
+```
+
+**Only one** ordered section is allowed per iteration
 
 //TODO ask about this ❗
 // std::cout << "xx"
