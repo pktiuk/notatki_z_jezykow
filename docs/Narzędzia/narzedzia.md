@@ -34,6 +34,7 @@ AllowUnencrypted = true</code>
 - najaktywniejsze forki danego repo - [legacy](https://techgaun.github.io/active-forks/index.html), [nowa wersja](https://github.com/lukaszmn/active-forks)
 - ststystyki użytkownika - [Coderstats](https://coderstats.net/)
 - Graf gwiazdek - [star-history](https://star-history.t9t.io/?ref=producthunt)
+- Liczenie linii kodu `cloc` (lokalnie) lub https://codetabs.com/count-loc/count-loc-online.html
 
 ## Dla chcących postawić sobie jakiś serwer
 
