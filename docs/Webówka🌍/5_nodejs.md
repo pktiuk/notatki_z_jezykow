@@ -25,6 +25,10 @@ Zastosowania:
 - Aplikacje z lekkimi interfejsami REST/JSON
 - Aproste aplikacje (takie, które korzystają z AJAX-a, do interakcji z serwerami)
 
+## Przyjmowanie argumentów programu `argv`
+
+Argumenty znajdują się w zmiennej `process.argv`.
+
 ## Zarządzanie modułami
 
 Są 2 sposoby na importowanie modułów
@@ -179,22 +183,23 @@ Służy do zarządzania gniazdami TCP. [Dokumentacja](https://nodejs.org/api/net
   - Generated using `new net.Socket()` or `net.connect(options [,listener])` or `net.connect(port [,host][,listener])`
   - Implements a Duplex Stream.
   - Events that may manage: `connect`, `data`, `end`, `timeout`, `drain`, `error`, `close`.
+  - Is child of `EventEmitter`
 
 Przykład (serwer)
 
 ```js
 const net = require("net");
-let server = net.createServer(function (c) {
+let server = net.createServer(function (socket) {
   //'connection' listener
   console.log("server connected");
-  c.on("end", function () {
+  socket.on("end", function () {
     console.log("server disconnected");
   });
   // Send "Hello" to the client.
-  c.write("Hello\r\n");
+  socket.write("Hello\r\n");
   // With pipe() we write to Socket 'c'
   // what is read from 'c'.
-  c.pipe(c);
+  socket.pipe(socket);
 }); // End of net.createServer()
 server.listen(9000, function () {
   //'listening' listener
