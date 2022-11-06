@@ -101,11 +101,11 @@ struct A
     void bar();
     virtual ~A();
 };
- 
+
 // member functions definitions of struct A:
 void A::foo() { std::cout << "A::foo();\n"; }
 A::~A() { std::cout << "A::~A();\n"; }
- 
+
 struct B : A
 {
 //  void foo() const override; // Error: B::foo does not override A::foo
@@ -116,7 +116,6 @@ struct B : A
                    // special member functions, e.g. destructors
 };
 ```
-
 
 ## Templatki
 
@@ -156,9 +155,11 @@ template <> class mycontainer <char> { ... };
 
 Używając tych operatorów na ogół powinno się operować na wskaźnikach (albo referencjach)
 
-- `static_cast<naCoChcemyZrzutowac>(wyrazenie)` - wykorzystywany do konwersji danych w zmiennych różnych typów (np pomiędzy typami reprezentującymi liczby)
-- `dynamic_cast<naCoChcemyZrzutowac>(wyrazenie)` -
-- `reinterpret_cast<naCoChcemyZrzutowac>(wyrazenie)` -
+- `static_cast<naCoChcemyZrzutowac>(wyrazenie)` - wykorzystywany do konwersji danych w zmiennych różnych typów (np pomiędzy typami reprezentującymi liczby), jest on wykonywany w trakcie kompilacji.
+- `dynamic_cast<naCoChcemyZrzutowac>(wyrazenie)` - służy do przekształcania typów klas pomiędzy klasami które po sobie dziedziczą. W wypadku niepowodzenia zwraca `null` Wyróżniamy:
+  - Downcasting - kastujemy klasę bazową na potomną
+  - Upcasting - gdy chcemy uzyskać instancję klasy bazowej
+- `reinterpret_cast<naCoChcemyZrzutowac>(wyrazenie)` - działa podobnie do dynamic casta, ale nie zwraca nulla, zaleca się używanie tylko kiedy dobrze wiesz co robisz.
 - `const_cast<naCoChcemyZrzutowac>(wyrazenie)` - pozwala zmienić stałą na zmienną i na odwrót na ogół jego używanie nie jest zalecane
 
 ```cpp
@@ -233,3 +234,5 @@ explicit TODO
 ## Do zrobienia
 
 TODO: std::move, lvalue i rvalue, &&, ogólnie o klasach i dziedziczeniu, explicit C- czyli co musi być kompilowane jako czyste C, typy smart pointerów.
+
+//TODO VOLATILE https://en.cppreference.com/w/cpp/language/cv
