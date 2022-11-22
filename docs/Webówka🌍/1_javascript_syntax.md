@@ -115,10 +115,12 @@ tablica.length;
 tablica.push(10); //teraz tablica zawiera 10
 // 1 - zwraca ona nową długośż naszej tablicy
 
-tablica.unshift(0); //tobi to samo co pop, tylko dodaje na początek
+tablica.unshift(0); //tobi to samo co push, tylko dodaje na początek
 
 tablica.pop(); //a po tej operacji jest znowu pusta
 // 10 - zwraca wartość z końca tablicy
+
+tablica.shift(); // zwraca pierwszy element rablicy
 
 const inna = ["pierwszy", "drugi", "trzeci"];
 inna.indexOf("pierwszy");
