@@ -10,6 +10,8 @@ Jedną z najważniejszych właściwości tego języka jest to, że funkcje **zaw
 
 ## Zmienne
 
+Większość przydatnych rzeczy jest w [dokumentacji](https://hackage.haskell.org/package/base-4.9.1.0/docs/Prelude)
+
 - `Char` - znak
   Warto znać:
   - `isAlpha`, `isAlphaNum`, `isDigit`, `isLower`, `isUpper` :: **Char -> Bool**
@@ -17,10 +19,12 @@ Jedną z najważniejszych właściwości tego języka jest to, że funkcje **zaw
   - `putChar` :: **Char -> IO ()**
 - `String` - `type String = [Char]`
 - `Num`, `Int`, `Float` - liczba
+  - `div`, `mod`
 - `()` krotka
   - `fst` - zwraca pierwszy element
   - `snd` - zwraca drugi element
 - `Bool`
+  - Operatory
 - `[]` - lista (patrz Operacje na listach)
 
 Do zdefiniowania zmiennej możemy użyć słowa kluczowego `let`
@@ -110,7 +114,9 @@ sort [42,13,22]
 > [13,22,42]:: (Num a, Ord a) => [a]
 ```
 
-### Operacje na listach
+### Listy
+
+#### Tworzenie i dodawanie
 
 Aby dodać element do listy używamy `:`
 
@@ -141,6 +147,38 @@ Na przykład
 > [1, 9, 25]
 ```
 
+**repeat** nieskończone listy
+
+```hs
+Prelude> repeat 3
+[3,3,3,3,3...]
+```
+
+#### Operacje
+
+**Pobieranie** - poniżej
+
+![pobieranie z list](assets/haskell_tail.png)
+
+**Inne** - operator `++`
+
+```hs
+-- Łączenie list
+Prelude> [3,4]++[5]
+[3,4,5]
+
+-- Indeksowane elementy
+Prelude> [45,43,12,54] !! 2
+12
+
+-- branie x elementów z listy
+Prelude> take 3 (repeat 1)
+[1,1,1]
+
+```
+
+#### Funkcje dla list
+
 Funkcja `zip` łączy dwie listy w listę krotek
 
 ```hs
@@ -166,3 +204,5 @@ add_2 = (2 +)
 $ add_2 5
 7
 ```
+
+Przyjmowanie argumentów funkcji () vs ->
