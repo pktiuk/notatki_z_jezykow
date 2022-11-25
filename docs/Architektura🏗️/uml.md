@@ -65,6 +65,8 @@ Niektóre asocjacje same w sobie mogą być reprezentowane poprzez klasy. Np w w
 Są to **klasy asocjacyjne** (`Link classes`)
 ![Link class](assets/uml_link_classes.png)
 
+// TODO UML, a obiekty (wykład 05 i 04 z LTP na UPV)
+
 ## Diagram aktywności
 
 //TODO

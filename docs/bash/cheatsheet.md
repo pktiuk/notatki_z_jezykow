@@ -310,3 +310,6 @@ do
     echo $i
 done
 ```
+
+//TODO opis skrótów klawiszowych Ctrl-C Ctrl-D etc
+// https://www.howtogeek.com/howto/ubuntu/keyboard-shortcuts-for-bash-command-shell-for-ubuntu-debian-suse-redhat-linux-etc/
