@@ -1,5 +1,27 @@
 # Inne
 
+## VENV - wirtualne środowisko
+
+Jest to bardzo potrzebne gdy nie chcemy przypadkiem namieszać w naszych już zainstalowanych paczkach pythonowych, a chcemy odpalić jakiś projekt wymagający konkretnych wersji danych pakietów. [Dokumentacja](https://docs.python.org/3/library/venv.html)
+
+Instalacja dla debianów: `sudo apt install python3-venv`.
+
+Tworzenie nowego venva
+
+```bash
+python3 -m venv /path/to/new/virtual/environment
+```
+
+Aby aktywować venva (czyli odpalić w pythona korzystającego z pakietów w tym venvie) trzeba użyć komendy
+
+| Shell               | Command to activate virtual environment                                       |
+| ------------------- | ----------------------------------------------------------------------------- |
+| bash/zsh            | `$ source <venv>/bin/activate`                                                |
+| fish                | `$ source <venv>/bin/activate.fish csh/tcsh $ source <venv>/bin/activate.csh` |
+| PowerShell          | `$ <venv>/bin/Activate.ps1 `                                                  |
+| (Windows)cmd.exe    | `C:\> <venv>\Scripts\activate.bat `                                           |
+| (Windows)PowerShell | `PS C:\> <venv>\Scripts\Activate.ps1`                                         |
+
 ## Uruchamianie skryptu w trybie interaktywnym
 
 Z poziomu basha:
@@ -36,7 +58,7 @@ Ze względu na wydajność warto się zapoznać z:
 - PyPy - kompilator typu JIT
 - Nuitka [link](https://nuitka.net/pages/overview.html) - o ile dobrze rozumiem to taki jakby kompilator pythona
 
-Ze względu na kompatybilność:  
+Ze względu na kompatybilność:
 
 - Jython (java)
 - IronPython (C#)
