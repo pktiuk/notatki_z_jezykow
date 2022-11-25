@@ -1,4 +1,4 @@
-# Docker
+# Docker🐋
 
 Docker jest jednym z najpopularniejszych obecnie systemów do wirtualizacji systemu operacyjnego.  
 Pozwala w prosty sposób stworzyć instancję systemu będącą niemalże zupełnie niezależnym bytem od systemu maszyny na której się znajduje, może mieć ona zainstalowane zupełnie inne oprogramowanie, różnić się konfiguracją sieciową etc.  
