@@ -1,4 +1,4 @@
-# Moduły i Paczki
+# Moduły i Paczki📦
 
 **Moduł** - plik pythonowy zawierający definicje i wyrażenia, nazwa pliku jest nazwą modułu z dodanym rozszerzeniem `.py` (`nazwa_modułu.py`). Wewnątrz modułu ta nazwa jest dostępna jako zmienna globalna `__name__`.  
 Moduł jest jednym ze sposobów organizacji kodu w pythonie, na ogół w jednym module trzyma się blisko powiązane ze sobą definicje funkcji, klas etc.  
