@@ -101,24 +101,10 @@ ce6a641e20c1   postgres:11-alpine                                 "docker-entryp
 
 ### Uruchamianie
 
-[`docker container create [OPTIONS] IMAGE [COMMAND] [ARG...]`](https://docs.docker.com/engine/reference/commandline/container_create/) - tworzy nam nowy kontener bazujący na danym obrazie, możemy także wybrać jaka komenda ma zostać w nim uruchomiona. (ale go nie uruchamia)  
-Możemy go potem uruchomić komendą `docker container start ID`.
-
-Do stworzenia nowego kontenera i natychmiastowego uruchomienia służy [`docker container run`](https://docs.docker.com/engine/reference/commandline/container_run/).
-
-Przydatne flagi:
-
-- `-rm` usuwa kontener po zakończeniu pracy
-- `-i`, `--interactive` po odpaleniu nadal mamy podłączone STDIN
-- `-t`, `--tty` Podłączamy się terminalem do kontenera (warto użyć razem z `-i`)
-
-```bash
-docker container run ubuntu -i -t bash
-```
-
 Do pracy z kontenerem możemy używać komend:
 
 - `docker container run` albo też `docker run`
+- `docker container create`
 - `docker container pause`
 - `docker container start`
 - `docker container stop`
@@ -126,6 +112,23 @@ Do pracy z kontenerem możemy używać komend:
 - `docker commit containerName ImageName` -zapisujemy zmiany wprowadzone w danym kontenerze jako nowy obraz
 
 Do usuwania kontenerów służą `docker container prune` i `docker container rm`.
+
+[`docker container create [OPTIONS] IMAGE [COMMAND] [ARG...]`](https://docs.docker.com/engine/reference/commandline/container_create/) - tworzy nam nowy kontener bazujący na danym obrazie, możemy także wybrać jaka komenda ma zostać w nim uruchomiona. (ale go nie uruchamia)  
+Możemy go potem uruchomić komendą `docker container start ID`.
+
+Do stworzenia nowego kontenera i natychmiastowego uruchomienia służy [`docker container run`](https://docs.docker.com/engine/reference/commandline/container_run/).
+
+Przydatne flagi dla `run`:
+
+- `-rm` usuwa kontener po zakończeniu pracy
+- `-i`, `--interactive` po odpaleniu nadal mamy podłączone STDIN
+- `-t`, `--tty` Podłączamy się terminalem do kontenera (warto użyć razem z `-i`)
+- `-d`, `--detach` Uruchom kontener w tle i wypisz jego ID
+- `-e`, `--env` Jakie zmienne środowiskowe mają być w naszym kontenerze (np `docker run -e BROKER_PORT=9999 client`)
+
+```bash
+docker container run ubuntu -i -t bash
+```
 
 ### Składnia pliku dockerfile
 
@@ -190,3 +193,54 @@ docker build -t app
 docker run app
 docker run app 5555 5556 # gdy chcemy użyć własnych argumentów
 ```
+
+## Docker compose
+
+Jest on wykorzystywany, kiedy potrzebujemy uruchomić wiele aplikacji, które będą się ze sobą komunikować (a odpalenie w dockerze skryptu, który wszystko nam poodpala nie jest opcją).
+
+### Quick start
+
+Wyobraźmy sobie, że potrzebujemy 3 apek, które gadają ze sobą.
+
+Tworzymy plik `docker-compose.yml`
+
+```yml
+version: '2'
+services:
+#Każdy z serwisów jest tutaj oddzielony
+    cli:
+        image: client #obraz z którego korzystamy
+        build: ./client/
+        links:
+            - bro
+        environment:
+            - BROKER_HOST=bro
+            - BROKER_PORT=9998
+    wor:
+        image: worker
+        build: ./worker/
+        links:
+            - bro
+        environment:
+            - BROKER_HOST=bro
+            - BROKER_PORT=9999
+    bro:
+        image: broker
+        build: ./broker/
+        expose:
+            - "9998“
+            - "9999"
+```
+
+I uruchamiamy komendę `docker-compose up -d`, która:
+
+- Buduje wszystkie wymagane obrazy (jeśli ich nie mamy)
+- Uruchamia kolejne instancje każdego z nich w odpowiedniej kolejności
+
+Do wyłączenia tego, co uruchomiliśmy wystarczy komenda `docker-compose down`
+
+### Komendy
+
+`docker-compose up`:
+
+- `--scale service=num` pozwala odpalić więcej instancji danego serwisu
