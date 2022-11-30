@@ -175,6 +175,8 @@ Prelude> [45,43,12,54] !! 2
 Prelude> take 3 (repeat 1)
 [1,1,1]
 
+-- usuwanie elementu z listy
+Prelude>
 ```
 
 #### Funkcje dla list
@@ -184,6 +186,27 @@ Funkcja `zip` łączy dwie listy w listę krotek
 ```hs
 zip [1,2] ["a","b"]
 > [ (1,"a"), (2,"b")]
+```
+
+```hs
+> length [1,2,3]
+3
+```
+
+`filter (a -> Bool) -> [a] -> [a]` - przefiltrowuje wybraną listę, otrzymujemy tylko elementy dla których nasza funkcja zwraca `True`
+
+```hs
+> filter even [1,2,4,5,32]
+[2,4,32]
+```
+
+`map :: (a -> b) -> [a] -> [b]` - aplikuje wybraną funkcję na wszystkie elementy wybranej listy i zwraca listę wyników
+
+```hs
+> map square [9,3]
+[81,9]
+> map (<3) [1,2,3]
+[True,True,False]
 ```
 
 ## Funkcje
@@ -205,4 +228,38 @@ $ add_2 5
 7
 ```
 
-Przyjmowanie argumentów funkcji () vs ->
+### Definiowanie
+
+Funkcja składa się z opcjonalnego opisu typów  
+`nazwaFun :: Typ -> Typ -> Typ...`  
+Oraz samej definicji, tutaj mamy 2 warianty:
+
+```hs
+addRange :: Int -> Int -> Int
+addRange x y
+  | x == y = x
+  | x < y = x + addRange (x + 1) y
+  | otherwise = y + addRange (y + 1) x
+```
+
+oraz
+
+```hs
+numCbetw2 :: Char -> Char -> Int
+numCbetw2 c1 c2 =
+  let x = ord c2 - ord c1
+   in if abs x == 0 then abs 0 else abs x - 1
+```
+
+TODO
+Argumenty przekazywane do funkcji mogą mieć formę listy (łączonej strzałkami `->`) lub krotek `(el1,el2,...)`.
+
+### Łączenie funkcji
+
+Wykorzystując kropkę `.` możemy łączyć funkcje w ciągi
+
+```hs
+(sum . map square . filter even) [1 .. 10]
+```
+
+Powyższy kod zwróci nam sumę kwadratów liczb parzystych dla liczb z zakresu 1-10.
