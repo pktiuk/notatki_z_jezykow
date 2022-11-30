@@ -1,8 +1,9 @@
 site_name: Notatki z języków
 theme:
   name: material
-  palette:
+  palette: 
     scheme: slate
+    # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-scheme
 
 repo_name: pktiuk/notatki_z_jezykow
 repo_url: https://github.com/pktiuk/notatki_z_jezykow
