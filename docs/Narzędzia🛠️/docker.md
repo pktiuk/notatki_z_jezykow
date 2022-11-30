@@ -105,9 +105,8 @@ Do pracy z kontenerem możemy używać komend:
 
 - `docker container run` albo też `docker run`
 - `docker container create`
-- `docker container pause`
-- `docker container start`
-- `docker container stop`
+- `docker container pause` / `unpause` - wstrzymuje (i wznawia) procesy w kontenerze
+- `docker container start` / `stop` - zabija wszystkie procesy w kontenerze i go zamyka
 - `docker container restart`
 - `docker commit containerName ImageName` -zapisujemy zmiany wprowadzone w danym kontenerze jako nowy obraz
 
@@ -227,6 +226,8 @@ services:
     bro:
         image: broker
         build: ./broker/
+        # z wnętrza kontenera bro wystawiamy porty 9998 i 9999 aby inne
+        # kontenery w composie mogły się do nich podpiąć (ale maszyna hosta nie)
         expose:
             - "9998“
             - "9999"
@@ -238,6 +239,10 @@ I uruchamiamy komendę `docker-compose up -d`, która:
 - Uruchamia kolejne instancje każdego z nich w odpowiedniej kolejności
 
 Do wyłączenia tego, co uruchomiliśmy wystarczy komenda `docker-compose down`
+
+### Plik konfiguracyjny
+
+//TODO opisz syntax docker-compose na podstawie pliku tsr-ud04-eng-DockerReferenceDocs2122.pdf
 
 ### Komendy
 
