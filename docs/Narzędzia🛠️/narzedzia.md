@@ -3,6 +3,7 @@
 ## Praca z maszynami poprzez sieć
 
 - [cockpit](https://cockpit-project.org/) - pozwala w prosty sposób monitorować serwer (poprzez apkę webową możemy się zalogować, uruchomić terminal, sprawdzać obciążenie, logi etc) ( [link to konfiguracji](https://cockpit-project.org/guide/latest/cockpit.conf.5))
+
   - Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować
 
 - [linux-dash](https://afaqurk.github.io/linux-dash/#/system-status) - nieco prostsza alternatywa od cockpita
@@ -59,4 +60,15 @@ Inne
 
 - [SearchCode](https://searchcode.com/) - przeszukiwanie baz z kodem źródłowym. Przydatne, gdy chcesz znaleźć przykłady wywoływania danej funkcji.
 - [zerotier](https://www.zerotier.com/) - chyba najprostszy VPN
+
   - Gdy chcemy w sieci zerotiera postawić serwer DNS <https://github.com/zerotier/zeronsd>
+
+- [Xonsh](https://xon.sh/) - odmiana shella (zamiennik dla klasycznego basha) bazujący na pythonie
+
+```python
+len($(curl -L https://xon.sh))
+
+for filename in `.*`:
+    print(filename)
+    du -sh @(filename)
+```
