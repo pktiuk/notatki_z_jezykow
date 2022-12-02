@@ -124,6 +124,7 @@ Przydatne flagi dla `run`:
 - `-t`, `--tty` Podłączamy się terminalem do kontenera (warto użyć razem z `-i`)
 - `-d`, `--detach` Uruchom kontener w tle i wypisz jego ID
 - `-e`, `--env` Jakie zmienne środowiskowe mają być w naszym kontenerze (np `docker run -e BROKER_PORT=9999 client`)
+- `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 80:8000` wystawia port 8000 z wnętrza kontenera na porcie 80 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:80)
 
 ```bash
 docker container run ubuntu -i -t bash
@@ -165,6 +166,8 @@ Komendy:
 - `WORKDIR path` określa folder roboczy w którym mają się wykonywać pozostałe komendy jak `RUN`, `CMD`, `ENTRYPOINT`
 - `CMD command arg1 arg2 ...` dostarcza domyślnych komand i wartości argumentów, które zostaną uruchomione w kontenerze
 - `ENTRYPOINT command arg1 arg2 ...` uruchamia tą komendę, kiedy kontener jest uruchamiany (kontener jest zamykany kiedy ta komenda się kończy)
+- `PORT` //TODO
+- `EXPOSE` //TODO chyba tylko funkcja informacyjna
 
 **Uwaga** - w pliku dockerowym może być tylko jeden `CMD` albo `ENTRYPOINT`, jak nie to tylko `ENTRYPOINT` jest używany (na ogół).
 
