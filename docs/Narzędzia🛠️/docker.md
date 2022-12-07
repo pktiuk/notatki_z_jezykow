@@ -52,7 +52,7 @@ docker image pull alpine:latest # pobiera najnowszy obraz systemu alpine
 Jeśli potrzebujemy stworzyć własny obraz to możemy go samodzielnie zbudować za pomocą komendy:
 
 ```bash
-docker image build
+docker image build .
 ```
 
 Pozwala ona zbudować nam własny obraz dockerowy na bazie pliku `dockerfile`. ([Opis składni](#składnia-pliku-dockerfile))
@@ -99,9 +99,9 @@ bd1415cdc985   server_nginx                                       "/docker-entry
 ce6a641e20c1   postgres:11-alpine                                 "docker-entrypoint.s…" 2 weeks ago   Exited (0) 21 hours ago       server_db_1
 ```
 
-### Uruchamianie
+#### Uruchamianie
 
-Do pracy z kontenerem możemy używać komend:
+Do podstawowej pracy z kontenerem możemy używać komend:
 
 - `docker container run` albo też `docker run`
 - `docker container create`
@@ -124,11 +124,22 @@ Przydatne flagi dla `run`:
 - `-t`, `--tty` Podłączamy się terminalem do kontenera (warto użyć razem z `-i`)
 - `-d`, `--detach` Uruchom kontener w tle i wypisz jego ID
 - `-e`, `--env` Jakie zmienne środowiskowe mają być w naszym kontenerze (np `docker run -e BROKER_PORT=9999 client`)
-- `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 80:8000` wystawia port 8000 z wnętrza kontenera na porcie 80 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:80)
+- `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 8089:80` wystawia port 80 z wnętrza kontenera na porcie 8089 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:8089)
+  ![porty](assets/Docker-ports.png)
 
 ```bash
 docker container run ubuntu -i -t bash
 ```
+
+#### Interakcje z działającym kontenerem
+
+**attach** - podpinanie stdin i stdouta to działającego kontenera.  
+`docker attach [OPTIONS] CONTAINER` lub `docker container attach`
+
+**cp** - kopiowanie plików
+
+**exec** - uruchom w już działającym kontenerze. Bardzo przydatne gdy chcemy np wejść tam z shellem.  
+`docker exec [OPTIONS] CONTAINER COMMAND [ARG...]` lub `docker container exec ...`
 
 ### Składnia pliku dockerfile
 
@@ -153,21 +164,22 @@ WORKDIR /home/user
 COPY ./plik /home/user/
 ```
 
+Tak zdefiniowany obraz budujemy komendą `docker build ./sciezka/folderu`.
+
 Każda nowa linia/polecenie zaczyna się od komendy DUŻYMI_LITERAMI (taka konwencja).
 
 Komendy:
 
-- Pierwsza instrukcja to zawsze `FROM imageBase`
+- Pierwsza instrukcja to **zawsze** `FROM imageBase` pokazująca na jakim innym obrazie ma bazować nasz nowy obraz
 - `RUN command` wykonuje komendy w powłoce kontenera przy budowaniu
 - `ENV variable value` ustawia wartości w środowisku (mogą być używane przez wszystko co będzie od teraz chodzić w kontenerze)
 - `COPY source destination` kopiuje pliki ze źródła (URL, plik, folder) do miejsca w kontenerze
 - `ADD source destination` to samo co `ADD` z różnicą, że gdy potrafi zorpakować archiwum, gdy jest ono podane jako plik
-- `EXPOSE port` określa który port z kontenera wystawiamy na zewnątrz (na których portach kontener może słuchać)
 - `WORKDIR path` określa folder roboczy w którym mają się wykonywać pozostałe komendy jak `RUN`, `CMD`, `ENTRYPOINT`
 - `CMD command arg1 arg2 ...` dostarcza domyślnych komand i wartości argumentów, które zostaną uruchomione w kontenerze
 - `ENTRYPOINT command arg1 arg2 ...` uruchamia tą komendę, kiedy kontener jest uruchamiany (kontener jest zamykany kiedy ta komenda się kończy)
-- `PORT` //TODO
-- `EXPOSE` //TODO chyba tylko funkcja informacyjna
+- `EXPOSE port` pokazuje na jakim porcie słucha kontaner, sama go nie wystawia, pełni raczej funkcję informacyjną dla użytkownika [link](https://docs.docker.com/engine/reference/builder/#expose)
+- `VOLUME` pozwala kontenerowi podłączyć się do innego systemu plików [więcej info](https://docs.docker.com/storage/volumes/)
 
 **Uwaga** - w pliku dockerowym może być tylko jeden `CMD` albo `ENTRYPOINT`, jak nie to tylko `ENTRYPOINT` jest używany (na ogół).
 
