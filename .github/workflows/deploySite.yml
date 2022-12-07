@@ -18,6 +18,6 @@ jobs:
         pip3 install mkdocs mkdocs-material
         
     - name: Deploy MkDocs
-      uses: mhausenblas/mkdocs-deploy-gh-pages@1.12
+      uses: mhausenblas/mkdocs-deploy-gh-pages@1.25
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
