@@ -262,3 +262,52 @@ Wykorzystując kropkę `.` możemy łączyć funkcje w ciągi
 ```
 
 Powyższy kod zwróci nam sumę kwadratów liczb parzystych dla liczb z zakresu 1-10.
+
+## Moduły
+
+Moduły są odpowiednikami paczek/bibliotek dla innych języków.
+
+Aby go włączyć należy go zaimportować
+
+```hs
+import MojModul
+-- jest to plik MojModul
+```
+
+Przy tworzeniu nowego modułu od razu zaznaczamy jakie inne moduły improstujemy
+
+```hs
+module ModuleNameX where
+  import ModuleNameY
+```
+
+Przy plikach w folderach używamy kropek. Np jeśli w folderze `A/B/C` mamy plik `EjemImport.hs` to importujemy go tak:
+
+```hs
+import A.B.C.EjemImport
+```
+
+**Eksportowanie** - przy definiowaniu modułu możemy zaznaczyć co chcemy z niego eksportować.
+
+```hs
+-- Tutaj widać że eksportujemy tylko 2 funkcje
+module Geometry2D (areaSquare, perimeterSquare) where
+  areaRectangle :: Float -> Float -> Float
+  areaRectangle base height = base * height
+  perimeterRectangle :: Float -> Float -> Float
+  perimeterRectangle base height = 2 * (base + height)
+  areaSquare :: Float -> Float
+  areaSquare side = areaRectangle side side
+  perimeterSquare :: Float -> Float
+  perimeterSquare side = perimeterRectangle side side
+```
+
+W wypadku, gdy występuje kolizja nazw możemy użyć słowa kluczowego `qualified`
+
+```hs
+module NormalizeAll where
+  import qualified NormalizeSpaces
+  import qualified NormalizeCase as NC
+  normalizeAll :: String -> String
+  normalizeAll =NormalizeSpaces.normalize . NC.normalize
+```
