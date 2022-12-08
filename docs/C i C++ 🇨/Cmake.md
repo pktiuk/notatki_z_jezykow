@@ -2,6 +2,8 @@
 
 Na podstawie: <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>
 
+Inny tutorial: [Cmake in 15 min](https://preshing.com/20170522/learn-cmakes-scripting-language-in-15-minutes/)
+
 ## Podstawy
 
 Mamy tu minimalny przykład
@@ -200,3 +202,7 @@ TODO
 ```cmake
 
 ```
+
+## Instalacja
+
+[dokumentacja](https://cmake.org/cmake/help/v3.18/command/install.html?highlight=cmake_install_datarootdir)

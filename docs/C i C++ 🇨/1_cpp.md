@@ -223,11 +223,25 @@ Składnia lambdy:
 }
 ```
 
+## Zarządzanie pamięcią `new` i `delete`
+
+Zarządzanie pamięcią w C++ jest podobne do [zarządzania w C](0_C.md#tablice-i-alokowanie-pamięci). Jednak jest oparta o słowa kluczowe `new` i `delete`. (NIGDY nie mieszajmy tych dwóch sposobów)
+
+[artykuł](https://pl.wikibooks.org/wiki/C%2B%2B/Zarz%C4%85dzanie_pami%C4%99ci%C4%85)
+
+//TODO opisz tutaj
+
 ## Słowa kluczowe
 
 explicit TODO
 
-## Nowości z C++20
+## Nowe standardy
+
+### C++17
+
+[Artykuł](https://dsp.krzaq.cc/post/1417/artykul-cpp17-nowy-milosciwie-panujacy-nam-standard-c-z-programisty-66/)
+
+### C++20
 
 [Pełna lista z omówieniem](https://oleksandrkvl.github.io/2021/04/02/cpp-20-overview.html)
 

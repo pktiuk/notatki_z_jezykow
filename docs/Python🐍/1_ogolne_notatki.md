@@ -1237,7 +1237,7 @@ Najczęściej, aby poprawić wydajność aplikacji pisanych w pythonie trzeba si
 
 ### Wielowątkowość
 
-Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie.  
+Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie. [dłuższy artykuł](https://realpython.com/python-gil/)  
 Z tego powodu domyślnie wątki są dobrym pomysłem w wypadku operacji IO, czy też innych zadaniach, które działając w tle nie konsumują czasu procesora.  
 Jeśli zaś chcemy w naszej pracy wykorzystać wiele rdzeni procesora równocześnie to warto użyć biblioteki [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
 

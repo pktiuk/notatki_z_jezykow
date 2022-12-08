@@ -1,5 +1,7 @@
 # Javascript Syntax
 
+Inne tutoriale: [Java essentials](https://medium.com/nerd-for-tech/essentials-of-javascript-part1-2b59bc0ec6df)
+
 ## Osadzanie skryptu w HTML-u
 
 W HTML-u skrypty umieszczane są wwenątrz tagów `script`.  
