@@ -18,7 +18,7 @@ jobs:
     - name: Install deps
       run: |
         sudo apt-get install python3-setuptools
-        pip3 install mkdocs mkdocs-material
+        pip3 install mkdocs mkdocs-material mdx_truly_sane_lists
         
     - name: Deploy MkDocs
       uses: mhausenblas/mkdocs-deploy-gh-pages@1.25

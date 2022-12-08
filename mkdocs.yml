@@ -11,3 +11,4 @@ repo_url: https://github.com/pktiuk/notatki_z_jezykow
 markdown_extensions:
   - codehilite
   - admonition
+  - mdx_truly_sane_lists
