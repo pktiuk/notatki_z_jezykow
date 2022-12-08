@@ -13,7 +13,6 @@ Jedną z najważniejszych właściwości tego języka jest to, że funkcje **zaw
 Większość przydatnych rzeczy jest w [dokumentacji](https://hackage.haskell.org/package/base-4.9.1.0/docs/Prelude)
 
 - `Char` - znak
-  Warto znać:
   - `isAlpha`, `isAlphaNum`, `isDigit`, `isLower`, `isUpper` :: **Char -> Bool**
   - `toLower`, `toUpper` :: **Char -> Char**
   - `putChar` :: **Char -> IO ()**
