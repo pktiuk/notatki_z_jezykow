@@ -766,7 +766,7 @@ Po dokładniejsze wyjaśnienia zajrzyj do [Javascript - Inne informacje](./4_jav
 
 ### AJAX
 
-**AJAX** - Async JavaScript And XML. Pozwala asynchronicznie komunikować się z zewnętrznymi serwerami (wysyłać żądania etc). Kiedyś opierało się to na użyciu XML-a, ale od iluś lat używa się jednak JSONa.
+**AJAX** - Async JavaScript And XML. Pozwala asynchronicznie komunikować się z zewnętrznymi serwerami (wysyłać żądania etc). Kiedyś opierało się to na użyciu XML-a, ale od iluś lat używa się jednak JSONa (teraz to podstawa [REST-a](8-REST-HTTP.md)).
 
 Na potrzeby przykładów korzystamy z darmowych API [stąd](https://github.com/public-apis/).
 
