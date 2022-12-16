@@ -229,9 +229,25 @@ Zarządzanie pamięcią w C++ jest podobne do [zarządzania w C](0_C.md#tablice-
 
 [artykuł](https://pl.wikibooks.org/wiki/C%2B%2B/Zarz%C4%85dzanie_pami%C4%99ci%C4%85)
 
-//TODO opisz tutaj
+`new` służy do tworzenia nowych obiektów i alokowania pamięci dla nich, natomiast `delete` służy do zwalniania zarezerwowanej wcześniej pamięci.
 
-## Słowa kluczowe
+Przykład użycia słowa kluczowego new:
+
+```cpp
+int *p = new int; // alokuje pamięć dla zmiennej typu int
+*p = 5; // przypisuje wartość 5 do zmiennej
+delete p; // zwalnia pamięć zarezerwowaną dla zmiennej p
+```
+
+Możliwe jest także użycie słowa kluczowego new do tworzenia tablic dynamicznych:
+
+```cpp
+int *tab = new int[10]; // alokuje pamięć dla tablicy 10-elementowej
+tab[0] = 5; // przypisuje wartość 5 do pierwszego elementu tablicy
+delete[] tab; // zwalnia pamięć zarezerwowaną dla tablicy tab
+```
+
+## Inne Słowa kluczowe
 
 explicit TODO
 

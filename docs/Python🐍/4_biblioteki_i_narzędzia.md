@@ -174,9 +174,26 @@ def index(name):
 
 ### Pickle - zapisywanie zmiennych
 
-Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) pozwala na zapisywanie (i odczytywanie) danych i obiektór w pythonie w formie binarnej.
+Pythonowa biblioteka [Pickle](https://docs.python.org/3/library/pickle.html) pozwala na zapisywanie (i odczytywanie) danych i obiektów w pythonie w formie binarnej poprzez serializację.
+Serializacja polega na przekształceniu obiektu w postać, która może być zapisana do pliku lub przesłana przez sieć.
 
-//TODO przykłady
+```python
+import pickle
+
+# tworzenie obiektu do serializacji
+data = {'name': 'John Smith', 'age': 30, 'country': 'USA'}
+
+with open('data.pkl', 'wb') as f:
+    # serializacja obiektu i zapis do pliku
+    pickle.dump(data, f)
+
+# otwieranie pliku z serializowanym obiektem
+with open('data.pkl', 'rb') as f:
+    # deserializacja obiektu z pliku
+    data2 = pickle.load(f)
+
+print(data2)  # {'name': 'John Smith', 'age': 30, 'country': 'USA'}
+```
 
 ### Dill -zapisywanie całej sesji w pythonie
 
