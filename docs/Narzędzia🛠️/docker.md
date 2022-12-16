@@ -126,6 +126,7 @@ Przydatne flagi dla `run`:
 - `-e`, `--env` Jakie zmienne środowiskowe mają być w naszym kontenerze (np `docker run -e BROKER_PORT=9999 client`)
 - `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 8089:80` wystawia port 80 z wnętrza kontenera na porcie 8089 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:8089)
   ![porty](assets/Docker-ports.png)
+- `-v`, `--volume` określa jakie pliki/foldery z hosta mamy udostępnić contenerowi i pod jakimi adresami np `-v /tmp/logs.log:/tmp/runlog` sprawi że apka w kontanerze pisząc do plików w folderze `tmp/runlog/` będzie tak na prawdę pisać do folderu `/tmp/logs.log/` na hoście.
 
 ```bash
 docker container run ubuntu -i -t bash
@@ -263,4 +264,4 @@ Do wyłączenia tego, co uruchomiliśmy wystarczy komenda `docker-compose down`
 
 `docker-compose up`:
 
-- `--scale service=num` pozwala odpalić więcej instancji danego serwisu
+- `--scale service=num` pozwala odpalić więcej instancji danego serwisu (jednak gdy skalujemy serwisy, które wystawiają porty `expose` to tylko jedna z instancji będzie widoczna dla innych) //TODO sprawdź to
