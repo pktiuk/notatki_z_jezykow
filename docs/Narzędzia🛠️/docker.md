@@ -142,6 +142,10 @@ docker container run ubuntu -i -t bash
 **exec** - uruchom w już działającym kontenerze. Bardzo przydatne gdy chcemy np wejść tam z shellem.  
 `docker exec [OPTIONS] CONTAINER COMMAND [ARG...]` lub `docker container exec ...`
 
+```bash
+docker exec -it worker bash #-it podpina input i output
+```
+
 ### Składnia pliku dockerfile
 
 Plik [dockerfile](https://docs.docker.com/engine/reference/builder/#format) opisuje kolejne operacje pokazujące, jak powinien być zbudowany nasz obraz.

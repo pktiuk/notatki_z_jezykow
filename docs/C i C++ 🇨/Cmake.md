@@ -206,3 +206,12 @@ TODO
 ## Instalacja
 
 [dokumentacja](https://cmake.org/cmake/help/v3.18/command/install.html?highlight=cmake_install_datarootdir)
+
+### Lepsze wsparcie dla IDE
+
+Poniższa komenda wygeneruje przy budowie plik `compile_commands.json`, który może być potem używane przez IDE.
+
+```cmake
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+```
+
