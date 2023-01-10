@@ -65,7 +65,86 @@ Niektóre asocjacje same w sobie mogą być reprezentowane poprzez klasy. Np w w
 Są to **klasy asocjacyjne** (`Link classes`)
 ![Link class](assets/uml_link_classes.png)
 
-// TODO UML, a obiekty (wykład 05 i 04 z LTP na UPV)
+// TODO UML, a obiekty (wykład 05 i 04 z LTP na UPV) oraz przykładowe analizy
+
+## Diagram przypadków użycia (Use case)
+
+[Wikipedia](https://pl.wikipedia.org/wiki/Diagram_przypadk%C3%B3w_u%C5%BCycia)
+
+Jest on wykorzystywany do opisywania w jaki sposób powinien działać nasz system i jakie powinien posiadać funkcjonalności. Jest on bardzo pomocny przy definiowaniu wymagań funkcjonalnych.
+
+Wyróżniamy na nich:
+
+- aktorów - opisujące uczestników systemu oraz ich role. Aktorem osobowym może być osoba, zespół, dział, instytucja, organizacja, zrzeszenie organizacji lub organizacja wirtualna. Nazwy aktorów osobowych często pokryte są z nazwami funkcji jakie pełnią w organizacji, projekcie lub przedsięwzięciu bądź nazwą stanowiska jakie piastują. Natomiast aktorem bezosobowym może być system zewnętrzny (podsystemy, bazy danych), urządzenie lub czas (UWAGA Sam system nigdy nie jest aktorem)
+- przypadki użycia - opisują ciągi akcji i ich warianty. Na ogół jeden przypadek użycia opisuje jedną funkcjonalność.
+- związki - opisują relacje pomiędzy elementami
+
+![Use case prosty przykład](assets/use_case_basic.png)
+
+//TODO opisać dokładniej relację między aktorami a przypadkami, np dlaczego kupujący i przedający mogą się łączyć z jendym przypadkiem o nazwi sprzedaj książkę.
+
+### Przypadki użycia
+
+Poszczególne przypadki użycia częśto opisuje się także za pomocą tabelek.
+
+| Use Case       |        |
+| -------------- | ------ |
+| Actors         |        |
+| Summary        |        |
+| Preconditions  |        |
+| Postconditions |        |
+| Includes       |        |
+| Extends        |        |
+| Inherits from  |        |
+| Flow of events |        |
+| Actor          | System |
+|                |        |
+
+??? Przykładowa wypełniona tabelka
+
+![Przykładowa tabelka](assets/use_case_table_example.png)
+
+Poszczególne przypadki użycia mogą wchodzić w związki nie tylko z aktorami, lecz także z innymi przypadkami użycia.
+
+Relacja **include** - przypadek A zawiera przypadek B, kiedy każde wykonanie A wymaga, abyśmy wykonali także B.
+
+![Include](assets/use_case_include.png)
+
+Aby kogoś usunąć z bazy danych musimy go najpierw wyszukać.
+
+Relacja **extend** - przypadek B rozszerza przypadek A, kiedy podczas wykonywania A w pewnych przypadkach możemy (ale nie musimy) wykonać B.
+
+![Extend](assets/use_case_extend.png)
+
+Możemy mieć także typową relację dziedziczenia. (podobnie jak u aktorów)
+
+![Inherit](assets/use_case_inheritance.png)
+
+### Opracowywanie diagramu
+
+Podczas prac nad diagramem możemy przyjąć dwa sposoby podejścia do tematu. 
+
+- **Top Down**, czyli `Szukamy aktorów` -> `Szukamy przypadków` -> `Uszczegółaiwamy`
+- **Bottom up** `Tworzymy scenariusze` -> `Generalizujemy` -> `Organizujemy wszystko w diagram`
+
+Podczas prac nad diagramem warto rozwazyć kto, dlaczego i jak będzie używać naszego systemu. Pomoże nam to znaleźć aktorów.
+
+Każda grupa lub osoba może być znaleziona jednej z poniższych kategorii:
+
+- Kto będzie używał systemu?
+- Kto będzie instalował system?
+- Kto będzie utrzymywał system?
+- Kto wyłączy system?
+- Jakie inne systemy będą się z nim komunikować?
+- Kto otrzymuje informacje?
+- Kto dostarcza informacji?
+
+Jak już znajdziemy naszych aktorów warto się zastanowić nad ich przypadkami użycia. Warto tutaj zwrócić uwagę na pytania takie jak:
+
+- Jakie zadania wymagane są od aktorów z systemu?
+- Czy aktor będzie mógł tworzyć, przechowywać, zmieniać lub usuwać informacje z systemu?
+- Czy aktor będzie informował system o zmianach zachodzących na zewnątrz?
+- Czy każdy aktor będzie informowany o zmianach stanu systemu?
 
 ## Diagram aktywności
 
