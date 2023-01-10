@@ -100,9 +100,10 @@ Poszczególne przypadki użycia częśto opisuje się także za pomocą tabelek.
 | Actor          | System |
 |                |        |
 
-??? Przykładowa wypełniona tabelka
+??? note "Przykładowa wypełniona tabelka"
 
-![Przykładowa tabelka](assets/use_case_table_example.png)
+    ![Przykładowa tabelka](assets/use_case_table_example.png)
+
 
 Poszczególne przypadki użycia mogą wchodzić w związki nie tylko z aktorami, lecz także z innymi przypadkami użycia.
 
@@ -122,7 +123,7 @@ Możemy mieć także typową relację dziedziczenia. (podobnie jak u aktorów)
 
 ### Opracowywanie diagramu
 
-Podczas prac nad diagramem możemy przyjąć dwa sposoby podejścia do tematu. 
+Podczas prac nad diagramem możemy przyjąć dwa sposoby podejścia do tematu.
 
 - **Top Down**, czyli `Szukamy aktorów` -> `Szukamy przypadków` -> `Uszczegółaiwamy`
 - **Bottom up** `Tworzymy scenariusze` -> `Generalizujemy` -> `Organizujemy wszystko w diagram`

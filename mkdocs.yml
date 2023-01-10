@@ -2,7 +2,18 @@ site_name: Notatki z języków
 theme:
   name: material
   palette: 
-    scheme: slate
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+
     # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-scheme
 
 repo_name: pktiuk/notatki_z_jezykow
@@ -10,5 +21,7 @@ repo_url: https://github.com/pktiuk/notatki_z_jezykow
 
 markdown_extensions:
   - codehilite
-  - admonition
+  - admonition #https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=collap
+  - pymdownx.details
+  - pymdownx.superfences
   # - mdx_truly_sane_lists
