@@ -215,3 +215,26 @@ Poniższa komenda wygeneruje przy budowie plik `compile_commands.json`, który m
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ```
 
+Np aby VScode użył tego pliku należy go podać w ustawieniach:
+
+```json
+  "configurations": [
+    {
+      "name": "Mac",
+      "intelliSenseMode": "clang-x64",
+      "includePath": ["${myDefaultIncludePath}", "/another/path"],
+      "macFrameworkPath": ["/System/Library/Frameworks"],
+      "defines": ["FOO", "BAR=100"],
+      "forcedInclude": ["${workspaceFolder}/include/config.h"],
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "compileCommands": "/path/to/compile_commands.json",
+      "browse": {
+        "path": ["${workspaceFolder}"],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      }
+    }
+  ],
+```

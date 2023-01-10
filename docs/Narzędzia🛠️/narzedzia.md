@@ -28,6 +28,7 @@ AllowUnencrypted = true</code>
 - <https://readthedocs.org/>
 - mkdocs
 - <https://jekyllrb.com/>
+- [Daux.io](https://daux.io/)
 
 ## Statystyki githuba i repozytoriów
 

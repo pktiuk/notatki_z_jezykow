@@ -1,6 +1,7 @@
 # Wyrażenia regularne (Regexy)
 
 Świetna strona do ekspreymentowania z wyrażeniami regularnymi [Regex101](https://regex101.com/)
+Ściągawka z BulldogJobs https://bulldogjob.pl/readme/samouczek-regex-sciagawka-z-przykladami
 
 ## Znaki
 
