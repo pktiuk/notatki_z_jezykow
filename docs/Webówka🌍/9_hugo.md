@@ -1,4 +1,4 @@
-## Hugo
+# Hugo
 
 Hugo is a static site generator written in Go. It is designed to be fast and easy to use, and it can generate a static website from source files written in Markdown, HTML, and other formats.
 
