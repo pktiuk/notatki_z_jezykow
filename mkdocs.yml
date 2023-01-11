@@ -24,4 +24,8 @@ markdown_extensions:
   - admonition #https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=collap
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji: #https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search add icons
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   # - mdx_truly_sane_lists
