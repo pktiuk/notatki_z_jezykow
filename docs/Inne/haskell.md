@@ -208,6 +208,17 @@ zip [1,2] ["a","b"]
 [True,True,False]
 ```
 
+`foldr :: (a -> b -> b) -> b -> [a] -> b` - funkcja, która pozwala łączyć wartości w tablicy. Podajemy jej argumenty:
+
+- funkcja
+- pierwszy element typu docelowego
+- lista
+
+```hs
+suma = foldr (+) 0
+iloczyn = foldr (*) 1
+```
+
 ## Funkcje
 
 FUnkcje są podstawotą częścią języka. Mogą być przekazywane jako argumenty, lub modyfikowane i częściowo aplikowane (partial application)
