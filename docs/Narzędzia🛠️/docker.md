@@ -276,7 +276,75 @@ Do wyłączenia tego, co uruchomiliśmy wystarczy komenda `docker-compose down`
 
 ### Plik konfiguracyjny
 
-//TODO opisz syntax docker-compose na podstawie pliku tsr-ud04-eng-DockerReferenceDocs2122.pdf
+//TODO opisz dokładniej syntax docker-compose na podstawie pliku tsr-ud04-eng-DockerReferenceDocs2122.pdf oraz https://docs.docker.com/compose/compose-file/
+
+Plik `docker-compose.yml` służy do zdefiniowania całych grup kontenerów, która mają być odpalone razem na jednej maszynie ([pełna dokumentacja](https://docs.docker.com/compose/compose-file/)).Zawiera on opisy kolejno:
+
+- serwisów (`services:`) - czyli poszczególnych obrazów dockerowych, które mają tworzyć całość (to jedyna obowiązkowa część, pozostałe są opcjonalne)
+- sieci (`networks`) - czyli poszczególnych sieci
+- woluminów (`volumes`) - plików współdzielonych pomiędzy poszczególnymi serwisami
+- sekretów (`secrets`)
+- konfiguracji (`configs`)
+
+??? note "Przykładowa wypełniona tabelka"
+
+    ```yml
+    services:
+      frontend:
+        image: awesome/webapp
+        ports:
+          - "443:8043"
+        networks:
+          - front-tier
+          - back-tier
+        configs:
+          - httpd-config
+        secrets:
+          - server-certificate
+
+      backend:
+        image: awesome/database
+        volumes:
+          - db-data:/etc/data
+        networks:
+          - back-tier
+
+    volumes:
+      db-data:
+        driver: flocker
+        driver_opts:
+          size: "10GiB"
+
+    configs:
+      httpd-config:
+        external: true
+
+    secrets:
+      server-certificate:
+        external: true
+
+    networks:
+      # The presence of these objects is sufficient to define them
+      front-tier: {}
+      back-tier: {}
+    ```
+
+### serwisy
+
+Podstawowe parametry dla serwisów:
+
+- `image` - obraz, którego ma używać dany serwis
+- `expose` - lista portów, które mają być udostępnione innym serwisom wewnątrz dockera (host ich nie widzi)
+- `ports` - lista portów wystawionych na zewnątrz dockera (są one także dostępne dla innych serwisów w dockerze)
+- `links` - lista serwisów, które muszą zostać wystartowane przed uruchomieniem tego serwisu
+- `environment` - lista zmiennych środowiskowych w danym kontenerze
+- `build` - ścieżka do folderu z plikiem `Dockerfile`, aby go zbudować, gdyby jeszcze nie było odpowiedniego obrazu
+
+//TODO dopisz przykłady
+
+### inne
+
+//TODO opisz pozostałe
 
 ### Komendy
 
