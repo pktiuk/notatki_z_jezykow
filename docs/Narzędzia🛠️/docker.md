@@ -12,17 +12,19 @@ Docker często jest wykorzystywany do pracy z różnorodnym oprogramowaniem bez 
 
 **Kontener/Container** - jest to uruchomiona instancja naszego dockera bazująca na danym obrazie. Zawiera on konfigurację oraz wszystkie dane unikalne dla danej instancji.
 
+**Repozytorium** - miejsce z którego pobierane są obrazy oraz ich aktualizacje. Jest to [dockerhub](https://hub.docker.com/), ale można też pobierać z innych repozytoriów (np z gitlaba).
+
 ## Obsługa
 
 Mamy kilka grup komend
 
-| Group     | Description                                                                                                                                |
+| Grupa     | Opis                                                                                                                                       |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| config    | Configuration management                                                                                                                   |
-| container | Operations with containers                                                                                                                 |
+| config    | Zarządzanie konfiguracją                                                                                                                   |
+| container | Operacje na kontenerach                                                                                                                    |
 | context   | Contexts for distributed deployment (k8s, …)                                                                                               |
-| image     | Image management                                                                                                                           |
-| network   | Network management                                                                                                                         |
+| image     | Zarządzanie obrazami                                                                                                                       |
+| network   | Zarządzanie siecią                                                                                                                         |
 | service   | Service (i.e. multiple containers that run the same image) management in distributed deployments (e.g.with docker-compose or docker swarm) |
 | system    | Global management                                                                                                                          |
 | volume    | Secondary storage management                                                                                                               |
@@ -35,7 +37,9 @@ Do zarządzania obrazami na naszej maszynie służy polecenie `docker image`.
 
 #### Nowy obraz
 
-W większości wypadków warto wykorzystywać obrazy znajdujące się na stronie [hub.docker.com](https://hub.docker.com/) - zawiera ona zarówno obrazy większości dystrybucji Linuxa, jak i obrazy z systemami zawierające już przygotowane narzędzia deweloperskie (np obrazy zawierające) zainstalowane i skonfigurowane bazy danych.
+##### Baza
+
+W większości wypadków warto wykorzystywać obrazy znajdujące się na stronie [hub.docker.com](https://hub.docker.com/) - zawiera ona zarówno obrazy większości dystrybucji Linuxa, jak i obrazy z systemami zawierające już przygotowane narzędzia deweloperskie (np obrazy zawierające zainstalowane i skonfigurowane bazy danych).
 
 Aby pobrać taki obraz na naszą maszynę należy użyć komendy:
 
@@ -49,6 +53,8 @@ Na przykład:
 docker image pull alpine:latest # pobiera najnowszy obraz systemu alpine
 ```
 
+##### Budowanie z konfiguracji
+
 Jeśli potrzebujemy stworzyć własny obraz to możemy go samodzielnie zbudować za pomocą komendy:
 
 ```bash
@@ -56,6 +62,14 @@ docker image build .
 ```
 
 Pozwala ona zbudować nam własny obraz dockerowy na bazie pliku `dockerfile`. ([Opis składni](#składnia-pliku-dockerfile))
+
+##### Stworzenie poprzez commita
+
+Do wygenerowania nowego obrazu możemy też wykorzystać już istniejący kontener, wystarczy użyć komendy `commit`
+
+```bash
+docker commit containerName ImageName
+```
 
 #### Zarządzanie posiadanymi obrazami
 
@@ -93,10 +107,10 @@ untagged: alpine:latest
 
 ```bash
 $ docker container ls -a
-CONTAINER ID   IMAGE                                              COMMAND                CREATED       STATUS                 PORTS  NAMES
-bd1415cdc985   server_nginx                                       "/docker-entrypoint.…" 25 hours ago  Exited (0) 24 hours ago       server_nginx_1
-2474e0650b34   registry.gitlab.com/subjects-toolkit/server:latest "sh -c 'python manag…" 25 hours ago  Exited (0) 25 hours ago       server_web_1
-ce6a641e20c1   postgres:11-alpine                                 "docker-entrypoint.s…" 2 weeks ago   Exited (0) 21 hours ago       server_db_1
+CONTAINER ID   IMAGE                                     COMMAND                CREATED       STATUS                PORTS  NAMES
+bd1415cdc985   server_nginx                              "/docker-entrypoint.…" 25 hours ago  Exited(0) 24 hours ago       server_nginx_1
+2474e0650b34   registry.gitlab.com/toolkit/server:latest "sh -c 'python manag…" 25 hours ago  Exited(0) 25 hours ago       server_web_1
+ce6a641e20c1   postgres:11-alpine                        "docker-entrypoint.s…" 2 weeks ago   Exited(0) 21 hours ago       server_db_1
 ```
 
 #### Uruchamianie
@@ -117,7 +131,7 @@ Możemy go potem uruchomić komendą `docker container start ID`.
 
 Do stworzenia nowego kontenera i natychmiastowego uruchomienia służy [`docker container run`](https://docs.docker.com/engine/reference/commandline/container_run/).
 
-Przydatne flagi dla `run`:
+Przydatne flagi dla `docker run [flagi] nazwa-obrazu`:
 
 - `-rm` usuwa kontener po zakończeniu pracy
 - `-i`, `--interactive` po odpaleniu nadal mamy podłączone STDIN
@@ -126,7 +140,7 @@ Przydatne flagi dla `run`:
 - `-e`, `--env` Jakie zmienne środowiskowe mają być w naszym kontenerze (np `docker run -e BROKER_PORT=9999 client`)
 - `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 8089:80` wystawia port 80 z wnętrza kontenera na porcie 8089 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:8089)
   ![porty](assets/Docker-ports.png)
-- `-v`, `--volume` określa jakie pliki/foldery z hosta mamy udostępnić contenerowi i pod jakimi adresami np `-v /tmp/logs.log:/tmp/runlog` sprawi że apka w kontanerze pisząc do plików w folderze `tmp/runlog/` będzie tak na prawdę pisać do folderu `/tmp/logs.log/` na hoście.
+- `-v`, `--volume` określa jakie pliki/foldery z hosta mamy udostępnić contenerowi i pod jakimi adresami np `-v /tmp/logs.log:/tmp/runlog` sprawi że apka w kontenerze pisząc do plików w folderze `tmp/runlog/` będzie tak na prawdę pisać do folderu `/tmp/logs.log/` na hoście.
 
 ```bash
 docker container run ubuntu -i -t bash
@@ -175,13 +189,13 @@ Każda nowa linia/polecenie zaczyna się od komendy DUŻYMI_LITERAMI (taka konwe
 
 Komendy:
 
-- Pierwsza instrukcja to **zawsze** `FROM imageBase` pokazująca na jakim innym obrazie ma bazować nasz nowy obraz
+- `FROM imageBase` to jest **zawsze** pierwsza instrukcja pokazująca na jakim innym obrazie ma bazować nasz nowy obraz
 - `RUN command` wykonuje komendy w powłoce kontenera przy budowaniu
 - `ENV variable value` ustawia wartości w środowisku (mogą być używane przez wszystko co będzie od teraz chodzić w kontenerze)
 - `COPY source destination` kopiuje pliki ze źródła (URL, plik, folder) do miejsca w kontenerze
 - `ADD source destination` to samo co `ADD` z różnicą, że gdy potrafi zorpakować archiwum, gdy jest ono podane jako plik
 - `WORKDIR path` określa folder roboczy w którym mają się wykonywać pozostałe komendy jak `RUN`, `CMD`, `ENTRYPOINT`
-- `CMD command arg1 arg2 ...` dostarcza domyślnych komand i wartości argumentów, które zostaną uruchomione w kontenerze
+- `CMD command arg1 arg2 ...` dostarcza domyślnych komend i wartości argumentów, które zostaną uruchomione w kontenerze
 - `ENTRYPOINT command arg1 arg2 ...` uruchamia tą komendę, kiedy kontener jest uruchamiany (kontener jest zamykany kiedy ta komenda się kończy)
 - `EXPOSE port` pokazuje na jakim porcie słucha kontaner, sama go nie wystawia, pełni raczej funkcję informacyjną dla użytkownika [link](https://docs.docker.com/engine/reference/builder/#expose)
 - `VOLUME` pozwala kontenerowi podłączyć się do innego systemu plików [więcej info](https://docs.docker.com/storage/volumes/)
