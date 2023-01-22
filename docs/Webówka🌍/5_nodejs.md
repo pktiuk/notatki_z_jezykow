@@ -29,7 +29,9 @@ Zastosowania:
 
 Argumenty znajdują się w zmiennej `process.argv`.
 
-## Zarządzanie modułami
+## Poszczególne moduły
+
+### Zarządzanie modułami
 
 Są 2 sposoby na importowanie modułów
 
@@ -263,4 +265,58 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log("Server running at http://" + hostname + ":" + port + "/");
 });
+```
+
+### Cluster - skalowanie
+
+Jako, że JS jest jednowątkowy to nie możemy w prosty sposób stworzyć nawych wątków do przetwarzania większej ilości zapytań. Musimy uruchamiać kolejne procesy. Do ułatwienia tego zadania mozemy wykorzystać moduł `cluster`. Pozwala na:
+
+- łatwe tworzenie nowych procesów wykonujących ten sam kod
+- umożliwia zarządzanie nimi i dzielenie obciążenia (klasa `Worker`)
+- procesy mogą dzielić ten sam port przypisany danemu serwisowi
+- dostarcza wiele dodatkowych eventów: (`fork`,`online`,`listening`,`disconnect`,`exit`…)
+
+Przykładowy klaster
+
+```js
+var cluster = require("cluster");
+var numCPUs = require("os").cpus().length;
+var server = ...; // the server which runs the workers
+var port = ...;// the port where the server binds
+
+if (cluster.isMaster) {// code of the master one
+// fork: create workers
+  for (var i = 0; i < numCPUs; i++) cluster.fork();
+  // listening death of workers
+  cluster.on("exit", function (worker, code, signal) {
+    console.log("worker", worker.process.pid, "died");
+  });
+} else {
+  // code of any worker
+  server.listen(port); // each worker runs the server
+}
+
+```
+
+Klaster serwerów HTTP
+
+```js
+var cluster = require("cluster");
+var http = require("http");
+var numCPUs = require("os").cpus().length;
+if (cluster.isMaster) {
+  // code of the master one
+  for (var i = 0; i < numCPUs; i++) cluster.fork();
+  cluster.on("exit", function (worker, code, signal) {
+    console.log("worker", worker.process.pid, "died");
+  });
+} else {
+  // code of any worker
+  http
+    .createServer(function (req, res) {
+      res.writeHead(200);
+      res.end("hello world\n");
+    })
+    .listen(8000);
+}
 ```
