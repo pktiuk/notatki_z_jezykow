@@ -45,6 +45,14 @@ class Singleton
         return cls._instance
 ```
 
+#### Prototyp
+
+Jest on wykorzystywany wtedy, kiedy chcemy uprościć sobie tworzenie nowych instancji danej klasy bazując na już istniejącym obiekcie. Np kiedy mamy jakiś plik konfiguracyjny, który musimy tylko lekko zmodyfikować na nasze potrzeby.
+
+W wielu wypadkach klonowanie obiektu z zewnątrz nie jest możliwe (np z powodu prywatnych parametrów). W takiej sytuacji warto wykorzystać interfejs dostarczający metodę `clone()`.
+
+Takie podejście jest użyteczne kiedy chcemy, aby nasz kod był niezależny ok konkretnych klas obiektów, z które chcemy skopiować.
+
 ### Strukturalne
 
 #### Adapter
@@ -52,6 +60,8 @@ class Singleton
 #### Proxy
 
 #### Fasada
+
+Jest to wzorzec mający na celu uproszczenie korzystania ze skomplikowanego systemu poprzez dostaczenie uproszczonego interfejsu dostarczającego tylko te funkcjonalności, które są nam naprawdę potrzebne.
 
 ### Behawioralne
 
