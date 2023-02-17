@@ -10,17 +10,17 @@
 
 Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/>
 
-<details>
-  <summary>COckpit + cloudflare tunnel</summary>
-  <code>cat /etc/cockpit/cockpit.conf
-[WebService]
-Origins = <https://dashboard.xxxxx.ca> wss://dashboard.xxxxx.ca
-ProtocolHeader = X-Forwarded-Proto
-AllowUnencrypted = true</code>
+??? note "Cockpit + cloudflare tunnel"
 
-[github source](https://github.com/cockpit-project/cockpit/issues/16396)
-
-</details>
+    Wymagana edycja pliku
+    ```
+    cat /etc/cockpit/cockpit.conf
+    [WebService]
+    Origins = <https://dashboard.xxxxx.ca> wss://dashboard.xxxxx.ca
+    ProtocolHeader = X-Forwarded-Proto
+    AllowUnencrypted = true
+    ```
+    [github source](https://github.com/cockpit-project/cockpit/issues/16396)
 
 ## Dokumentacja
 
