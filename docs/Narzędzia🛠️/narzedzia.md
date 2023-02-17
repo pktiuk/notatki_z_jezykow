@@ -15,12 +15,16 @@ Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-compr
     Wymagana edycja pliku
     ```
     cat /etc/cockpit/cockpit.conf
+    ```
+    
+    ```
     [WebService]
-    Origins = <https://dashboard.xxxxx.ca> wss://dashboard.xxxxx.ca
+    Origins = https://dashboard.xxxxx.ca wss://dashboard.xxxxx.ca
     ProtocolHeader = X-Forwarded-Proto
     AllowUnencrypted = true
     ```
-    [github source](https://github.com/cockpit-project/cockpit/issues/16396)
+    [źródło](https://github.com/cockpit-project/cockpit/issues/16396)  
+    Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. [żródło](https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/)
 
 ## Dokumentacja
 
