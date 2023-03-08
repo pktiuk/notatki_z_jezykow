@@ -24,7 +24,7 @@ Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-compr
     AllowUnencrypted = true
     ```
     [źródło](https://github.com/cockpit-project/cockpit/issues/16396)  
-    Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. [żródło](https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/)
+    Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. może być `cockpit-serwer.domena.pl`, ale nie `cockpit.serwer.domena.pl` [żródło](https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/)
 
 ## Dokumentacja
 
