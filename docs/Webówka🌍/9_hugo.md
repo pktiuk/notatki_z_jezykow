@@ -60,11 +60,15 @@ content
 ---
 title: "My Product"
 date: 2021-01-01
+article_thumbnail: "/static/image1.png"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ```
 
+??? note "Working with params"
+
+    all of non-standard parameters passed in content file can be accessed in template using `.Params.name` for example above to get image we can use `.Params.article_thumbnail`
+
 That's it! You have now created a new content type called "product" and added a product to your Hugo site. You can repeat these steps to add more products to the site.
 
-Note that these are just basic steps to get you started with creating a new content type in Hugo. There are many other options and customizations you can use to tailor the content type and the templates to your specific needs. You can find more information about these options in the Hugo documentation.
