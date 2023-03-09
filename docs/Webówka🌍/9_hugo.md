@@ -34,7 +34,7 @@ plural = "products"
 
 3. Create a template for rendering product content in the layouts directory. For example, you can create a product directory and a single.html file in it:
 
-```
+```tree
 layouts
 └── product
     └── single.html
@@ -50,13 +50,13 @@ layouts
 
 5. Create a new content file for each product you want to add to the site. The content file should be saved in the product directory you created in step 1, and it should include front matter at the top to specify the title, date, and other attributes of the product. For example:
 
-```
+```tree
 content
 └── product
     └── my-product.md
 ```
 
-```
+```text
 ---
 title: "My Product"
 date: 2021-01-01
@@ -66,9 +66,34 @@ article_thumbnail: "/static/image1.png"
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ```
 
-??? note "Working with params"
-
-    all of non-standard parameters passed in content file can be accessed in template using `.Params.name` for example above to get image we can use `.Params.article_thumbnail`
-
 That's it! You have now created a new content type called "product" and added a product to your Hugo site. You can repeat these steps to add more products to the site.
 
+## Hugo templates
+
+Hugo uses basic Go's templating libraries [Source](https://gohugo.io/templates/introduction/).
+
+All og Go template variables and functions are available within `{{}}`
+
+### Access variable
+
+All of variables are available starting with dot. Like `{{.Title}}`.
+There are a lot of basic variables available on most of the pages: [list](https://gohugo.io/variables/page/)
+
+In case of non-standard variables (like the ones defined in target files) we use parameter `.Params`
+
+For file projekt.md:
+
+```text
+---
+title: "My Product"
+article_thumbnail: "/static/image1.png"
+---
+```
+
+We can access variable article_thumbnail using `{{ .Params.article_thumbnail }}`.
+
+### Functions
+
+We can also write some basic code using functions `{{ FUNCTION ARG1 ARG2 .. }}`.
+
+.....
