@@ -198,6 +198,8 @@ root@serwer.moj.pl
 pracownik@firma.com@serwer.com
 ```
 
+### Bash klucze
+
 Po zalogowaniu na ogół musimy ręcznie wpisywać hasło.  
 Aby tego nie robić możemy dodać klucz publiczny do naszej maszyny.
 
@@ -215,3 +217,18 @@ Host fajnyserwer
   User pawel
   Port 9999
 ```
+
+### Bash tunelowanie
+
+Inną przydatną rzeczą jest tunelowanie portów za pomocą ssh. Pozwala to na dostęp do zdalnych usług na danych portach tak, jakby były u nas lokalnie. [link do artykułu](https://goteleport.com/blog/ssh-tunneling-explained/)
+
+
+Na przykład komenda: 
+
+```bash
+ssh -L 9999:localhost:9090 marian@moj_serwer
+```
+
+Sprawi, że na naszej lokalnej maszynie pod portem `9999` będzie dostępna usługa, która jest dostępna pod portem `9090` naszego serwera.
+
+//TODO opisanie SSH i strumieniowanie okienek
