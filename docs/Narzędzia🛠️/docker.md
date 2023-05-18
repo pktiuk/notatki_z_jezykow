@@ -356,6 +356,11 @@ Parametry:
 
 - `--scale service=num` pozwala odpalić więcej instancji danego serwisu (jednak gdy skalujemy serwisy, które wystawiają porty `expose` to tylko jedna z instancji będzie widoczna dla innych) //TODO sprawdź to
 - `-d` -//TODO
+- `-f` - flaga do [uruchamiania wielu plików docker compose jednocześnie](https://docs.docker.com/compose/reference/#specifying-multiple-compose-files) Jeśli wszystkie wysecyfikowane pliki znajdują się w tym samym folderze wtedy docker łączy je w jedną wspólną konfigurację.
+    przykład apki z wtórej w dodatkowym pliku jest dodane szyfrowanie HTTPS:
+    ```bash
+    docker compose -f docker-compose.yml -f docker-compose.https.yml up -d
+    ```
 
 `docker-compose down` - zatrzymuje i **usuwa** kontenery z danego compose'a
 
