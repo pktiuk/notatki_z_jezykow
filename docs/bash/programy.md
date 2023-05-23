@@ -231,4 +231,14 @@ ssh -L 9999:localhost:9090 marian@moj_serwer
 
 Sprawi, że na naszej lokalnej maszynie pod portem `9999` będzie dostępna usługa, która jest dostępna pod portem `9090` naszego serwera.
 
-//TODO opisanie SSH i strumieniowanie okienek
+
+### Bash aplikacje okienkowe
+
+W niektórych wypadkach możemy potrzebobować jakiejś aplikacji okienkowej, wtedy używamy flagi `-X` (forwardowanie dla X11)
+
+```bash
+ssh -X jkowalski@adres
+```
+
+Wtedy po uruchomieniu w tym terminalu aplikacji z GUI jak np gedit to będziemy mogli zobaczyć jej okienko na naszej maszynie.
+
