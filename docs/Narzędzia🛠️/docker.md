@@ -141,9 +141,10 @@ Przydatne flagi dla `docker run [flagi] nazwa-obrazu`:
 - `-p`, `--publish` udostępnij wewnętrzne porty obrazu na portach hosta np `-p 8089:80` wystawia port 80 z wnętrza kontenera na porcie 8089 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:8089)
   ![porty](assets/Docker-ports.png)
 - `-v`, `--volume` określa jakie pliki/foldery z hosta mamy udostępnić kontenerowi i pod jakimi adresami np `-v /tmp/logs.log:/tmp/runlog` sprawi że apka w kontenerze pisząc do plików w folderze `tmp/runlog/` będzie tak na prawdę pisać do folderu `/tmp/logs.log/` na hoście.
+- `--rm` - usuwa kontener po zakończeniu
 
 ```bash
-docker container run ubuntu -i -t bash
+docker container run -i -t ubuntu bash
 ```
 
 #### Interakcje z działającym kontenerem
