@@ -345,7 +345,7 @@ Podstawowe parametry dla serwisów:
 
 Inne parametry dla serwisów:
 
-- `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie)
+- `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie) [link](https://docs.docker.com/compose/compose-file/compose-file-v3/)
 ```yml
 extra_hosts:
   - "somehost:162.242.195.82"
