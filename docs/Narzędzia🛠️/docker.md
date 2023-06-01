@@ -343,6 +343,15 @@ Podstawowe parametry dla serwisów:
 
 //TODO dopisz przykłady
 
+Inne parametry dla serwisów:
+
+- `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie)
+```yml
+extra_hosts:
+  - "somehost:162.242.195.82"
+  - "innyhost.local:50.31.209.229"
+```
+
 ### inne
 
 //TODO opisz pozostałe
