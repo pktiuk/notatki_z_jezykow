@@ -50,7 +50,7 @@ Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TU
 - [Google](https://google.github.io/styleguide/pyguide.html)
 - [docs](https://docs.python-guide.org/writing/structure/)
 
-## Implementacje Pythonowa
+## Implementacje Pythonowe
 
 Warto wiedzieć, że jest wiele implementacji pythona. Najbardziej znaną jest CPython napisany w C.  
 Ze względu na wydajność warto się zapoznać z:
