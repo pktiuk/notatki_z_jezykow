@@ -95,6 +95,7 @@ time.sleep(60)#minuta
 ### Wykonywanie zapytań w HTMLu - requests
 
 Najprostszą i najwygodniejszą biblioteką jest [requests](https://docs.python-requests.org/en/latest/)
+Może ona służyć zarówno do pobierania treści z neta jak i do web scrappingu.
 
 ```python
 import requests
