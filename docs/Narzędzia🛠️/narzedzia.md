@@ -16,15 +16,17 @@ Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-compr
     ```
     cat /etc/cockpit/cockpit.conf
     ```
-    
+
     ```
     [WebService]
     Origins = https://dashboard.xxxxx.ca wss://dashboard.xxxxx.ca
     ProtocolHeader = X-Forwarded-Proto
     AllowUnencrypted = true
     ```
-    [źródło](https://github.com/cockpit-project/cockpit/issues/16396)  
+    [źródło](https://github.com/cockpit-project/cockpit/issues/16396)
     Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. może być `cockpit-serwer.domena.pl`, ale nie `cockpit.serwer.domena.pl` [żródło](https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/)
+
+- [portainer](https://www.portainer.io/) aplikacja służąca do wygodnej pracy oraz monitorowania dockerów w systemie
 
 ## Dokumentacja
 
