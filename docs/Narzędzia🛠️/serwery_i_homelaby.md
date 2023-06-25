@@ -27,6 +27,7 @@ Narzędzia do monitorowania - długa lista <https://www.ubuntupit.com/most-compr
     ProtocolHeader = X-Forwarded-Proto
     AllowUnencrypted = true
     ```
+    Potem w panelu Cloudflate mapujemy nasz adres na `http://localhost:9090`
     [źródło](https://github.com/cockpit-project/cockpit/issues/16396)
     Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. może być `cockpit-serwer.domena.pl`, ale nie `cockpit.serwer.domena.pl` [żródło](https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/)
 
@@ -41,6 +42,10 @@ Monitorowanie dockerów 🐋
 - [cloudflare](https://dash.cloudflare.com/) - must-have gdy masz jakąś domenę i nią zarządzasz
   - Cloudflare Proxy - zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6
   - [Tunelowanie](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/) - pozwala wystawiać do sieci serwery z sieci lokalnych pozbawione publicznych adresów. Można użyć tego chociażby do udostępnienia cockpita, czy też [SSH (instrukcje)](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use-cases/ssh/#connect-to-ssh-server-with-cloudflared-access)
+
+VPN-y
+
+- [PiVPN](https://www.pivpn.io/) - prosty i uniwersalny VPN. Ma UI webowe oraz wpiera Wireguarda i OpenVPN-a.
 
 ## Storage
 
