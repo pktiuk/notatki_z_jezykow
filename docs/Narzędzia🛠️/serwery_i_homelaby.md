@@ -42,6 +42,11 @@ Monitorowanie dockerów 🐋
   - Cloudflare Proxy - zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6
   - [Tunelowanie](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/) - pozwala wystawiać do sieci serwery z sieci lokalnych pozbawione publicznych adresów. Można użyć tego chociażby do udostępnienia cockpita, czy też [SSH (instrukcje)](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use-cases/ssh/#connect-to-ssh-server-with-cloudflared-access)
 
+## Storage
+
+- [TrueNAS](https://www.truenas.com/) - system operacyjny dedykowany maszynm mającym służyć jako storage
+- [Wtyczka do Cockpitu](https://github.com/45Drives/cockpit-file-sharing) pozwalająca na łatwe udostępnianie zawartości, jest też inna [wtyczka do przeglądania plików](https://github.com/45Drives/cockpit-navigator)
+
 ## Dla chcących postawić sobie jakiś serwer
 
 Poszukiwanie VPS-a:
