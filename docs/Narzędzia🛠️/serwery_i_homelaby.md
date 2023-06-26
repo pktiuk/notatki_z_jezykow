@@ -45,7 +45,36 @@ Monitorowanie dockerów 🐋
 
 VPN-y
 
+- Wireguard - jeden z dwóch popularnych protokołów VPNa.
+- OpenVPN - również popularny, lecz troche przestarzały protokół VPNa
+
 - [PiVPN](https://www.pivpn.io/) - prosty i uniwersalny VPN. Ma UI webowe oraz wpiera Wireguarda i OpenVPN-a.
+
+### Obsługa PiVPN-a i Wireguarda
+
+Zakładam, że PiVPN jest skonfigurowany z Wireguardem.
+
+Aby dodać nowego nowe połączenie do naszego serwera wireguarda nalezy wywołać komendę `pivpn add`, tam określamy nazwę połączenia.
+
+```bash
+pawel@amd:~$ pivpn add
+Enter a Name for the Client: superserwer
+::: Client Keys generated
+::: Client config generated
+::: Updated server config
+::: WireGuard reloaded
+======================================================================
+::: Done! superserwer.conf successfully created!
+::: superserwer.conf was copied to /home/opc/configs for easytransfer.
+::: Please use this profile only on one device and create additional
+::: profiles for other devices. You can also use pivpn -qr
+::: to generate a QR Code you can scan with the mobile app.
+======================================================================
+```
+
+Konfigi są też zapisywane w `/etc/wireguard/configs`
+
+[Instrukcja podłączenia się](https://docs.pivpn.io/wireguard/) - Aby się podłączyć na maszynie klienckiej umieszczamy ten konfig w folderze `/etc/wireguard/` i wołamy komendę `wg-quick up nazwapliku`🟩 any wystartować i `wg-quick down nazwapliku`🟥 aby zatrzymać.
 
 ## Storage
 
