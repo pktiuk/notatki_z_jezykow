@@ -597,7 +597,8 @@ def returnOrNot(return_bool=True):
 
 #### Adnotacje
 
-W wypadku funkcji możemy też dodać adnotacje (typowanie zmiennych) do ich argumentów oraz wartości zwracanych (nie są one wykorzystywane przez interpreter, ale ułatwiają dokumentowanie)
+W wypadku funkcji możemy też dodać adnotacje (typowanie zmiennych) do ich argumentów oraz wartości zwracanych (nie są one wykorzystywane przez interpreter, ale ułatwiają dokumentowanie).
+(Uwaga, tej funkcji nie ma w pythonie 2, dla niego jest [workaround o nazwie type comments](https://realpython.com/lessons/type-comments/) )
 
 ```python
 def funkcja( liczba1:99=12 , slowo1:str="sl", slowo2:"inne slowo"="inne") -> str:
