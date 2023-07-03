@@ -75,6 +75,7 @@ Enter a Name for the Client: superserwer
 Konfigi są też zapisywane w `/etc/wireguard/configs`
 
 [Instrukcja podłączenia się](https://docs.pivpn.io/wireguard/) - Aby się podłączyć na maszynie klienckiej umieszczamy ten konfig w folderze `/etc/wireguard/` i wołamy komendę `wg-quick up nazwapliku`🟩 any wystartować i `wg-quick down nazwapliku`🟥 aby zatrzymać.
+(przydać się może paczka resolvconf)
 
 ## Storage
 
