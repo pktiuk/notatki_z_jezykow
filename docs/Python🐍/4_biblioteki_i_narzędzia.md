@@ -171,6 +171,12 @@ def index(name):
     return {"klucz":"wartosc","a_tu":["bedzie","lista"]}
 ```
 
+## Aplikacje z GUI
+
+TODO rozpisać się trochę
+
+https://wiki.python.org/moin/GuiProgramming
+
 ## Zapisywanie
 
 ### Pickle - zapisywanie zmiennych
