@@ -222,8 +222,7 @@ Host fajnyserwer
 
 Inną przydatną rzeczą jest tunelowanie portów za pomocą ssh. Pozwala to na dostęp do zdalnych usług na danych portach tak, jakby były u nas lokalnie. [link do artykułu](https://goteleport.com/blog/ssh-tunneling-explained/)
 
-
-Na przykład komenda: 
+Na przykład komenda:
 
 ```bash
 ssh -L 9999:localhost:9090 marian@moj_serwer
@@ -231,6 +230,19 @@ ssh -L 9999:localhost:9090 marian@moj_serwer
 
 Sprawi, że na naszej lokalnej maszynie pod portem `9999` będzie dostępna usługa, która jest dostępna pod portem `9090` naszego serwera.
 
+Możliwe jest także odwrócone tunelowanie portów za pomocą SSH
+
+```bash
+ssh -R [REMOTE:]REMOTE_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER
+```
+
+Na przykład komenda `ssh -R 3000:192.168.1.11:9090 marian@moj_serwer` sprawi, że na serwerze pod porcie `3000` będzie dostępna usługa widoczna u nas pod adresem `192.168.1.11:9090`
+
+Jest on najczęściej używany, aby dać komuś z zewnątrz dostęp do wewnętrznego serwisu.
+
+Razem z tymi komendami przydają się flagi `-N` (sprawia, że nie wykonujemy żadnych zdalnych komend bashowych) oraz `-f` (uruchamia ssh w tle)
+
+Np: `ssh -R 8080:127.0.0.1:3000 -N -f user@remote.host`
 
 ### SSH aplikacje okienkowe
 
@@ -241,4 +253,3 @@ ssh -X jkowalski@adres
 ```
 
 Wtedy po uruchomieniu w tym terminalu aplikacji z GUI jak np gedit to będziemy mogli zobaczyć jej okienko na naszej maszynie.
-
