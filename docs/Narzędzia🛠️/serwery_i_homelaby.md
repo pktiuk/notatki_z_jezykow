@@ -90,6 +90,15 @@ Poszukiwanie VPS-a:
 - [Oracle free tier](https://www.oracle.com/pl/cloud/free/) - darmowe serwery VPS or oracle. Omówienie: [link pepper](https://www.pepper.pl/promocje/oracle-cloud-free-tier-darmowe-vpsy-z-ipv4-459055)
 - [serverhunter](https://www.serverhunter.com/) - wyszukiwarka tanich VPSów (gdy mikrus nie starcza)
 
+??? note "Oracle odblokowywanie portów"
+
+    Jako, że maszyny od Oracle mają domyślnie publiczne IP to mają domyślnie nieco bardziej restrykcyjny firewall.
+    [link do dokumentacji](https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/apache-on-ubuntu/01oci-ubuntu-apache-summary.htm)
+    Najpierw trzeba zmienić ustawienia w panelu na stronie oracle, a potem jeszcze dodać zasadę do iptables
+    `sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT`
+    i jeśli to działa to możemy zapisać naszą zmianę
+    `sudo netfilter-persistent save`
+
 Oganianie domen:
 
 - [tld-list](https://tld-list.com/) - porównywarka cen domen
