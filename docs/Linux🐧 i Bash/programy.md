@@ -244,6 +244,8 @@ Razem z tymi komendami przydają się flagi `-N` (sprawia, że nie wykonujemy ż
 
 Np: `ssh -R 8080:127.0.0.1:3000 -N -f user@remote.host`
 
+W wypadku tunelowania czasem mogą być problemy przy dostępie z zewnętrznych maszyn do udostępnionych portów [link](https://serverfault.com/questions/478171/reverse-ssh-tunnel-connexion-refused)
+
 ### SSH aplikacje okienkowe
 
 W niektórych wypadkach możemy potrzebobować jakiejś aplikacji okienkowej, wtedy używamy flagi `-X` (forwardowanie dla X11)
