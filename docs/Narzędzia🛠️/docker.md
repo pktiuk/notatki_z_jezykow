@@ -283,11 +283,11 @@ Plik `docker-compose.yml` służy do zdefiniowania całych grup kontenerów, kt�
 
 - serwisów (`services:`) - czyli poszczególnych obrazów dockerowych, które mają tworzyć całość (to jedyna obowiązkowa część, pozostałe są opcjonalne)
 - sieci (`networks`) - czyli poszczególnych sieci
-- woluminów (`volumes`) - plików współdzielonych pomiędzy poszczególnymi serwisami
+- woluminów (`volumes`) - trwałych miejsc do przechowywania plików
 - sekretów (`secrets`)
 - konfiguracji (`configs`)
 
-??? note "Przykładowa wypełniona tabelka"
+??? note "Przykładowy docker compose"
 
     ```yml
     services:
@@ -330,9 +330,9 @@ Plik `docker-compose.yml` służy do zdefiniowania całych grup kontenerów, kt�
       back-tier: {}
     ```
 
-### serwisy
+#### serwisy
 
-Podstawowe parametry dla serwisów:
+Podstawowe parametry dla serwisów [dokumentacja](https://docs.docker.com/compose/compose-file/05-services/):
 
 - `image` - obraz, którego ma używać dany serwis
 - `expose` - lista portów, które mają być udostępnione innym serwisom wewnątrz dockera (host ich nie widzi)
@@ -346,13 +346,73 @@ Podstawowe parametry dla serwisów:
 Inne parametry dla serwisów:
 
 - `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie) [link](https://docs.docker.com/compose/compose-file/compose-file-v3/)
+
 ```yml
 extra_hosts:
   - "somehost:162.242.195.82"
   - "innyhost.local:50.31.209.229"
 ```
 
-### inne
+#### Wolumeny
+
+Za ich pomocą możemy tworzyć trwałe miejsca do przechowywania danych. Trwałych, czyli takich, które nie ulegają skasowaniu, kiedy usuwany jest kontener.  
+Dlatego często są one wykorzystywane min. do przechowywania baz danych, abyśmy nic nie tracili wtdy, kiedy np. przy aktualizacji będziemy chcieli zmienić wersję kontenera na świeższą.  
+Kolejną zaletą wolumenów w kontekście compose'a jest to, że mogą one być współdzielone pomiędzy poszczególnymi serwisami. [dokumentacja](https://docs.docker.com/compose/compose-file/07-volumes/)
+
+Przykład:
+
+```yml
+services:
+  backend:
+    image: awesome/database
+    volumes:
+      - db-data:/etc/data
+    #db-data będzie zamontowane w backendzie pod ścieżką /etc/data
+
+  backup:
+    image: backup-service
+    volumes:
+      - db-data:/var/lib/backup/data
+
+#db-data to automatycznie zdefioniowany wolumen
+#system stworzy go sobie najpewniej w lokacji /var/lib/docker
+volumes:
+  db-data:
+```
+
+Uruchamiając `docker compose up` docker tworzy wolument jeśli jeszcze nie istnieje.
+
+Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-file/07-volumes/#attributes) takich jak:
+
+- `external`(true, false) - określa, czy ten wolumen jest zarządzany poza danym serwerem. Jeśli ustawiony na `true` to wszystkie pozostałe flagi są ignorowane (za wyjątkiem name). Jeśli taki wolumen nie istnieje to zwracany jest błąd, jeśli istnieje to jest on podłączany.
+  ```yml
+  volumes:
+    db-data:
+      external: true #szukamy czy volume o nazwie db-data istnieje
+  ```
+- `driver_opts` - pozwala na zamontowanie wolumentu za pomocą jakiegoś sterownika. Pozwala np. na stworzenie wolumenu znajdującego się na serwerze NFS
+  ```yml
+  volumes:
+  example:
+    driver_opts:
+      type: "nfs"
+      o: "addr=10.40.0.199,nolock,soft,rw"
+      device: ":/docker/example"
+  ```
+  lub zwyczajne określenie na jaki folder hosta ma być on zmapowany
+  ```yml
+  volumes:
+    cvat_share:
+      driver_opts:
+        type: none
+        device: /mnt/duzy_dysk/pliki_dla_cvata/
+        o: bind
+  ```
+
+
+
+
+#### inne
 
 //TODO opisz pozostałe
 
@@ -360,17 +420,17 @@ extra_hosts:
 
 UWAGA wkrótce komenda docker-ckompose powinna zostać zmieniona na `docker compose` [link](https://docs.docker.com/compose/reference/)
 
-`docker-compose up` - 
+`docker-compose up` -
 
 Parametry:
 
 - `--scale service=num` pozwala odpalić więcej instancji danego serwisu (jednak gdy skalujemy serwisy, które wystawiają porty `expose` to tylko jedna z instancji będzie widoczna dla innych) //TODO sprawdź to
 - `-d` -//TODO
 - `-f` - flaga do [uruchamiania wielu plików docker compose jednocześnie](https://docs.docker.com/compose/reference/#specifying-multiple-compose-files) Jeśli wszystkie wysecyfikowane pliki znajdują się w tym samym folderze wtedy docker łączy je w jedną wspólną konfigurację.
-    przykład apki z wtórej w dodatkowym pliku jest dodane szyfrowanie HTTPS:
-    ```bash
-    docker compose -f docker-compose.yml -f docker-compose.https.yml up -d
-    ```
+  przykład apki z wtórej w dodatkowym pliku jest dodane szyfrowanie HTTPS:
+  ```bash
+  docker compose -f docker-compose.yml -f docker-compose.https.yml up -d
+  ```
 
 `docker-compose down` - zatrzymuje i **usuwa** kontenery z danego compose'a
 
