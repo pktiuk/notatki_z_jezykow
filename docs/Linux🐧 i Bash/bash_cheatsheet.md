@@ -21,6 +21,20 @@ Sprawdzanie co jest czym oraz do czego służy
 find -name a*n.java
 ```
 
+### Rozmiary folderów
+
+domyślne `ls` ni pokauje rozmiarów folderów. Do tego należy użyć komandy `du`
+
+```bash
+du -s /home/ja
+```
+
+Przydatne flagi:
+
+- `-s` -pokaż tylko wybrany folder bez podfolderóœ
+- `-h` - human readable, zaokrągla do GB, MB etc.
+- `--max-depth=2` - maksymalna głębokość przy pokazywaniu podfolderów
+
 ### Pisanie do plików
 
 Każda aplikacja ma wejście (`stdin`) oraz dwa wyjścia (`stdout`-zwykłe i `stderr`-dla błędów)
