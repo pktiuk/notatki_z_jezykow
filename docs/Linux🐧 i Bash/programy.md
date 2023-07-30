@@ -198,7 +198,7 @@ root@serwer.moj.pl
 pracownik@firma.com@serwer.com
 ```
 
-### Bash klucze
+### SSH klucze
 
 Po zalogowaniu na ogół musimy ręcznie wpisywać hasło.  
 Aby tego nie robić możemy dodać klucz publiczny do naszej maszyny.
@@ -218,7 +218,7 @@ Host fajnyserwer
   Port 9999
 ```
 
-### Bash tunelowanie
+### SSH tunelowanie
 
 Inną przydatną rzeczą jest tunelowanie portów za pomocą ssh. Pozwala to na dostęp do zdalnych usług na danych portach tak, jakby były u nas lokalnie. [link do artykułu](https://goteleport.com/blog/ssh-tunneling-explained/)
 
@@ -240,7 +240,10 @@ Na przykład komenda `ssh -R 3000:192.168.1.11:9090 marian@moj_serwer` sprawi, �
 
 Jest on najczęściej używany, aby dać komuś z zewnątrz dostęp do wewnętrznego serwisu.
 
-Razem z tymi komendami przydają się flagi `-N` (sprawia, że nie wykonujemy żadnych zdalnych komend bashowych) oraz `-f` (uruchamia ssh w tle)
+Razem z tymi komendami przydają się flagi:
+
+- `-N` - sprawia, że nie wykonujemy żadnych zdalnych komend bashowych
+- `-f` - uruchamia ssh w tle
 
 Np: `ssh -R 8080:127.0.0.1:3000 -N -f user@remote.host`
 
