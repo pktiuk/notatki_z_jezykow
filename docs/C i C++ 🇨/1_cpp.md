@@ -2,7 +2,62 @@
 
 Oficjalna dokumentacja i zalecenia: [ISO CPP GUIDELINES](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 
-## Przekazywanie argumentów do funkcji
+## Elementy języka i jego mechanizmy
+
+### Zarządzanie pamięcią `new` i `delete`
+
+Zarządzanie pamięcią w C++ jest podobne do [zarządzania w C](0_C.md#tablice-i-alokowanie-pamięci). Jednak jest oparta o słowa kluczowe `new` i `delete`. (NIGDY nie mieszajmy tych dwóch sposobów)
+
+[artykuł](https://pl.wikibooks.org/wiki/C%2B%2B/Zarz%C4%85dzanie_pami%C4%99ci%C4%85)
+
+`new` służy do tworzenia nowych obiektów i alokowania pamięci dla nich, natomiast `delete` służy do zwalniania zarezerwowanej wcześniej pamięci.
+
+Przykład użycia słowa kluczowego new:
+
+```cpp
+int *p = new int; // alokuje pamięć dla zmiennej typu int
+*p = 5; // przypisuje wartość 5 do zmiennej
+delete p; // zwalnia pamięć zarezerwowaną dla zmiennej p
+```
+
+Możliwe jest także użycie słowa kluczowego new do tworzenia tablic dynamicznych:
+
+```cpp
+int *tab = new int[10]; // alokuje pamięć dla tablicy 10-elementowej
+tab[0] = 5; // przypisuje wartość 5 do pierwszego elementu tablicy
+delete[] tab; // zwalnia pamięć zarezerwowaną dla tablicy tab
+```
+
+### Funkcje
+
+#### Lambdy
+
+Składnia lambdy:
+
+- `[]` - Tu podajemy listę przechwytywania
+  - `[x]` - przechwytuje obiekt x (tylko odczyt)
+  - `[&x]` - przechwytuje obiekt x (odczyt i zapis)
+  - `[=]` - dowolny obiekt ze scope'a do odczytu
+  - `[&]` - dowolny obiekt ze scope'a do odczytu i zapisu
+- `()` - argumenty, jakie ma przyjmować wyrażenie lambda. (Opcjonalne)
+- atrybuty wyrażenia lambda, z możliwych atrybutów w tym momencie najistotniejszy jest mutable, który sprawia że zmienne przechwycone przez wartość mogą być modyfikowane wewnątrz ciała wyrażenia. (Opcjonalne)
+- `-> T` - typ zwracany (Opcjonalne)
+- `{}` - ciało wyrażenia
+
+```cpp
+//Najprostsza możliwa lambda
+[] { }();
+
+[]( int a )->float
+{
+    if( a < 0 )
+         return 0;
+
+    return a * 0.5f;
+}
+```
+
+### Przekazywanie argumentów do funkcji
 
 W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.
 
@@ -57,9 +112,9 @@ funkcja_referencja:
 W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
 Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
 
-## Klasy
+### Klasy
 
-### Funkcje wirtualne
+#### Funkcje wirtualne
 
 są oznaczane za pomocą słowa kluczowego `virtual`.
 
@@ -117,7 +172,7 @@ struct B : A
 };
 ```
 
-## Templatki
+### Templatki
 
 Pozwalają kompilatorowi na łatwą autogenerację kodu.
 
@@ -174,7 +229,9 @@ Używając tych operatorów na ogół powinno się operować na wskaźnikach (al
      cout << *wskaznik << endl; //wypisze 3.14
 ```
 
-## Wątki
+## Biblioteki
+
+### Wątki
 
 Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
 
@@ -192,59 +249,6 @@ Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
     //Wywołanie dla metody w klasie
     std::thread t2(&Klasa::moja_metoda,&instancja_klasy, argument1, argument2, argument3);
     t2.join();
-```
-
-## Funkcje
-
-### Lambdy
-
-Składnia lambdy:
-
-- `[]` - Tu podajemy listę przechwytywania
-  - `[x]` - przechwytuje obiekt x (tylko odczyt)
-  - `[&x]` - przechwytuje obiekt x (odczyt i zapis)
-  - `[=]` - dowolny obiekt ze scope'a do odczytu
-  - `[&]` - dowolny obiekt ze scope'a do odczytu i zapisu
-- `()` - argumenty, jakie ma przyjmować wyrażenie lambda. (Opcjonalne)
-- atrybuty wyrażenia lambda, z możliwych atrybutów w tym momencie najistotniejszy jest mutable, który sprawia że zmienne przechwycone przez wartość mogą być modyfikowane wewnątrz ciała wyrażenia. (Opcjonalne)
-- `-> T` - typ zwracany (Opcjonalne)
-- `{}` - ciało wyrażenia
-
-```cpp
-//Najprostsza możliwa lambda
-[] { }();
-
-[]( int a )->float
-{
-    if( a < 0 )
-         return 0;
-
-    return a * 0.5f;
-}
-```
-
-## Zarządzanie pamięcią `new` i `delete`
-
-Zarządzanie pamięcią w C++ jest podobne do [zarządzania w C](0_C.md#tablice-i-alokowanie-pamięci). Jednak jest oparta o słowa kluczowe `new` i `delete`. (NIGDY nie mieszajmy tych dwóch sposobów)
-
-[artykuł](https://pl.wikibooks.org/wiki/C%2B%2B/Zarz%C4%85dzanie_pami%C4%99ci%C4%85)
-
-`new` służy do tworzenia nowych obiektów i alokowania pamięci dla nich, natomiast `delete` służy do zwalniania zarezerwowanej wcześniej pamięci.
-
-Przykład użycia słowa kluczowego new:
-
-```cpp
-int *p = new int; // alokuje pamięć dla zmiennej typu int
-*p = 5; // przypisuje wartość 5 do zmiennej
-delete p; // zwalnia pamięć zarezerwowaną dla zmiennej p
-```
-
-Możliwe jest także użycie słowa kluczowego new do tworzenia tablic dynamicznych:
-
-```cpp
-int *tab = new int[10]; // alokuje pamięć dla tablicy 10-elementowej
-tab[0] = 5; // przypisuje wartość 5 do pierwszego elementu tablicy
-delete[] tab; // zwalnia pamięć zarezerwowaną dla tablicy tab
 ```
 
 ## Inne Słowa kluczowe
