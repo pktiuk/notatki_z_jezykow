@@ -28,6 +28,57 @@ tab[0] = 5; // przypisuje wartość 5 do pierwszego elementu tablicy
 delete[] tab; // zwalnia pamięć zarezerwowaną dla tablicy tab
 ```
 
+### Pętle
+
+Typy pętli:
+
+- Podstawowa pętla `for`
+
+  ```cpp
+  for (int i = 0; i < 5; ++i)
+  ```
+
+- pętla `while`
+
+  ```cpp
+  int j = 0;
+  while (j < 10) {
+      // rób coś
+      ++j;
+  }
+  ```
+
+- pętla `do-while`
+
+  ```cpp
+  int k = 0;
+  do {
+      // Wykonuj przynajmniej raz, potem sprawdzaj warunek
+      ++k;
+  } while (k < 3);
+  ```
+
+- range-based `for` - jest to zalecana metoda dla zbiorów iterowalnych
+
+  ```cpp
+  std::vector<int> numbers = {1, 2, 3, 4, 5};
+  for (int num : numbers) {
+      // Iteracja po elementach kontenera
+  }
+  ```
+
+  W wypadku bardziej złożonych obiektów można użyć też referencji
+
+  ```cpp
+  for(auto&& element: lista)
+  ```
+
+  może być też używany do rozpakowywania [link](https://en.cppreference.com/w/cpp/language/range-for)
+
+  ```cpp
+  for (auto&& [first, second] : mymap)
+  ```
+
 ### Funkcje
 
 #### Lambdy
