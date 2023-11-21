@@ -1060,10 +1060,13 @@ class InventoryItem:
     name: str
     unit_price: float
     quantity_on_hand: int = 0
+    tags: List[str] = = field(default_factory=list)
 
     def total_cost(self) -> float:
         return self.unit_price * self.quantity_on_hand
 ```
+
+Możliwe jest tutaj podawanie spodziewanych typów oraz domyślnych wartości (ale w wypadku typów mutowalnych [należy użyć fabryk](https://docs.python.org/3/library/dataclasses.html#mutable-default-values) )
 
 Taki obiekt może otrzymać (w zależności od paramterów):
 
