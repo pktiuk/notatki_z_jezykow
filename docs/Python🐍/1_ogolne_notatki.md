@@ -605,6 +605,8 @@ def funkcja( liczba1:99=12 , slowo1:str="sl", slowo2:"inne slowo"="inne") -> str
     #some code
     return "slowo"
 
+
+slowo: str = "inne_slowo"
 ```
 
 Można potem je sprawdzić poprzez sięgnięcie do atrybutu `__annotations__`
