@@ -87,7 +87,7 @@ Konfigi są też zapisywane w `/etc/wireguard/configs`
 Poszukiwanie VPS-a:
 
 - [mikr.us](https://mikr.us/) - fajne i tanie serwery dla amatorów, jest trochę [dokumentacji](https://www.notion.so/MIKR-US-Don-t-Panic-5c3bdde2e0b545e7866524fc117446c3) i fajna społeczność ( [FB](https://www.facebook.com/groups/mikrusy) i [Discord](https://discord.gg/hFcqJGkppq))
-- [Oracle free tier](https://www.oracle.com/pl/cloud/free/) - darmowe serwery VPS or oracle. Omówienie: [link pepper](https://www.pepper.pl/promocje/oracle-cloud-free-tier-darmowe-vpsy-z-ipv4-459055)
+- [Oracle free tier](https://www.oracle.com/pl/cloud/free/) - darmowe serwery VPS or oracle. Omówienie: [link pepper](https://www.pepper.pl/promocje/oracle-cloud-free-tier-darmowe-vpsy-z-ipv4-459055) **SIDENOTE**: jeśli instancje są nieużywane to mogą być automatyucznie wyłączane: [link](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm#compute__idleinstances)
 - [serverhunter](https://www.serverhunter.com/) - wyszukiwarka tanich VPSów (gdy mikrus nie starcza)
 
 ??? note "Oracle odblokowywanie portów"
