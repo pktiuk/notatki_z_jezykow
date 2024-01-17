@@ -6,6 +6,45 @@
 - [Książka Zanurkuj w Pythonie](https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku) 📖
 - [Podstawowy tutorial ze strony learnpython](https://www.learnpython.org/)
 
+## Parsowanie argumentów
+
+Do parsowania argumentów na ogół korzysta się z biblioteki [argparse](https://docs.python.org/3/howto/argparse.html).
+
+Przykładowy kod
+
+```python
+parser = argparse.ArgumentParser(
+                    prog='ProgramName',
+                    description='What the program does',
+                    epilog='Text at the bottom of help')
+parser.add_argument('filename')           # positional argument
+parser.add_argument('-c', '--count')      # option that takes a value
+parser.add_argument('-v', '--verbose',
+                    action='store_true')  # on/off flag - czyli przy podaniu -v args.verbose to true
+args = parser.parse_args() #parsowanie argumentów,aby uzyskać obiekt z argumentami
+```
+
+Najważniejszą metodą klasy ArgumentParser jest `add_argument()`.  
+Może przyjmować on [różne argumenty](https://docs.python.org/3/library/argparse.html#quick-links-for-add-argument).  
+Najważniejsze wydają się:
+
+- `help` - opis argumentu
+- `type` - typ argumentu do jakiego wartość ma być przekonwertowana [link](https://docs.python.org/3/library/argparse.html#argparse-type).
+można tutaj podać typ (`int`, `str`), `argparse.FileType` (aby sprawdzić poprawność ścieżki do pliku), bądź funkcja koonwertująca
+    ```python
+    # kiedy chcemy sprawdzić czy plik istnieje, ale chcemy otrzymać stringa
+    def _readable_file_string(path):
+        reader = argparse.FileType("r")
+        reader(path)  # if not exists, then raises Exception
+        return path
+
+    parser.add_argument('input_file', type=argparse.FileType('w', encoding='latin-1'))
+    parser.add_argument('file_path', type=_readable_file_string)
+    ```
+- `default`
+- `required`
+- `choices`
+- `nargs` - ile razy może się pojawić ten argument
 
 ## Manipulacja tekstem
 
