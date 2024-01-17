@@ -6,14 +6,6 @@
 - [Książka Zanurkuj w Pythonie](https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku) 📖
 - [Podstawowy tutorial ze strony learnpython](https://www.learnpython.org/)
 
-## Instalacja pakietów
-
-Do tego służy narzędzie pip, pobieramy pip-a za pomocą zwykłego menadżera pakietów, a potem paczki pythonowskie pobieramy już pip-em.
-
-### Operacje matematyczne
-
-- `**` potęga
-- `2+3j` liczba zespolona
 
 ## Manipulacja tekstem
 

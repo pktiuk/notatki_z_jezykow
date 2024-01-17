@@ -140,6 +140,9 @@ Operatory:
 - reszta z dzielenia, modulo (`%`)
   Analogiczne co C operatory `-=`, `*=`, `/=`, `%=`...
   UWAGA! Brak operatorów `++` i `--`
+- `**` potęga
+- `2+3j` liczba zespolona
+
 
 Operatory Logiczne zwracają wartość logiczną (True/False)
 
