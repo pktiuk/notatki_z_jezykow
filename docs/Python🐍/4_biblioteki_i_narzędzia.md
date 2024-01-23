@@ -46,6 +46,50 @@ można tutaj podać typ (`int`, `str`), `argparse.FileType` (aby sprawdzić popr
 - `choices`
 - `nargs` - ile razy może się pojawić ten argument
 
+## Logowanie (logging)
+
+
+Wbudowane biblioteka [logging](https://docs.python.org/3/library/logging.html) w Pythonie dostarcza gotowych mechanizmów do generowania, formatowania oraz zarządzania logami systemowymi.
+
+Minimalny przykład:
+
+```python
+import logging
+
+logging.debug("This is a debug")
+logging.info("This is an info")
+logging.warning("This is a warning")
+logging.error("This is an error")
+logging.critical("This is a critical message")
+#> WARNING:root:This is a warning
+#> ERROR:root:This is an error
+#> CRITICAL:root:This is a critical message
+```
+
+Dla takiego sktyptu otrzymany tylko ostatnie 3 linijki, ponieważ domyślny poziom logów jest za niski.
+
+Do odpowiedniego ustawienia tego parametru można użyć funkcji [logging.basicConfig](https://docs.python.org/3/library/logging.html#logging.basicConfig)
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+logging.debug('To już się wyświetli')
+```
+
+Za pomocą tej funkcji możemy określić inne podstawowe parametry jak format, kodowanie, styl, format daty, plik z logami etc.
+
+### Formatowanie logów
+
+Format logów można zdefiniować za pomocą jednego stringa odpowiadającego określonej składni.
+
+```py
+import logging
+logging.basicConfig(format='%(asctime)s %(message)s')
+logging.warning('is when this event was logged.')
+# 2019-12-12 11:51:42,692 is when this event was logged.
+```
+
+W definicjach logów odwołujemy się do atrybutów klasy [LogRecord](https://docs.python.org/3/library/logging.html#logrecord-attributes).
+
 ## Manipulacja tekstem
 
 ### Stringi wielolinijkowe
