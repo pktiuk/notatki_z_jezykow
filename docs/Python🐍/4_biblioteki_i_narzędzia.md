@@ -49,7 +49,7 @@ można tutaj podać typ (`int`, `str`), `argparse.FileType` (aby sprawdzić popr
 ## Logowanie (logging)
 
 
-Wbudowane biblioteka [logging](https://docs.python.org/3/library/logging.html) w Pythonie dostarcza gotowych mechanizmów do generowania, formatowania oraz zarządzania logami systemowymi.
+Wbudowane biblioteka [logging](https://docs.python.org/3/library/logging.html) w Pythonie dostarcza gotowych mechanizmów do generowania, formatowania oraz zarządzania logami systemowymi. [Oficjalny tutorial](https://docs.python.org/3/howto/logging.html#custom-levels)
 
 Minimalny przykład:
 
@@ -77,6 +77,7 @@ logging.debug('To już się wyświetli')
 
 Za pomocą tej funkcji możemy określić inne podstawowe parametry jak format, kodowanie, styl, format daty, plik z logami etc.
 
+
 ### Formatowanie logów
 
 Format logów można zdefiniować za pomocą jednego stringa odpowiadającego określonej składni.
@@ -89,6 +90,29 @@ logging.warning('is when this event was logged.')
 ```
 
 W definicjach logów odwołujemy się do atrybutów klasy [LogRecord](https://docs.python.org/3/library/logging.html#logrecord-attributes).
+
+Z pomocą `basicConfig` możemy też łatwo określić używany format czasu ([ściągawka](https://www.w3schools.com/python/python_datetime.asp)) (milisekundy lepiej określać w ramach formatu z LogRecord-a)
+
+```py
+import logging
+logging.basicConfig(format='%(asctime)s%(msecs)d %(message)s', datefmt='%m/%d/%Y %I:%M:%S.')
+logging.warning('is when this event was logged.')
+#> 12/12/2010 11:46:36.423 is when this event was logged.
+```
+
+### Poziomy logowania
+
+Każdy poziom logowania ma własną przyporządkowaną wartość liczbową [link](https://docs.python.org/3/library/logging.html#levels).
+
+Im wyższa tym ważniejszy log (Debug to 10, CRITICAL to 50). Dzięki temu możliwe jest dodawanie własnych poziomów logowania. Możliwe jest tutaj wykorzystanie funkcji [addLevelName](https://docs.python.org/3/library/logging.html#logging.addLevelName).
+
+```py
+    #tutaj nadpisuję aby mieć fajniejszą nazwę
+    logging.addLevelName(logging.DEBUG, "🐞DEBUG")
+    # a tutaj dodaję nowy poziom
+    logging.addLevelName(15, "VERBOSE")
+```
+
 
 ## Manipulacja tekstem
 
