@@ -15,6 +15,7 @@
 - ststystyki użytkownika - [Coderstats](https://coderstats.net/)
 - Graf gwiazdek - [star-history](https://star-history.t9t.io/?ref=producthunt)
 - Liczenie linii kodu `cloc` (lokalnie) lub https://codetabs.com/count-loc/count-loc-online.html
+- Regex https://regexr.com/
 
 ## Inne
 
