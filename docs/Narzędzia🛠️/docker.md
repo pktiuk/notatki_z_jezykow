@@ -148,6 +148,24 @@ Przydatne flagi dla `docker run [flagi] nazwa-obrazu`:
 docker container run -i -t ubuntu bash
 ```
 
+##### Uruchamianie z dostępem do GUI
+
+W wypadku aplikacji dockerowych możliwe jest ich uruchamianie aplikacji GUI z ich poziomu.
+
+Wymaga to najpierw nadania uprawnień do otwierania okien
+
+```bash
+xhost +local: #Ta opcja jest aktywna do restartu komputera
+```
+
+Poza tym należy dać dockerowi dostęp do odpowiedniego gniazda oraz ustawić zmienną `DISPLAY`
+
+```bash
+docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ubuntu bash
+```
+
+Do przetestowania działania całości warto użyć aplikacji `xeyes` zjandującą się w pakiecie `x11-apps` dla Ubuntu.
+
 #### Interakcje z działającym kontenerem
 
 **attach** - podpinanie stdin i stdouta to działającego kontenera.  
