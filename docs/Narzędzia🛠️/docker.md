@@ -247,6 +247,13 @@ docker run app
 docker run app 5555 5556 # gdy chcemy użyć własnych argumentów
 ```
 
+Możliwe jest też ustawienie własnego entrypointa przy uruchomieniu.
+
+```bash
+# Executes bash -c "ls /"
+docker run --entrypoint bash my-image:latest -c "ls /"
+```
+
 ## Docker compose
 
 Jest on wykorzystywany, kiedy potrzebujemy uruchomić wiele aplikacji, które będą się ze sobą komunikować (a odpalenie w dockerze skryptu, który wszystko nam poodpala nie jest opcją).
