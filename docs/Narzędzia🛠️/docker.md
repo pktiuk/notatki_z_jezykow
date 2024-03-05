@@ -148,24 +148,6 @@ Przydatne flagi dla `docker run [flagi] nazwa-obrazu`:
 docker container run -i -t ubuntu bash
 ```
 
-##### Uruchamianie z dostępem do GUI
-
-W wypadku aplikacji dockerowych możliwe jest ich uruchamianie aplikacji GUI z ich poziomu.
-
-Wymaga to najpierw nadania uprawnień do otwierania okien
-
-```bash
-xhost +local: #Ta opcja jest aktywna do restartu komputera
-```
-
-Poza tym należy dać dockerowi dostęp do odpowiedniego gniazda oraz ustawić zmienną `DISPLAY`
-
-```bash
-docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ubuntu bash
-```
-
-Do przetestowania działania całości warto użyć aplikacji `xeyes` zjandującą się w pakiecie `x11-apps` dla Ubuntu.
-
 #### Interakcje z działającym kontenerem
 
 **attach** - podpinanie stdin i stdouta to działającego kontenera.  
@@ -426,7 +408,7 @@ Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-fil
       device: ":/docker/example"
   ```
   lub zwyczajne określenie na jaki folder hosta ma być on zmapowany
-  ```yml
+  ```yaml
   volumes:
     cvat_share:
       driver_opts:
@@ -463,3 +445,37 @@ Parametry:
 `docker compose stop` - zatrzymuje, ale bez usuwania
 
 `docker compose start` - uruchamia istniejące kontenery dla serwisu
+
+
+## Przydatne snippety
+
+### Tworzenie użytkownika
+
+```docker
+RUN useradd -ms /bin/bash -G sudo,inna_grupa dockeruser
+#Wyłączenie promptu o hasło przy sudo
+RUN echo "dockeruser ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/ubuntu
+#ustawienie kolorowego terminala
+ENV TERM=xterm-256color
+#przełączenie na użytkownika przy dalszych komendach
+USER dockeruser
+WORKDIR /home/dockeruser
+```
+
+### Uruchamianie z dostępem do GUI
+
+W wypadku aplikacji dockerowych możliwe jest ich uruchamianie aplikacji GUI z ich poziomu.
+
+Wymaga to najpierw nadania uprawnień do otwierania okien
+
+```bash
+xhost +local: #Ta opcja jest aktywna do restartu komputera
+```
+
+Poza tym należy dać dockerowi dostęp do odpowiedniego gniazda oraz ustawić zmienną `DISPLAY`
+
+```bash
+docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ubuntu bash
+```
+
+Do przetestowania działania całości warto użyć aplikacji `xeyes` zjandującą się w pakiecie `x11-apps` dla Ubuntu.
