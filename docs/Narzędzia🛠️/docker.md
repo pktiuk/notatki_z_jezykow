@@ -246,7 +246,7 @@ Wyobraźmy sobie, że potrzebujemy 3 apek, które gadają ze sobą.
 
 Tworzymy plik `docker-compose.yml`
 
-```yml
+```yaml
 version: '2'
 services:
 #Każdy z serwisów jest tutaj oddzielony
@@ -297,7 +297,7 @@ Plik `docker-compose.yml` służy do zdefiniowania całych grup kontenerów, kt�
 
 ??? note "Przykładowy docker compose"
 
-    ```yml
+    ```yaml
     services:
       frontend:
         image: awesome/webapp
@@ -355,7 +355,7 @@ Inne parametry dla serwisów:
 
 - `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie) [link](https://docs.docker.com/compose/compose-file/compose-file-v3/)
 
-```yml
+```yaml
 extra_hosts:
   - "somehost:162.242.195.82"
   - "innyhost.local:50.31.209.229"
@@ -369,7 +369,7 @@ Kolejną zaletą wolumenów w kontekście compose'a jest to, że mogą one być 
 
 Przykład:
 
-```yml
+```yaml
 services:
   backend:
     image: awesome/database
@@ -393,13 +393,13 @@ Uruchamiając `docker compose up` docker tworzy wolument jeśli jeszcze nie istn
 Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-file/07-volumes/#attributes) takich jak:
 
 - `external`(true, false) - określa, czy ten wolumen jest zarządzany poza danym serwerem. Jeśli ustawiony na `true` to wszystkie pozostałe flagi są ignorowane (za wyjątkiem name). Jeśli taki wolumen nie istnieje to zwracany jest błąd, jeśli istnieje to jest on podłączany.
-  ```yml
+  ```yaml
   volumes:
     db-data:
       external: true #szukamy czy volume o nazwie db-data istnieje
   ```
 - `driver_opts` - pozwala na zamontowanie wolumentu za pomocą jakiegoś sterownika. Pozwala np. na stworzenie wolumenu znajdującego się na serwerze NFS
-  ```yml
+  ```yaml
   volumes:
   example:
     driver_opts:
