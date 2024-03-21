@@ -143,7 +143,6 @@ Operatory:
 - `**` potęga
 - `2+3j` liczba zespolona
 
-
 Operatory Logiczne zwracają wartość logiczną (True/False)
 
 - `<` - mniejsze
@@ -390,6 +389,11 @@ print(lista[2])
 ! ujemne indeksy oznaczają pozycje liczone od tyłu
 print(lista[-1])
 ## 99
+```
+
+Ogólna składnia indeksowania wygląda tak: `[od:do:krok]`. Domyślnie `od` to 0, `do` to długość listy, a `krok` to 1.
+
+```python
 Odwoływanie się do wycinka listy
 print(lista[2:5])
 ## ['Nowy', (2.5+3.7j), 97]
@@ -397,6 +401,11 @@ Elementy o numerach 2, 3, 4 (bez 5)
 
 "ala ma kota"[-4::] #elementy od trzeciego od końca aż do ostatniego
 #"kota"
+
+"123456789"[::2] #co drugi element
+#13579
+"123456789"[::-1] #odwrócenie listy
+#987654321
 ```
 
 Podmiana
