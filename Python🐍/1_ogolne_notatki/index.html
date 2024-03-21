@@ -1,0 +1,3389 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>Podstawy Pythona 🐍 - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#podstawy-pythona" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Podstawy Pythona 🐍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/architektura_i_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Bash - podstawowe komendy ściągawka
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Programy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Podstawy Pythona 🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Podstawy Pythona 🐍
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quickstart" class="md-nav__link">
+    Quickstart
+  </a>
+  
+    <nav class="md-nav" aria-label="Quickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shebang" class="md-nav__link">
+    Shebang
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcja-main" class="md-nav__link">
+    Funkcja main
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcja main">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenty-programu" class="md-nav__link">
+    Argumenty programu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zwracanie-wartosci" class="md-nav__link">
+    Zwracanie wartości
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-wewy" class="md-nav__link">
+    Funkcje we/wy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importowanie-bibliotek-etc" class="md-nav__link">
+    Importowanie bibliotek etc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podstawy" class="md-nav__link">
+    Podstawy
+  </a>
+  
+    <nav class="md-nav" aria-label="Podstawy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#komentarze" class="md-nav__link">
+    Komentarze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pusta-zmienna" class="md-nav__link">
+    Pusta zmienna
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+    <nav class="md-nav" aria-label="Pętle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#petle-jednolinijkowe-list-comprehensions" class="md-nav__link">
+    Pętle jednolinijkowe (List Comprehensions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#krotka-tuple" class="md-nav__link">
+    Krotka (tuple)
+  </a>
+  
+    <nav class="md-nav" aria-label="Krotka (tuple)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-tuple" class="md-nav__link">
+    named tuple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcja-zip" class="md-nav__link">
+    Funkcja zip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista" class="md-nav__link">
+    Lista
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zbior-set" class="md-nav__link">
+    Zbiór (set)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sownik" class="md-nav__link">
+    Słownik
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adnotacje" class="md-nav__link">
+    Adnotacje
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wyrazenia-lambda" class="md-nav__link">
+    Wyrażenia lambda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zasieg-i-zmienne-globalne" class="md-nav__link">
+    Zasięg i zmienne globalne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przekazywanie-dowolnych-argumentow-kwargs-i-args" class="md-nav__link">
+    Przekazywanie dowolnych argumentów (**kwargs i *args)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dekoratory-funkcji" class="md-nav__link">
+    Dekoratory funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statyczne-pola-funkcji" class="md-nav__link">
+    Statyczne pola funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obiektowka" class="md-nav__link">
+    Obiektówka
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiektówka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obiekt" class="md-nav__link">
+    Obiekt
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiekt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+    <nav class="md-nav" aria-label="Metody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konstruktor-i-destruktor" class="md-nav__link">
+    Konstruktor i destruktor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wasne-operatory" class="md-nav__link">
+    Własne operatory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widocznosc-elementow" class="md-nav__link">
+    Widoczność elementów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statyczne" class="md-nav__link">
+    Statyczne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dziedziczenie" class="md-nav__link">
+    Dziedziczenie
+  </a>
+  
+    <nav class="md-nav" aria-label="Dziedziczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polimorfizm" class="md-nav__link">
+    Polimorfizm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakcja" class="md-nav__link">
+    Abstrakcja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hermetyzacja" class="md-nav__link">
+    Hermetyzacja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specjalne-typy-obiektow" class="md-nav__link">
+    Specjalne typy obiektów
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    Inne
+  </a>
+  
+    <nav class="md-nav" aria-label="Inne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+    <nav class="md-nav" aria-label="Wyjątki">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with" class="md-nav__link">
+    With
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pliki" class="md-nav__link">
+    Pliki
+  </a>
+  
+    <nav class="md-nav" aria-label="Pliki">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dane-o-plikach" class="md-nav__link">
+    Dane o plikach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poprawianie-wydajnosci" class="md-nav__link">
+    Poprawianie wydajności
+  </a>
+  
+    <nav class="md-nav" aria-label="Poprawianie wydajności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wielowatkowosc" class="md-nav__link">
+    Wielowątkowość
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wieloprocesowosc" class="md-nav__link">
+    Wieloprocesowość
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komunikacja-miedzyprocesowa" class="md-nav__link">
+    Komunikacja międzyprocesowa
+  </a>
+  
+    <nav class="md-nav" aria-label="Komunikacja międzyprocesowa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    Pipe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharedtypes" class="md-nav__link">
+    Sharedtypes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronicznosc" class="md-nav__link">
+    Asynchroniczność
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rzeczy-na-ktore-nalezy-uwazac" class="md-nav__link">
+    Rzeczy na które należy uważać⚠️
+  </a>
+  
+    <nav class="md-nav" aria-label="Rzeczy na które należy uważać⚠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wszystko-jest-referencja" class="md-nav__link">
+    Wszystko jest referencją
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicjalizowanie-zmiennych" class="md-nav__link">
+    Inicjalizowanie zmiennych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_inne/" class="md-nav__link">
+        Inne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quickstart" class="md-nav__link">
+    Quickstart
+  </a>
+  
+    <nav class="md-nav" aria-label="Quickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shebang" class="md-nav__link">
+    Shebang
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcja-main" class="md-nav__link">
+    Funkcja main
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcja main">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenty-programu" class="md-nav__link">
+    Argumenty programu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zwracanie-wartosci" class="md-nav__link">
+    Zwracanie wartości
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-wewy" class="md-nav__link">
+    Funkcje we/wy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importowanie-bibliotek-etc" class="md-nav__link">
+    Importowanie bibliotek etc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podstawy" class="md-nav__link">
+    Podstawy
+  </a>
+  
+    <nav class="md-nav" aria-label="Podstawy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#komentarze" class="md-nav__link">
+    Komentarze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pusta-zmienna" class="md-nav__link">
+    Pusta zmienna
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+    <nav class="md-nav" aria-label="Pętle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#petle-jednolinijkowe-list-comprehensions" class="md-nav__link">
+    Pętle jednolinijkowe (List Comprehensions)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#krotka-tuple" class="md-nav__link">
+    Krotka (tuple)
+  </a>
+  
+    <nav class="md-nav" aria-label="Krotka (tuple)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-tuple" class="md-nav__link">
+    named tuple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcja-zip" class="md-nav__link">
+    Funkcja zip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista" class="md-nav__link">
+    Lista
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zbior-set" class="md-nav__link">
+    Zbiór (set)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sownik" class="md-nav__link">
+    Słownik
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adnotacje" class="md-nav__link">
+    Adnotacje
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wyrazenia-lambda" class="md-nav__link">
+    Wyrażenia lambda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zasieg-i-zmienne-globalne" class="md-nav__link">
+    Zasięg i zmienne globalne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przekazywanie-dowolnych-argumentow-kwargs-i-args" class="md-nav__link">
+    Przekazywanie dowolnych argumentów (**kwargs i *args)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dekoratory-funkcji" class="md-nav__link">
+    Dekoratory funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statyczne-pola-funkcji" class="md-nav__link">
+    Statyczne pola funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obiektowka" class="md-nav__link">
+    Obiektówka
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiektówka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obiekt" class="md-nav__link">
+    Obiekt
+  </a>
+  
+    <nav class="md-nav" aria-label="Obiekt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+    <nav class="md-nav" aria-label="Metody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konstruktor-i-destruktor" class="md-nav__link">
+    Konstruktor i destruktor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wasne-operatory" class="md-nav__link">
+    Własne operatory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widocznosc-elementow" class="md-nav__link">
+    Widoczność elementów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statyczne" class="md-nav__link">
+    Statyczne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dziedziczenie" class="md-nav__link">
+    Dziedziczenie
+  </a>
+  
+    <nav class="md-nav" aria-label="Dziedziczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polimorfizm" class="md-nav__link">
+    Polimorfizm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakcja" class="md-nav__link">
+    Abstrakcja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hermetyzacja" class="md-nav__link">
+    Hermetyzacja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specjalne-typy-obiektow" class="md-nav__link">
+    Specjalne typy obiektów
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    Inne
+  </a>
+  
+    <nav class="md-nav" aria-label="Inne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+    <nav class="md-nav" aria-label="Wyjątki">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with" class="md-nav__link">
+    With
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pliki" class="md-nav__link">
+    Pliki
+  </a>
+  
+    <nav class="md-nav" aria-label="Pliki">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dane-o-plikach" class="md-nav__link">
+    Dane o plikach
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poprawianie-wydajnosci" class="md-nav__link">
+    Poprawianie wydajności
+  </a>
+  
+    <nav class="md-nav" aria-label="Poprawianie wydajności">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wielowatkowosc" class="md-nav__link">
+    Wielowątkowość
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wieloprocesowosc" class="md-nav__link">
+    Wieloprocesowość
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komunikacja-miedzyprocesowa" class="md-nav__link">
+    Komunikacja międzyprocesowa
+  </a>
+  
+    <nav class="md-nav" aria-label="Komunikacja międzyprocesowa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    Pipe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharedtypes" class="md-nav__link">
+    Sharedtypes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchronicznosc" class="md-nav__link">
+    Asynchroniczność
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rzeczy-na-ktore-nalezy-uwazac" class="md-nav__link">
+    Rzeczy na które należy uważać⚠️
+  </a>
+  
+    <nav class="md-nav" aria-label="Rzeczy na które należy uważać⚠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wszystko-jest-referencja" class="md-nav__link">
+    Wszystko jest referencją
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicjalizowanie-zmiennych" class="md-nav__link">
+    Inicjalizowanie zmiennych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/pktiuk/notatki_z_jezykow/edit/master/docs/Python🐍/1_ogolne_notatki.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="podstawy-pythona">Podstawy Pythona 🐍</h1>
+<h2 id="quickstart">Quickstart</h2>
+<h3 id="shebang">Shebang</h3>
+<p>Jest to pierwsza linia skryptu (nie tylko w pythonie), która określa za pomocą czego ma być wykonany skrypt (może być to bash, zsh, python)
+Mamy tutaj 2 możliwości:</p>
+<p>Ta bardziej uniwersalna (działa z wieloma systemami operacyjnymi)</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+</code></pre></div>
+<p>Ta mniej uniwersalna, ale pozwalająca używać pythona z różnymi parametrami</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
+</code></pre></div>
+<p>Np z po dodaniu parametru <code>-i</code> nadal pozostaniemy w pythonie po wykonaniu skryptu, co pozwoli nam np zajrzeć do zmiennych, które były użyte, lub łatwo użyć klas, albo metod, które zostały zdefiniowane w skrypcie.</p>
+<h3 id="funkcja-main">Funkcja main</h3>
+<p>wykonuje się, gdy skrypt jest uruchamiany jako samodzielny program, a nie jako moduł czegoś innego</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3 #warto to dać, aby system widział, że to skrypt w pythonie a nie np. w shellu</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Witaj świecie!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="argumenty-programu">Argumenty programu</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Print total number of arguments</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Total number of arguments:&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)))</span>
+
+<span class="c1"># Print all arguments</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Argument List:&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+
+<span class="c1"># Print arguments one by one</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;First argument:&#39;</span><span class="p">,</span>  <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Second argument:&#39;</span><span class="p">,</span>  <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
+<p>Do parsowania bardziej skomplikowanych argumentów warto użyć biblioteki <a href="https://docs.python.org/3/howto/argparse.html">argparse</a></p>
+<h4 id="zwracanie-wartosci">Zwracanie wartości</h4>
+<div class="highlight"><pre><span></span><code><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">numer</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="funkcje-wewy">Funkcje we/wy</h3>
+<div class="highlight"><pre><span></span><code><span class="n">pobrany_napis</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Twój napis to: &quot;</span> <span class="o">+</span> <span class="n">pobrany_napis</span><span class="p">)</span>
+</code></pre></div>
+<p>input() jest funkcją, która pobiera napis podany przez użytkownika ze standardowego wejścia (do entera) zwraca zmienną typu str</p>
+<p>Dla strumieni:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="importowanie-bibliotek-etc">Importowanie bibliotek etc</h3>
+<p>TODO</p>
+<p>Przykładowe importy.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AuthenticationForm</span><span class="p">,</span> <span class="n">PasswordChangeForm</span><span class="p">,</span> <span class="n">PasswordResetForm</span><span class="p">,</span> <span class="n">SetPasswordForm</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>więcej informacji w <a href="../3_modu%C5%82y_i_paczki/">opisie paczek</a>.</p>
+<h2 id="podstawy">Podstawy</h2>
+<h3 id="komentarze">Komentarze</h3>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Komentarz na</span>
+<span class="sd">kilka linii</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#komentarz na jedną linię</span>
+</code></pre></div>
+<h3 id="zmienne">Zmienne</h3>
+<p>Deklarujemy je be określania ich typu <code>a=5</code> (interpreter automatycznie uzna, że to będzie int)
+W odróżnieniu od takich języków jak C++, C# czy Java, w języku Python występuje typowanie dynamiczne. Oznacza to, że konkretny identyfikator, konkretna zmienna, np. a, może raz przechowywać napis ("Ala ma kota") by po chwili przechowywać liczbę całkowitą (3).
+Do sprawdzania typu danych służy funkcja <code>type()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">logiczna</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">logiczna</span><span class="p">))</span>
+<span class="c1">## &lt;class &#39;bool&#39;&gt;</span>
+</code></pre></div>
+<p>Najważniejsze typy zmiennych:</p>
+<ul>
+<li><code>bool</code>, wartość logiczna, tak lub nie, prawda (True) albo fałsz (False)</li>
+<li><code>int</code>, liczba całkowita, np. -7, 0 czy 3:</li>
+<li><code>float</code>, czyli wartość zmiennopozycyjna, można ją utożsamiać z wartościami rzeczywistymi, np. -0.67, 1.0, 3.14</li>
+<li><code>complex</code>, czyli liczba zespolona, np. -7+8.5j. Warto pamiętać, że w Pythonie jednostką urojoną jest j, a nie i</li>
+<li><code>str</code>, powszechnie znany w innych językach jako string, czyli napis. Napis poznajemy głównie po tym, że jest zapisany w cudzysłowie (i to odróżnia go choćby od nazwy zmiennej czy liczby, które nie są w cudzysłowach). Dodamy, że w języku Python nie ma znaczenia, czy posługujemy się pojedynczymi (') czy podwójnymi (") cudzysłowami</li>
+</ul>
+<p>Konwersja typów analogiczna dla przykładu poniżej</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">5.3</span><span class="p">))</span>
+<span class="c1">## 5</span>
+</code></pre></div>
+<p>Operatory:</p>
+<ul>
+<li>dodawanie (<code>+</code>)</li>
+<li>odejmowanie (<code>-</code>)</li>
+<li>mnożenie (<code>*</code>)</li>
+<li>dzielenie (<code>/</code>)</li>
+<li>reszta z dzielenia, modulo (<code>%</code>)
+  Analogiczne co C operatory <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>...
+  UWAGA! Brak operatorów <code>++</code> i <code>--</code></li>
+<li><code>**</code> potęga</li>
+<li><code>2+3j</code> liczba zespolona</li>
+</ul>
+<p>Operatory Logiczne zwracają wartość logiczną (True/False)</p>
+<ul>
+<li><code>&lt;</code> - mniejsze</li>
+<li><code>&lt;=</code> - mniejsze równe, zwróćmy uwagę, że zapisujemy tak jak czytamy, nie ma operatora =&lt; (równe mniejsze)</li>
+<li><code>&gt;</code> - większe</li>
+<li><code>&gt;=</code> - większe równe</li>
+<li><code>==</code> - równa się. Tutaj bardzo ważne jest, aby odróżniać operator przypisania (=) od operatora porównania równa się (==). To bardzo częsty błąd wśród początkujących programistów. Operator = nie jest symetryczny, ma na celu przekopiowanie wartości z prawej do lewej. W niektórych językach zapisuje się go jako &lt;- (ale nie w Pythonie). Operator = nie ma nic wspólnego z wartościami logicznymi. Za to operator == jest operatorem zwracającym wartość logiczną, a co więcej, jest on operatorem symetrycznym (nie ma znaczenia zamienienie kolejnością argumentów).</li>
+<li><code>!=</code> - nie równa się
+  Operator koniunkcji, <code>and</code>, utożsamiany z polskim i. Zwraca wartość True wtedy i tylko wtedy, gdy oba argumenty są równe True
+  Operator alternatywy, <code>or</code>, utożsamiany z polskim lub. Zwraca wartość True wtedy i tylko wtedy, gdy przynajmniej jeden argument jest równy True
+  Operator zaprzeczenia, <code>not</code>, utożsamiany z polskim nie. Zwraca wartość przeciwną, niż argument</li>
+</ul>
+<p>Można łączyć kilka operatorów np:
+<code>czy_wiek_produkcyjny = 18 &lt;= wiek &lt;= 65</code> - w pythonie porównania rozwijane są tak jak w matematyce, czyli np możemy też napisać <code>2 &lt;= 4 &lt; 8</code>, co zwróci nam <code>True</code></p>
+<p>Inne operatory:</p>
+<ul>
+<li><code>is</code> - czy dwie zmienne są różnymi instancjami tego samego obiektu</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">s1</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">s2</span><span class="o">=</span><span class="p">{}</span>
+
+<span class="n">s1</span><span class="o">==</span><span class="n">s2</span>
+<span class="c1">#True</span>
+
+<span class="n">s1</span> <span class="ow">is</span> <span class="n">s2</span>
+<span class="c1">#False ##ponieważ to nie jest ten sam słownik</span>
+</code></pre></div>
+<ul>
+<li><code>in</code> używany do sprawdzenia, czy dana wartość/obiekt zawiera się w liście/słowniku/secie...</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">zbior</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">zbior_pusty</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">zbiorPusty</span><span class="p">)</span>
+<span class="c1">## False</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">zbior</span><span class="p">)</span>
+<span class="c1">## True</span>
+</code></pre></div>
+<p>Instrukcja warunkowa if</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">warunek</span><span class="p">:</span>
+    <span class="n">instrukcja1</span>
+    <span class="n">instrukcja2</span>
+<span class="k">elif</span> <span class="n">warunek2</span><span class="p">:</span> <span class="c1"># gdy warunek nieprawdziwy, sprawdź warunek2</span>
+    <span class="n">instrukcja3</span>
+    <span class="n">instrukcja4</span>
+<span class="k">elif</span> <span class="n">warunek3</span><span class="p">:</span> <span class="c1">#gdy warunek2 nieprawdziwy, sprawdź warunek3</span>
+    <span class="n">instrukcja5</span>
+    <span class="n">instrukcja6</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1">#gdy zaden z warunków nie byl prawdziwy</span>
+    <span class="n">instrukcja7</span>
+    <span class="n">instrukcja8</span>
+</code></pre></div>
+<p>Warto także pamiętać o jedno-linijkowym wariancie if-a:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># a if condition else b</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prawda&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="kc">True</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fałsz&quot;</span><span class="p">)</span>
+<span class="c1">#Prawda</span>
+</code></pre></div>
+<h4 id="pusta-zmienna">Pusta zmienna</h4>
+<p>Czasem <code>_</code> jest używane jako pusta zmienna jest to swego rodzaju odpowiednik <code>/dev/null</code></p>
+<p>TODO dopisać i omówić przykłady:
+<a href="https://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python">https://stackoverflow.com/questions/5893163/what-is-the-purpose-of-the-single-underscore-variable-in-python</a></p>
+<h3 id="petle">Pętle</h3>
+<p>Po <code>for</code> (<code>foreach</code>) może się znajdować lista (obrót dla każdego elementu)
+Po while warunek logiczny (obroty dopóki prawda)</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1">## 0</span>
+<span class="c1">## 1</span>
+<span class="c1">## 2</span>
+<span class="c1">## 3</span>
+
+<span class="c1">#lub</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="n">liczby</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">liczba</span> <span class="ow">in</span> <span class="n">liczby</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liczba</span><span class="p">)</span>
+<span class="c1">## 2</span>
+<span class="c1">## 3</span>
+<span class="c1">## 5</span>
+</code></pre></div>
+<p>Słowo kluczowe <code>continue</code> przerywa dany obrót pętli
+Słowo kluczowe <code>break</code> przerywa całą pętlę</p>
+<p>Jeśli iterujemy po liście krotek możemy sobie je rozbić</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">strings_list</span><span class="p">):</span> <span class="c1">#enumerate zwraca dla danej listy krotkę zawierającą numer i element z listy</span>
+    <span class="c1">###jakiś kod</span>
+</code></pre></div>
+<h4 id="petle-jednolinijkowe-list-comprehensions">Pętle jednolinijkowe (List Comprehensions)</h4>
+<p>Jednolinijkowe pętle zwracające np listę dobre dla prostych operacji, użyteczne do szybkiego generowania tablic.</p>
+<div class="highlight"><pre><span></span><code><span class="n">newlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
+<span class="c1">#albo bez if-a</span>
+<span class="n">newlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;kiwi&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">]</span>
+<span class="n">newlist</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+  <span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">newlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#daje to samo co:</span>
+
+<span class="n">newlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fruits</span> <span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="krotka-tuple">Krotka (tuple)</h3>
+<p>Pewną specyficzną dla języka Python strukturą jest krotka. Polega ona na grupowaniu paru wartości w jeden byt. Warto zaznaczyć, że krotka, która raz została stworzona, nie może być modyfikowana: nie możemy podmienić jednej ze składowych krotki</p>
+<div class="highlight"><pre><span></span><code><span class="n">krotka</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">krotka</span><span class="p">)</span>
+<span class="c1">## (2, 3)</span>
+</code></pre></div>
+<p>Gdybyśmy chcieli uzyskać poszczególne składowe krotki, możemy to zrobić przy użyciu operatora kwadratowych nawiasów. W Pythonie, tak jak w wielu językach programowania, numerujemy składowe od 0:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pierwsza</span> <span class="o">=</span> <span class="n">krotka</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">druga</span> <span class="o">=</span> <span class="n">krotka</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pierwsza</span><span class="p">)</span>
+<span class="c1">## 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">druga</span><span class="p">)</span>
+<span class="c1">## 3</span>
+<span class="n">W</span> <span class="n">krotce</span> <span class="n">możemy</span> <span class="n">mieszać</span> <span class="n">typy</span> <span class="n">danych</span><span class="p">:</span>
+<span class="n">krotka</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Napis&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">krotka</span><span class="p">)</span>
+<span class="c1">## (2, &#39;Napis&#39;)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">krotka</span><span class="p">)</span> <span class="c1">#długość krotki</span>
+<span class="c1">## 2</span>
+</code></pre></div>
+<p>Kiedy krotka może być przydatna? Np. gdy chcemy zwrócić więcej niż jedną wartość w funkcji.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">**</span> <span class="n">y3</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</code></pre></div>
+<p>Jeśli chcemy możemy rozbić krotkę na poszczególne zmienne</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="named-tuple">named tuple</h4>
+<p>Specjalne obiekty działające jak krotki i kompatybilne z nimi.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+<span class="n">pt1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="n">pt2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="c1"># wskazanie poprzez indeks</span>
+<span class="n">line_length</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+ <span class="c1"># rozpakowanie krotki</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">pt1</span>
+</code></pre></div>
+<h4 id="funkcja-zip">Funkcja zip</h4>
+<p>Do operowania na krotkach przydatna jest funkcja wbudowana <code>zip</code> zwracająca iterator (nie listę) pozwalający iterować po krotkach tworzonych z obiektów danych w funkcji.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Charles&quot;</span><span class="p">,</span> <span class="s2">&quot;Mike&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Jenny&quot;</span><span class="p">,</span> <span class="s2">&quot;Christy&quot;</span><span class="p">,</span> <span class="s2">&quot;Monica&quot;</span><span class="p">,</span> <span class="s2">&quot;Vicky&quot;</span><span class="p">)</span> <span class="c1"># wartości nadmiarowe są pomijane</span>
+
+<span class="k">for</span> <span class="n">kr</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kr</span><span class="p">)</span>
+
+<span class="c1">#(&#39;John&#39;, &#39;Jenny&#39;)</span>
+<span class="c1">#(&#39;Charles&#39;, &#39;Christy&#39;)</span>
+<span class="c1">#(&#39;Mike&#39;, &#39;Monica&#39;)</span>
+</code></pre></div>
+<h3 id="lista">Lista</h3>
+<p>Podobną, przynajmniej na pozór, strukturą danych do krotki jest lista. Tutaj także możemy grupować dane oraz nie muszą one być tego samego typu. Jednak główną różnicą jest to, że listę możemy modyfikować. Możemy dodawać nowe elementy czy zastępować dotychczasowe.</p>
+<div class="highlight"><pre><span></span><code><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Napis&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [1, False, &#39;Napis&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
+<span class="c1">## 3</span>
+<span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">2.5</span><span class="o">+</span><span class="mf">3.7</span><span class="n">j</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [1, False, &#39;Napis&#39;, (2.5+3.7j)]</span>
+<span class="n">lista</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">97</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">])</span> <span class="c1"># metoda podobna po append, która przyjmuje jako argument całą listę i dodaje z niej kolejne elementy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [1, False, &#39;Napis&#39;, (2.5+3.7j), 97, 98, 99]</span>
+</code></pre></div>
+<p>Operatory <code>+</code> i <code>*</code> mają zdefiniowane działanie w kontekście list.
+<code>+</code>, tak jak w przypadku napisu, to konkatenacja, czyli połączenie dwóch list w jedną
+<code>*</code> zaś pozwala nam powielić daną listę:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">lista</span> <span class="o">+</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="c1">## [1, False, &#39;Napis&#39;, (2.5+3.7j), 97, 98, 99, 7, 8, 9]</span>
+<span class="nb">print</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1">## [7, 8, 9, 7, 8, 9, 7, 8, 9]</span>
+</code></pre></div>
+<p>Odwołanie się do konkretnego elementu następuje tak jak w krotce:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1">## Napis</span>
+<span class="err">!</span> <span class="n">ujemne</span> <span class="n">indeksy</span> <span class="n">oznaczają</span> <span class="n">pozycje</span> <span class="n">liczone</span> <span class="n">od</span> <span class="n">tyłu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">## 99</span>
+</code></pre></div>
+<p>Ogólna składnia indeksowania wygląda tak: <code>[od:do:krok]</code>. Domyślnie <code>od</code> to 0, <code>do</code> to długość listy, a <code>krok</code> to 1.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Odwoływanie</span> <span class="n">się</span> <span class="n">do</span> <span class="n">wycinka</span> <span class="n">listy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="c1">## [&#39;Nowy&#39;, (2.5+3.7j), 97]</span>
+<span class="n">Elementy</span> <span class="n">o</span> <span class="n">numerach</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">(</span><span class="n">bez</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="s2">&quot;ala ma kota&quot;</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">::]</span> <span class="c1">#elementy od trzeciego od końca aż do ostatniego</span>
+<span class="c1">#&quot;kota&quot;</span>
+
+<span class="s2">&quot;123456789&quot;</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#co drugi element</span>
+<span class="c1">#13579</span>
+<span class="s2">&quot;123456789&quot;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#odwrócenie listy</span>
+<span class="c1">#987654321</span>
+</code></pre></div>
+<p>Podmiana</p>
+<div class="highlight"><pre><span></span><code><span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">102</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [98, 99, 101, 102, (2.5+3.7j), 97, 98, 99]</span>
+</code></pre></div>
+<p>Usuwa 3 pierwsze elementy i na ich miejsce wstawia te podane</p>
+<p>Wstawienie elementu w innym miejscufor klucz in bazaDanychPolakow.keys():</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">klucz</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">wartosc</span> <span class="ow">in</span> <span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wartosc</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">klucz</span><span class="p">,</span> <span class="n">wartosc</span> <span class="ow">in</span> <span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">##Tutaj items() zwraca krotkę</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">klucz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wartosc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
+
+
+<span class="n">lista</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Nowy2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [98, &#39;Nowy2&#39;, 99, 101, 102, (2.5+3.7j), 97, 98, 99]</span>
+<span class="n">Usunięcie</span> <span class="n">elementu</span>
+<span class="k">del</span> <span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="c1">## [98, 99, 101, 102, (2.5+3.7j), 97, 98, 99]</span>
+<span class="n">Napisy</span>
+<span class="n">Zmienna</span> <span class="n">w</span> <span class="n">napisie</span>
+<span class="n">zmienna</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">napis</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;wartość zmiennej to </span><span class="si">{</span><span class="n">zmienna</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">napis</span><span class="p">)</span>
+<span class="c1">## wartość zmiennej to 7</span>
+<span class="n">wieleWierszy</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Tutaj pierwszy</span>
+<span class="s2">a tu drugi</span>
+<span class="s2">tutaj trzeci&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wieleWierszy</span><span class="p">)</span>
+<span class="c1">## Tutaj pierwszy</span>
+<span class="c1">## a tu drugi</span>
+<span class="c1">## tutaj trzeci</span>
+</code></pre></div>
+<p>Kolejność alfabetyczna</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span> <span class="o">&lt;</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="c1">## True</span>
+</code></pre></div>
+<p>Więcej na:
+<a href="https://www.kodolamacz.pl/blog/wyzwanie-python-3-algorytmy-i-struktury-danych/">https://www.kodolamacz.pl/blog/wyzwanie-python-3-algorytmy-i-struktury-danych/</a></p>
+<h3 id="zbior-set">Zbiór (set)</h3>
+<p>to tablica (tyle, że bez indeksowania), w których nie ma dwóch lub więcej identycznych elementów. (jest szybszy od listy)</p>
+<div class="highlight"><pre><span></span><code><span class="n">zbiorPusty</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">zbior</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zbiorPusty</span><span class="p">)</span>
+<span class="c1">## set()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zbior</span><span class="p">)</span>
+<span class="c1">## {1, 3, 5}</span>
+<span class="n">zbior</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">##Dodawanie elementu</span>
+<span class="n">zbior</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">##Usuwanie elementu</span>
+<span class="n">Można</span> <span class="n">w</span> <span class="n">nim</span> <span class="n">łatwo</span> <span class="n">sprawdzać</span><span class="p">,</span> <span class="n">czy</span> <span class="n">dany</span> <span class="n">element</span> <span class="n">należy</span> <span class="n">do</span> <span class="n">zbioru</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">zbiorPusty</span><span class="p">)</span>
+<span class="c1">## False</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">zbior</span><span class="p">)</span>
+<span class="c1">## True</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">zbiorPusty</span><span class="p">)</span>
+<span class="c1">## True</span>
+</code></pre></div>
+<p>Możemy na nich wykonać typowe operacje teoriomnogościowe, jak suma, różnica czy przecięcie dwóch zbiorów</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">})</span> <span class="c1"># suma</span>
+<span class="c1">## {1, 5, 8, 9}</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">})</span> <span class="c1"># różnica</span>
+
+<span class="c1">## {8}</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span> <span class="o">&amp;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">})</span> <span class="c1"># przecięcie</span>
+<span class="c1">## {1, 5}</span>
+<span class="n">Można</span> <span class="n">zapytać</span><span class="p">,</span> <span class="n">czy</span> <span class="n">jeden</span> <span class="n">zbiór</span> <span class="n">jest</span> <span class="n">podzbiorem</span> <span class="n">drugiego</span>
+<span class="nb">print</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span><span class="o">.</span><span class="n">issubset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">}))</span>
+<span class="c1">## True</span>
+</code></pre></div>
+<h3 id="sownik">Słownik</h3>
+<p>Jest to rozszerzenie idei zbioru.
+Słownik zawiera pary klucz-wartość. Wyszukiwanie po kluczu jest szybkie, tak jak w zbiorze, jednak gdy już odnajdziemy klucz, możemy odzyskać także stowarzyszoną z nim wartość. Gdy usuniemy ze słownika wartości, a zostawimy same klucze, otrzymamy zbiór. Tak jak w zbiorze, w słowniku klucze nie mogą się powtarzać.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bazaDanychPolakow</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;89082911111&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="s2">&quot;Kowalski&quot;</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+<span class="s2">&quot;95092200000&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ania&quot;</span><span class="p">,</span> <span class="s2">&quot;Nowak&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
+<span class="s2">&quot;98122422222&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;Mickiewicz&quot;</span><span class="p">,</span> <span class="mi">220</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">bazaDanychPolakow</span><span class="p">[</span><span class="s2">&quot;88081244444&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Magda&quot;</span><span class="p">,</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c1">#Dodanie nowej pary klucz-wartość</span>
+<span class="k">del</span> <span class="n">bazaDanychPolakow</span><span class="p">[</span><span class="s2">&quot;88081244444&quot;</span><span class="p">]</span> <span class="c1">#Usunięcie danej pary</span>
+</code></pre></div>
+<p>Tak jak w zbiorze możemy sprawdzać, czy klucz znajduje się w słowniku.</p>
+<p>Uzyskanie wartości stowarzyszonej z kluczem</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">bazaDanychPolakow</span><span class="p">[</span><span class="s2">&quot;98122422222&quot;</span><span class="p">])</span>
+<span class="c1">## [&#39;Adam&#39;, &#39;Mickiewicz&#39;, 220]</span>
+<span class="n">Gdy</span> <span class="n">chcemy</span> <span class="n">zabezpieczyć</span> <span class="n">się</span> <span class="n">przed</span> <span class="n">odwołaniem</span> <span class="n">do</span> <span class="n">nieistniejącego</span> <span class="n">elementu</span> <span class="p">(</span><span class="n">i</span> <span class="n">w</span> <span class="n">tym</span> <span class="n">wypadku</span> <span class="n">zwrócić</span> <span class="n">wartość</span> <span class="n">domyślną</span><span class="p">),</span> <span class="n">użyjemy</span> <span class="n">metody</span> <span class="n">get</span><span class="p">():</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;89082911111&quot;</span><span class="p">,</span> <span class="s2">&quot;wartość domyślna&quot;</span><span class="p">))</span>
+<span class="c1">## [&#39;Jan&#39;, &#39;Kowalski&#39;, 29]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;95092200022&quot;</span><span class="p">,</span> <span class="s2">&quot;wartość domyślna&quot;</span><span class="p">))</span>
+<span class="c1">## wartość domyślna</span>
+</code></pre></div>
+<p>Przejście w pętli</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">klucz</span> <span class="ow">in</span> <span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">klucz</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">wartosc</span> <span class="ow">in</span> <span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wartosc</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">klucz</span><span class="p">,</span> <span class="n">wartosc</span> <span class="ow">in</span> <span class="n">bazaDanychPolakow</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">##Tutaj items() zwraca krotkę</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">klucz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wartosc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Przy printowaniu słowników (zwłaszcza tych skomplikowanych) warto użyć <code>pprint</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">duzy_slownik</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="funkcje">Funkcje</h3>
+<p>Funkcje</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">nazwaFunkcji</span><span class="p">(</span><span class="n">parametry</span><span class="p">,</span> <span class="n">oddzielone</span><span class="p">,</span> <span class="n">przecinkami</span><span class="p">):</span>
+<span class="k">return</span> <span class="n">wynik</span>
+<span class="n">Wartości</span> <span class="n">domyślne</span> <span class="n">parametrów</span>
+<span class="k">def</span> <span class="nf">potega</span><span class="p">(</span><span class="n">podstawa</span><span class="p">,</span> <span class="n">wykladnik</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="c1">#ciało funkcji</span>
+<span class="n">Argumenty</span> <span class="n">nazwane</span> <span class="n">Możemy</span> <span class="n">podawać</span> <span class="n">argumenty</span> <span class="n">w</span> <span class="n">dowolnej</span> <span class="n">kolejności</span><span class="p">,</span> <span class="n">gdy</span> <span class="n">podamy</span> <span class="n">ich</span> <span class="n">nazwy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">potega</span><span class="p">(</span><span class="n">wykladnik</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">podstawa</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c1">## 81</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">printinfo</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">35</span> <span class="p">):</span>
+   <span class="s2">&quot;Prosta funkcja z domyślnymi wartościami&quot;</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Age &quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+   <span class="k">return</span>
+</code></pre></div>
+<p>Funkcja może także przyjmować wiele argumentów</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#** - zmienne będą interpretowane jako krotka</span>
+<span class="k">def</span> <span class="nf">printinfo</span><span class="p">(</span> <span class="n">arg1</span><span class="p">,</span> <span class="o">*</span><span class="n">krotka</span> <span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output is: &quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">krotka</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+   <span class="k">return</span>
+<span class="c1">#** - zmienne będą interpretowane jako słownik</span>
+<span class="k">def</span> <span class="nf">printinfo2</span><span class="p">(</span> <span class="n">arg1</span><span class="p">,</span> <span class="o">**</span><span class="n">slownik</span> <span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Output is: &quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">slownik</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+   <span class="k">return</span>
+
+<span class="n">printinfo</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="n">printinfo</span><span class="p">(</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span> <span class="p">)</span>
+<span class="n">printinfo2</span><span class="p">(</span><span class="s2">&quot;argum1&quot;</span><span class="p">,</span><span class="n">klucz1</span><span class="o">=</span><span class="n">wart1</span><span class="p">,</span><span class="n">klucz2</span><span class="o">=</span><span class="n">wart2</span><span class="p">,</span><span class="n">klucz3</span><span class="o">=</span><span class="mi">523</span><span class="p">,</span><span class="n">pusty</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#ważne, aby słownik był definiowany jako słownik, czyli klucz=wartosc</span>
+</code></pre></div>
+<p>W pythonie jedna funkcja może zwracać różne rzeczy, obiekty, zmienne, nic.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">returnOrNot</span><span class="p">(</span><span class="n">return_bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">return_bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span>
+</code></pre></div>
+<h4 id="adnotacje">Adnotacje</h4>
+<p>W wypadku funkcji możemy też dodać adnotacje (typowanie zmiennych) do ich argumentów oraz wartości zwracanych (nie są one wykorzystywane przez interpreter, ale ułatwiają dokumentowanie).
+(Uwaga, tej funkcji nie ma w pythonie 2, dla niego jest <a href="https://realpython.com/lessons/type-comments/">workaround o nazwie type comments</a> )</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">funkcja</span><span class="p">(</span> <span class="n">liczba1</span><span class="p">:</span><span class="mi">99</span><span class="o">=</span><span class="mi">12</span> <span class="p">,</span> <span class="n">slowo1</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;sl&quot;</span><span class="p">,</span> <span class="n">slowo2</span><span class="p">:</span><span class="s2">&quot;inne slowo&quot;</span><span class="o">=</span><span class="s2">&quot;inne&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1">#some code</span>
+    <span class="k">return</span> <span class="s2">&quot;slowo&quot;</span>
+
+
+<span class="n">slowo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;inne_slowo&quot;</span>
+</code></pre></div>
+<p>Można potem je sprawdzić poprzez sięgnięcie do atrybutu <code>__annotations__</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="n">funkcja</span><span class="o">.</span><span class="vm">__annotations__</span>
+<span class="p">{</span><span class="s1">&#39;liczba1&#39;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s1">&#39;slowo1&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;, &#39;</span><span class="n">slowo2</span><span class="s1">&#39;: &#39;</span><span class="n">inne</span> <span class="n">slowo</span><span class="s1">&#39;, &#39;</span><span class="k">return</span><span class="s1">&#39;: &lt;class &#39;</span><span class="nb">str</span><span class="s1">&#39;&gt;}</span>
+</code></pre></div>
+<p>W niektórych wypadkach może pojawić się potrzeba zaimportowania oczekiwanych elementów</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>Możliwe są też adnotacje dla elementów klasy <a href="https://peps.python.org/pep-0526/">PEP-526</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Starship</span><span class="p">:</span>
+    <span class="n">stats</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># class variable - pole klasy</span>
+    <span class="n">damage</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>                     <span class="c1"># instance variable - pole instancji</span>
+</code></pre></div>
+<p>W razie problemów spowodowanych kolejnością deklaracji różnych elementów w pliku warto użyć specjalnego importu</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span> <span class="c1"># bez niego poniższy kod by nie działał</span>
+
+<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="n">A</span><span class="p">):</span> <span class="c1">#moglibyśmy otzymać błąd mówiący o odnoszeniu się do nieistniejącej klasy</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h4 id="wyrazenia-lambda">Wyrażenia lambda</h4>
+<p>Lambdy to są funkcje, które można w dość podręczny sposób zdefiniować</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#Ogólna definicja</span>
+<span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">:</span> <span class="n">nasze_wyrazenie</span> <span class="c1">#ta lambda zwróci wartość naszego wyrażenia</span>
+
+<span class="n">nasza_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">nasza_lambda</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#&gt;4</span>
+</code></pre></div>
+<p>Argumenty w lambdach można zapisywać tak samo jak w zwykłych funkcjach, mogą tam być wartości domyślne,</p>
+<h4 id="zasieg-i-zmienne-globalne">Zasięg i zmienne globalne</h4>
+<p>W pythonie na ogół funkcje nie mogą edytować (mogą mieć dostęp, ale nie edytować) zmienne poza swoim zakresem.</p>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># global variable</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># increment c by 2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">add</span><span class="p">()</span>
+<span class="c1">#&gt;2</span>
+<span class="c1">#&gt;UnboundLocalError: local variable &#39;c&#39; referenced before assignment</span>
+</code></pre></div>
+<p>Aby móc je jednak zmieniać jest używane słowo kluczowe <code>global</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># global variable</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">c</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># increment by 2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside add():&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">add</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In main:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="c1">#&gt;Inside add(): 2</span>
+<span class="c1">#&gt;In main: 2</span>
+</code></pre></div>
+<h4 id="przekazywanie-dowolnych-argumentow-kwargs-i-args">Przekazywanie dowolnych argumentów (**kwargs i *args)</h4>
+<p>Pozwalają one na umieszczeanie argumentów o dowolnej liczbie i nazwie w naszej funkcji. <strong>args</strong> przyjmuje je jako listę kolejnych elementów, zaś <strong>kwargs</strong> przyjmuje je jak słownik.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parametr_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;zawartość args: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+<span class="n">parametr_args</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="c1">###zawartość args: (&#39;spam&#39;, &#39;eggs&#39;, &#39;test&#39;)</span>
+
+<span class="k">def</span> <span class="nf">parametr_kwargs</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;argument: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;zawartość kwargs: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
+
+<span class="n">parametr_kwargs</span><span class="p">(</span><span class="n">dodatkowy</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">nastepny</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span> <span class="n">argument</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># argument: 12</span>
+<span class="c1"># zawartość kwargs: {&#39;dodatkowy&#39;: 48, &#39;nastepny&#39;: 111}</span>
+</code></pre></div>
+<p>//TODO <a href="https://printpython.pl/poczatki/zadanie-z-gwiazdka/">https://printpython.pl/poczatki/zadanie-z-gwiazdka/</a></p>
+<h4 id="dekoratory-funkcji">Dekoratory funkcji</h4>
+<p>Jest to element pozwalający na opakowanie naszej funkcji za pomocą innej funkcji, aby wzbogacić jej funkcjonalność.<br />
+Funkcja dekorująca najczęściej przyjmuje funkcję dekorowaną i zwraca nową, wynikową funkcję, która ma zostać wykonana.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#foo jest dekoratorem, który wzbogaci naszą funkcję</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">to_be_wrapped</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">new_func</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uwaga, będzie sześcian&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">to_be_wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># warto je dodać aby argumenty zostały przekazane dalej do funkcji docelowej</span>
+
+    <span class="k">return</span> <span class="n">new_func</span>
+
+<span class="nd">@foo</span> <span class="c1">#jeśli dodamy ten dekorator to użycie tej funkcji zostanie zmienione, tzn zamiast oryginalnej funkcji cube() otrzymamy &quot;wzbogacone&quot; cube drukujące komunikat przed drukowaniem</span>
+<span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">d</span> <span class="o">**</span> <span class="mi">3</span> <span class="c1">#podniesienie do potęgi 3</span>
+
+<span class="n">cube</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#uwaga, będzie sześcian</span>
+<span class="c1">#8</span>
+</code></pre></div>
+<p>Ale warto pamiętać, że jeśli chcemy przygotowywać takie dekoratory wewnątrz klas to musimy pamiętać, żę nieco inaczej wygląda dostęp do <code>self</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Myclass</span><span class="p">:</span>
+    <span class="c1"># wydaje mi się, że tutaj dekorator musi być zdefiniowany jako pierwszy</span>
+    <span class="k">def</span> <span class="nf">_add_loaded_location_to_token</span><span class="p">(</span><span class="n">decorated_fun</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">output_fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">decorated_fun</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">current_location</span> <span class="c1"># po prostu self jest schowany pod pierwszym z argumentów</span>
+            <span class="k">return</span> <span class="n">t</span>
+
+        <span class="k">return</span> <span class="n">output_fun</span>
+
+    <span class="nd">@_add_loaded_location_to_token</span>
+    <span class="k">def</span> <span class="nf">get_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#kod</span>
+        <span class="k">return</span> <span class="n">token</span>
+</code></pre></div>
+<h3 id="statyczne-pola-funkcji">Statyczne pola funkcji</h3>
+<p>Odpowiednikiem zmiennych typu <code>static</code> wewnątrz funkcji jest pole funkcji. <a href="https://stackoverflow.com/questions/279561/what-is-the-python-equivalent-of-static-variables-inside-a-function">źródło</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+  <span class="n">myfunc</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="nb">print</span> <span class="n">myfunc</span><span class="o">.</span><span class="n">counter</span>
+
+<span class="c1"># atrybut musi być gdzieś zainicjalizowany</span>
+<span class="n">myfunc</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<p>Można też dodać atrybut w ten sposób:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">myfunc</span><span class="p">,</span> <span class="s2">&quot;counter&quot;</span><span class="p">):</span>
+     <span class="n">myfunc</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># it doesn&#39;t exist yet, so initialize it</span>
+  <span class="n">myfunc</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div>
+<h2 id="obiektowka">Obiektówka</h2>
+<h3 id="obiekt">Obiekt</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Osoba</span><span class="p">:</span> <span class="c1">#Definicja klasy o nazwie Osoba</span>
+    <span class="n">ile</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># pole klasy</span>
+    <span class="n">imie</span><span class="p">:</span> <span class="nb">str</span> <span class="c1"># adnotacja typu dla pola instancji</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imie</span><span class="p">,</span> <span class="n">nazwisko</span><span class="p">,</span> <span class="n">wiek</span><span class="p">):</span> <span class="c1">#Definicja konstruktora</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imie</span> <span class="o">=</span> <span class="n">imie</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nazwisko</span> <span class="o">=</span> <span class="n">nazwisko</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">=</span> <span class="n">wiek</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jestem </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">imie</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwisko</span><span class="si">}</span><span class="s2">. Mam </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="si">}</span><span class="s2"> lat.&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">urodziny</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wiek_przed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">wiek_przed</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># destruktor, czyli kod, który wykonuje się podczas niszczenia obiektu</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">policz</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">Osoba</span><span class="o">.</span><span class="n">ile</span>
+</code></pre></div>
+<p>Obiekty w pythonie nie mają pól statycznych działających tak jak w innych językach (jak np C++). Tutaj zmiana pola klasy nie zmienia wartości tego pola dla innych instancji <a href="https://stackoverflow.com/questions/68645/static-class-variables-and-methods-in-python">link</a>.</p>
+<h4 id="metody">Metody</h4>
+<p>Metodę możemy poznać min. także po pierwszym argumencie: <code>self</code>.
+W języku Python metody przyjmują jako pierwszy parametr obiekt, na rzecz którego są wywoływane. W samym wywołaniu nie musimy go sami podawać. Wystarczy, że metoda jest napisana po kropce. Następnie następują trzy zwykłe parametry: imie, nazwisko oraz wiek.</p>
+<h5 id="konstruktor-i-destruktor">Konstruktor i destruktor</h5>
+<p>Jest to taka metoda, która jest wywoływana, gdy obiekt jest tworzony. Jej celem jest zainicjowanie pól w instancji. Tu są definiowane parametry klasy.
+Konstruktor poznajemy po jego specjalnej nazwie: <code>__init__</code>.
+Analogicznie działa destruktor (nazwa: <code>__del__</code>)
+Przy wywołaniu pomijamy argument self.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Jan</span> <span class="o">=</span> <span class="n">Osoba</span><span class="p">(</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="s2">&quot;Nowak&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<span class="n">Jan</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1">#Wymuszenie destrukcji obiektu</span>
+</code></pre></div>
+<h5 id="wasne-operatory">Własne operatory</h5>
+<p>W pythonie można w prosty sposób dodawać własne operatory do klas. Możemy w prosty sposób sprawić, że korzystanie z naszych klas będzie wygodniejsze.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Nazwa funkcji</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>str()</code></td>
+<td><code>__str__(self)</code></td>
+<td>Funkcja generująca stringa dla danej klasy. Przydatne do debugowania i nie tylko</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>__add__(a,b)</code></td>
+<td>Dodawanie</td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td><code>__getitem__(self,index)</code></td>
+<td>Te kilka jest potrzebne do poprawnego zaimplementowania operatora <code>[]</code></td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td><code>__setitem__(self,index,item)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td><code>__delitem__(self.index)</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://docs.python.org/3/library/operator.html">Pełniejsza lista operatorów</a>
+TODO popraw i rozbuduj</p>
+<h4 id="widocznosc-elementow">Widoczność elementów</h4>
+<p>W języku Python nie ma pól prywatnych w klasie: nie jesteśmy w stanie w praktyce czegokolwiek “ukryć”. Jednak są pewne zasady nazewnictwa, które działają raczej na zasadzie porozumienia, niż będące prawdziwą barierą. I tak, gdy poprzedzimy nazwę jednym znakiem podkreślenia <code>_</code>, oznajmiamy, że dany element nie jest uwzględniony w dokumentacji, może się zmienić, raczej nie należy z niego korzystać, a środowisko programistyczne nie będzie nam go podpowiadać. Przykładowo pole <code>_imie</code>, np. <code>self._imie</code>, czy <code>self._metoda()</code>.</p>
+<p>Gdy użyjemy dwóch znaków podkreślenia <code>__</code>, zachowanie jest trochę inne: dane pole czy metoda nie będzie widoczna pod tą nazwą wcale, ale za to będzie można się do niego odwołać (dla nazwy <code>__element</code>) poprzez <code>_nazwaklasy.__element</code>.</p>
+<h4 id="statyczne">Statyczne</h4>
+<p>Dla odmiany są one tworzone poza konstruktorem. Do pola tego odwołujemy się poprzez nazwę klasy. Np <code>Osoba.ile</code>
+Sama metoda statyczna ma nad sobą napis <code>@staticmethod</code>. To tzw. <a href="#dekoratory-funkcji">dekorator</a>.
+Metoda statyczna nie może odwoływać się do instancyjnych pól (czyli tych zwykłych, jak imie z poprzedniego przykładu), a jedynie do statycznych. Wynika to z faktu, że metoda statyczna nie jest wywoływana na rzecz konkretnego obiektu, który by takie właśnie pola miał.</p>
+<p>Jeśli jednak chcemy aby nasza metoda miała jakieś informacje na temat naszej klasy można użyć dekoratora <code>@classmethod</code>, który różni się tym, że klasaobiektu (nie instancja) jest przekazywana dalej. <a href="https://stackoverflow.com/questions/136097/difference-between-staticmethod-and-classmethod">Porównanie na stacku</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;executing foo(</span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">class_foo</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;executing class_foo(</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">static_foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;executing static_foo(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="dziedziczenie">Dziedziczenie</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Zwierze</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span> <span class="o">=</span> <span class="n">nazwa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">=</span> <span class="n">wiek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waga</span> <span class="o">=</span> <span class="n">waga</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jestem zwierzęciem </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="si">}</span><span class="s2">, mam </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="si">}</span><span class="s2"> lat oraz wazę </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">waga</span><span class="si">}</span><span class="s2"> kg.&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">urodziny</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">Mrowka</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">pass</span> <span class="c1">#Oznacza, że ciało jest puste</span>
+
+<span class="k">class</span> <span class="nc">Slon</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jestem słoniem </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="si">}</span><span class="s2">, mam </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="si">}</span><span class="s2"> lat oraz wazę </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">waga</span><span class="si">}</span><span class="s2"> kg.&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Lew</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">przedstaw_sie</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A tak w ogóle to jestem lwem&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Papuga</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">,</span> <span class="n">kolor</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kolor</span> <span class="o">=</span> <span class="n">kolor</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">przedstaw_sie</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jako papuga mój kolor to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kolor</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><code>super()</code> zwraca nam instancję klasy bazowej: są to wszystkie pola i metody naszego obiektu, jakie otrzymaliśmy dzięki klasie bazowej.</p>
+<h4 id="polimorfizm">Polimorfizm</h4>
+<p>Pozwala na używanie klasy dziedziczącej wszędzie tam, gdzie może być użyta klasa bazowa.
+Oznacza to, że instancja klasy dziedziczącej jest uznawana za instancję klasy bazowej. W języku Python sprawdzenie przynależności danego obiektu do klasy wykonuje się metodą isinstance():</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">Dumboo</span> <span class="o">=</span> <span class="n">Slon</span><span class="p">(</span><span class="s2">&quot;Dumboo&quot;</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">6000</span><span class="p">)</span>
+    <span class="n">Simba</span> <span class="o">=</span> <span class="n">Lew</span><span class="p">(</span><span class="s2">&quot;Simba&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">Jago</span> <span class="o">=</span> <span class="n">Papuga</span><span class="p">(</span><span class="s2">&quot;Jago&quot;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;czerwony&quot;</span><span class="p">)</span>
+    <span class="n">jakis_zwierz</span> <span class="o">=</span> <span class="n">Zwierze</span><span class="p">(</span><span class="s2">&quot;Katarzyna&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(Dumboo, Slon): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Dumboo</span><span class="p">,</span> <span class="n">Slon</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(Dumboo, Lew): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Dumboo</span><span class="p">,</span> <span class="n">Lew</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(Jago, Papuga): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Jago</span><span class="p">,</span> <span class="n">Papuga</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(Jago, Zwierze): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Jago</span><span class="p">,</span> <span class="n">Zwierze</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(jakis_zwierz, Zwierze): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jakis_zwierz</span><span class="p">,</span> <span class="n">Zwierze</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;isinstance(jakis_zwierz, Papuga): </span><span class="si">{</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">jakis_zwierz</span><span class="p">,</span> <span class="n">Papuga</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="c1">## isinstance(Dumboo, Slon): True</span>
+<span class="c1">## isinstance(Dumboo, Lew): False</span>
+<span class="c1">## isinstance(Jago, Papuga): True</span>
+<span class="c1">## isinstance(Jago, Zwierze): True</span>
+<span class="c1">## isinstance(jakis_zwierz, Zwierze): True</span>
+<span class="c1">## isinstance(jakis_zwierz, Papuga): False</span>
+</code></pre></div>
+<h3 id="abstrakcja">Abstrakcja</h3>
+<p>Uniemożliwia tworzenie instancji danej klasy. Przydatne przy klasach bazowych <a href="https://docs.python.org/3/library/abc.html">dokumentacja</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+
+<span class="k">class</span> <span class="nc">Zwierze</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="o">=</span><span class="n">nazwa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="o">=</span><span class="n">wiek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waga</span><span class="o">=</span><span class="n">waga</span>
+
+    <span class="nd">@abstractmethod</span> <span class="c1">#tutaj wymuszamy implementację tej metody w klasach pochodnych</span>
+    <span class="k">def</span> <span class="nf">nazwa_gatunku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">przedstaw_sie</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jestem </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa_gatunku</span><span class="p">()</span><span class="si">}</span><span class="s2">. Mam na imię </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="si">}</span><span class="s2">, mam </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="si">}</span><span class="s2"> lat oraz wazę </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">waga</span><span class="si">}</span><span class="s2"> kg.&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">urodziny</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">Slon</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">nazwa_gatunku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Słoń&quot;</span>
+
+<span class="k">class</span> <span class="nc">Lew</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">nazwa_gatunku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Lew&quot;</span>
+</code></pre></div>
+<p>Niestety, mechanizm klas i metod abstrakcyjnych (klasa jest abstrakcyjna gdy ma co najmniej jedną metodę abstrakcyjną) w języku Python jest wprowadzony trochę sztucznie. Klasa bazowa (abstrakcyjna) musi dziedziczyć po sztucznej klasie ABC, a metoda abstrakcyjna jest opatrzona dekoratorem <code>@abstractmethod</code>. Zwróćmy uwagę, że jedno i drugie zostało zaimportowane. Jednak po tych czynnościach rzeczywiście nie jesteśmy w stanie stworzyć instancji klasy bazowej.</p>
+<p>Zwróćmy uwagę na ten zaawansowany mechanizm: w klasie Zwierze tworzymy metodę, zakładamy, co ta metoda będzie zwracać, a następnie korzystamy z niej w innej metodzie, pomimo, że prawdziwa jej implementacja nastąpi dopiero w klasie pochodnej. Dzięki temu musimy napisać mniej kodu w klasach pochodnych: musimy jedynie zaimplementować metodę nazwa_gatunku(), jednak nie musimy już od zera pisać kodu na przedstawienie zwierzęta. Jedynie w klasie Papuga, gdzie wprowadziliśmy nowe pole, dopisujemy kod odpowiedzialny za wypisanie jego wartości.</p>
+<p>/TODO jak poradzić sobie z tym?</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Zwierze</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span><span class="o">=</span><span class="n">nazwa</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span><span class="o">=</span><span class="n">wiek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waga</span><span class="o">=</span><span class="n">waga</span>
+
+    <span class="nd">@abstractmethod</span> <span class="c1">#tutaj wymuszamy implementację tej metody w klasach pochodnych</span>
+    <span class="k">def</span> <span class="nf">nazwa_gatunku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">urodziny</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">class</span> <span class="nc">Slon</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">):</span>
+        <span class="n">syper</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">nazwa_gatunku</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nazwa</span>
+
+<span class="k">class</span> <span class="nc">Slon</span><span class="p">(</span><span class="n">Zwierze</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">):</span>
+        <span class="n">syper</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">wiek</span><span class="p">,</span> <span class="n">waga</span><span class="p">)</span>
+
+    <span class="c1"># def nazwa_gatunku(self): bez implementowania nazwy, bo przecież zwykły skoń ma dobrą</span>
+    <span class="c1">#     return self.nazwa</span>
+</code></pre></div>
+<h3 id="hermetyzacja">Hermetyzacja</h3>
+<p>Polega na odcinanie użytkownikowi dostępu do pól, aby operował tylko metodami klasy.
+Jednak oczywiście używanie metod, zwłaszcza z przedrostkiem get, czy set, jest mniej wygodne. Dlatego nowoczesne języki programowania umożliwiają tworzenie tzw. właściwości (ang. property). Z punktu widzenia możliwości, są to po prostu metody, jednak z punktu widzenia zapisu i wygody, przypominają one pola.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Zwierze</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wiek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wiek</span> <span class="o">=</span> <span class="n">wiek</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wiek</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__wiek</span>
+    <span class="nd">@wiek</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">wiek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wiek</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wiek</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wiek</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">wiek</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wiek</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__wiek</span> <span class="o">=</span> <span class="n">wiek</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">jakis_zwierz</span> <span class="o">=</span> <span class="n">Zwierze</span><span class="p">(</span><span class="mi">202</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">jakis_zwierz</span><span class="o">.</span><span class="n">wiek</span><span class="p">)</span>
+    <span class="n">jakis_zwierz</span><span class="o">.</span><span class="n">wiek</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">jakis_zwierz</span><span class="o">.</span><span class="n">wiek</span><span class="p">)</span>
+    <span class="n">jakis_zwierz</span><span class="o">.</span><span class="n">wiek</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">jakis_zwierz</span><span class="o">.</span><span class="n">wiek</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+<span class="c1">## 200</span>
+<span class="c1">## 0</span>
+<span class="c1">## 30</span>
+</code></pre></div>
+<h3 id="specjalne-typy-obiektow">Specjalne typy obiektów</h3>
+<p>Jest lika szczególnie użytecznych typów obiektów nad którymi warto się pochylić</p>
+<p><strong>Enum</strong> - Obiekty wyliczeniowe. Jest kilka rodzajów enumów: <code>Enum</code>, <code>IntEnum</code>, <code>Flag</code> oraz <code>IntFlag</code>. <a href="https://docs.python.org/3/library/enum.html">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>dataclass</strong> - specjalny dekorator dla obiektu dodający automatycznie wiele dodatkowych udogodnień pozwalających uniknąć mozolnego pisania logiki. <a href="https://docs.python.org/3/library/dataclasses.html">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">InventoryItem</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class for keeping track of an item in inventory.&quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">total_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span>
+</code></pre></div>
+<p>Możliwe jest tutaj podawanie spodziewanych typów oraz domyślnych wartości (ale w wypadku typów mutowalnych <a href="https://docs.python.org/3/library/dataclasses.html#mutable-default-values">należy użyć fabryk</a> )</p>
+<p>Taki obiekt może otrzymać (w zależności od paramterów):</p>
+<ul>
+<li>automatycznie wygenerowany konstruktor:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unit_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">quantity_on_hand</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">unit_price</span> <span class="o">=</span> <span class="n">unit_price</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">quantity_on_hand</span> <span class="o">=</span> <span class="n">quantity_on_hand</span>
+</code></pre></div>
+<ul>
+<li>operatory porównania (<code>=</code>, <code>&lt;</code>,<code>&gt;</code> etc.)</li>
+<li>funkcję haszującą</li>
+<li>etc...</li>
+</ul>
+<h2 id="inne">Inne</h2>
+<h3 id="wyjatki">Wyjątki</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">silnia</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;silnia niezdefiniowana dla liczb ujemnych&quot;</span><span class="p">)</span>
+    <span class="n">wynik</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">wynik</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">wynik</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pozyskuję zasób&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Silnia z -5 to </span><span class="si">{</span><span class="n">silnia</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Och nie, coś poszło nie tak! Szczegóły poniżej:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obyło się bez wyjątków&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zwalniam zasób&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Gdy spodziewamy się, że dany fragment kodu może rzucać wyjątkami, opakowujemy go w konstrukcję try-except. Kod, który chcemy wykonać, a który może rzucić wyjątek, zapisujemy po try:. Następnie, na dole tego kodu, piszemy except, po czym piszemy nazwę klasy wyjątku, a także as, po którym mówimy, jakim identyfikatorem (w jakiej zmiennej) chcemy się odnosić do instancji tego wyjątku. Najważniejsza jest nazwa klasy, aby ustalić, jaki typ błędów łapiemy. Konkretna instancja, w przykładzie e, przydaje się, gdy np. chcemy wyświetlić komunikat błędu na ekran. Teoretycznie instancja ma swoje pola, do których możemy się odnieść, jednak rzadko się z nich korzysta.</p>
+<p>Listę wbudowanych klas wyjątków znajdziemy <a href="https://docs.python.org/3/library/exceptions.html">tutaj</a>. Szczególnej uwadze polecamy IndexError, gdy odwołujemy się do nieistniejącego elementu listy, FileNotFoundError, gdy plik nie istnieje, ZeroDivisionError dla dzielenia przez zero i wymieniony w przykładzie ValueError, gdy argumenty funkcji są błędne</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">fun</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dostaliśmy wyjątek Runtime o treści: </span><span class="si">{</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Niedozwolona operacja&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="p">(</span><span class="n">MojError</span><span class="p">,</span> <span class="ne">NameError</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wystąpił jeszcze inny error&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Podczas wykonywania wystąpił błąd, zamykam apkę&quot;</span><span class="p">)</span> <span class="c1"># ten wykona się po każdym z wyjątków</span>
+</code></pre></div>
+<h4 id="with">With</h4>
+<p>Słowo kluczowe <code>with</code> pozwala na alternatywną (czystszą i czytelniejszą obsługę wyjątków)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># file handling</span>
+
+<span class="c1"># 1) without using with statement</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello world !&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 2) without using with statement</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+ <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+ <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># using with statement</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+ <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello world !&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Słowo <code>with</code> pozwala na automatyczne zwalnianie zasobów (na przykładzie powyżej widać, że nie trzeba wołać <code>close()</code>) przy wyjątku.
+Mechanizm ten korzysta z metod <code>__enter__()</code> i <code>__exit__()</code> dla używanego obiektu.</p>
+<p>Możemy wykorzystać ten mechanizm we własnych klasach</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># a simple file writer object</span>
+
+<span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+ <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="n">file_name</span>
+
+ <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span>
+
+ <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+  <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">Manager</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">xfile</span><span class="p">:</span>
+ <span class="n">xfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="pliki">Pliki</h3>
+<div class="highlight"><pre><span></span><code><span class="n">ścieżka_do_pliku</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\przykladowy.txt&quot;</span>
+<span class="c1">#r sprawia, że / nie jest znakiem specjalnym</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>Tutaj mamy wszystko: <code>open()</code> służy otworzeniu połączenia do pliku. Jest to wspomniane wcześniej pozyskanie zasobu. Następnie następuje użycie metody read(). Odczytuje ona całą treść pliku za jednym zamachu. Po pojedynczym odczytaniu, drugie wywołanie zwróci nam napis pusty. Na końcu jest <code>close()</code>, zamknięcie połączenia do pliku. Jest to zwolnienie zasobu.</p>
+<p>Jednak istnieje jeszcze drugi zapis. Używamy słowa kluczowego <code>with</code>. Wtedy definiujemy zasób, mówimy co chcemy zrobić, (open/write) gdy go pozyskamy, a na końcu, po wykonaniu całej klauzuli, zasób jest zwolniony, niezależnie od tego, czy wydarzyła się sytuacja wyjątkowa czy też nie</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Trzeci wiersz&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Czwarty wiersz&quot;</span><span class="p">)</span><span class="c1">#jeżeli nie damy \n to oba wiersze są zapisane w tej samej linijce</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#Pozostałe przydatne metody</span>
+<span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">closed</span> <span class="c1">#informuje czy już zamknięte</span>
+</code></pre></div>
+<p>With open flagi:</p>
+<ul>
+<li><code>r</code> -read</li>
+<li><code>w</code> -write otwiera plik (i nadpisuje, jeżeli tam już coś jest)</li>
+<li><code>a</code> -append (otwiera do zapisu i zaczyna na końcu tzn dopisuje)</li>
+</ul>
+<h4 id="dane-o-plikach">Dane o plikach</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">))</span>
+<span class="c1">## True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\f</span><span class="s2">older</span><span class="se">\&quot;</span><span class="s2">))</span>
+<span class="c1">## [&#39;Wyzwanie6&#39;, &#39;pomysly.txt&#39;, inne pliki...]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;folder1&quot;</span><span class="p">,</span> <span class="s2">&quot;folder2&quot;</span><span class="p">,</span> <span class="s2">&quot;plik.txt&quot;</span><span class="p">))</span>
+<span class="c1">## folder1/folder2/plik.txt #funkcja ta wstawia \ / zależnie od systemu</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">)</span> <span class="c1">#usuwamy plik</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">ino</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">nlink</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">gid</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">atime</span><span class="p">,</span> <span class="n">mtime</span><span class="p">,</span> <span class="n">ctime</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">sciezka_do_pliku</span><span class="p">)</span>
+<span class="n">data_modyfikacji</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">mtime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_modyfikacji</span><span class="p">)</span>
+<span class="c1">## 2018-12-21 10:46:54</span>
+</code></pre></div>
+<h2 id="poprawianie-wydajnosci">Poprawianie wydajności</h2>
+<p>Najczęściej, aby poprawić wydajność aplikacji pisanych w pythonie trzeba się skoncentrować na pełniejszym wykorzystaniu mocy procesora. Jest na to kilka sposobów.</p>
+<h3 id="wielowatkowosc">Wielowątkowość</h3>
+<p>Wielowątkowość w pythonie jest nieco <a href="https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth">śliskim tematem</a>, ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie. <a href="https://realpython.com/python-gil/">dłuższy artykuł</a><br />
+Z tego powodu domyślnie wątki są dobrym pomysłem w wypadku operacji IO, czy też innych zadaniach, które działając w tle nie konsumują czasu procesora.<br />
+Jeśli zaś chcemy w naszej pracy wykorzystać wiele rdzeni procesora równocześnie to warto użyć biblioteki <a href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello threading! with argument: &quot;</span><span class="p">,</span> <span class="n">argument</span><span class="p">)</span>
+
+<span class="n">my_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">foo</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;slowo&quot;</span><span class="p">))</span>
+
+<span class="n">my_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="c1">#&gt;&gt; Hello threading with argument: slowo</span>
+<span class="c1"># kolejne uruchomienie za pomocą start rzuci nam RuntimeError</span>
+</code></pre></div>
+<p>Przy dłuższym czasie wykonywania możemy poczekać na wątki za pomocą <a href="https://docs.python.org/3/library/threading.html#threading.Thread.join">join</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">my_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+<p>lub</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_thread</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="wieloprocesowosc">Wieloprocesowość</h3>
+<p>Biblioteka multiprocessing opiera się na obrabianiu danych w ramach różnych procesów, dzięki czemu każdy proces ma własnego GIL-a, który nie wchodzi w drogę innym procesom. Poza tym jest w obsłudze dość podobna do wątków.
+(niby są takie metody w bibliotece jak <code>os.fork()</code>, ale są one dość niskopoziomowe i niezbyt przenośne)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">work</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;this is process </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span><span class="si">}</span><span class="s1"> called by </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">procesy</span> <span class="o">=</span> <span class="p">[</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">work</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="p">))</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">proces</span> <span class="ow">in</span> <span class="n">procesy</span><span class="p">:</span>
+        <span class="n">proces</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">while</span> <span class="n">procesy</span><span class="p">:</span>
+        <span class="n">procesy</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1">#&gt; this is process 10749 called by 0</span>
+<span class="c1">#&gt; this is process 10750 called by 1</span>
+<span class="c1">#&gt; this is process 10751 called by 2</span>
+<span class="c1">#&gt; this is process 10753 called by 4</span>
+<span class="c1">#&gt; this is process 10752 called by 3</span>
+</code></pre></div>
+<h3 id="komunikacja-miedzyprocesowa">Komunikacja międzyprocesowa</h3>
+<p>W tym wypadku nie mamy już wspólnej pamięci z której możemy korzystać.<br />
+Dlatego stworzone są następujące mechanizmy:</p>
+<ul>
+<li><code>multiprocessing.Queque</code> - prawie to samo co zwykła kolejka (<code>queque.Queque</code>. Praktycznie nie ma różnic w użyciu.</li>
+<li><code>multiprocessing.Pipe</code> - mechanizm nieco zbliżony do gniazd sieciowych</li>
+<li><code>multiprocessing.sharedtypes</code> - pozwala stworzyć typy z C we wspólnej puli pamięci międzyprocesowej</li>
+</ul>
+<p>Do łatwego zarządzani pulą dostępnych procesów mamy obiekt <a href="https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers">Pool</a>. Pozwala ustalić liczbę procesów, które możemy stworzyć jednocześnie. Dla wygody pracy i łatwego przełączania się między procesami i wątkami przy użyciu tego API mamy paczkę <code>multiprocessing.dummy.Pool</code> (te same interfejsy, tylko, że działa na wątkach).</p>
+<h4 id="pipe">Pipe</h4>
+<p><a href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Pipe">Pipe</a> - jest to w pełni dupleksowe połączenie działające podobnie do gniazd (patrz <a href="https://docs.python.org/3/library/socket.html">socket module</a> ) z tą różnicą, że pozwala on na wysyłanie nie tylko ciągów bajtów, lecz także serializowalne obiekty (patrz <a href="https://docs.python.org/3/library/pickle.html">pickle</a> ).</p>
+<p>Konstruktor tworzy dwa obiekty do odbioru i nadawania, które możemy przekazać do naszego procesu.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Pipe</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">])</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">parent_conn</span><span class="p">,</span> <span class="n">child_conn</span> <span class="o">=</span> <span class="n">Pipe</span><span class="p">()</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">child_conn</span><span class="p">,))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">parent_conn</span><span class="o">.</span><span class="n">recv</span><span class="p">())</span>   <span class="c1"># prints &quot;[42, None, &#39;hello&#39;]&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="sharedtypes">Sharedtypes</h4>
+<p>Mamy tutaj klasy <code>Value</code> i <code>Array</code>, warto tu pamiętać o tym, że aby zabezpieczyć się przed równoczesnym pisaniem i czytaniem trzeba używać dołączonych mutexów (<code>Lock</code>, <code>RLock</code>, <code>Semaphore</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">c_double</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">c_double</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">modify</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">value</span> <span class="o">**=</span> <span class="mi">2</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">**=</span> <span class="mi">2</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">**=</span> <span class="mi">2</span>
+        <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">**=</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="n">c_double</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;hello world&#39;</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="n">Point</span><span class="p">,</span> <span class="p">[(</span><span class="mf">1.875</span><span class="p">,</span><span class="o">-</span><span class="mf">6.25</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.75</span><span class="p">,</span><span class="mf">2.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.375</span><span class="p">,</span><span class="mf">9.5</span><span class="p">)],</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">modify</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">A</span><span class="p">))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">A</span><span class="p">])</span>
+
+<span class="c1">#&gt; 49</span>
+<span class="c1">#&gt; 0.1111111111111111</span>
+<span class="c1">#&gt; HELLO WORLD</span>
+<span class="c1">#&gt; [(3.515625, 39.0625), (33.0625, 4.0), (5.640625, 90.25)]</span>
+</code></pre></div>
+<h3 id="asynchronicznosc">Asynchroniczność</h3>
+<p>Wykorzystuje ona korutyny (<a href="https://docs.python.org/3/glossary.html#term-coroutine">coroutines</a>).</p>
+<p>Biblioteką wykorzystywaną do asynchroniczności jest asyncio. Tutoriale <a href="https://docs.python.org/3/library/asyncio-task.html">pythondocs</a>, <a href="https://realpython.com/async-io-python/">realpython</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="o">...</span>     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#w tym momencie oddajemy kontrolę na sekundę</span>
+                               <span class="c1">#w tym czasie CPU może popracować nad czymś innym</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<span class="n">hello</span>
+<span class="n">world</span>
+</code></pre></div>
+<p>Słowa kluczowe:</p>
+<ul>
+<li><code>async</code> i <code>async with</code> - służą do oznaczania funkcji, które są korutynami</li>
+<li><code>await</code> - służy do oznaczania momentu w którym musimy poczekać na wykonanie jakiejś korutyny. W tym momencie przekazujemy kontrolę do pętli zdarzeń.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="c1"># Pause here and come back to g() when f() is ready</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">f</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">r</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">task1</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
+        <span class="n">say_after</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">))</span>
+
+    <span class="n">task2</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
+        <span class="n">say_after</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;started at </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Wait until both tasks are completed (should take</span>
+    <span class="c1"># around 2 seconds.)</span>
+    <span class="k">await</span> <span class="n">task1</span>
+    <span class="k">await</span> <span class="n">task2</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;finished at </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%X</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>TODO ukończyć ten rozdział</p>
+<h2 id="rzeczy-na-ktore-nalezy-uwazac">Rzeczy na które należy uważać⚠️</h2>
+<p>Różne cechy oraz właściwości pythona na które trzeba uważać podczas pisania w pythonie zwłaszcza, gdy nie jest on pierwszym językiem.</p>
+<h3 id="wszystko-jest-referencja">Wszystko jest referencją</h3>
+<p>Warto pamiętać, że w pythonie prawie wszystko jest referencją.<br />
+Np przekazując coś do funkcji przekazujemy tan naprawdę referencję do tego obiektu, z tego powodu wewnątrz funkcji nasz obiekt może ulec zmianie.</p>
+<p>Warto tutaj zapoznać się z pojęciem <code>mutowalności</code>.<br />
+Obiekty niemutowalne to takie, których nowe instancje są tworzone podczas zmiany wartości.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#id() wypisuje identyfikator danej zmiennej</span>
+    <span class="n">x</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">num</span><span class="o">=</span><span class="mi">32</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+<span class="n">fun</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;</span> <span class="mi">9789984</span>
+<span class="o">&gt;&gt;</span> <span class="mi">9789984</span> <span class="c1"># Widać tutaj, że funkcja operuje na tej samej instancji liczby</span>
+<span class="o">&gt;&gt;</span> <span class="mi">9790016</span> <span class="c1"># po zmianie wartości do identyfikatora x jest już przypisany inny obiekt</span>
+</code></pre></div>
+<p>Z tego powodu przekazywanie mutowalnej wartości do funkcji można traktować jako przekazanie kopii, a przekazanie niemutowalnej jako przekazanie referencji lub wskaźnika (w języku C++).</p>
+<table>
+<thead>
+<tr>
+<th>Niemutowalne</th>
+<th>Mutowalne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>lista</td>
+</tr>
+<tr>
+<td>float</td>
+<td>słownik</td>
+</tr>
+<tr>
+<td>complex</td>
+<td>bytearray</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>obiekty użytkownika</td>
+</tr>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>tuple</td>
+<td></td>
+</tr>
+<tr>
+<td>range</td>
+<td></td>
+</tr>
+<tr>
+<td>frozenset</td>
+<td></td>
+</tr>
+<tr>
+<td>bytes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Przykłady działania:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span><span class="o">+</span><span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">liczba</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fun</span><span class="p">(</span><span class="n">liczba</span><span class="p">)</span>
+<span class="c1"># 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liczba</span><span class="p">)</span>
+<span class="c1">#1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Numer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">Numer</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fun2</span><span class="p">(</span><span class="n">numer</span><span class="p">):</span>
+    <span class="n">numer</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">numer</span><span class="o">.</span><span class="n">num</span><span class="o">+</span><span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numer</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+<span class="c1"># 1</span>
+<span class="n">fun2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="c1"># 11</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+<span class="c1"># 11</span>
+</code></pre></div>
+<p>Jeśli chcemy tutaj zapobiec takim problemom warto zastanowić się nad użyciem modułu <code>copy</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># płytka kopia</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>    <span class="c1"># kopia głęboka rekursywnie kopiująca wszystkie elementy naszej klasy</span>
+</code></pre></div>
+<h3 id="inicjalizowanie-zmiennych">Inicjalizowanie zmiennych</h3>
+<p>Skoro wszystko jest referencją to trzeba też o tym pamiętać przy podawaniu domyślnych wartości dla funkcji.<br />
+<a href="https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">num</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">children</span><span class="p">:</span> <span class="nb">list</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">children</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="n">children</span>
+
+
+<span class="n">n1</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="c1"># Node(num=1, children=[])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+<span class="c1"># Node(num=2, children=[])</span>
+
+<span class="n">n1</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="c1">#Node(num=1, children=[3])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+<span class="c1">#Node(num=2, children=[3])</span>
+</code></pre></div>
+<p>Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inicjalizować to dopiero, wewnątrz konstruktora.</p>
+<p>//TODO lista: mixin, importowanie, biblioteka sys, instance methods
+// yield, operator :=
+// from <strong>future</strong> import annotations (ewaluacja definicji z kodu, które pojawiają się później)</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Narzędzia serwerowe☁️" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Narzędzia serwerowe☁️
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../3_modu%C5%82y_i_paczki/" class="md-footer__link md-footer__link--next" aria-label="Next: Podział na Moduły i Paczki📦" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Podział na Moduły i Paczki📦
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>
