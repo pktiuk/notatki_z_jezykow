@@ -70,6 +70,28 @@ Metody modyfikujące:
 - `size()` - zwraca ilość elementów
 - `clear()` - usuwa wszystkie elementy
 
+#### List
+
+`std::list` jest to lista dwukierunkowa, która pozwala na szybkie dodawanie i usuwanie elementów z początku i końca listy. Nie posiada operatora `[]`, więc dostęp do elementów odbywa się za pomocą iteratorów.
+
+```cpp
+#include <list>
+
+std::list<int> numbers = {1, 2, 3, 4, 5};
+```
+
+Metody dostępu:
+
+- `front()`
+- `back()`
+
+Metody modyfikujące:
+
+- `push_front(elem)`, `push_back(elem)`
+- `pop_front()`, `pop_back()`
+- `insert(iterator, elem)`
+- `erase(iterator)`
+
 #### Ciągi znaków `std::string`
 
 ## Mechanizmy języka
