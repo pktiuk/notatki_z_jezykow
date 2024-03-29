@@ -92,6 +92,40 @@ Metody modyfikujące:
 - `insert(iterator, elem)`
 - `erase(iterator)`
 
+#### std::set
+
+Jest to kontener zawierający kolekcję niepowtarzalnych elementów.
+
+Eliminuje on elementy równoważne
+`a jest równoważne b, jeżeli !(a < b) && !(b < a)`
+
+```cpp
+#include <set>
+
+std::set<int> numbers = {1, 2, 3, 4, 5};
+
+set<int> s; //zbiór liczb całkowitych
+s.insert(1); //dodaje elementy do kolekcji
+s.insert(1); //ta operacja jest pusta (usuwa elementy równoważne)
+s.insert(2);
+assert( s.size() == 2); //bada liczbę elementów
+assert( s.count(1) == 1 ); //zlicza liczbę wystąpień elementu
+```
+
+set jest zaimplementowany jako drzewo czerwono-czarne, co pozwala na szybkie dodawanie i usuwanie elementów. Z tego powodu potrzebuje on operatorów `<` i `==` dla swoich elementów.
+
+```cpp
+#include <set>
+
+typedef std::pair<int,int> para;
+//Aby zdefiniować set z parami, musimy zdefiniować operator < dla pary
+bool operator<(const para& a, const para& b) {
+    return a.first < b.first || (a.first == b.first && a.second < b.second);
+}
+
+std::set<para> pary = {para(1, 2), para(2, 3)};
+```
+
 #### Ciągi znaków `std::string`
 
 ## Mechanizmy języka
