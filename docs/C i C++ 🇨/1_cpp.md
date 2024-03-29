@@ -2,7 +2,77 @@
 
 Oficjalna dokumentacja i zalecenia: [ISO CPP GUIDELINES](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 
-## Elementy języka i jego mechanizmy
+## Dane i struktury
+
+### Proste typy danych
+
+Proste typy zmiennych:
+
+- `int` - liczba całkowita
+- `float` - liczba zmiennoprzecinkowa
+- `double` - liczba zmiennoprzecinkowa podwójnej precyzji
+- `char` - pojedynczy znak
+- `bool` - wartość logiczna
+- `void` - brak wartości
+
+### Kontenery
+
+W bibliotekach standardowych C++ mamy następujące typy kontenerów:
+
+- Sekwencyjne
+  - `vector` - jednowymiarowa tablica
+  - `string` - jednowymiarowa tablica
+  - `list` - lista dwukierunkowa
+  - `deque` - kolejka o dwu końcach
+- Asocjacyjne
+  - `set` - usuwa elementy równoważne
+  - `map` - tablica asocjacyjna (słownik)
+  - `multiset` - nie usuwa el. równoważnych
+  - `multimap` - klucz może występować wielokrotnie
+- Haszujące (unordered\_)
+  - `unordered_set`
+  - `unordered_map`
+  - `unordered_multiset`
+  - `unordered_multimap`
+
+Można też je podzielić względem tego na czym bazują:
+
+- Tablice: vector, string, array
+- Węzły: list, set, map, multiset, multimap, unordered_set, unordered_map, unordered_multiset, unordered_multimap
+
+Kontenery biblioteki standardowej operują na kopiach elementów. W przypadku, gdy chcemy operować na oryginalnych elementach, należy użyć wskaźników lub referencji.
+
+#### Vector
+
+Podstawowym kontenerem w C++ jest `std::vector`, który jest odpowiednikiem tablicy dynamicznej w C.
+
+```cpp
+#include <vector>
+std::vector <int> zero_vector(5); //wektor zainicjalizowany 5 zerami
+
+//wektor zainicjalizowany podanymi wartościami
+std::vector<int> numbers = {1, 2, 3, 4, 5};
+
+numbers[0] = 10; //zmiana wartości pierwszego elementu
+```
+
+Metody dostępu (mogą być używane także do zmieniania wartości):
+
+- `at(index)` - zwraca element na danym indeksie (w razie problemów rzuca wyjątek [`std::out_of_range`](https://cplusplus.com/reference/stdexcept/out_of_range/))
+- operator `[]` - zwraca element na danym indeksie (nie sprawdza czy indeks jest poprawny)
+- `front()` - zwraca pierwszy element
+- `back()` - zwraca ostatni element
+
+Metody modyfikujące:
+
+- `push_back(elem)` - dodaje element na koniec
+- `pop_back()` - usuwa element (nie zwraca go).
+- `size()` - zwraca ilość elementów
+- `clear()` - usuwa wszystkie elementy
+
+#### Ciągi znaków `std::string`
+
+## Mechanizmy języka
 
 ### Zarządzanie pamięcią `new` i `delete`
 
@@ -152,7 +222,7 @@ int main()
 
 program wypisze:
 
-```
+```log
 Wołanie konstruktora
 funkcja_zwykla:
 Wołanie konstruktora kopiującego
