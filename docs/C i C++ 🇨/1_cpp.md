@@ -128,6 +128,34 @@ std::set<para> pary = {para(1, 2), para(2, 3)};
 
 #### Ciągi znaków `std::string`
 
+`std::string` jest to kontener przechowujący ciągi znaków.
+
+```cpp
+#include <string>
+
+std::string s = "Hello, World!";
+```
+
+Stringi nie są typowymi kontenerami. Mają one wiele metod do mnipulaji nimi.
+
+Metody do konwersji:
+
+- `std::string::c_str()` - zwraca wskaźnik do tablicy znaków (kiedy potrzebujemy kompatybilności z C)
+- `atoi(str)`, `atof(str)`, `atol(str)` - konwertują string na liczbę (nie są to metody klasy string, ale funkcje globalne)
+- `std::to_string(num)` - konwertuje liczbę na string
+
+Metody do edycji:
+
+- `std::string::erase(start, length)` - usuwa podciąg
+- `std::string::replace(start, length, str)` - zamienia podciąg na inny
+- `std::string::append(str)` - dodaje string na koniec (analogiczny do operatora `+`)
+
+Inne:
+
+- `std::string::compare(str)` - porównuje dwa stringi (zwraca 0, jeżeli są równe lub liczbę ujemną/dodatnią, jeżeli pierwszy jest mniejszy/większy od drugiego)
+- `std::string::substr(start, length)` - zwraca podciąg stringa
+- `std::string::find(str)` - zwraca pozycję, na której zaczyna się podciąg (lub `std::string::npos`, jeżeli nie znaleziono)
+
 ## Mechanizmy języka
 
 ### Zarządzanie pamięcią `new` i `delete`
