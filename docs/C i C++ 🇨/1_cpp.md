@@ -153,8 +153,22 @@ Metody do edycji:
 Inne:
 
 - `std::string::compare(str)` - porównuje dwa stringi (zwraca 0, jeżeli są równe lub liczbę ujemną/dodatnią, jeżeli pierwszy jest mniejszy/większy od drugiego)
+
+  ```cpp
+  std::string s1 = "abc";
+  std::string s2 = "def";
+  assert(s1.compare(s2) < 0);
+  ```
+
+  Do porównań można też użyć operatorów `==`, `!=`, `<`, `>`, `<=`, `>=`
+
 - `std::string::substr(start, length)` - zwraca podciąg stringa
 - `std::string::find(str)` - zwraca pozycję, na której zaczyna się podciąg (lub `std::string::npos`, jeżeli nie znaleziono)
+
+  ```cpp
+  std::string s = "Hello, World!";
+  assert(s.find("World") == 7);
+  ```
 
 ## Mechanizmy języka
 
