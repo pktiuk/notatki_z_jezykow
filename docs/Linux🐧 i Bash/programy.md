@@ -1,4 +1,14 @@
-## Screen
+# Przydatne aplikacje i programy terminalowe
+
+Skrócona lista apek:
+
+- `htop` - lepszy menadżer zadań
+- `btop` - jeszcze lepszy menadżer zadań
+- `atuin` - lesze zarządzanie i przeszukiwanie historii terminala [link](https://docs.atuin.sh/) (zamiennik `history`, oraz kommbinacji `Ctrl+R`)
+- `bat` - lepszy `cat` [link](https://github.com/sharkdp/bat)
+- `tailspin` - aplikacja do wygodnego przeglądania logów https://itsfoss.com/tailspin/
+
+## Screen - czyli jak nie zamykać terminala
 
 Otwarcie nowej sesji
 screeen []
@@ -146,6 +156,18 @@ du -d 1
 # 12      ./.github
 # 8       ./.vscode
 # 11672   .
+```
+
+Zamiast `du` można także skorzystać z aplikacji [dust](https://github.com/bootandy/dust).
+
+```bash
+pawel@sys:~/PROJEKTY/Inne/notatki_z_jezykow$ dust
+3.7M   ┌── docs                                                    │█        │   5%
+3.3M   │     ├── pack-5953b42e499e59029fe9772e94c3b024f01d7c41.pack│█▓▓▓▓▓▓▓ │   5%
+ 65M   │   ┌─┴ pack                                                │████████ │  92%
+ 67M   │ ┌─┴ objects                                               │████████ │  94%
+ 67M   ├─┴ .git                                                    │████████ │  95%
+ 71M ┌─┴ .                                                         │████████ │ 100%
 ```
 
 ### Hardware
