@@ -23,7 +23,11 @@ markdown_extensions:
   - codehilite
   - admonition #https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=collap
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - pymdownx.emoji: #https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search add icons
       emoji_index: !!python/name:materialx.emoji.twemoji

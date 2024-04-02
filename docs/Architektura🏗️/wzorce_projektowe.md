@@ -1,5 +1,3 @@
-<script src="https://pktiuk.github.io/notatki_z_jezykow/Architektura%F0%9F%8F%97%EF%B8%8F/mermaid.min.js"></script> <script>mermaid.initialize({startOnLoad:true});</script>
-
 ## Wzorce projektowe
 
 Podstawowe źródła: [Wikipedia](<https://pl.wikipedia.org/wiki/Wzorzec_projektowy_(informatyka)>) oraz [Refactoring Guru](https://refactoring.guru/pl)
@@ -24,14 +22,16 @@ Ma on takie wady jak:
 - pogarsza elastyczność
 - utrudnia testowanie
 
-<div class="mermaid">
+<!-- <div class="mermaid"> -->
+```mermaid
 classDiagram
     class Singleton{
         -instance
         -Singleton()
         +getInstance()
     }
-</div>
+```
+<!-- </div> -->
 
 ```python
 # jest wiele sposobów implementacji
