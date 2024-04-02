@@ -11,6 +11,14 @@ Istnieje wiele typów diagramów UML. Takie jak:
 - Diagram przypadków użycia (use case) - pokazuje aktorów oraz przypadki użycia systemu
 - ...
 
+Do pracy z diagramami UML można wykorzystać takie narzędzia jak:
+
+- Draw.io - apka do rysowania róźnych diagramów
+- [mermaid](https://mermaid.js.org/) - język do opisywania diagramów tekstowo (nie wszystkich)
+- Wbudowane narzędzia (np. doxygen może wygenerować DIagram klas dla kodu C++, zaś Django potrafi wygenerować diagram ER dla opisywanych struktur danych, zaś DataBeaver potrafi wygenerować taki diagram dla bazy do której się podłączył)
+
+
+
 ## Diagram klas
 
 Przedstawienie klas oraz zależności i relacji między nimi. [Wikipedia](https://pl.wikipedia.org/wiki/Diagram_klas)
@@ -147,6 +155,20 @@ Jak już znajdziemy naszych aktorów warto się zastanowić nad ich przypadkami 
 - Czy aktor będzie informował system o zmianach zachodzących na zewnątrz?
 - Czy każdy aktor będzie informowany o zmianach stanu systemu?
 
+## Diagram sekwencji
+//TODO
+
+Jest on używany do opisu przepływu sterowania oraz interakcji pomiędzy obiektami w czasie. Opisuje on jakie akcje po sobie następują.
+
+```mermaid
+sequenceDiagram
+    Alice->>+John: Hello John, how are you?
+    Alice->>+John: John, can you hear me?
+    John-->>-Alice: Hi Alice, I can hear you!
+    John-->>-Alice: I feel great!
+```
+
+
 ## Diagram aktywności
 
 //TODO
@@ -154,3 +176,24 @@ Jak już znajdziemy naszych aktorów warto się zastanowić nad ich przypadkami 
 ## Diagram stanów
 
 //TODO
+
+
+## Diagram ER (Encji Relacji)
+//TODO
+Jest to diagram używany do opisywania struktur przechowywanych w relacyjnych bazach danych.
+
+```mermaid
+erDiagram
+    User {
+        Int id PK
+        String username
+        Int serverId FK
+    }
+
+    Server {
+        Int id PK
+        String serverName
+    }
+
+    Server ||--o{ User : has
+```
