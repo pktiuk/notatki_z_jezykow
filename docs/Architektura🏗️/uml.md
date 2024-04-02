@@ -17,7 +17,10 @@ Do pracy z diagramami UML można wykorzystać takie narzędzia jak:
 - [mermaid](https://mermaid.js.org/) - język do opisywania diagramów tekstowo (nie wszystkich)
 - Wbudowane narzędzia (np. doxygen może wygenerować DIagram klas dla kodu C++, zaś Django potrafi wygenerować diagram ER dla opisywanych struktur danych, zaś DataBeaver potrafi wygenerować taki diagram dla bazy do której się podłączył)
 
+Przydatne materiały:
 
+- https://www.lucidchart.com/pages/pl/czym-jest-uml-unified-modeling-language
+- 
 
 ## Diagram klas
 
@@ -157,7 +160,7 @@ Jak już znajdziemy naszych aktorów warto się zastanowić nad ich przypadkami 
 
 ## Diagram sekwencji
 //TODO
-
+https://wolski.pro/diagramy-uml/diagram-sekwencji/
 Jest on używany do opisu przepływu sterowania oraz interakcji pomiędzy obiektami w czasie. Opisuje on jakie akcje po sobie następują.
 
 ```mermaid
