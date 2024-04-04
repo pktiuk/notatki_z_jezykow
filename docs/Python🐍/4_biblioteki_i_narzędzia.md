@@ -189,6 +189,20 @@ import time
 time.sleep(60)#minuta
 ```
 
+## Uruchamianie innych aplikacji
+
+Do wygodnego uruchamiania innych aplikacji w terminalu można użyć biblioteki subprocess z metodą [check_output](https://docs.python.org/3/library/subprocess.html#subprocess.check_output).
+
+Przykładowy snippet:
+
+```py
+result = subprocess.check_output(
+        f"pwd", shell=True
+    ).decode()
+print(result)
+#>/home/admin/examples
+```
+
 ## Aplikacje webowe
 
 ### Wykonywanie zapytań w HTMLu - requests
