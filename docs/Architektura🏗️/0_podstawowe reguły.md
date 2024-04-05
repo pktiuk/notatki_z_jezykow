@@ -27,3 +27,4 @@ Graficznych, gdzie ręcznie ustawiamy bloczki
 - draw.io/ diagrams.net
 - visio
 - Gliffy
+- [ExcaliDraw](https://excalidraw.com/)
