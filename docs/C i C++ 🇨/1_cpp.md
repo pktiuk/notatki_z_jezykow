@@ -172,7 +172,9 @@ Inne:
 
 ## Mechanizmy języka
 
-### Zarządzanie pamięcią `new` i `delete`
+### Zarządzanie pamięcią
+
+#### `new` i `delete`
 
 Zarządzanie pamięcią w C++ jest podobne do [zarządzania w C](0_C.md#tablice-i-alokowanie-pamięci). Jednak jest oparta o słowa kluczowe `new` i `delete`. (NIGDY nie mieszajmy tych dwóch sposobów)
 
@@ -400,6 +402,12 @@ funkcja_referencja:
 
 W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
 Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
+
+#### L-Value i R-Value
+
+Przy okazji przekazywania wartości warto pamiętać też o pojęciu `r-value` i `l-value`. (lvalue rvalue)
+
+TODO
 
 ### Wyjątki
 
