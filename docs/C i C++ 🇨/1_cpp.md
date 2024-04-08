@@ -331,6 +331,38 @@ funkcja_referencja:
 W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
 Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
 
+### Wyjątki
+
+Wyjątki służą do niesekwencyjnego przekazania sterowania, kiedy pojawi się jakiś nieoczywisty problem. W C++ wyjątki są rzucane za pomocą słowa kluczowego `throw`, a łapane za pomocą bloku `try-catch`.
+
+Są rzucane w rzadkich sytuacjach, kiedy nie da się kontynuować programu. Należy unikać rzucania wyjątków w miejscach, gdzie można to zastąpić zwracaniem wartości. (ich koszt obliczeniowy jest dużo większy)
+
+```cpp
+try {
+    throw std::runtime_error("Error");
+} catch (std::runtime_error& e) {
+    std::cout << e.what() << std::endl;
+}
+```
+
+Zasady używania:
+
+- Wyjątki powinny dziedziczyć po klasie [`std::exception`](https://cplusplus.com/reference/exception/exception/).
+- Nie należy rzucać wyjątków w destruktorach. Bo podczas wyjątku niszczymy stare klasy i wtedy po raz drugi wywołałby się nasz destruktor i poraz drugi pojawiłby się wyjątek.
+- Wyjątek rzucać przez wartość.
+
+  ```cpp
+  throw Exception //zgłasza wyjątek przez wartość
+  throw new Exception;//zajmuje pamięć na stercie
+  ```
+
+- Wyjątek przechwytywać przez referencję
+
+  ```cpp
+  catch (const Exception& e) //przechwytuje przez referencję
+  //catch(Exception e) //tworzy lokalną kopię
+  ```
+
 ### Klasy
 
 #### Funkcje wirtualne
