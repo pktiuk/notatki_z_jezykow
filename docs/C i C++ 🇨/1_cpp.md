@@ -196,6 +196,76 @@ tab[0] = 5; // przypisuje wartość 5 do pierwszego elementu tablicy
 delete[] tab; // zwalnia pamięć zarezerwowaną dla tablicy tab
 ```
 
+#### Sprytne wskaźniki - Smart Pointers
+
+W związku z wieloma problemami występującymi przy zarządzaniu pamięcią w C++, takimi jak wycieki pamięci, powstały tzw. smart pointery. Są to obiekty, które pomagają zautomatyzować zarządzanie pamięcią.
+
+- `std::unique_ptr` - jest to smart pointer, który przechowuje wskaźnik do obiektu i zwalnia pamięć po wyjściu poza zakres. Nie można go kopiować, ale można przenieść.
+
+  ```cpp
+  std::unique_ptr<int> p(new int);
+  *p = 5;
+  ```
+
+  - obiekty unique_ptr mają wielkość zwykłego wskaźnika
+  - zastąpił on `auto_ptr` z C++98
+  - automatycznie usuwają wskazywany obiekt w destruktorze
+  - mogą być przechowywane w kontenerach standardowych
+  - nie można kopiować, ale można przenieść
+
+  ```cpp
+    std::unique_ptr<Foo> f() {
+      return std::unique_ptr<Foo>(new Foo(42));
+    }
+    std::unique_ptr<Foo> q = f(); //konstruktor kopiujący z r-value
+    // v.push_back(p); //błąd kompilacji - nie ma konstruktora kopiującego
+    v.push_back( std::move(p) ); //v staje się wł. wskazywanego obiektu
+    //teraz p wskazuje na null
+  ```
+
+- `std::shared_ptr` - jest to smart pointer, który przechowuje wskaźnik do obiektu i zwalnia pamięć po wyjściu poza zakres, jeżeli nie ma innych shared_ptr wskazujących na ten obiekt. Można go kopiować.
+
+  - obiekty shared_ptr mają dodatkowo licznik referencji
+  - konstruktor ustwia licznik na 1
+  - konstruktor kopiujący zwiększa licznik referencji
+  - destruktor zmniejsza licznik
+
+  ```cpp
+  #include <memory>
+  class Foo { /* ... */ };
+  {
+    std::shared_ptr<Foo> p1(new Foo(1) );
+    {
+      std::shared_ptr<Foo> p2(p1);
+      //licznik odniesien == 2
+      /* ... */
+    } //destruktor p2, licznik = 1
+  } //destruktor p1 usuwa obiekt
+  ```
+
+- `std::weak_ptr` - jest to smart pointer, który przechowuje wskaźnik do obiektu, ale nie zwiększa licznika referencji. Można go kopiować.
+
+  - używany do uniknięcia cyklicznych referencji
+  - nie zwiększa licznika referencji
+  - nie ma operatora `->` ani `*`
+  - można go zamienić na shared_ptr za pomocą `lock()`
+
+  ```cpp
+  std::shared_ptr<int> p(new int(42));
+  std::weak_ptr<int> q(p);
+  if (std::shared_ptr<int> r = q.lock()) {
+    // r jest teraz shared_ptr
+  }
+  ```
+
+Przy okazji korzystania ze sprytnych wskańników warto wspomnić o istnieniu funkcji `std::make_shared` i [`std::make_unique`](https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique), które pozwalają na tworzenie obiektów bezpośrednio w smart pointerach, bez używaniu operatora `new`.
+
+```cpp
+#include <boost/make_shared.hpp>
+std::shared_ptr<Foo> pf = make_shared<Foo>(); //konstruktor domyślny
+std::shared_ptr<Foo> pf2 = make_shared<Foo>(arg1,...,argN);
+```
+
 ### Pętle
 
 Typy pętli:
@@ -276,7 +346,7 @@ Składnia lambdy:
 }
 ```
 
-### Przekazywanie argumentów do funkcji
+#### Przekazywanie argumentów do funkcji
 
 W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.
 
