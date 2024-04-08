@@ -15,7 +15,7 @@ Proste typy zmiennych:
 - `bool` - wartość logiczna
 - `void` - brak wartości
 
-### Kontenery
+### Kontenery📦
 
 W bibliotekach standardowych C++ mamy następujące typy kontenerów:
 
@@ -23,7 +23,7 @@ W bibliotekach standardowych C++ mamy następujące typy kontenerów:
   - `vector` - jednowymiarowa tablica
   - `string` - jednowymiarowa tablica
   - `list` - lista dwukierunkowa
-  - `deque` - kolejka o dwu końcach
+  - `deque` - kolejka o dwóch końcach
 - Asocjacyjne
   - `set` - usuwa elementy równoważne
   - `map` - tablica asocjacyjna (słownik)
@@ -448,26 +448,48 @@ Używając tych operatorów na ogół powinno się operować na wskaźnikach (al
      cout << *wskaznik << endl; //wypisze 3.14
 ```
 
-## Biblioteki
+## Wydajność
 
 ### Wątki
 
-Jest wiele sposobów na wątki, ale najprostszym do użycia jest `std::thread`
+Jest wiele sposobów na wątki, ale najprostszym do użycia jest [`std::thread`](https://en.cppreference.com/w/cpp/thread/thread/thread)
 
 ```cpp
 #include <thread>
 
-// Start thread t1
-    std::thread t1(callable);
+void foo() {
+    // funkcja, którą chcemy uruchomić w nowym wątku
+}
 
-    // Wait for t1 to finish
-    t1.join();
+int main() {
+    std::thread t(foo); // tworzymy nowy wątek, który uruchomi funkcję foo
+    //robimy coś w głównym wątku
+    t.join(); // czekamy na zakończenie wątku
+}
+```
 
-    // t1 has finished do other stuff
+W wypadku klas wygląda to następująco:
 
-    //Wywołanie dla metody w klasie
-    std::thread t2(&Klasa::moja_metoda,&instancja_klasy, argument1, argument2, argument3);
-    t2.join();
+```cpp
+#include <thread>
+
+class Klasa
+{
+public:
+    void foo()
+    {
+        // funkcja, którą chcemy uruchomić w nowym wątku
+    }
+};
+
+int main()
+{
+    Klasa k;
+    //std::thread t(&Klasa::moja_metoda,&instancja_klasy, argument1, argument2, argument3);
+    std::thread t(&Klasa::foo, &k); // tworzymy nowy wątek, który uruchomi funkcję foo
+    //robimy coś w głównym wątku
+    t.join(); // czekamy na zakończenie wątku
+}
 ```
 
 ## Inne Słowa kluczowe
