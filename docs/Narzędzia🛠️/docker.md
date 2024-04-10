@@ -101,6 +101,24 @@ Deleted Images:
 untagged: alpine:latest
 ```
 
+#### Przenoszenie obrazów
+
+Możliwe jest także zapisywanie istniejących obrazów do plików `.tar`.
+
+Dzięki temu można je wczytywać na maszynach pozbawionych dostęþu do sieci.
+
+```bash
+docker save -o <path for generated tar file> <image name>
+#na przykład
+docker save -o ./image.tar ubuntu:20
+```
+
+Wczytuje się analogicznie
+
+```bash
+docker load -i <path to image tar file>
+```
+
 ### Zarządzanie kontenerami
 
 [`docker container ls`](https://docs.docker.com/engine/reference/commandline/container_ls/) - wypisuje kontenery obecnie uruchomione w systemie, dodanie flagi `-a` sprawia, że pokazuje także te wyłączone.
