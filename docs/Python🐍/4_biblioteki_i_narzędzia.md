@@ -203,6 +203,23 @@ print(result)
 #>/home/admin/examples
 ```
 
+Innym, ogólniejszym wariantem jest uruchomienie [`subprocess.run()](https://docs.python.org/3/library/subprocess.html#subprocess.run), który zwraca obiekt [CompletedProcess](https://docs.python.org/3/library/subprocess.html#subprocess.CompletedProcess)
+
+```py
+subprocess.run(["ls", "-l"])  #printuje komendę na stdout
+#>total 12
+#>-rw-rw-rw-   1 codespace root  199 Mar  5 13:11 README.md
+#>drwxrwxrwx+ 10 codespace root 4096 Mar 15 14:44 docs
+#>-rw-rw-rw-   1 codespace root 1085 Apr  2 12:30 mkdocs.yml
+#>CompletedProcess(args=['ls', '-l'], returncode=0)
+```
+
+Przydatne argumenty:
+
+- `shell: bool = False` - dzięki temu możemy podawać komendy jako jeden dłuższy string, a nie listę (`ls --all`)
+- `check: bool = False` - kiedy komenda zwróci status inny niż 0, metoda rzuca wyjątek: `CalledProcessError`
+- `capture_output: bool = False` - STDOUT jest przechwytywany i umieszczany w zmiennej `CompletedProcess`
+
 ## Aplikacje webowe
 
 ### Wykonywanie zapytań w HTMLu - requests
