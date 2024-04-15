@@ -403,11 +403,83 @@ funkcja_referencja:
 W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
 Aby uniknąć takich problemów warto przekazywać te argumenty jako `const`, albo zastanowić się, czy jednak kopia nie będzie lepsza.
 
-#### L-Value i R-Value
+#### L-Value, R-Value i std::move
 
-Przy okazji przekazywania wartości warto pamiętać też o pojęciu `r-value` i `l-value`. (lvalue rvalue)
+**L-Value** - jest to obiekt, który ma swoje miejsce w pamięci, czyli możemy go zmieniać, przypisywać do niego wartości, pozyskać jego położenie itp. Jest on odniesieniem do konkretnego miejsca w pamięci. Jest to wyrażenie zwbędące referencją na obiekt.
 
-TODO
+**R-Value** - jest to obiekt, który nie ma swojego miejsca w pamięci, czyli nie możemy go zmieniać, przypisywać do niego wartości itp. W niektórych wypadkach można powiedzieć, że to on jest wartością. Nie możemy do niego przypisać jakiejś chcianej przez nas wartości.
+
+```cpp
+int a = 5; //a jest L-Value, a 5 jest R-Value
+
+int &foo(){
+  static int i=5;
+  return i;
+}
+
+foo()// L-Value ponieważ zwraca referencję na i
+
+struct St{
+  int x;
+}
+
+St s; // s jest L-Value
+s.x = 5; // s.x jest L-Value
+
+Bar(); // R-Value ponieważ nie zwraca referencji, lecz jest nowym obiektem
+```
+
+Jednym z przykładów zastosowania tej wiedzy jest przypisywanie wartości do obiektów.
+
+```cpp
+int i=32;
+int j=99;
+int *p = &i;
+7 = i; //błąd kompilacji, 7 jest R-Value
+
+*p = j; //poprawne, *p jest L-Value
+
+((i>21) ? i : j) = 42; //dozwolone, ponieważ wyrażenie po lewej zwraca jedno z dwóch l-value
+```
+
+Jednak najczęstszym wykorzystaniem tych pojęć jest [`std::move`](https://en.cppreference.com/w/cpp/utility/move). Jest to funkcja, która pozwala na przeniesienie obiektu z jednego miejsca do drugiego. Jest to bardzo przydatne w przypadku, gdy chcemy przenieść obiekt, a nie kopiować go, poniweaż kopiowanie obiektów może być kosztowne. [link1](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html#Move_Semantics)
+
+```cpp
+template <class T> swap(T& a, T& b)
+{
+    T tmp(a);   // teraz mamy 2 kopie a
+    a = b;      // teraz mamy 2 kopie b
+    b = tmp;    // teraz mamy 2 kopie tmp (czyli a)
+}
+// aby zrobić to bez kopii możemy użyć std::move
+template <class T> swap(T& a, T& b)
+{
+    T tmp(std::move(a));
+    a = std::move(b);
+    b = std::move(tmp);
+}
+```
+
+Z jego pomocą mówimy też kompilatorowi, że nie zamierzamy już korzystać z danego obiektu, po przekazaniu.
+
+```cpp
+std::vector<int> v1 = {1, 2, 3, 4, 5};
+std::vector<int> v2 = std::move(v1); //przenosimy v1 do v2
+// v1.clear(); //błąd kompilacji, v1 jest już przeniesione i nie powinniśmy z niego korzystać
+```
+
+`std::move` łączy się z operatorem `&&`, który jest oznaczeniem R-Value Reference.
+
+```cpp
+class Klasa
+{
+public:
+    Obj o;
+    Klasa() {}
+    // prosty konstruktor przenoszący
+    Klasa(Klasa&& other): o(std::move(other.o)) {}
+};
+```
 
 ### Wyjątki
 
@@ -618,7 +690,7 @@ explicit TODO
 
 ## Do zrobienia
 
-TODO: std::move, lvalue i rvalue, &&, ogólnie o klasach i dziedziczeniu, explicit C- czyli co musi być kompilowane jako czyste C, typy smart pointerów.
+TODO: ogólnie o klasach i dziedziczeniu, explicit C- czyli co musi być kompilowane jako czyste C, typy smart pointerów.
 
 //TODO VOLATILE https://en.cppreference.com/w/cpp/language/cv
 
