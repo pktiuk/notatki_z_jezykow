@@ -497,3 +497,27 @@ docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ubuntu 
 ```
 
 Do przetestowania działania całości warto użyć aplikacji `xeyes` zjandującą się w pakiecie `x11-apps` dla Ubuntu.
+
+
+### Sprawdzanie rozmiaru dockera i ogólne czyszczenie
+
+Aby otrzymać podsumowanie elementów dockerowych znajdujących się w systemie należy użyć komendy df
+
+```bash
+$ docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          16        16        34.44GB   6.447GB (18%)
+Containers      23        23        146.5MB   0B (0%)
+Local Volumes   18        14        806.6GB   2.222MB (0%)
+Build Cache     116       0         0B        0B
+```
+
+Aby otrzymać konkretną listę trzeba dodać flagę `-v`.
+
+Do czyszczenia można użyć następujących komend
+
+```bash
+docker container prune #usuwa wyłączone kontenery
+docker image prune #usuwa obrazy, do których nie ma przypisanych tagów
+docker builder prune #czyści build cache
+```
