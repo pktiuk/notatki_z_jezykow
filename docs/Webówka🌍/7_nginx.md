@@ -31,3 +31,5 @@ http{ # Tutaj opisujemy zasady dla protokołu http
 }
 
 ```
+
+/// TODO sprawdzić prostsze alternatywi jak CADDY https://caddyserver.com/
