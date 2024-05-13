@@ -1,6 +1,6 @@
 # NodeJS
 
-Jest to narzędzie wykorzystywane do rozwijania komponentów systemów rozproszonych.  
+Jest to specjalny interpreter JS-a wykorzystywane do aplikacji backendowych.  
 Dostarcza serię modułów, które pomagają w rozwijaniu takich apek.  
 Jest zaprojektowany do zwinnego rozwijania skalowalnych aplikacji.
 
@@ -24,6 +24,20 @@ Zastosowania:
 - Niekrytyczne aplikacje
 - Aplikacje z lekkimi interfejsami REST/JSON
 - Aproste aplikacje (takie, które korzystają z AJAX-a, do interakcji z serwerami)
+
+## Uruchomienie
+
+Node i skrypty wykorzystujące go mogą być uruchamiane z terminala podobnie jak python.
+
+```bash
+node skrypcik.js
+```
+
+Analogicznie do pythona możemy tutaj łatwo korzystać z zewnętrznych modułów zainstalowanych za pomocą `npm`.
+
+```bash
+npm install nazwa_modułu
+```
 
 ## Przyjmowanie argumentów programu `argv`
 
