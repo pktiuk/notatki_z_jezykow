@@ -770,6 +770,32 @@ class Myclass:
         return token
 ```
 
+#### overload (przeciążanie funkcji)
+
+W Pythonie możliwe jest także przeciążanie funkcji oraz metod. Można do tego celu użyć dekotarota [`@overload`](https://peps.python.org/pep-3124/).  
+Pozwala on zdefiniować alternatywne implementacje funkcji.
+
+```py
+from overloading import overload
+from collections import Iterable
+
+def flatten(ob):
+    """Flatten an object to its component iterables"""
+    yield ob
+
+@overload
+def flatten(ob: Iterable):
+    for o in ob:
+        for ob in flatten(o):
+            yield ob
+
+@overload
+def flatten(ob: basestring):
+    yield ob
+```
+
+//TODO zweryfikować czy używanie tego jest dobrą praktyką
+
 ### Statyczne pola funkcji
 
 Odpowiednikiem zmiennych typu `static` wewnątrz funkcji jest pole funkcji. [źródło](https://stackoverflow.com/questions/279561/what-is-the-python-equivalent-of-static-variables-inside-a-function)
