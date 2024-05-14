@@ -187,6 +187,19 @@ Przykład dla boosta: [link](https://gist.github.com/pktiuk/2136eeefaf4271510d82
 ```python
 import time
 time.sleep(60)#minuta
+
+now = time.time() #godzina jako epoch w sekundach
+# 1715610262.8038244 
+```
+
+Do wygodniejszej obsługi czasu i jego ptintowania można użyć biblioteki `datetime`
+
+```py
+>>> datetime.datetime.now()
+datetime.datetime(2024, 5, 14, 19, 14, 0, 297824)
+
+>>> datetime.datetime.fromtimestamp(1715610262.8038244)
+datetime.datetime(2024, 5, 13, 16, 24, 22, 803824)
 ```
 
 ## Uruchamianie innych aplikacji
