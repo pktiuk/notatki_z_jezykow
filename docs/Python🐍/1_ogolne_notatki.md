@@ -835,6 +835,13 @@ Jan = Osoba("Jan", "Nowak", 48)
 Jan = None #Wymuszenie destrukcji obiektu
 ```
 
+Kiedy interpreter napotka kod `Foo()` dzieją się następujące rzeczy:
+
+- Wołana jest metoda `__call__()` dla klasy po której `Foo` dziedziczy (domyślnie to jest klasa `type`)
+- metoda `__call__()` woła odpowiednio:
+  -  `__new__()` - new tworzy nową instancję klasy (po więcej szczegółów sprawdź [metaklasy](#metaklasy) )
+  -  `__init__()` - init ją inicjalizuje (z tego powodu on nie musi nic zwracać)
+
 ##### Własne operatory
 
 W pythonie można w prosty sposób dodawać własne operatory do klas. Możemy w prosty sposób sprawić, że korzystanie z naszych klas będzie wygodniejsze.
@@ -1048,6 +1055,86 @@ if __name__ == "__main__":
 ## 0
 ## 30
 ```
+
+### Metaklasy
+
+Metaklasa (metaclass) jest typem danej klasy. Odpowiada on typowi samej klasy, nie zaś typowi dla jej instancji. [link1](https://realpython.com/python-metaclasses/), [link2](https://www.pythontutorial.net/python-oop/python-metaclass/)
+
+```py
+class Cl:
+    pass
+
+c = Cl()
+type(c)
+#>> <class '__main__.Cl'> 
+#Klasa Cl jest typem dla instancji
+
+type(Cl)
+#>> <class 'type'>
+# Klasa type jest typem dla klasy jest to tzw. Metaklasa
+
+type(type)
+#>> <class 'type'>
+#type jest domyślną uniwersalną metaklasą
+```
+
+```mermaid
+flowchart BT
+
+type
+Cl
+c
+
+c --> Cl
+Cl --> type
+type --> type
+```
+
+Metaklasa `type` może być wykorzystana także do generowania definicji klas w sposób dynamiczny używając konstruktora: `type(<name>, <bases>, <dct>)`
+
+- `name` -nazwa klasy
+- `bases` - krotka z klasami po których dziedziczymy
+- `dict` słownik z polami klasy (czyli polami, funkcjami etc)
+
+```py
+Foo = type('Foo', (), dict(length=100))
+```
+
+Własne metaklasy służą przede wszystkim do modyfikowania tworzenia nowych klas, ponieważ metoda `__new__` nie może być zmieniana dla domyślnej metaklasy. (opis tworzenia możesz znaleźć w rodziale [konstruktory](#konstruktor-i-destruktor)).
+
+```py
+class Meta(type):
+    def __new__(cls, name, bases, dct):
+        x = super().__new__(cls, name, bases, dct)
+        x.attr = 100
+        return x
+
+class Foo(metaclass=Meta):
+    pass
+```
+
+Na ogół Metaklasy są rzadko używanym mechanizmem, ponieważ wiele problemów może być rozwiązanych w prostszy sposób. W wypadku potrzeby ustawienia pewnych elementów wystarczą albo dekoratory dla klas, bądź proste dziedziczenie.
+
+```py
+def dekorator(cls):
+    class NewClass(cls):
+        attr = 100
+    return NewClass
+
+@dekorator
+class Udekorowana:
+    pass
+
+#dziedziczenie
+class Base:
+     attr = 100
+
+class Pochodna(Base):
+    pass
+```
+
+////TODO więcej przykładów
+
 
 ### Specjalne typy obiektów
 
@@ -1555,4 +1642,3 @@ Dlatego też wielu uważa, że lepiej dać None jako domyślną wartość i inic
 //TODO lista: mixin, importowanie, biblioteka sys, instance methods
 // yield, operator :=
 // from **future** import annotations (ewaluacja definicji z kodu, które pojawiają się później)
-// metaklasy https://realpython.com/python-metaclasses/
