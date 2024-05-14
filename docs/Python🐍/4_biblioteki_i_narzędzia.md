@@ -192,14 +192,21 @@ now = time.time() #godzina jako epoch w sekundach
 # 1715610262.8038244 
 ```
 
-Do wygodniejszej obsługi czasu i jego ptintowania można użyć biblioteki `datetime`
+Do wygodniejszej obsługi czasu i jego ptintowania można użyć biblioteki `datetime`.  
+Możemy tutaj zdefiniować także własny format printowania daty. [link](https://docs.python.org/3/library/datetime.html#datetime.date.strftime)
 
 ```py
->>> datetime.datetime.now()
-datetime.datetime(2024, 5, 14, 19, 14, 0, 297824)
+import datetime
+datetime.datetime.now()
+# datetime.datetime(2024, 5, 14, 19, 14, 0, 297824)
 
->>> datetime.datetime.fromtimestamp(1715610262.8038244)
-datetime.datetime(2024, 5, 13, 16, 24, 22, 803824)
+datetime.datetime.fromtimestamp(1715610262.8038244)
+# datetime.datetime(2024, 5, 13, 16, 24, 22, 803824)
+
+x = datetime.datetime(2018, 6, 1)
+
+print(x.strftime("%B")) 
+# June
 ```
 
 ## Uruchamianie innych aplikacji
