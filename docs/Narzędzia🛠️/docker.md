@@ -521,3 +521,18 @@ docker container prune #usuwa wyłączone kontenery
 docker image prune #usuwa obrazy, do których nie ma przypisanych tagów
 docker builder prune #czyści build cache
 ```
+
+#### Przenoszenie danych dockerowych
+
+Domyślnie Docker przechowuje dane takie jak obrazy w folderze `/var/lib/docker/` w niektórych wypadkach warto zmienić to położenie na jakichś zewnętrzby dysk.
+
+Aby to zmienić należy to ustawić za pomocą pola `data-root` w pliku `/etc/docker/daemon.json`. [link do stacka](https://stackoverflow.com/questions/24309526/how-to-change-the-docker-image-installation-directory), [Link do tutorialu o tym](https://blog.adriel.co.nz/2018/01/25/change-docker-data-directory-in-debian-jessie/)
+
+Kroki:
+
+1. Edytuj `/etc/docker/daemon.json`
+2. Wyłącz dockera `sudo systemctl stop docker` i sprawdź czy już go nie ma `ps aux | grep -i docker | grep -v grep`
+3. (opcjonalnie) Skopiuj obecne pliki dockera: `sudo rsync -axPS /var/lib/docker/ /new/path/to/docker-data`
+4. Uruchom ponownie `sudo systemctl start docker`
+5. Sprawdź położenie `docker info | grep 'Docker Root Dir'`
+6. Usuń stare pliki `sudo rm -r /var/lib/docker`
