@@ -371,12 +371,13 @@ Podstawowe parametry dla serwisów [dokumentacja](https://docs.docker.com/compos
 
 Inne parametry dla serwisów:
 
-- `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie) [link](https://docs.docker.com/compose/compose-file/compose-file-v3/)
+- `extra_hosts` - lista mapowań adresów na nazwy (pojawią się w pliku `/etc/hosts` na maszynie) [link](https://docs.docker.com/compose/compose-file/compose-file-v3/). Najbardziej użytecznym mapowaniem może być tutaj mapowanie `host-gateway`, które mapuje adres maszyny na której stoi docker.
 
 ```yaml
 extra_hosts:
   - "somehost:162.242.195.82"
   - "innyhost.local:50.31.209.229"
+  - "host.docker.internal:host-gateway"
 ```
 
 #### Wolumeny
