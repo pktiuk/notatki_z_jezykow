@@ -1,4 +1,4 @@
-# Bash - podstawowe komendy ściągawka
+# Terminal - podstawowe komendy i koncepty
 
 ## Szukanie pomocy
 
@@ -14,6 +14,81 @@ Sprawdzanie co jest czym oraz do czego służy
 [link do regexów](./regex.md)
 
 ## Pliki
+
+### Uprawnienia plików
+
+Każdy plik w linuxie  ma swoje uprawnienia, które są podzielone na trzy grupy:
+
+- właściciel `u`
+- grupa `g`
+- inni `o`
+
+Każda z tych grup ma swoje uprawnienia do pliku, które są podzielone na:
+
+- odczyt `r`
+- zapis `w`
+- wykonanie `x`
+
+Poza tym są też specjalne uprawnienia:
+
+- `s` - setuid (gdy dla właściciela), setgid (gdy dla grupy), sticky bit - jest to flaga, która może mieć różne efekty w zależności od tego, czy jest ustawiona na piku, czy nafolderze. [przykład](https://askubuntu.com/questions/313089/how-can-i-share-a-directory-with-an-another-user)
+  - na pliku wykonywalnym - jeśli jest ustawiona to plik będzie wykonywany z uprawnieniami właściciela pliku, a nie osoby, która go uruchomiła. Tzn może być używana do uruchamiania aplikacji z uprawnieniami roota, nawet jeśli się nim nie jest.
+  - na folderze - jeśli setgid jest ustawiony na folderze, to każdy plik stworzony w tym folderze będzie miał grupę ustawioną na grupę folderu, a nie grupę użytkownika, który go stworzył.
+
+??? Przykładowe korzystanie ze sticky bitów
+
+    Wartość `0770` wszyscy w grupie mogą dodawać, usuwać i czytać sobie nawzajem pliki w folderze, ale nie mogą sobie nawzajemi pisać.
+
+    ```bash
+    sudo chmod 0770 folder
+    ``` 
+
+    Wartość `1770` daje takie uprawnienia jak wyżej z tą różnicą, że tylko właściciel pliku może go usunąć.
+
+    ```bash
+    sudo chmod 1770 folder
+    ```
+
+    Wartość `2770` oznacza, że wszyscy użytkownicy grupy mogą dodawać, czytać, zadpisywać i usuwać sobie nawzajem pliki w folderze.
+
+    Wartość `3770` oznacza to samo co wyżej z tą różnicą, że tylko właściciel może usuwać pliki.
+
+    pierwsza cyfra jest wynikiem sumowania `sticky bit + 2 * setgid`
+
+```bash
+ls -l
+#-rw-r--r-- 1 user privileged_users 0 Oct  9 12:00 plik.txt
+```
+
+Pierwszy znak to typ pliku, a kolejne trzy grupy to uprawnienia dla właściciela, grupy i innych.
+Czyli przykładowy ciąg `-rw-r--r--` można rozpisać na
+
+- pierwszy bit jako `-` (plik zwykły) (może być też `d` dla folderów) 
+- właściciela jako `rw-` 
+- grupę jako `r--` 
+- i innych jako `r--`.
+
+Można to także przedstawić w formacie zapisu liczbowego, gdzie każda grupa ma swoją wartość: `r=4`, `w=2`, `x=1`.
+
+```bash
+#-rw-r--r--
+# 110 100 100
+# 6   4   4
+```
+
+Ten zapis może być wykorzystywany chociażby przez komendę `chmod`, która przyjmuje różne waroanty argumentów [link](https://docs.nersc.gov/filesystems/unix-file-permissions/).
+
+```bash
+chmod 777 plik.txt #nadanie pełnych uprawnień wszystkim
+chmod 755 plik.txt #nadanie pełnych uprawnień właścicielowi, a grupie i innym tylko odczytu i wykonania
+
+# zapis zmieniający uprawnienia
+chmod u+x plik.txt #dodanie uprawnień do wykonania dla właściciela
+chmod u-x plik.txt #usunięcie uprawnień do wykonania dla właściciela
+chmod g+rw plik.txt #dodanie uprawnień do odczytu i zapisu dla grupy
+```
+
+
 
 ### Szukanie plików
 
