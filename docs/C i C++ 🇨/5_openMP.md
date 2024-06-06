@@ -445,3 +445,55 @@ for (i=0; i<n; i++) {
 
 //TODO ask about this ❗
 // std::cout << "xx"
+
+
+## Programming GPU
+
+OpenMP can be also used for harnessing compute resources of GPUs like Nvidia.
+
+There are some additional clauses like `target`, 
+
+
+`target` construct consists of a target directive and an execution region. target directive defines a target region, a block of computation that operates within a distinct data environment and is intended to be offloaded onto a parallel computation device during execution ( GPU in our case). Data used within the region may be implicitly or explicitly mapped to the device. OpenMP is allowed within target regions, but only a subset will run well on GPUs.
+
+This target platform can be a GPU, CPU, or different kind of accelerator
+
+```cpp
+while (iter < iter_max )
+{
+    error = 0.0;
+    //Moves this region of code to the GPU and implicitly maps data.
+    #pragma omp target
+    {
+        #pragma omp parallel for reduction(max:error)
+        for( int j = 1; j < n-1; j++) {
+            ANew[j] = A [j-1] + A[j+1];
+        }
+    }
+    iter++;
+}
+```
+
+`target data` - allows to map data to the device
+
+```cpp
+while (iter < iter_max )
+{
+    error = 0.0;
+    //Moves this region of code to the GPU and explicitly maps data.
+    #pragma omp target data map(to:A[:n]) map(from:ANew[:n])
+    {
+        #pragma omp parallel for reduction(max:error)
+        for( int j = 1; j < n-1; j++) {
+            ANew[j] = A [j-1] + A[j+1];
+        }
+    }
+    iter++;
+}
+```
+
+`teams` directve creates a league of thread teams where the master thread of each team executes the region. Each of these master threads executes sequentially. In other words, teams directive spawn one or more thread teams with the same number of threads. The execution continues on the master threads of each team (redundantly). There is no synchronization allowed between teams.
+
+OpenMP calls that somewhere a team, which might be a thread on the CPU or maying a CUDA threadblock or OpenCL workgroup. It will choose how many teams to create based on where you're running, only a few on a CPU (like 1 per CPU core) or lots on a GPU (1000's possibly). teams allow OpenMP code to scale from small CPUs to large GPUs because each one works completely independently of the other teams.
+
+//TODO finish
