@@ -474,7 +474,15 @@ while (iter < iter_max )
 }
 ```
 
-`target data` - allows to map data to the device
+`target data` - allows to map data to the device.
+
+`#pragma omp target date map(map-type: list)`
+
+mapping types:
+
+- `to` - data is copied from the host to the device
+- `from` - data is copied from the device to the host
+- `alloc` - allocates memory ot the device. If the data is already present on the device a reference counter is incremented
 
 ```cpp
 while (iter < iter_max )
@@ -492,8 +500,38 @@ while (iter < iter_max )
 }
 ```
 
+### `teams` and `distribute`
+
 `teams` directve creates a league of thread teams where the master thread of each team executes the region. Each of these master threads executes sequentially. In other words, teams directive spawn one or more thread teams with the same number of threads. The execution continues on the master threads of each team (redundantly). There is no synchronization allowed between teams.
+
+![teams](https://passlab.github.io/OpenMPProgrammingBook/_images/teams.jpeg)
 
 OpenMP calls that somewhere a team, which might be a thread on the CPU or maying a CUDA threadblock or OpenCL workgroup. It will choose how many teams to create based on where you're running, only a few on a CPU (like 1 per CPU core) or lots on a GPU (1000's possibly). teams allow OpenMP code to scale from small CPUs to large GPUs because each one works completely independently of the other teams.
 
-//TODO finish
+`distribute` directive is used to distribute the iterations of a loop across the master threads of the teams.
+
+There's a good chance that we don't want the loop to be run redundantly in every master thread of ```teams``` though, that seems wasteful and potentially dangerous. With the usage of ```distribute``` construct the iterations of the next loop are broken into groups that are *distributed* to the master threads of the teams. The iterations are distributed statically and there is no guarantee about the order teams will execute. Also it does not generate parallelism/worksharing within the thread teams.
+
+```cpp
+#pragma omp target teams distribute
+    for( int j = 1; j < n-1; j++) {
+       for( int i = 1; i < m-1; i++) {
+            Anew[j][i] = 0.25 * ( A[j][i+1] + A [j][i-1]
+                            + A[j-1][i] + A[j+1][i]);
+            error = fmax (error, fabs(Anew[j][i] - A[j][i]));
+    }}
+```
+
+In many cases compilers can deal with distributing load by themselves using the `teams loop` construct, which is a shortcut for specifying a teams construct containing a loop construct and no other statements
+
+```cpp
+#pragma omp target teams loop reduction(max:error) 
+for( int j = 1; j < n-1; j++) {
+  #pragma omp loop reduction(max:error)
+  for( int i = 1; i < m-1; i++ ) {
+      Anew[j][i] = 0.25f * ( A[j][i+1] + A[j][i-1]
+                            + A[j-1][i] + A[j+1][i]);
+      error = fmaxf( error, fabsf(Anew[j][i]-A[j][i]));
+  }
+}
+```
