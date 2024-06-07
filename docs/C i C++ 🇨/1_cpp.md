@@ -674,6 +674,74 @@ int main()
 }
 ```
 
+### Wielowątkowość z użyciem `std::par`
+
+W C++11 i C++17 pojawiły się nowe sposoby przetwarzania wielowątkowego mogącego stanowić swego rodzaju alternatywę dla [OpenMP](5_openMP.md).
+
+W tym podejściu wykorzystujemy standardowe kontenery oraz algorytmy znajdujące się w bibliotece standardowej. Takie jak `std::for_each`, `std::sort`, czy `std::reduce` etc.
+
+```cpp
+#include <vector>
+#include <algorithm>
+#include <iostream>
+ 
+//Using functor
+struct Suma
+{
+    void operator()(int n) { sum += n; }
+    int sum{0};
+};
+ 
+int main()
+{
+    std::vector<int> nums{3, 4, 2, 8, 15, 267};
+ 
+    auto print = [](const int& n) { std::cout << " " << n; };
+ 
+    std::cout << "before:";
+    std::for_each(nums.cbegin(), nums.cend(), print);
+    std::cout << '\n';
+ 
+    std::for_each(nums.begin(), nums.end(), [](int &n){ n++; });
+ 
+    // calls Sum::operator() for each number
+    Suma s = std::for_each(nums.begin(), nums.end(), Suma());
+ 
+    std::cout << "after: ";
+    std::for_each(nums.cbegin(), nums.cend(), print);
+    std::cout << '\n';
+    std::cout << "suma: " << s.sum << '\n';
+}
+```
+
+Wrac z C++17 do algorytmów pojawiły się polityki wykonania (`execution policies`) które pozwalają na wykorzystanie wielowątkowości w algorytmach.
+
+Wyróżnia się:
+
+- `std::execution::seq` - wykonanie sekwencyjne. Domyślna polityka. Zabrania zrównoleglania
+- `std::execution::par` - umożliwia wykonanie równoległe
+- `std::execution::par_unseq` - umożliwia wykonanie równoległe i wektorowe //TODO wyjaśnić dokładniej
+
+```cpp
+std::sort(std::execution::par, c.begin(), c.end());
+```
+
+Przy wykonaniu równoległym należy pamiętać, że zmienne muszą znajdować się na stercie (heap). W przeciwnym wypadku mogą wystąpić problemy z dostępem do pamięci.
+
+```cpp
+std::array<int, 1024> a = ...;
+std::sort(std::execution::par, a.begin(), a.end()); // Error, elementy snadjują się na stosie
+
+std::vector<int> v = ...;
+std::sort(std::execution::par, v.begin(), v.end()); // OK, wektor alokuje na stercie
+```
+
+Przy takim podjeściu warto pamiętać o ochronie pamięci. W tym celu można użyć [`std::mutex`](https://en.cppreference.com/w/cpp/thread/mutex) lub [`std::atomic`](https://en.cppreference.com/w/cpp/atomic/atomic).
+
+```cpp
+std::atomic<int> *suma = new std::atomic<int>[nbin];
+```
+
 ## Inne Słowa kluczowe
 
 explicit TODO
