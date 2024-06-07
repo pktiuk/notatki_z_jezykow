@@ -535,3 +535,8 @@ for( int j = 1; j < n-1; j++) {
   }
 }
 ```
+
+General execution model for OpenMP:
+
+![OpenMP execution model](./assets/OpenMP-40-Execution-model.png)
+ source: https://www.researchgate.net/figure/OpenMP-40-Execution-model_fig1_335478417
