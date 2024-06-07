@@ -198,6 +198,14 @@ sudo nmap -sn 192.168.1.0/24
 ss -plnt #p - procesy l-listening n-numeric t-tcp
 ```
 
+### Generowanie ruchu na jakiś port
+
+Tutaj przyda się komenda telnet, która pozwala na połączenie się z jakimś portem na jakimś serwerze.
+
+```bash
+telnet adres port
+```
+
 ## Montowanie
 
 mount
