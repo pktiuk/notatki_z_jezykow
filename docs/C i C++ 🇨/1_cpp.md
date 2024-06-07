@@ -742,6 +742,8 @@ Przy takim podjeściu warto pamiętać o ochronie pamięci. W tym celu można u�
 std::atomic<int> *suma = new std::atomic<int>[nbin];
 ```
 
+Dzięki uniwersalnemu kodowi możliwa jest także kompilacja kodu rówloległego w taki sposób, aby mógł wykorzystać zasoby chociażby kart graficznych. [link dla nvidii CUDA](https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/) i [AMD z ROCm](https://gpuopen.com/learn/amd-lab-notes/amd-lab-notes-hipstdpar-readme/#tl-dr-just-tell-me-how-to-go-fast)
+
 ## Inne Słowa kluczowe
 
 explicit TODO
