@@ -191,3 +191,27 @@ class User(Base):
     fullname: Mapped[Optional[str]]
     nickname: Mapped[Optional[str]] = mapped_column(String(30))
 ```
+
+### Sprawdzanie wartości i walidacja
+
+[Defining Constraints](https://docs.sqlalchemy.org/en/20/core/constraints.html#constraints-api), [Simple validation](https://docs.sqlalchemy.org/en/20/orm/mapped_attributes.html#simple-validators)
+
+Istnieje kilka sposobów na walidację danych. Najprostszym jest prosty dekorator fla funkcji walidującej
+
+```py
+from sqlalchemy.orm import validates
+
+
+class EmailAddress(Base):
+    __tablename__ = "address"
+
+    id = mapped_column(Integer, primary_key=True)
+    email = mapped_column(String)
+
+    @validates("email")
+    def validate_email(self, key, address):
+        if "@" not in address:
+            raise ValueError("failed simple email validation")
+        return address
+```
+
