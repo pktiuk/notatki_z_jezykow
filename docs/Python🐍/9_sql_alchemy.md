@@ -127,3 +127,5 @@ crud.create_user(db, "anna@gmail.com","xxx")
 print(crud.get_users(db))
 ```
 
+Do wygodnego otwarcia bazy danych można użyć narzędzia [DB Browser for SQLite](https://sqlitebrowser.org/)   
+Zaś do weryfikacji wprowadzanych danych może się przydać [pydantic](https://docs.pydantic.dev/latest/) (użyty w [oryginalnym przykładzie FastAPI](https://fastapi.tiangolo.com/tutorial/sql-databases/))
