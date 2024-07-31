@@ -90,3 +90,5 @@ async def read_index():
 
 FastAPI nie jest związane z żadną biblioteką do baz danych.  
 Mamy tutaj dużą dowolność. Dla przykładu w [oficjalnej dokumentacji](https://fastapi.tiangolo.com/tutorial/sql-databases/) pokazano przykład użycia sla [SQLAlchemy](https://www.sqlalchemy.org/). Można też użyć [Peewee](http://docs.peewee-orm.com/en/latest/).
+
+[LINK DO MOJEGO TUTORIALA SQLALCHEMY](../Python🐍/9_sql_alchemy.md)
