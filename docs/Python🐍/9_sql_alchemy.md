@@ -129,3 +129,65 @@ print(crud.get_users(db))
 
 Do wygodnego otwarcia bazy danych można użyć narzędzia [DB Browser for SQLite](https://sqlitebrowser.org/)   
 Zaś do weryfikacji wprowadzanych danych może się przydać [pydantic](https://docs.pydantic.dev/latest/) (użyty w [oryginalnym przykładzie FastAPI](https://fastapi.tiangolo.com/tutorial/sql-databases/))
+
+
+
+## Mapowanie klas
+
+[link](https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html)
+
+SQLAlchemy pozwala na mapowanie klas na 2 sposoby:
+
+- **Deklaratywne** - opisuje się klasę, a SQLAlchemy tworzy mapowanie do tabeli
+- **Imperatywne** - tworzy się mapowanie wprost
+
+### Mapowanie deklaratywne
+
+
+```py
+from sqlalchemy import Integer, String, ForeignKey
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+
+
+# declarative base class
+class Base(DeclarativeBase):
+    pass
+
+
+# an example mapping using the base
+class User(Base):
+    __tablename__ = "user"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str]
+    fullname: Mapped[str] = mapped_column(String(30))
+    nickname: Mapped[Optional[str]]
+```
+
+Wykorzystujemy tutaj bazową klasę jako podstawę dla klas mapowanych w bazie danych.   
+
+Pola dla klasy możemy zdefiniować bezpośrednio ([ORM declarative table](https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html#orm-declarative-table)) używając metody [`Mapped_column()`](https://docs.sqlalchemy.org/en/20/orm/mapping_api.html#sqlalchemy.orm.mapped_column):
+
+```py
+class User(Base):
+  __tablename__ = "user"
+
+  id = mapped_column(Integer, primary_key=True)
+  name = mapped_column(String(50), nullable=False)
+  fullname = mapped_column(String)
+  nickname = mapped_column(String(30))
+```
+
+Lub używając annotacji typu pomocniczego [`Mapped`](https://docs.sqlalchemy.org/en/20/orm/internals.html#sqlalchemy.orm.Mapped):
+
+```py
+class User(Base):
+    __tablename__ = "user"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(50))
+    fullname: Mapped[Optional[str]]
+    nickname: Mapped[Optional[str]] = mapped_column(String(30))
+```
