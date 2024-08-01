@@ -192,6 +192,24 @@ class User(Base):
     nickname: Mapped[Optional[str]] = mapped_column(String(30))
 ```
 
+W wypadku relacji można używać [`relationship()`](https://docs.sqlalchemy.org/en/20/orm/relationship_api.html#sqlalchemy.orm.relationship) lub [`mapped_column()`](https://docs.sqlalchemy.org/en/20/orm/mapping_api.html#sqlalchemy.orm.mapped_column) z parametrem `ForeignKey`. ([Link do relacji](https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many))
+
+```py
+class Parent(Base):
+    __tablename__ = "parent_table"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    children: Mapped[List["Child"]] = relationship(back_populates="parent")
+
+
+class Child(Base):
+    __tablename__ = "child_table"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    parent_id: Mapped[int] = mapped_column(ForeignKey("parent_table.id"))
+    parent: Mapped["Parent"] = relationship(back_populates="children")
+```
+
 ### Sprawdzanie wartości i walidacja
 
 [Defining Constraints](https://docs.sqlalchemy.org/en/20/core/constraints.html#constraints-api), [Simple validation](https://docs.sqlalchemy.org/en/20/orm/mapped_attributes.html#simple-validators)
