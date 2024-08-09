@@ -288,6 +288,36 @@ class LecturerViewSet(viewsets.ModelViewSet):
         return queryset
 ```
 
+## Testy
+
+Django może być testowane automatycznie z wykorzystaniem różnych frameworków do testowania, jednak domyślnym jest unittest. [link](https://docs.djangoproject.com/en/5.0/topics/testing/)
+
+Domyślną klasą do testowania jest [django.test.TestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase), które jest subklasą [unittest.TestCase](https://docs.python.org/3/library/unittest.html#unittest.TestCase).
+
+
+```py
+from django.test import TestCase
+from myapp.models import Animal
+
+
+class AnimalTestCase(TestCase):
+    def setUp(self):
+        Animal.objects.create(name="lion", sound="roar")
+        Animal.objects.create(name="cat", sound="meow")
+
+    def test_animals_can_speak(self):
+        """Animals that can speak are correctly identified"""
+        lion = Animal.objects.get(name="lion")
+        cat = Animal.objects.get(name="cat")
+        self.assertEqual(lion.speak(), 'The lion says "roar"')
+        self.assertEqual(cat.speak(), 'The cat says "meow"')
+
+```
+
+Testy uruchamiane są za pomocą `manage.py test`.
+
+Na potrzeby testów tworzona jest tymczasowa [testowa baza danych](https://docs.djangoproject.com/en/5.0/topics/testing/overview/#the-test-database), która jest kasowana po zakończeniu testów. Możliwe jest jednak zachowanie bazy danych po testach. `test --keepdb`.
+
 ## Inne
 
 ### Praca z użytkownikami
