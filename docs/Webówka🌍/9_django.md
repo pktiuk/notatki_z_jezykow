@@ -146,9 +146,15 @@ People.objects.exclude(surname="Kowalski)
 # jeśli nie istnieje to dostaniemy wyjątek Entry.DoesNotExist
 People.objects.get(pesel=12345678)
 
-p1 = Poeple.objects.create(name="Marian",surname="Nowak") #stworzenie instancji modelu
-p1.save() #zapisanie do bazy
+p1 = Poeple.objects.create(name="Marian",surname="Nowak") #stworzenie instancji i zapisanie modelu
+p2 = People(name="Jan",surname="Kowalski")
+p2.save() #zapisanie do bazy
 ```
+
+Przykładowe metody:
+
+- [create()](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.create) - tworzy i natychmiast zapisuje obiekt w bazie danych
+- [save()](https://docs.djangoproject.com/en/3.2/topics/db/queries/#creating-objects) ręczne zapisywanie do bazy danych. Często wykorzystywane, kiedy przy pierwszych prokach tworzenia używamy konstruktora
 
 #### Filtrowanie
 
