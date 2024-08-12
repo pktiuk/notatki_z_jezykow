@@ -257,6 +257,48 @@ Przykładowy schemat strony dla powyższego przykładu
 
 Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanych wartości.
 
+## Tablice routingu `urls.py`
+
+W pliku `urls.py` znajdującym się w folderze aplikacji możemy zdefiniować jakie widoki mają być dostępne pod jakimi ścieżkami.
+
+```python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    # ex: /polls/
+    path('', views.index, name='index'),
+    # ex: /polls/5/
+    path('<int:question_id>/', views.detail, name='detail'),
+    # ex: /polls/5/results/
+    path('<int:question_id>/results/', views.results, name='results'),
+    # ex: /polls/5/vote/
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+```
+
+Funkcja [`path()`](https://docs.djangoproject.com/en/5.1/ref/urls/#path) służy do określania ścieżki oraz funkcji, która ma je przetwarzać. 
+
+`path(route, view, kwargs=None, name=None)`  
+Pierwszy argument `route` określa ścieżkę wraz z parametrami, które mogą być przekazywane do funkcji widoku. Dokładniejsze informacje znajdują się [tutaj](https://docs.djangoproject.com/en/5.1/topics/http/urls/#how-django-processes-a-request)
+
+```python
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("blog/", views.page),
+    path("blog/page<int:num>/", views.page),
+]
+
+# View (in blog/views.py)
+def page(request, num=1):
+    # Output the appropriate page of blog entries, according to num.
+
+```
+
 ## Panel Administratora
 
 <https://docs.djangoproject.com/en/5.1/intro/tutorial02/#introducing-the-django-admin>
