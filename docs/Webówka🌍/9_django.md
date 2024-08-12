@@ -1,6 +1,6 @@
 # Django
 
-Warto zajrzeć tutaj: <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>
+Warto zajrzeć tutaj: <https://docs.djangoproject.com/en/5.1/intro/tutorial01/>
 
 https://bulldogjob.pl/readme/architektura-django
 
@@ -21,8 +21,8 @@ mysite/
 
 mamy tu folder projektu w którym mamy poszczególne aplikacje. Na ten moment mamy tylko folder mysite zawierający ogólną konfigurację projektu,a w nim pliki takie jak:
 
-- settings.py - konfiguracja projektu, jakie bazy danych mają byc używane, język projektu, moduły wykorzystywane w projekcie etc. [link](https://docs.djangoproject.com/en/3.2/topics/settings/)
-- urls.py - deklaracje url opisujące co ma być dostepne pod jakimi ścieżkami [link](https://docs.djangoproject.com/en/3.2/topics/http/urls/)
+- settings.py - konfiguracja projektu, jakie bazy danych mają byc używane, język projektu, moduły wykorzystywane w projekcie etc. [link](https://docs.djangoproject.com/en/5.1/topics/settings/)
+- urls.py - deklaracje url opisujące co ma być dostepne pod jakimi ścieżkami [link](https://docs.djangoproject.com/en/5.1/topics/http/urls/)
 
 Komendą `manage.py startapp polls` możemy dodać nową apkę o nazwie polls.
 
@@ -52,7 +52,7 @@ Pliki:
 
 Dodatkowe pliki mogące się tu znajdować:
 
-- serializers.py - [link](https://docs.djangoproject.com/en/3.2/topics/serialization/) klasy wykorzystywane do serializacji modeli na inne formaty (np. json, lub xml)
+- serializers.py - [link](https://docs.djangoproject.com/en/5.1/topics/serialization/) klasy wykorzystywane do serializacji modeli na inne formaty (np. json, lub xml)
 
 Przy większych projektach warto rozsądne rozszerzenie powyższego schematu [przykład](https://github.com/Mischback/django-project-skeleton)
 
@@ -71,9 +71,9 @@ Do wygodnej "zabawy" z danymi oraz klasami w bazie można użyć `manage.py shel
 
 ## Modele danych
 
-W django możemy w prosty sposób stworzyć własne struktury, które potem w automatyczny sposób będą mogły być mapowane na struktury znajdujące się w naszych klasycznych bazach danych. [dokumnetacja](https://docs.djangoproject.com/en/3.2/topics/db/models/)
+W django możemy w prosty sposób stworzyć własne struktury, które potem w automatyczny sposób będą mogły być mapowane na struktury znajdujące się w naszych klasycznych bazach danych. [dokumnetacja](https://docs.djangoproject.com/en/5.1/topics/db/models/)
 
-Wszystkie modele bazują na klasie [django.db.models.Model](https://docs.djangoproject.com/en/3.2/ref/models/instances/#django.db.models.Model).
+Wszystkie modele bazują na klasie [django.db.models.Model](https://docs.djangoproject.com/en/5.1/ref/models/instances/#django.db.models.Model).
 
 ```python
 from django.db import models
@@ -90,15 +90,15 @@ Mamy tutaj typowe rodzaje pól takie jak:
 
 - CharField
 - IntegerField
-- ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/3.2/ref/models/fields/#django.db.models.ForeignKey)
-- ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/3.2/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
+- ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.ForeignKey)
+- ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/5.1/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
 - etc.
 
 Dla każdego pola możemy określić też dodatkowe parametry takie jak nullowalność, maksymalną sługość (dla stringów), możliwe dozwolone wartości itp. Możemy też samodzielnie wybierać pole będące kluczem (chociaż na ogół te automatycznie dodawane wystarcza).
 
 Na podstawie tych klas możemy potem wygenerować tabele w baszej bazie (lub zaktualizować obecne, aby dopasowac) wykonując migrację (z użyciek spryptu `manage.py`).
 
-W każdej klasie możemy dodatkowo określić klasę `Meta` pozwalającą określić dodatkowe informacje o naszym modelu, takie jak wymagania co do unikalności pól, tworzenie indeksów ze złączenia dwóch pól etc, nazwę okiektu, lub stworzyć klasę abstrakcyjną. [pełna lista opcji](https://docs.djangoproject.com/en/3.2/ref/models/options/)
+W każdej klasie możemy dodatkowo określić klasę `Meta` pozwalającą określić dodatkowe informacje o naszym modelu, takie jak wymagania co do unikalności pól, tworzenie indeksów ze złączenia dwóch pól etc, nazwę okiektu, lub stworzyć klasę abstrakcyjną. [pełna lista opcji](https://docs.djangoproject.com/en/5.1/ref/models/options/)
 
 ```python
 from django.db import models
@@ -133,9 +133,9 @@ class Blog(models.Model):
 
 ### Praca z modelami
 
-Każda klasa ma artybut `objects`, jest obiekt klasy [Manager](https://docs.djangoproject.com/en/3.2/topics/db/managers/#django.db.models.Manager). Służy on do wykonywania zapytań do bazy.
+Każda klasa ma artybut `objects`, jest obiekt klasy [Manager](https://docs.djangoproject.com/en/5.1/topics/db/managers/#django.db.models.Manager). Służy on do wykonywania zapytań do bazy.
 
-Przydatne [metody do wykonywania zapytań](https://docs.djangoproject.com/en/3.2/topics/db/queries/):
+Przydatne [metody do wykonywania zapytań](https://docs.djangoproject.com/en/5.1/topics/db/queries/):
 
 ```python
 People.objects.all()
@@ -153,12 +153,12 @@ p2.save() #zapisanie do bazy
 
 Przykładowe metody:
 
-- [create()](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.create) - tworzy i natychmiast zapisuje obiekt w bazie danych
-- [save()](https://docs.djangoproject.com/en/3.2/topics/db/queries/#creating-objects) ręczne zapisywanie do bazy danych. Często wykorzystywane, kiedy przy pierwszych prokach tworzenia używamy konstruktora
+- [create()](https://docs.djangoproject.com/en/5.1/ref/models/querysets/#django.db.models.query.QuerySet.create) - tworzy i natychmiast zapisuje obiekt w bazie danych
+- [save()](https://docs.djangoproject.com/en/5.1/topics/db/queries/#creating-objects) ręczne zapisywanie do bazy danych. Często wykorzystywane, kiedy przy pierwszych prokach tworzenia używamy konstruktora
 
 #### Filtrowanie
 
-Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. [link](https://docs.djangoproject.com/en/3.2/topics/db/queries/)
+Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. [link](https://docs.djangoproject.com/en/5.1/topics/db/queries/)
 
 ```python
 People.objects.filter(surname__startswith="Kowalski)
@@ -188,7 +188,7 @@ if param_2 != 'all':
 class_var = ClassName.objects.filter(**q)
 ```
 
-Przy odpowiednim wykorzystaniu kluczy obcych można także wykonywać proste filtry na łączeniach. [link](https://docs.djangoproject.com/en/3.2/topics/db/queries/#backwards-related-objects). Przydaje się tu argument `related_name`.
+Przy odpowiednim wykorzystaniu kluczy obcych można także wykonywać proste filtry na łączeniach. [link](https://docs.djangoproject.com/en/5.1/topics/db/queries/#backwards-related-objects). Przydaje się tu argument `related_name`.
 
 ```python
 class Sessions(models.Model):
@@ -214,7 +214,7 @@ TODO więcej przykładów by się przydało
 
 ## Widoki
 
-[link - Writing your first Django app, part 3](https://docs.djangoproject.com/en/3.2/intro/tutorial03/)
+[link - Writing your first Django app, part 3](https://docs.djangoproject.com/en/5.1/intro/tutorial03/)
 
 [The Django template language](https://docs.djangoproject.com/en/4.0/ref/templates/language/)
 
@@ -259,7 +259,7 @@ Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanyc
 
 ## Panel Administratora
 
-<https://docs.djangoproject.com/en/3.2/intro/tutorial02/#introducing-the-django-admin>
+<https://docs.djangoproject.com/en/5.1/intro/tutorial02/#introducing-the-django-admin>
 
 ## REST API
 
@@ -328,9 +328,9 @@ Na potrzeby testów tworzona jest tymczasowa [testowa baza danych](https://docs.
 
 ### Praca z użytkownikami
 
-Django pozwala włatwy sposób dodać uzytkowników do naszej aplikacji. [link](https://docs.djangoproject.com/en/3.2/topics/auth/default/)
+Django pozwala włatwy sposób dodać uzytkowników do naszej aplikacji. [link](https://docs.djangoproject.com/en/5.1/topics/auth/default/)
 
-Możemy tutaj uzyć gotowego modelu `django.contrib.auth.models.User`. Jeśli ten obiekt nam nie pasuje, zawsze możemy go [przystosować do swoich potrzeb](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#custom-users-and-the-built-in-auth-forms).
+Możemy tutaj uzyć gotowego modelu `django.contrib.auth.models.User`. Jeśli ten obiekt nam nie pasuje, zawsze możemy go [przystosować do swoich potrzeb](https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#custom-users-and-the-built-in-auth-forms).
 
 Do zalogowania uzytkownika z pomocą włanego formularza możemy wykorzystać metodę authenticate.
 
@@ -390,7 +390,7 @@ Używając tych mechanizmów możemy także tworzyć grupy użytkowników z ró�
 
 ### Formularze
 
-Formularze są jednym z najpopularniejszych sposobów na zbieranie danych od użytkowników. Django jest wyposażone w kilka mechanizmów wspomagających pracę z nimi. ([omówienie formularzy w django](https://docs.djangoproject.com/en/3.2/topics/forms/), [dokumentacja mozilli](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form))
+Formularze są jednym z najpopularniejszych sposobów na zbieranie danych od użytkowników. Django jest wyposażone w kilka mechanizmów wspomagających pracę z nimi. ([omówienie formularzy w django](https://docs.djangoproject.com/en/5.1/topics/forms/), [dokumentacja mozilli](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form))
 
 Formularze możemy tworzyć ręcznie umieszczasjąc je bezpośrednio w schemacie strony
 
@@ -407,7 +407,7 @@ Formularze możemy tworzyć ręcznie umieszczasjąc je bezpośrednio w schemacie
 </form>
 ```
 
-Możemy też do tego wykorzystać klasę [Form](https://docs.djangoproject.com/en/3.2/ref/forms/api/#django.forms.Form), która sama wygeneruje nam formularz.
+Możemy też do tego wykorzystać klasę [Form](https://docs.djangoproject.com/en/5.1/ref/forms/api/#django.forms.Form), która sama wygeneruje nam formularz.
 
 ```python
 from django import forms
