@@ -257,6 +257,19 @@ Przykładowy schemat strony dla powyższego przykładu
 
 Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanych wartości.
 
+Prostym sposobem na dopisywanie logiki/wymagań do używanych widoków jest sotosowanie dekoratorów. [View decorators](https://docs.djangoproject.com/en/5.1/topics/http/decorators/). Dzięki nim możemy łątwo dodać np wymóg zalogowania, lub zastrzec typy zapytań.
+
+```py
+from django.views.decorators.http import require_http_methods
+
+
+@require_http_methods(["GET", "POST"])
+def my_view(request):
+    # I can assume now that only GET or POST requests make it this far
+    # ...
+    pass
+```
+
 ## Tablice routingu `urls.py`
 
 W pliku `urls.py` znajdującym się w folderze aplikacji możemy zdefiniować jakie widoki mają być dostępne pod jakimi ścieżkami.
