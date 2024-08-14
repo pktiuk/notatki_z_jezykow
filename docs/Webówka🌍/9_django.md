@@ -324,6 +324,31 @@ Do pracy z API RESTowym zaleca się użycie specjalnego frameworka <https://www.
 
 [link](https://www.django-rest-framework.org/api-guide/serializers/)
 
+Serializacja to proces konwertowania danych z modelu na format, który może być łatwo przesłany przez sieć. W Django REST Framework serializatory są używane do konwersji obiektów modelu na JSON, XML lub inny format, który może być łatwo przesłany przez sieć.
+
+```python
+from rest_framework import serializers
+
+#podstawowy serializator
+class UserSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    username = serializers.CharField(max_length=100)
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ['name', 'ects', 'semester']
+```
+
+Wyróżniamy kilka typów serializatorów:
+
+- ModelSerializer - najprostszy sposób na stworzenie serializatora, który będzie działał z modelem, a w wypadku relacji z innymi modelami będzie podawał ich klucze
+- HyperlinkedModelSerializer - podobny do powyższego, ale zamiast kluczy podaje linki do tych modeli
+- Serializer - pozwala na pełną kontrolę nad tym, jak dane są serializowane (tutaj trzeba ręcznie podawać pola)
+
+Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz lub linku) [możemy użyć `depth` w klasie Meta](https://www.django-rest-framework.org/api-guide/serializers/#specifying-nested-serialization), albo samodzielnie podać pole (np. `user = UserSerializer`).
+
+
 ### Widoki dla RESTa
 
 Używanie widoków pozwala łatwo zautomatyzować wyświetlanie danych. Za jednym zamachem możemy wystawić API reagujące na wszystkie typy zapytań (GET, PUT, POST, DELETE)
