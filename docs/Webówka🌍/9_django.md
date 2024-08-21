@@ -353,7 +353,7 @@ Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz
 
 Używanie widoków pozwala łatwo zautomatyzować wyświetlanie danych. Za jednym zamachem możemy wystawić API reagujące na wszystkie typy zapytań (GET, PUT, POST, DELETE)
 
-Można do tego wykorzystać na przykład własną klasę dziedziczącą po `viewsets.ModelViewSet`. Dzięki temu dostaniemy nie tulko :gołe" API, lecz także django wygeneruje interfejs sieciowy do korzystania z tego API, w razie zgdybyśmy otowrzyli go w przeglądarce.
+Można do tego wykorzystać na przykład własną klasę dziedziczącą po [`viewsets.ModelViewSet`](https://www.django-rest-framework.org/api-guide/viewsets/#modelviewset). Dzięki temu dostaniemy nie tylko "gołe" API, lecz także django wygeneruje interfejs sieciowy do korzystania z tego API, w razie zgdybyśmy otowrzyli go w przeglądarce.
 
 ```python
 from rest_framework import viewsets
@@ -373,6 +373,24 @@ class LecturerViewSet(viewsets.ModelViewSet):
         queryset = Lecturer.objects.filter(name=lecturer_name)
         return queryset
 ```
+
+Jednak nie każdy widok musi odzwierciedlać jakąś konkretną klasę. Możemy też stworzyć widok, który będzie reagował na konkretne zapytania. DO tego używamy klasy [`APIView`](https://www.django-rest-framework.org/api-guide/views/) z modułu `rest_framework.views`.
+
+```python
+
+from rest_framework import views
+from rest_framework.response import Response
+
+class ExampleView(views.APIView):
+    def get(self, request, format=None):
+        content = {
+            'status': 'request was permitted'
+        }
+        return Response(content)
+```
+
+TODO opisanie dodanie schema dla APIView.
+
 
 ## Testy
 
