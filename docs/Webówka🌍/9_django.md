@@ -314,7 +314,39 @@ def page(request, num=1):
 
 ## Panel Administratora
 
-<https://docs.djangoproject.com/en/5.1/intro/tutorial02/#introducing-the-django-admin>
+[Ogólny tutorial nt panelu admina](https://docs.djangoproject.com/en/5.1/intro/tutorial02/#introducing-the-django-admin), [druga część tutoriala](https://docs.djangoproject.com/en/5.1/intro/tutorial07/).
+
+Jedną z funkcji Django ułatwiających development jest automatycznie generowany panel administracyjny. Dzięki niemu możemy zarządzać naszymi danymi bez konieczności pisania dodatkowych widoków.
+
+Aby móc korzystać z panelu administracyjnego musimy zarejestrować nasze modele w pliku `admin.py` znajdującym się w folderze aplikacji.
+
+```python
+from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
+```
+
+Wtedy otrzymamy podstawowy widok dla naszego modelu, jednak możemy go dostosować do naszych potrzeb. Możemy dodawać nowe widoki, zmieniać wygląd, dodawać filtry, czy też zmieniać zachowanie. Wykorzystujemy do tego klasę dziedziczącą po [`admin.ModelAdmin`](https://docs.djangoproject.com/en/5.1/ref/contrib/admin/).
+
+```python
+from django.contrib import admin
+
+from .models import Question
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+
+admin.site.register(Question, QuestionAdmin)
+```
+
+Często edytowane pola dla tej klasy to:
+
+- `fields` - określa jakie pola mają być wyświetlane w panelu administracyjnym
+- `list_display` - określa jakie kolumny mają być wyświetlane w zbiorczej liście obiektów
+- `list_filter` - określa jakie filtry mają być dostępne
+- `search_fields` - określa jakie pola mają być używane do wyszukiwania (nad listą będzie wyszukiwarka, która może korzystać z tych pól)
 
 ## REST API
 
