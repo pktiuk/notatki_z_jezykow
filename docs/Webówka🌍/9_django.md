@@ -347,6 +347,16 @@ Często edytowane pola dla tej klasy to:
 - `list_display` - określa jakie kolumny mają być wyświetlane w zbiorczej liście obiektów
 - `list_filter` - określa jakie filtry mają być dostępne
 - `search_fields` - określa jakie pola mają być używane do wyszukiwania (nad listą będzie wyszukiwarka, która może korzystać z tych pól)
+- `readonly_fields` - określa pola tylko do odczytu (dodatkowo można opisać funkcje, które je uzyskują).
+  ```python
+  class PersonAdmin(admin.ModelAdmin):
+      readonly_fields = ["address_report"]
+  
+      # description functions like a model field's verbose_name
+      @admin.display(description="Address")
+      def address_report(self, instance):
+          return instance.address
+  ```
 
 ## REST API
 
