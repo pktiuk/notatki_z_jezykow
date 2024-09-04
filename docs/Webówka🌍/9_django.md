@@ -86,12 +86,13 @@ class Person(models.Model):
 ### Definiowanie
 
 Nowe modele powstają poprzez stworzenie klasy dziedziczącej po bazowej klasie W klasie tej zdefiniowane przez nas pola są rekordami.  
-Mamy tutaj typowe rodzaje pól takie jak:
+Mamy tutaj typowe [rodzaje pól](https://docs.djangoproject.com/en/5.1/ref/models/fields) takie jak:
 
 - CharField
 - IntegerField
 - ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.ForeignKey)
 - ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/5.1/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
+- GeneratedField - pole generowane automatycznie przez bazę danych
 - etc.
 
 Dla każdego pola możemy określić też dodatkowe parametry takie jak nullowalność, maksymalną sługość (dla stringów), możliwe dozwolone wartości itp. Możemy też samodzielnie wybierać pole będące kluczem (chociaż na ogół te automatycznie dodawane wystarcza).
