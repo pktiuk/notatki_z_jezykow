@@ -213,6 +213,17 @@ Sessions.objects.filter(affiliation_session__ip_id=X)
 
 TODO więcej przykładów by się przydało
 
+### Praca z legacy badami danych
+
+Czasami może pojawić się potrzeba pracy z już istniejącymi (starymi, lub zewnętrznymi) bazamidanych. W takim wypadku możemy zaimportować sobie taką bazę.
+[django with legacy database](https://docs.djangoproject.com/en/dev/howto/legacy-databases/)
+
+Możemy łatwo wygenerować modele dla takiej bazy
+
+```bash
+python manage.py inspectdb > models.py
+```
+
 ## Widoki
 
 [link - Writing your first Django app, part 3](https://docs.djangoproject.com/en/5.1/intro/tutorial03/)
