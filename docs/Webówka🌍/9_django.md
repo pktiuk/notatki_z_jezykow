@@ -443,7 +443,11 @@ class ExampleView(views.APIView):
         return Response(content)
 ```
 
-TODO opisanie dodanie schema dla APIView.
+### OpenAPI Schema
+
+OpenAPI jest standardem dokumentowania API RESTowych. W naszym projekcie Django możemy łatwo go generować używając generatora specyfikacji OpenAPI oraz jakiegoś UIa. Można użyć tutaj generowania w ramach [REST frameworka](https://www.django-rest-framework.org/community/3.9-announcement/#built-in-openapi-schema-support) lub użyć oddzielnej biblioteki, która to zrobi, takiej jak [drf-spectacular](https://drf-spectacular.readthedocs.io/).
+
+Po wygenerowaniu schematu endpointów można użyć [SWAGGER-UI](https://swagger.io/tools/swagger-ui/) do wyświetlenia ich w wygodny i interaktywny sposób. 
 
 
 ## Testy
