@@ -13,13 +13,25 @@ Ta bardziej uniwersalna (działa z wieloma systemami operacyjnymi)
 #!/usr/bin/env python3
 ```
 
-Ta mniej uniwersalna, ale pozwalająca używać pythona z różnymi parametrami
+W tym wypadku używając flagi `-S` możemy dodać dodatkowe flagi do interpretera
+
+```python
+#!/usr/bin/env -S ptpython -i
+```
+
+Można też użyć bezpośredniej ścieżki, gdzie dodawanie parametrów jest nieco łatwiejsze.
 
 ```python
 #!/usr/bin/python3
 ```
 
-Np z po dodaniu parametru `-i` nadal pozostaniemy w pythonie po wykonaniu skryptu, co pozwoli nam np zajrzeć do zmiennych, które były użyte, lub łatwo użyć klas, albo metod, które zostały zdefiniowane w skrypcie.
+#### Interaktywny Python
+
+Po dodaniu parametru `-i` nadal pozostaniemy w pythonie po wykonaniu skryptu, co pozwoli nam np zajrzeć do zmiennych, które były użyte, lub łatwo użyć klas, albo metod, które zostały zdefiniowane w skrypcie.
+
+Jednak do nieco bardziej złożonych operacji w trybie interaktywnym warto rozważyć użycie innego pythona. Można tutaj np. użyć [ptpython](https://github.com/prompt-toolkit/ptpython), Ipython lub bpython. Dla wygody mozemy też zmienić interpreter w shebangu.
+
+Jeśli nie chcemy używać innego interpretera możemy sobie nieco poprawić czytelność pythona w terminalu za pomocą biblioteki [rich](https://pypi.org/project/rich/).
 
 ### Funkcja main
 
