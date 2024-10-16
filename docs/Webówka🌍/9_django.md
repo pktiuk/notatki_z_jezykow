@@ -443,6 +443,32 @@ class ExampleView(views.APIView):
         return Response(content)
 ```
 
+#### Filtrowanie widoków
+
+Ręczne pisanie querysetów dla poszczególnych widoków może być nużące.
+Używając niektórych mechanizmów możemy zautomatyzować chociażby filtrowanie danych. Uzywa się do tego biblioteki [django-filter](https://django-filter.readthedocs.io/en/stable/). Charakteryzuje się ona min. dobrą integracją z REST frameworkiem.
+
+```python
+import django_filters
+from django_filters import rest_framework as filters
+
+class ProductFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='iexact')
+
+    class Meta:
+        model = Product
+        fields = ['price', 'release_date']
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filterset_class = ProductFilter
+    filter_backends = (filters.DjangoFilterBackend,) # podpinanie widoku pod bibliotekę
+```
+
+Tak przygotowany widok będzie reagował na parametry przekazywane w zapytaniu. W powyższym przykładzie jeśli podamy parametr `name` to zwróci nam tylko te produkty, które mają dokładnie taką nazwę. Opcje filtrowania pojawią się także w dokumentacji OpenAPI.
+
+
 ### OpenAPI Schema
 
 OpenAPI jest standardem dokumentowania API RESTowych. W naszym projekcie Django możemy łatwo go generować używając generatora specyfikacji OpenAPI oraz jakiegoś UIa. Można użyć tutaj generowania w ramach [REST frameworka](https://www.django-rest-framework.org/community/3.9-announcement/#built-in-openapi-schema-support) lub użyć oddzielnej biblioteki, która to zrobi, takiej jak [drf-spectacular](https://drf-spectacular.readthedocs.io/).
