@@ -475,6 +475,13 @@ OpenAPI jest standardem dokumentowania API RESTowych. W naszym projekcie Django 
 
 Po wygenerowaniu schematu endpointów można użyć [SWAGGER-UI](https://swagger.io/tools/swagger-ui/) do wyświetlenia ich w wygodny i interaktywny sposób. 
 
+Mając istniejący plik `openapi.json` możemy go łatwo wyświetlić w przeglądarce.
+
+Przykłądowa komenda dockera do uruchomienia `swagger-ui` dla danego pliku:
+
+```bash
+docker run -p 80:8080 -e SWAGGER_JSON=/folder/openapi.json -v /tmp/tmp:/folder swaggerapi/swagger-ui
+```
 
 ## Testy
 
