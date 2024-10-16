@@ -402,6 +402,35 @@ Wyróżniamy kilka typów serializatorów:
 
 Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz lub linku) [możemy użyć `depth` w klasie Meta](https://www.django-rest-framework.org/api-guide/serializers/#specifying-nested-serialization), albo samodzielnie podać pole (np. `user = UserSerializer`).
 
+Listę pól najprościej jest określić używając pola `fields` w klasie Meta. (np. `fields = '__all__'` po prostu przekazuje wszystkie pole z modelu)
+
+W ramach klas serializujących takich jak ModelSerializer możemy ręcznie określać niektóre pola korzystając klas typu `Field`. Jest sporo pól dla typowych dla poszczególnych typów danych, jak np `CharField`, `IntegerField` etc.
+
+Przed użyciem warto przejrzeć [wspólne argumenty dla tych klas](https://www.django-rest-framework.org/api-guide/fields/#core-arguments). Jednym z bardziej użytecznych jest tutaj np argument `source`, który pozwala na określenie z jakiego pola tego lub powiązanego modelu ma być pobierana wartość.
+
+```python
+class CommentSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(source='user.full_name') # pobieranie wartości nazwy od użytkownika, który wrzucił komentarz
+    class Meta:
+        model = Comment
+        fields = ['id', 'full_name', 'content']
+```
+
+Warte uwagi są takie klasy jak:
+
+- [serializers.SerializerMethodField](https://www.django-rest-framework.org/api-guide/fields/#serializermethodfield) - pozwala na pobranie wartości pola z metody
+  ```python
+    class UserSerializer(serializers.ModelSerializer):
+    days_since_joined = serializers.SerializerMethodField() #wartość pobierana z metody get_ + nazwa pola
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
+    def get_days_since_joined(self, obj):
+        return (now() - obj.date_joined).days
+  ```
+- [serializers.ReadOnlyField](https://www.django-rest-framework.org/api-guide/fields/#readonlyfield) - pole tylko do odczytu automarycznie pobierane z modelu. Jest ono domyślnie używane przez ModelSerializer kiedy pracujemy z atrybutami (np. polami klasy, które nie są modelem a jedynie mają wartość `property`), a nie elementami modelu.
 
 ### Widoki dla RESTa
 
