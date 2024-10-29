@@ -396,13 +396,25 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 Wyróżniamy kilka typów serializatorów:
 
-- ModelSerializer - najprostszy sposób na stworzenie serializatora, który będzie działał z modelem, a w wypadku relacji z innymi modelami będzie podawał ich klucze
-- HyperlinkedModelSerializer - podobny do powyższego, ale zamiast kluczy podaje linki do tych modeli
+- [`ModelSerializer`](https://www.django-rest-framework.org/api-guide/serializers/#modelserializer) - najprostszy sposób na stworzenie serializatora, który będzie działał z modelem, a w wypadku relacji z innymi modelami będzie podawał ich klucze
+- [`HyperlinkedModelSerializer`](https://www.django-rest-framework.org/api-guide/serializers/#hyperlinkedmodelserializer) - podobny do powyższego, ale zamiast kluczy podaje linki do tych modeli
 - Serializer - pozwala na pełną kontrolę nad tym, jak dane są serializowane (tutaj trzeba ręcznie podawać pola)
 
-Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz lub linku) [możemy użyć `depth` w klasie Meta](https://www.django-rest-framework.org/api-guide/serializers/#specifying-nested-serialization), albo samodzielnie podać pole (np. `user = UserSerializer`).
+Serializatory mogą być używane do serializacji pojedynczych obiektów, list obiektów, czy też do walidacji danych.   
+Implementują one metody `create()`, `update()`, `save()`, `delete()`, `validate()`, `to_representation()`, `to_internal_value()`, `is_valid()`, `errors` oraz `data`. Modyfikacja tych metod pozwala na dostosowanie serializatora do naszych potrzeb.
 
-Listę pól najprościej jest określić używając pola `fields` w klasie Meta. (np. `fields = '__all__'` po prostu przekazuje wszystkie pole z modelu)
+
+#### Podklasa Meta
+
+Do określania właściwości tych serializatorów można użyć wewnętrznej klasy `Meta`. Może zawierać ona takie pola jak:
+
+- `model` - model, który ma być serializowany
+- `fields` - lista pól, które mają być serializowane (np. `fields = '__all__'` po prostu przekazuje wszystkie pole z modelu)
+- `exclude` - lista pól, które mają być pominięte
+- `read_only_fields` - lista pól, które mają być tylko do odczytu
+- `depth` - Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz lub linku) [możemy użyć `depth` w klasie Meta](https://www.django-rest-framework.org/api-guide/serializers/#specifying-nested-serialization), albo samodzielnie podać pole (np. `user = UserSerializer`).
+
+#### Ręczne przypisywanie pól
 
 W ramach klas serializujących takich jak ModelSerializer możemy ręcznie określać niektóre pola korzystając klas typu `Field`. Jest sporo pól dla typowych dla poszczególnych typów danych, jak np `CharField`, `IntegerField` etc.
 
@@ -470,6 +482,37 @@ class ExampleView(views.APIView):
             'status': 'request was permitted'
         }
         return Response(content)
+```
+
+#### Więcej o widokach dla modeli ModelViewSet
+
+Dla widoków takich jak `ModelViewSet` lub `ReadOnlyModelViewSet` możemy wyróżnić kilka rodzajów akcji: 
+
+- list - zwraca listę obiektów
+- create - tworzy nowy obiekt
+- retrieve - zwraca pojedynczy obiekt
+- update - aktualizuje obiekt
+- partial_update - aktualizuje część obiektu
+- destroy - usuwa obiekt
+
+Domyślnie te akcje są przypisane do odpowiednich metod HTTP (GET, POST, PUT, PATCH, DELETE). Możemy je jednak nadpisać, lub dodać własne akcje.
+
+```python
+from rest_framework import viewsets
+from rest_framework.response import Response
+
+class SubjectViewSet(viewsets.ModelViewSet):
+    queryset = Subject.objects.all().order_by('name')
+    serializer_class = SubjectSerializer
+
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = SubjectSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def create(self, request):
+        # Do something special here
+        return super().create(request)
 ```
 
 #### Filtrowanie widoków
