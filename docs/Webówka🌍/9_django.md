@@ -714,3 +714,47 @@ Wykorzystany schemat `name.html`:
 ```
 
 `csrf_token` jest sposobem na użycie ochrony przeciwko [CSRF](https://pl.wikipedia.org/wiki/Cross-site_request_forgery)
+
+### Kolejkowanie zadań
+
+Jednym z brakujących elementów w Django jest przetwarzanie większych zadań w tle. Możemy to zrobić z użyciem biblioteki [Celery](https://docs.celeryproject.org/en/stable/django/index.html) bądź [Django Q2](https://django-q2.readthedocs.io/en/latest/index.html) (Q1 jest porzucone).
+
+Prostszym z tych rozwiązań jest Django Q2, które pozwala na łatwe dodawanie zadań do kolejki, a także na ich monitorowanie. Poza tym jest dobrze zintegrowane z Django.
+
+Po dodaniu Django Q2 do projektu, możemy dodać zadanie do kolejki w prosty sposób.
+
+```python
+from django_q.tasks import async_task, schedule
+
+# do kolejki zostanie dodane zadanie, które zostanie wykonane w tle
+async_task('myapp.tasks.my_task', 10) #TODO sprawdzenie czy to dobre API
+
+# do bazy danych zostanie dodane zadanie, które zostanie wykonane za 10 sekund przez oddzielnego workera
+# uruchamianego za pomocą `python manage.py qcluster`
+schedule('myapp.tasks.my_task', 10) 
+```
+
+
+### Sygnały
+
+Sygnały w Django pozwalają na reagowanie na różne zdarzenia w trakcie działania aplikacji. [link](https://docs.djangoproject.com/en/5.1/topics/signals/)
+
+Możemy je stosunkowo łatwo spiąć z różnymi zdarzeniami w ramach systemu. Możemy np. reagować na tworzenie nowego użytkownika, czy też na zapisanie nowego obiektu w bazie danych.
+
+```python
+@receiver([post_save], sender=User):
+def user_created(sender, instance, created, **kwargs):
+    if created:
+        print(f"Użytkownik {instance.username} został stworzony")
+```
+
+### Praca z cache
+
+Django pozwala na łatwe korzystanie z cache. [link](https://docs.djangoproject.com/en/5.1/topics/cache/)
+
+TODO
+
+
+### Praca z plikami
+
+TODO - opis sposobu zarządzania plikami oraz ich przesyłania na serwer przez klientów.
