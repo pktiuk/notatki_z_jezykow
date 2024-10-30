@@ -356,6 +356,7 @@ admin.site.register(Question, QuestionAdmin)
 Często edytowane pola dla tej klasy to:
 
 - `fields` - określa jakie pola mają być wyświetlane w panelu administracyjnym
+- `extra_kwargs` - pozwala na dodanie dodatkowych argumentów dla konstruktorów poszczególnych pól [link](https://www.django-rest-framework.org/api-guide/serializers/#additional-keyword-arguments)
 - `list_display` - określa jakie kolumny mają być wyświetlane w zbiorczej liście obiektów
 - `list_filter` - określa jakie filtry mają być dostępne
 - `search_fields` - określa jakie pola mają być używane do wyszukiwania (nad listą będzie wyszukiwarka, która może korzystać z tych pól)
