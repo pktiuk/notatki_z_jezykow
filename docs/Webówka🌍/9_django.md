@@ -371,6 +371,23 @@ Często edytowane pola dla tej klasy to:
           return instance.address
   ```
 
+Panel administratora pozwala także wykonywać różne akcje na obiektach z widoku listy. Możemy je dodawać samodzielnie, lub korzystać z gotowych akcji. [link](https://docs.djangoproject.com/en/5.1/ref/contrib/admin/actions/)
+
+```python
+
+from django.contrib import admin
+from .models import Person
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'age', 'is_adult')
+    actions = ['make_adult']
+
+    @admin.action(description='Make selected people adults')
+    def make_adult(self, request, queryset):
+        queryset.update(is_adult=True)
+```
+
+
 ## REST API
 
 Do pracy z API RESTowym zaleca się użycie specjalnego frameworka <https://www.django-rest-framework.org/tutorial/quickstart/>
