@@ -91,6 +91,7 @@ Mamy tutaj typowe [rodzaje pól](https://docs.djangoproject.com/en/5.1/ref/model
 - CharField
 - IntegerField
 - ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.ForeignKey)
+- OneToOneField - relacja jeden do jednego [link](https://docs.djangoproject.com/en/5.1/topics/db/examples/one_to_one/)
 - ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/5.1/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
 - GeneratedField - pole generowane automatycznie przez bazę danych
 - etc.
