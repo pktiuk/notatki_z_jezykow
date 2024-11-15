@@ -160,7 +160,7 @@ Przykładowe metody:
 
 #### Filtrowanie
 
-Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. [link](https://docs.djangoproject.com/en/5.1/topics/db/queries/)
+Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. [link](https://docs.djangoproject.com/en/5.1/topics/db/queries/) argumenty w filtrach są podawane wg [specjalnej składni](https://docs.djangoproject.com/en/5.1/topics/db/queries/#field-lookups).
 
 ```python
 People.objects.filter(surname__startswith="Kowalski)
@@ -210,6 +210,16 @@ class Affiliation(models.Model):
 
 #potem można wołać
 Sessions.objects.filter(affiliation_session__ip_id=X)
+```
+
+Na potrzeby filtrowania możemy także wygenerować nowe zmienne  po których mozęmy szukać i sortować używając metody `annotate()`. [link](https://docs.djangoproject.com/en/5.1/topics/db/aggregation/)
+
+```python
+
+from django.db.models import Count
+
+# The top 5 publishers, in order by number of books.
+>>> pubs = Publisher.objects.annotate(num_books=Count("book")).order_by("-num_books")[:5]
 ```
 
 TODO więcej przykładów by się przydało
