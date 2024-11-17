@@ -497,7 +497,8 @@ Poza tym należy dać dockerowi dostęp do odpowiedniego gniazda oraz ustawić z
 docker run -it --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ubuntu bash
 ```
 
-Do przetestowania działania całości warto użyć aplikacji `xeyes` zjandującą się w pakiecie `x11-apps` dla Ubuntu.
+Do przetestowania działania całości warto użyć aplikacji `xeyes` znajdującą się w pakiecie `x11-apps` dla Ubuntu.    
+Jeśli ta metoda nie zadziała (na Waylandzie mogą być problemy) warto rozwazyć użycie https://github.com/mviereck/x11docker .
 
 
 ### Sprawdzanie rozmiaru dockera i ogólne czyszczenie
