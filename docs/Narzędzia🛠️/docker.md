@@ -161,6 +161,7 @@ Przydatne flagi dla `docker run [flagi] nazwa-obrazu`:
 - `-v`, `--volume` określa jakie pliki/foldery z hosta mamy udostępnić kontenerowi i pod jakimi adresami np `-v /tmp/logs.log:/tmp/runlog` sprawi że apka w kontenerze pisząc do plików w folderze `tmp/runlog/` będzie tak na prawdę pisać do folderu `/tmp/logs.log/` na hoście.
 - `--rm` - usuwa kontener po zakończeniu
 - `--device` - pozwala na udostępnienie urządzeń kontenerowi dockerowemu (np. kamery) `--device=/dev/video0:/dev/video0` [link](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)
+- `--user` służy do ustawiania użytkownika oraz wartości userid (format: `<name|uid>[:<group|gid>]`) np. `--user=$(id -u):$(id -g)` ustawia uid oraz gid uzytkownika wewnątrz dockera na ten sam co ma użytkownik na hoście (moze to pomóc uniknąć problemów z uprawnieniami do plików)
 
 ```bash
 docker container run -i -t ubuntu bash
