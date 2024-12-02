@@ -19,6 +19,28 @@ Do zarządzania serwisami i demonami korzysta się z aplikacji `systemctl`. Poni
 
 TODO opisz same  pliki konfiguracyjne i ich syntax
 
+## Logi systemowe
+
+Do prostego wyświetlania logów kernela może być uzyta komenda dmesg
+
+```bash
+sudo dmesg
+```
+
+Przydatne flagi to:
+
+- `-w` `--follow` - podążanie za kolejnymi logami
+- `-T` - czas w formacie godziny (a nie liczony od startu)
+
+Do bardziej zaawansowanych zastosowań można używać komendy journalctl.
+
+Przykładowa komendy
+
+```bash
+journalctl --list-boots # wypisz ostatnie uruchomienia oraz ich czasy trwania
+journalctl -b-1 # wyświetl logi tylko z ostatniego uruchomienia (oznaczonego jako -1)
+```
+
 ## Domślne foldery systemowe
 
 ![Schemat](assets/linux_directories.jpeg)
