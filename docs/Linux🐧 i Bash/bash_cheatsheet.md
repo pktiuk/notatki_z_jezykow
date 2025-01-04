@@ -110,6 +110,18 @@ Przydatne flagi:
 - `-h` - human readable, zaokrągla do GB, MB etc.
 - `--max-depth=2` - maksymalna głębokość przy pokazywaniu podfolderów
 
+Alternatywnie do badania struktury katalogów można użyć `tree`
+
+```bash
+tree --du -h -d
+```
+
+Flagi:
+
+- `-d` - wyświetl tylko foldery
+- `--du` - podlicz rozmiary folderów
+- `-h` podawaj rozmiary w czytelnym formacie
+
 ### Pisanie do plików
 
 Każda aplikacja ma wejście (`stdin`) oraz dwa wyjścia (`stdout`-zwykłe i `stderr`-dla błędów)
