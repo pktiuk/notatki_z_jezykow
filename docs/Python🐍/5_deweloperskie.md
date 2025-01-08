@@ -1,6 +1,44 @@
 # Narzędzia deweloperskie
 
-## VENV - wirtualne środowisko
+## Utrzymanie jakości kodu
+
+### Guideline'y
+
+Istnieje kilka znanych i powszechnie stosowanych guideline'ów, które warto znać i stosować w pythonie:
+
+- [PEP 8](https://www.python.org/dev/peps/pep-0008/#module-level-dunder-names)
+- [Google](https://google.github.io/styleguide/pyguide.html)
+- [docs](https://docs.python-guide.org/writing/structure/)
+
+
+### Autoformatowanie kodu
+
+Do tego celu można użyć narzędzi takich jak:
+
+- black
+- autopep8
+- yapf
+- [ruff](https://github.com/astral-sh/ruff) format
+
+### Lintowanie kodu
+
+Lintowanie kodu to sprawdzanie go pod kątem problemów z samym kodem oraz jego zgodności z wybranymi guideline'ami. Może to obejmować takie problemy jak np. nieużywane zmienne, niezgodność z PEP8, błędy składniowe, itp.
+
+Do tego celu można użyć narzędzi takich jak:
+
+- pylint
+- flake8
+- [ruff](https://github.com/astral-sh/ruff)
+
+W kontekście typowania warto także zwrócić uwagę na zagadnienia związane z typowaniem i adnotacjami typów ([link do adnotacji](./1_ogolne_notatki.md#adnotacje)). O ile sam python traktuje adnotacje jedynie jako sugestie i komentarze to możliwe jest sprawdzenie ich poprawnosci z pomocą type checkerów takich jak:
+
+- [mypy](https://mypy-lang.org/)
+- [pyright](https://github.com/microsoft/pyright)
+- [pyre](https://pyre-check.org/)
+
+## VENV
+
+Venv, czyli wirtualne środowisko pythona, to narzędzie, które pozwala na stworzenie odizolowanego środowiska pythonowego z własnymi pakietami, aby nie zaśmiecać hosta.
 
 Jest to bardzo potrzebne gdy nie chcemy przypadkiem namieszać w naszych już zainstalowanych paczkach pythonowych, a chcemy odpalić jakiś projekt wymagający konkretnych wersji danych pakietów. [Dokumentacja](https://docs.python.org/3/library/venv.html)
 
@@ -44,11 +82,6 @@ Do tego warto użyć bibliotek booosta.
 
 Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TUTAJ](https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce)
 
-## Guideline'y
-
-- [PEP 8](https://www.python.org/dev/peps/pep-0008/#module-level-dunder-names)
-- [Google](https://google.github.io/styleguide/pyguide.html)
-- [docs](https://docs.python-guide.org/writing/structure/)
 
 ## Implementacje Pythonowe
 
@@ -115,7 +148,7 @@ inspect.getsource(xyz)# wypisuje jak dana funkcja jest napisana
 import ast
 ```
 
-# GDB
+### GDB
 
 [LINK](https://wiki.python.org/moin/DebuggingWithGdb)
 
