@@ -17,7 +17,25 @@ Do zarządzania serwisami i demonami korzysta się z aplikacji `systemctl`. Poni
 - `systemctl enable nazwa_serwisu` - ustawia serwis do uruchamiania przy starcie systemu
 - `systemctl disable nazwa_serwisu` - usuwa serwis z uruchamiania przy starcie systemu
 
-TODO opisz same  pliki konfiguracyjne i ich syntax
+Składnia plików opisujących serwisy jest dosć prosta.  
+Przykładowy plik konfiguracyjny (`/etc/systemd/system/http-map-socat.service`):
+
+```toml
+[Unit]
+Description=Map HTTP port (80) to port 80 of another machine using socat
+#po jakich pozostałych serwisach powinien się uruchomić (lista podzielona spacjami)
+After=network.target netbird.service
+
+[Service]
+ExecStart=socat TCP-LISTEN:80,fork TCP:100.81.47.39:80
+RestartSec=15
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ## Logi systemowe
 
@@ -51,6 +69,12 @@ TODO opisz te najważniejsze dla mnie
 - `/mnt`
 - `/tmp`
 - `/`
+
+## Bootowanie i GRUB
+
+Podczas bootowania GRUB wybiera wpis opisujący obecną konfigurację (czyli np jaki kernel użyć z jakimi flagami etc.). Jego konfigurację można znaleźć w pliku `/boot/grub2/grub.cfg` jednak jego edycja jest niezalecana.
+
+
 
 ## Firewalle i sieć
 
