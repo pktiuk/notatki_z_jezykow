@@ -1195,10 +1195,15 @@ class Pochodna(Base):
 
 ////TODO więcej przykładów
 
+### Dekoratory klas
+
+/// TODO
 
 ### Specjalne typy obiektów
 
 Jest lika szczególnie użytecznych typów obiektów nad którymi warto się pochylić
+
+#### Enum
 
 **Enum** - Obiekty wyliczeniowe. Jest kilka rodzajów enumów: `Enum`, `IntEnum`, `Flag` oraz `IntFlag`. [link](https://docs.python.org/3/library/enum.html)
 
@@ -1209,6 +1214,8 @@ class Color(Enum):
     BLUE = auto()
     GREEN = auto()
 ```
+
+#### Dataclass
 
 **dataclass** - specjalny dekorator dla obiektu dodający automatycznie wiele dodatkowych udogodnień pozwalających uniknąć mozolnego pisania logiki. [link](https://docs.python.org/3/library/dataclasses.html)
 
@@ -1243,6 +1250,8 @@ def __init__(self, name: str, unit_price: float, quantity_on_hand: int = 0):
 - operatory porównania (`=`, `<`,`>` etc.)
 - funkcję haszującą
 - etc...
+
+W niektórych przypadkach warto rozważyć wykorzystanie deskryptorów jako dla pól obiektu. [link](https://docs.python.org/3/library/dataclasses.html#descriptor-typed-fields)
 
 ## Inne
 
