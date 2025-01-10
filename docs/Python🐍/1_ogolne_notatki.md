@@ -748,6 +748,7 @@ Funkcja dekorująca najczęściej przyjmuje funkcję dekorowaną i zwraca nową,
 ```python
 #foo jest dekoratorem, który wzbogaci naszą funkcję
 def foo(to_be_wrapped):
+    @wraps(to_be_wrapped) #(opcjonalne) dodanie tej linii pozwala na zachowanie oryginalnej nazwy funkcji oraz jej dokumentacji
     def new_func(args,**kwargs):
         print("uwaga, będzie sześcian")
         return to_be_wrapped(*args,**kwargs)  # warto je dodać aby argumenty zostały przekazane dalej do funkcji docelowej
@@ -780,6 +781,27 @@ class Myclass:
     def get_token(self):
         #kod
         return token
+```
+
+Dekorator przyjmujący argumenty. Aby dekorator mógł przyjąć argumenty, musi być zdefiniowany jako funkcja, która zwraca dekorator.
+
+```python
+def retry(tries=4):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            for i in range(tries):
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    print(f"Exception {e}, retrying")
+            return None
+        return wrapper
+    return decorator
+
+@retry(5)
+def download_file(url):
+    #kod
 ```
 
 #### overload (przeciążanie funkcji)
