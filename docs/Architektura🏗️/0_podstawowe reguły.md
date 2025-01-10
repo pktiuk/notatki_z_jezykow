@@ -1,11 +1,27 @@
 # Reguły wytwarzania oprogramowania i inne skrótowce
 
-## Najważniejsze zasady, którymi trzeba się kierować
+## Najważniejsze zasady, którymi warto się kierować
 
 ![Piramidka zasad https://medium.com/@bartoszkrajka/principle-of-software-development-principles-f0143d6f405](assets/piramida.png)
 
 Bardzo dobry artykuł o tym [link](https://medium.com/@bartoszkrajka/principle-of-software-development-principles-f0143d6f405)
 
+
+### Więcej mądrych skrótowców
+
+**DRY** - Don't Repeat Yourself. Nie powtarzaj się. Jeśli coś jest powtarzane to warto to wydzielić do osobnej funkcji.
+
+**KISS** - Keep It Simple, Stupid. Trzymaj to proste. Im prostszy kod tym lepiej.
+
+**YAGNI** - You Aren't Gonna Need It. Nie rób rzeczy, które nie są potrzebne. Nie dodawaj funkcjonalności, które nie będą przez ciebie wykorzystywane.
+
+**SOLID** - pięć zasad programowania obiektowego:
+
+- **S** - Single Responsibility Principle. Każda klasa powinna mieć jedną odpowiedzialność.
+- **O** - Open/Closed Principle. Kod powinien być otwarty na rozszerzenia, ale zamknięty na modyfikacje.
+- **L** - Liskov Substitution Principle. Obiekty klas dziedziczących powinny być zastępowalne przez obiekty klas bazowych.
+- **I** - Interface Segregation Principle. Klienty nie powinny być zmuszane do implementacji interfejsów, których nie używają.
+- **D** - Dependency Inversion Principle. Moduły wysokiego poziomu nie powinny zależeć od modułów niskiego poziomu. Oba powinny zależeć od abstrakcji. Detale nie powinny zależeć od abstrakcji. Abstrakcje powinny zależeć od detali.
 
 ## Narzędzia dla architektury
 
