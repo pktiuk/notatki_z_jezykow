@@ -101,10 +101,10 @@ Dla każdego pola możemy określić też dodatkowe parametry takie jak nullowal
 !!! null i blank
 
     Polami, które łatwo pomylić są `null` i `blank`. Pierwsze z nich określa, czy pole w bazie danych może przyjmować wartość `null`, drugie czy pole może być puste. Warto zwrócić uwagę, że `null` jest zdefiniowane dla baz danych, a `blank` dla formularzy. Podsumowując:
-    - null=False, blank=False - domyślna konfiguracja. Wartość jest zawsze wymagana
-    - null=True, blank=True - pole jest zawsze opcjonalne
-    - null=False, blank=True - pole jest wymagane w bazie danych, ale nie w formularzu. Jest to wykorzystywane np przy polach typu `string`, które mogą być puste, ale nie mogą przyjmować wartości `null` (aby w razie braku był tam po prostu pusty string `""`). Można tego używać także w wypadkach, kiedy chcemy samodzielnie generować zawartość tego pola dopiero w ramach metody `save()`. 
-    - null=True, blank=False - pole jest opcjonalne w bazie danych, ale wymagane w formularzu. Może być wykorzystywane np w wypadku pól `ForeignKey`, które mogą zostać wyczyszczone np w wypadku usunięcia wskazywanego wcześniej obiektu.
+    `null=False, blank=False` - domyślna konfiguracja. Wartość jest zawsze wymagana
+    `null=True, blank=True` - pole jest zawsze opcjonalne
+    `null=False, blank=True` - pole jest wymagane w bazie danych, ale nie w formularzu. Jest to wykorzystywane np przy polach typu `string`, które mogą być puste, ale nie mogą przyjmować wartości `null` (aby w razie braku był tam po prostu pusty string `""`). Można tego używać także w wypadkach, kiedy chcemy samodzielnie generować zawartość tego pola dopiero w ramach metody `save()`. 
+    `null=True, blank=False` - pole jest opcjonalne w bazie danych, ale wymagane w formularzu. Może być wykorzystywane np w wypadku pól `ForeignKey`, które mogą zostać wyczyszczone np w wypadku usunięcia wskazywanego wcześniej obiektu.
 
 Na podstawie tych klas możemy potem wygenerować tabele w baszej bazie (lub zaktualizować obecne, aby dopasowac) wykonując migrację (z użyciek spryptu `manage.py`).
 
