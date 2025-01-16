@@ -220,6 +220,11 @@ Komendy:
 - `ENTRYPOINT command arg1 arg2 ...` uruchamia tą komendę, kiedy kontener jest uruchamiany (kontener jest zamykany kiedy ta komenda się kończy)
 - `EXPOSE port` pokazuje na jakim porcie słucha kontaner, sama go nie wystawia, pełni raczej funkcję informacyjną dla użytkownika [link](https://docs.docker.com/engine/reference/builder/#expose)
 - `VOLUME` pozwala kontenerowi podłączyć się do innego systemu plików [więcej info](https://docs.docker.com/storage/volumes/)
+- `HEALTHCHECK` pozwala na sprawdzanie czy kontener jest gotowy do pracy [link](https://docs.docker.com/reference/dockerfile/#healthcheck)
+  ```docker
+  HEALTHCHECK --interval=5m --timeout=3s \
+    CMD curl -f http://localhost/ || exit 1
+  ```
 
 **Uwaga** - w pliku dockerowym może być tylko jeden `CMD` albo `ENTRYPOINT`, jak nie to tylko `ENTRYPOINT` jest używany (na ogół).
 
@@ -357,14 +362,26 @@ Plik `docker-compose.yml` służy do zdefiniowania całych grup kontenerów, kt�
       back-tier: {}
     ```
 
-#### serwisy
+#### Serwisy
 
 Podstawowe parametry dla serwisów [dokumentacja](https://docs.docker.com/compose/compose-file/05-services/):
 
 - `image` - obraz, którego ma używać dany serwis
 - `expose` - lista portów, które mają być udostępnione innym serwisom wewnątrz dockera (host ich nie widzi)
 - `ports` - lista portów wystawionych na zewnątrz dockera (są one także dostępne dla innych serwisów w dockerze)
-- `links` - lista serwisów, które muszą zostać wystartowane przed uruchomieniem tego serwisu
+- [`depends_on`](https://docs.docker.com/reference/compose-file/services/#depends_on) - lista serwisów, które muszą zostać wystartowane przed uruchomieniem tego serwisu (zastępuje on min przestarzałe pole `links`). Domyślnie ustawia on tylko kolejność startowania, ale nie sprawdza czy serwis jest już gotowy do pracy. W celu zapewnienia uruchomienia w odpowiednim momencie można użyć pola `condition` (wartości to `service_healthy`, `service_started` lub `service_completed_successfully`).
+  ```yaml
+  services:
+    web:
+      build: .
+      depends_on:
+        redis:
+          condition: service_healthy
+    redis:
+      image: redis
+      healthcheck: xxxxxxx
+  ``` 
+- [`healthcheck`](https://docs.docker.com/reference/compose-file/services/#healthcheck) - pozwala na sprawdzenie czy serwis jest gotowy do pracy (np. czy baza danych jest już dostępna). Można go zdefiniować także w pliku Dockerfile
 - `environment` - lista zmiennych środowiskowych w danym kontenerze
 - `build` - ścieżka do folderu z plikiem `Dockerfile`, aby go zbudować, gdyby jeszcze nie było odpowiedniego obrazu
 
@@ -436,8 +453,6 @@ Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-fil
         device: /mnt/duzy_dysk/pliki_dla_cvata/
         o: bind
   ```
-
-
 
 
 #### inne
