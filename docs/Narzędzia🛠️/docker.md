@@ -181,6 +181,35 @@ docker container run -i -t ubuntu bash
 docker exec -it worker bash #-it podpina input i output
 ```
 
+### Zarządzanie wolumenami
+
+**Ręczne tworzenie volume**
+
+Czasami może pojawić się potrzeba ręcznego tworzenia wolumenów. [link](https://docs.docker.com/reference/cli/docker/volume/create/)
+
+```bash
+docker volume create [OPTIONS] [VOLUME]
+```
+
+Jedną z przydatnych opcji w takim wariancie jest stworzenie go w konkretnym folderze.
+
+```bash
+docker volume create --opt type=none --opt o=bind --opt device=/data/volumes/testvol testvol
+```
+
+Korzystamy wtedy z flag:
+
+- `--driver` - określa jakiego sterownika użyć, domyślnie użwany jest `local`
+- `--opt` - pozwala na przekazanie dodatkowych opcji sterownika (odpowiadają one opcjom komendy mount)
+  - `type` określa typ wolumenu
+  - `device` określa miejsce na dysku, które ma być zmapowane na ten wolumen (ten folder musi już istnieć)
+
+**Usuwanie**
+
+```bash
+docker volume rm testvol
+```
+
 ### Składnia pliku dockerfile
 
 Plik [dockerfile](https://docs.docker.com/engine/reference/builder/#format) opisuje kolejne operacje pokazujące, jak powinien być zbudowany nasz obraz.
