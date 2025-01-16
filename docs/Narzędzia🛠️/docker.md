@@ -483,6 +483,28 @@ Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-fil
         o: bind
   ```
 
+#### Wykorzystanie zmiennych środowiskowych
+
+W ramach docker-compose możemy korzystać z zmiennych środowiskowych, które są zdefiniowane w pliku `.env` znajdującym się w tym samym folderze co plik `docker-compose.yml`. Może także korzystać ze zmiennych systemowych.
+
+Przykład pliku `.env`:
+
+```env
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+```
+
+Aby skorzystać z tych zmiennych w pliku `docker-compose.yml` wystarczy użyć składni `${}`. Możemy też użyć domyślnych wartości, które są ustawiane w przypadku braku zmiennej. Do ustawiania domyślnej wartości ustawia się operatora `:-` (np. `${POSTGRES_DB:-postgres}`).
+
+```yaml
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+```
 
 #### inne
 
