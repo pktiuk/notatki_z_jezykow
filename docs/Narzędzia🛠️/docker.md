@@ -485,7 +485,7 @@ Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-fil
 
 #### Wykorzystanie zmiennych środowiskowych
 
-W ramach docker-compose możemy korzystać z zmiennych środowiskowych, które są zdefiniowane w pliku `.env` znajdującym się w tym samym folderze co plik `docker-compose.yml`. Może także korzystać ze zmiennych systemowych.
+W ramach docker-compose możemy korzystać z zmiennych środowiskowych, które są zdefiniowane w pliku `.env` znajdującym się w tym samym folderze co plik `docker-compose.yml`. Może także korzystać ze zmiennych systemowych. [link](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/)
 
 Przykład pliku `.env`:
 
@@ -494,7 +494,7 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 ```
 
-Aby skorzystać z tych zmiennych w pliku `docker-compose.yml` wystarczy użyć składni `${}`. Możemy też użyć domyślnych wartości, które są ustawiane w przypadku braku zmiennej. Do ustawiania domyślnej wartości ustawia się operatora `:-` (np. `${POSTGRES_DB:-postgres}`).
+Aby skorzystać z tych zmiennych w pliku `docker-compose.yml` wystarczy użyć składni `${}`. Możemy też użyć domyślnych wartości, które są ustawiane w przypadku braku zmiennej.
 
 ```yaml
 services:
@@ -505,6 +505,14 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB:-postgres}
 ```
+
+Składnia podstawień:
+
+- `${VAR}` - podstawia wartość zmiennej `VAR`
+- `${VAR:-default}` - podstawia wartość zmiennej `VAR`, jeśli jest ustawiona i nie jest pusta, w przeciwnym wypadku podstawia wartość `default`
+- `${VAR-default}` - podstawia wartość zmiennej `VAR`, jeśli jest ustawiona, w przeciwnym wypadku podstawia wartość `default`
+- `${VAR:?error message}` - Jeśli `VAR` nie jest ustawiona lub jest pusta to wypisuje `error message` i kończy działanie compose'a
+- `${VAR+replacement}` - podstawia wartość `replacement` jeśli `VAR` jest ustawiona, w przeciwnym wypadku zostawia puste
 
 #### inne
 
