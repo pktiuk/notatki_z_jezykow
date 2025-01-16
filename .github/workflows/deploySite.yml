@@ -21,6 +21,6 @@ jobs:
         pip3 install mkdocs mkdocs-material mdx_truly_sane_lists
         
     - name: Deploy MkDocs
-      uses: mhausenblas/mkdocs-deploy-gh-pages@1.25
+      uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
