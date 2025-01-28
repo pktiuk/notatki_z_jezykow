@@ -154,4 +154,35 @@ import ast
 
 /TODO opisać dokładniej
 
+## Profilowanie kodu
+
+Profilowanie kodu to sprawdzanie, które fragmenty kodu zajmują najwięcej czasu. Ważny jest tutaj dobór narzędzi do wizualizacji.
+
+### VizTracer
+
+[VizTracer](https://github.com/gaogaotiantian/viztracer) jest bardzo prostym w użyciu narzędziem.
+
+[![example_img](https://github.com/gaogaotiantian/viztracer/blob/master/img/example.png)](https://github.com/gaogaotiantian/viztracer/blob/master/img/example.png)
+
+Generowanie raportu (result.json):
+
+```
+# Instead of "python3 my_script.py arg1 arg2"
+viztracer my_script.py arg1 arg2
+```
+
+Podgląd:
+
+```
+vizviewer result.json
+```
+
+### Scalene
+
+[Scalene](https://github.com/plasma-umass/scalene) jest nieco bardziej szczegółowym narzędziem. pokazuje także użycie pamięci i GPU.
+
+
+
+-------------------------
+
 /TODO opisać działanie libki subprocess (czyli jak ogarnąć prawdziwą wielowątkowość w pythonie), oraz uruchamianie procesów.
