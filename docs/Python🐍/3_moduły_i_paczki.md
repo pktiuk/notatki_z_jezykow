@@ -24,7 +24,33 @@ python3 -m pip install numpy
 
 ## Tworzenie i używanie własnych paczek
 
-### Struktura
+### Struktura projektu pythonowego
+
+// TODO opisz przykładowy projekt pythonowy
+
+Opisy poszczególnych plików:
+
+- `requirements.txt` - plik zawierający listę zależności projektu (instalowanych np. pip-em)
+- `pyproject.toml` - [oficjalnie zalecany](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) plik konfiguracyjny projektu pythonowego. Zawiera on informacje o projekcie, konfiguracje dla narzędzi potrzebnych do jego budowy, testowania, formatowania kodu etc.
+
+Przykładowy toml
+```toml
+[project]
+name = "myproj_pythonowy"
+version = "0.1.0"
+authors = [{name = "Jan Kowalski", email = "jkowalski@email.pl"}]
+readme = "README.md"
+requires-python = ">=3.10"
+description = "Mega fajny projekt"
+
+[project.urls]
+"Source" = https://strona.com
+
+[project.scripts]
+myproj = "myproj_pythonowy.__main__:main"
+```
+
+### Struktura biblioteki
 
 Przykładowa struktura paczki
 
