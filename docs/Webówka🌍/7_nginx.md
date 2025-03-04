@@ -96,4 +96,23 @@ wget --header="Host: example.com" http://192.168.1.10/
 curl -H "Host: example.com" -O http://192.168.1.10/myfile.txt
 ```
 
+Przy deploymentach złożonych systemów warto użyć [nginx-a w dockerze](https://hub.docker.com/_/nginx) i zmapować folder z konfigiem na folder `/etc/nginx/conf.d/`
+
+Przykład dla compose'a
+
+```yml
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - my_webapp
+
+```
+
+
 /// TODO sprawdzić prostsze alternatywy jak CADDY https://caddyserver.com/
