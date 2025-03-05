@@ -433,6 +433,8 @@ Za ich pomocą możemy tworzyć trwałe miejsca do przechowywania danych. Trwał
 Dlatego często są one wykorzystywane min. do przechowywania baz danych, abyśmy nic nie tracili wtdy, kiedy np. przy aktualizacji będziemy chcieli zmienić wersję kontenera na świeższą.  
 Kolejną zaletą wolumenów w kontekście compose'a jest to, że mogą one być współdzielone pomiędzy poszczególnymi serwisami. [dokumentacja](https://docs.docker.com/compose/compose-file/07-volumes/)
 
+Składnia podawania wolumenów: `VOLUME:CONTAINER_PATH[:ACCESS_MODE]` [source](https://docs.docker.com/reference/compose-file/services/#short-syntax-5)
+
 Przykład:
 
 ```yaml
