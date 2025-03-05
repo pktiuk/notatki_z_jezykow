@@ -91,6 +91,11 @@ server {
 
 [link do dokumentacji modułu HTTP](https://nginx.org/en/docs/http/ngx_http_proxy_module.html)
 
+Różne użyteczne parametry:
+
+- `proxy_set_header HEADERNAME VALUE;` - pozwala na łatwe ustawianie/zmienianie nagłówków zapytań wysyłanych dalej
+- `client_max_body_size 100G;` - jak duży zapytania mogą być wysyłane przez klientóœ
+
 Do debugowania nginx-a i certyfikatów warto używać komend:
 
 ```bash
