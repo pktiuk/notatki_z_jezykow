@@ -30,18 +30,20 @@ Przykładowa konfiguracja dla prostego serwera HTTP
 ```nginx
 # Tworzymy serwer
 server {
-        #słuchający na porcie 80 (dla różnych interfejsów)
-        listen 80;
-        listen [::]:80;
+    #słuchający na porcie 80 (dla różnych interfejsów)
+    listen 80;
+    listen [::]:80;
 
-        #umieszcza on logi w tych lokalizacjach
-        access_log /var/log/nginx/reverse-access.log;
-        error_log /var/log/nginx/reverse-error.log;
-        
-        # i dla endpointów zaczynających się na / (czyli dla wszystkich)
-        location / {
-            #przekierowuje ruch na adres http://127.0.0.1:8000
-                    proxy_pass http://127.0.0.1:8000;
+    #umieszcza on logi w tych lokalizacjach
+    access_log /var/log/nginx/reverse-access.log;
+    error_log /var/log/nginx/reverse-error.log;
+    
+    # i dla endpointów zaczynających się na / (czyli dla wszystkich)
+    location / {
+        #przekierowuje ruch na adres http://127.0.0.1:8000
+        proxy_pass http://127.0.0.1:8000;
+        #nadpisujemy wartość nagłówka Host (aby zapobiec problemom z CSRF)
+        proxy_set_header Host $http_host;
   }
 }
 ```
