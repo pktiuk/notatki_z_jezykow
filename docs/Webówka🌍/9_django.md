@@ -69,6 +69,35 @@ manage.py migrate #wykonanie migracji
 
 Do wygodnej "zabawy" z danymi oraz klasami w bazie można użyć `manage.py shell`.
 
+### Migracje danych
+
+Migracje służą nakładaniu zmian na bazę danych po zmianach w samym kodzie aplikacji (głównie w modelach). [migracje tutorial](https://docs.djangoproject.com/en/5.1/topics/migrations/)
+
+Na ogół są generowane automatycznie, jednak w niektórych wypadkach należy ręcznie dopisać trochę logiki do skryptów migrujących.
+
+```py
+from django.db import migrations
+
+
+def combine_names(apps, schema_editor):
+    # We can't import the Person model directly as it may be a newer
+    # version than this migration expects. We use the historical version.
+    Person = apps.get_model("yourappname", "Person")
+    for person in Person.objects.all():
+        person.name = f"{person.first_name} {person.last_name}"
+        person.save()
+
+
+class Migration(migrations.Migration):
+    dependencies = [
+        ("yourappname", "0001_initial"),
+    ]
+
+    operations = [
+        migrations.RunPython(combine_names),
+    ]
+```
+
 ## Modele danych
 
 W django możemy w prosty sposób stworzyć własne struktury, które potem w automatyczny sposób będą mogły być mapowane na struktury znajdujące się w naszych klasycznych bazach danych. [dokumnetacja](https://docs.djangoproject.com/en/5.1/topics/db/models/)
