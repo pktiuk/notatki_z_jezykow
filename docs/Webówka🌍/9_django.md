@@ -621,6 +621,51 @@ Przykłądowa komenda dockera do uruchomienia `swagger-ui` dla danego pliku:
 docker run -p 80:8080 -e SWAGGER_JSON=/folder/openapi.json -v /tmp/tmp:/folder swaggerapi/swagger-ui
 ```
 
+#### DRF-spectacular
+
+Użycie tej biblioteki jest dokładnie opisane w [dokumentacji](https://drf-spectacular.readthedocs.io/en/latest/index.html#)
+
+Standardowe użycie opiera się na użyciu dekoratora [@extend_schema](https://drf-spectacular.readthedocs.io/en/latest/drf_spectacular.html#drf_spectacular.utils.extend_schema):
+
+Dla zwykłego endpointa będącego funkcją trzeba dodać jeszcze dekorator [@api_view](https://drf-spectacular.readthedocs.io/en/latest/faq.html#how-to-correctly-annotate-function-based-views-that-use-api-view)
+
+```py
+from enum import Enum
+
+
+from django.http import JsonResponse
+
+from rest_framework import serializers
+from rest_framework.decorators import api_view
+from rest_framework.request import HttpRequest
+
+from drf_spectacular.utils import extend_schema, inline_serializer
+
+
+class Status(Enum):
+    UPLOADING = "UPLOADING"
+    FINISHED = "FINISHED"
+    ERROR = "ERROR"
+
+
+@extend_schema(
+    methods=["GET"],
+    responses={
+        200: inline_serializer(
+            "USB status",
+            {
+                "status": serializers.ChoiceField(
+                    choices=[x.name for x in list(Status)]
+                )
+            },
+        ),
+    },
+)
+@api_view(["GET"]) # MUSI być poniżej extend schema, aby z metody zrobić widok
+def status(request: HttpRequest, *args, **kwargs) -> JsonResponse:
+    #implementacja
+```
+
 ## Testy
 
 Django może być testowane automatycznie z wykorzystaniem różnych frameworków do testowania, jednak domyślnym jest unittest. [link](https://docs.djangoproject.com/en/5.0/topics/testing/)
