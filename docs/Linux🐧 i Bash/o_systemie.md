@@ -70,6 +70,43 @@ TODO opisz te najważniejsze dla mnie
 - `/tmp`
 - `/`
 
+## Dyski i storage
+
+Do listowania dysków używa się komendy `lsblk`
+
+```bash
+$ lsblk
+NAME                MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda                   8:0    0 465,8G  0 disk 
+├─sda1                8:1    0   512M  0 part /boot/efi
+├─sda2                8:2    0     1K  0 part 
+└─sda5                8:5    0 465,3G  0 part 
+  ├─vgubuntu-root   253:0    0 464,3G  0 lvm  /
+  └─vgubuntu-swap_1 253:1    0   980M  0 lvm  [SWAP]
+```
+
+Do montowania manualnego montowania dysków można wykorzystać komendę `mount` (w praktyce tego typu zagadnienia mają znaczenie na serwerach, bo w dekstopowych systemach dyski są montowane automatycznie)
+
+```bash
+# Automatycznie zamontuj dyski z /etc/fstab
+sudo mount
+# Zamontuj DYSK w danej lokalizacji
+sudo mount /dev/sda1 /mnt/USB
+# Odmontowywanie
+sudo umount /mnt/USB
+```
+
+Do automatycznego montowania oraz opisywania dysków podczas bootowania systemu warto użyć konfiguracji z `/etc/fstab/`.
+
+```
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p2 during installation
+UUID=026c66e5-d1c4-444a-ba12-bcda1b15438f /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=8339-1FA4  /boot/efi       vfat    umask=0077      0       1
+/swapfile                                 none            swap    sw              0       0
+```
+
 ## Bootowanie i GRUB
 
 Podczas bootowania GRUB wybiera wpis opisujący obecną konfigurację (czyli np jaki kernel użyć z jakimi flagami etc.). Jego konfigurację można znaleźć w pliku `/boot/grub2/grub.cfg` jednak jego edycja jest niezalecana.
