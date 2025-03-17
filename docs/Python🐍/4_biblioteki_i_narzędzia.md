@@ -232,6 +232,8 @@ subprocess.run(["ls", "-l"])  #printuje komendę na stdout
 #>drwxrwxrwx+ 10 codespace root 4096 Mar 15 14:44 docs
 #>-rw-rw-rw-   1 codespace root 1085 Apr  2 12:30 mkdocs.yml
 #>CompletedProcess(args=['ls', '-l'], returncode=0)
+result=subprocess.run(["ls"],capture_output=True)
+print(result.stdout.decode())
 ```
 
 Przydatne argumenty:
