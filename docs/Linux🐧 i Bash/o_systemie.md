@@ -105,6 +105,8 @@ UUID=026c66e5-d1c4-444a-ba12-bcda1b15438f /               ext4    errors=remount
 # /boot/efi was on /dev/nvme0n1p1 during installation
 UUID=8339-1FA4  /boot/efi       vfat    umask=0077      0       1
 /swapfile                                 none            swap    sw              0       0
+
+/dev/sda1	/mnt	auto	defaults,noauto,user	0	0
 ```
 
 ## Bootowanie i GRUB
