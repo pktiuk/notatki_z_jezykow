@@ -123,6 +123,7 @@ Mamy tutaj typowe [rodzaje pól](https://docs.djangoproject.com/en/5.1/ref/model
 - OneToOneField - relacja jeden do jednego [link](https://docs.djangoproject.com/en/5.1/topics/db/examples/one_to_one/)
 - ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i [pośrednie](https://docs.djangoproject.com/en/5.1/topics/db/models/#extra-fields-on-many-to-many-relationships) łączenie z wieloma rekordami
 - GeneratedField - pole generowane automatycznie przez bazę danych
+- [FileField](https://docs.djangoproject.com/en/5.1/ref/models/fields/#filefield) - pole do przechowywania plików (somyślnie przechowuje ono pliki w jakimś folderze, nie z bazie). Z zarządzeniem plikami wiąże się kilka dodatkowych zagadnień [link](https://docs.djangoproject.com/en/5.1/topics/files/)
 - etc.
 
 Dla każdego pola możemy określić też dodatkowe parametry takie jak nullowalność, maksymalną długość (dla stringów), możliwe dozwolone wartości itp. Możemy też samodzielnie wybierać pole będące kluczem (chociaż na ogół te automatycznie dodawane wystarcza).
