@@ -551,6 +551,37 @@ class ExampleView(views.APIView):
         return Response(content)
 ```
 
+#### Dodawanie widoków do ścieżek
+
+Widoki REST-owe dodajemy do `urlpatterns` wykorzystując [routery](https://www.django-rest-framework.org/api-guide/routers/).
+
+
+```py
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'users', UserViewSet)
+router.register(r'accounts', AccountViewSet)
+urlpatterns = router.urls
+```
+
+Pozwalają one na automatyczne generowanie wielu endpointów dla wybranego widoku.
+
+Dodatkowo nadal możemy tutaj korzystać z parametrów w ścieżkach
+
+```py
+class ClientRequests(ModelsViewSet):
+    serializer_class = serializers.ClientRequestSerializer
+
+   def get_queryset(self):
+      return models.ClientRequest.objects.filter(cliend_id=self.request.kwargs.get('client_id')
+
+## w pliku urls
+router.register(
+    r'(?P<client_id>\d+)/requests',
+    views.ClientRequests,
+```
+
 #### Więcej o widokach dla modeli ModelViewSet
 
 Dla widoków takich jak `ModelViewSet` lub `ReadOnlyModelViewSet` możemy wyróżnić kilka rodzajów akcji: 
