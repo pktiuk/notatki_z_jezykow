@@ -574,7 +574,7 @@ class ClientRequests(ModelsViewSet):
     serializer_class = serializers.ClientRequestSerializer
 
    def get_queryset(self):
-      return models.ClientRequest.objects.filter(cliend_id=self.request.kwargs.get('client_id')
+      return models.ClientRequest.objects.filter(cliend_id=self.kwargs.get('client_id')
 
 ## w pliku urls
 router.register(
