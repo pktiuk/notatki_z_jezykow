@@ -5,6 +5,10 @@
 HTTP (Hypertext Transfer Protocol) to protokół sieciowy stosowany do przesyłania danych w sieci.  
 Protokół HTTP pozwala na wymianę danych za pomocą zapytań (ang. `requests`) i odpowiedzi (ang. `responses`). Zapytania są wysyłane przez przeglądarkę internetową do serwera, a odpowiedzi są wysyłane przez serwer z powrotem do przeglądarki. Zapytania i odpowiedzi są wysyłane w postaci ciągów tekstowych, które są następnie parsowane i interpretowane przez klienta i serwer.
 
+??? note "Kiedy wysyłanie zapytań do serwera to za mało."
+
+    Tutaj warto pamiętać, że w niektórych wypadkach, kiedy ciągłe odpytywanie serwera jest nieefektywne możliwe jest wysłanie informacji do klienta. Można do tego celu użyć [WebSocektów](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket), bądź SSE (Server Sent Events) [link](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+
 Protokół HTTP składa się z kilku elementów, takich jak:
 
 - Metoda zapytania: określa, co ma zostać zrobione z danymi. Najczęściej używane metody to `GET`, `POST`, `PUT` i `DELETE`.
