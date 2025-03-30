@@ -256,7 +256,7 @@ Host fajnyserwer
 
 ### SSH tunelowanie
 
-Inną przydatną rzeczą jest tunelowanie portów za pomocą ssh. Pozwala to na dostęp do zdalnych usług na danych portach tak, jakby były u nas lokalnie. [link do artykułu](https://goteleport.com/blog/ssh-tunneling-explained/)
+Inną przydatną rzeczą jest tunelowanie portów za pomocą ssh. Pozwala to na dostęp do zdalnych usług na danych portach tak, jakby były u nas lokalnie. [link do artykułu](https://goteleport.com/blog/ssh-tunneling-explained/) oraz [drugi link](https://goteleport.com/blog/ssh-tunneling-explained/)
 
 Na przykład komenda:
 
@@ -264,7 +264,7 @@ Na przykład komenda:
 ssh -L 9999:localhost:9090 marian@moj_serwer
 ```
 
-Sprawi, że na naszej lokalnej maszynie pod portem `9999` będzie dostępna usługa, która jest dostępna pod portem `9090` naszego serwera.
+Sprawi, że na naszej lokalnej maszynie pod portem `9999` będzie dostępna usługa, która jest dostępna pod portem `9090` naszego serwera. Czyli po ludzku: `UŻYWAMY WTEDY GDY CHCEMY MIEĆ U SIEBIE DOSTĘP DO JEGO PORTU`.
 
 Możliwe jest także odwrócone tunelowanie portów za pomocą SSH
 
@@ -272,7 +272,7 @@ Możliwe jest także odwrócone tunelowanie portów za pomocą SSH
 ssh -R [REMOTE:]REMOTE_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER
 ```
 
-Na przykład komenda `ssh -R 3000:192.168.1.11:9090 marian@moj_serwer` sprawi, że na serwerze pod porcie `3000` będzie dostępna usługa widoczna u nas pod adresem `192.168.1.11:9090`
+Na przykład komenda `ssh -R 3000:192.168.1.11:9090 marian@moj_serwer` sprawi, że na serwerze pod porcie `3000` będzie dostępna usługa widoczna u nas pod adresem `192.168.1.11:9090` (można przetłumaczyć na: `KIEDY CHCEMY, ABY NA SERWERZE BYŁ DOSTĘP DO USŁUGI OBECNEJ NA NASZYM KLIENCIE`)
 
 Jest on najczęściej używany, aby dać komuś z zewnątrz dostęp do wewnętrznego serwisu.
 
