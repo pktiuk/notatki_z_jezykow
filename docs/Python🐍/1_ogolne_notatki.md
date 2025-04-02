@@ -1378,11 +1378,17 @@ f.read()
 f.closed #informuje czy już zamknięte
 ```
 
-With open flagi:
+Flagi do otiwerania plików [link](https://www.w3schools.com/python/ref_func_open.asp):
 
 - `r` -read
 - `w` -write otwiera plik (i nadpisuje, jeżeli tam już coś jest)
 - `a` -append (otwiera do zapisu i zaczyna na końcu tzn dopisuje)
+- `x` -create tworzy określony plik (zwraca error, jeśli plik już istnieje)
+
+Poza tym mamy dodatkową flagę do określenia typu pliku:
+
+- `t` -Tekst (domyślna)
+- `b` -Binarny (kiedy chcemy pracować np ze zdjęciami, np odczyt ot `rb`)
 
 #### Dane o plikach
 
