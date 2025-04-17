@@ -8,8 +8,6 @@ Jeśli chodzi tu o grupowanie to warto zadbać tutaj o złoty środek (pliki nie
 
 ## Zarządzanie paczkami
 
-pip i pip3 #TODO
-
 Do instalacji można używać samodzielnych aplikacji pip (i pip3)
 
 ```bash
@@ -22,11 +20,41 @@ Można też wymusić od danej instancji pythona, aby zainstalował dla siebie da
 python3 -m pip install numpy
 ```
 
+PIP może też używać plików zawierających opisy paczek potrzebnych do zainstalowania [`requirements.txt`](https://pip.pypa.io/en/stable/reference/requirements-file-format/)
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+gdzie plik moze wyglądać tak
+
+```txt
+# zsykłe paczki
+pytest
+pytest-cov
+
+# Podawanie konkretnych paczek po sieci
+http://my.package.repo/simple
+git+ssh://git@git.example.com/MyProject
+```
+
 ## Tworzenie i używanie własnych paczek
 
 ### Struktura projektu pythonowego
 
-// TODO opisz przykładowy projekt pythonowy
+```
+.
+├── pyproject.toml
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── src
+│   └── package
+│       ├── __init__.py
+│       └── main.py
+└── tests
+    └── test_classes.py
+```
 
 Opisy poszczególnych plików:
 
