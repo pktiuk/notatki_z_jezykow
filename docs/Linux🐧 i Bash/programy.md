@@ -170,6 +170,8 @@ pawel@sys:~/PROJEKTY/Inne/notatki_z_jezykow$ dust
  71M ┌─┴ .                                                         │████████ │ 100%
 ```
 
+Ewentualnie inną alternatywą może być `ncdu`
+
 ### Hardware
 
 `lsusb` - przydatne do sprawdzania tego, jakie urządzenia usb mamy podłączone
