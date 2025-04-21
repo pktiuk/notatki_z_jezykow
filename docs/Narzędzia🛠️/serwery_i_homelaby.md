@@ -1,6 +1,13 @@
 # Narzędzia serwerowe☁️
 
-Na dobry początek można zajrzeć [na wiki reddita homelab](https://www.reddit.com/r/homelab/wiki/introduction/)
+Na dobry początek można zajrzeć [na wiki reddita homelab](https://www.reddit.com/r/homelab/wiki/introduction/), [artykuł o przykładowych usługach](https://hostbor.com/25-must-have-home-server-services/)
+
+Fajne serwisy których hostowanie może posłużyć każdemu:
+
+- [NextCloud](https://nextcloud.com/) - alternatywa dla własnego google clouda. Baza pod dużą ilosć zastosowań, jak file storage, kalendarz, kontakty, zarządzanie zdjęciami, edycja dokumentów, komunikator etc.
+- [Jellyfin](https://jellyfin.org/) - własny prywatny serwer multimedialny (taki netflix/legimi/spotify)
+- [Pi-Hole](https://pi-hole.net/) - domowy adblock dla wszystkich urządzeń w sieci
+- Uptime kuma - prosta apka do monitorowania innych serwerów
 
 ## Monitoring i zarządzanie infrastrukturą
 
@@ -45,10 +52,13 @@ Monitorowanie dockerów 🐋
 
 VPN-y
 
+Bazowe protokoły:
+
 - Wireguard - jeden z dwóch popularnych protokołów VPNa.
 - OpenVPN - również popularny, lecz troche przestarzały protokół VPNa
-
 - [PiVPN](https://www.pivpn.io/) - prosty i uniwersalny VPN. Ma UI webowe oraz wpiera Wireguarda i OpenVPN-a.
+
+Jednak nieco wygodniejsze wydaje się wykorzystywanie narzędzi takich jak netbird i tailscale.
 
 ### Obsługa PiVPN-a i Wireguarda
 
@@ -81,6 +91,7 @@ Konfigi są też zapisywane w `/etc/wireguard/configs`
 
 - [TrueNAS](https://www.truenas.com/) - system operacyjny dedykowany maszynm mającym służyć jako storage
 - [Wtyczka do Cockpitu](https://github.com/45Drives/cockpit-file-sharing) pozwalająca na łatwe udostępnianie zawartości, jest też inna [wtyczka do przeglądania plików](https://github.com/45Drives/cockpit-navigator)
+- [Duplicati](https://github.com/duplicati/duplicati) - apka do robienia backupów danych (wraz z opcją szyfrowania).
 
 ## Dla chcących postawić sobie jakiś serwer
 
