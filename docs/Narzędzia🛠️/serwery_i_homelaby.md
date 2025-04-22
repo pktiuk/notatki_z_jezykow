@@ -123,3 +123,13 @@ Tutaj jest jedna apka `powertop` można w niej podejrzeć jakie power states są
 Ogólnie warto też zapoznać się z tym wideo.
 
 https://youtu.be/MucGkPUMjNo?si=_4RVAnBg5IsMGqhp
+
+## Szyfrowanie dysków oraz deszyfrowanie z pomocą TPM
+
+Partycje można zabezpieczyć szyfrowaniem z pomocą LUKS-a.    
+Tutaj jednak problemem może być automatyczne uruchomienie takiego systemu, aby nie było wymagane wpisywanie hasła ręcznie.
+
+Tutaj z pomocą rzychodzi TPM.
+
+https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/
+
