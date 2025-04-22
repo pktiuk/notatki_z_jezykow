@@ -114,3 +114,12 @@ Oganianie domen:
 
 - [tld-list](https://tld-list.com/) - porównywarka cen domen
 - [seohost](https://seohost.pl/) - moim zdaniem najlepszy dostawca domen w Polsce
+
+
+## Oszczędzanie energii
+
+Tutaj jest jedna apka `powertop` można w niej podejrzeć jakie power states są obecnie na procesorze (C0, C1, C2...)
+
+Ogólnie warto też zapoznać się z tym wideo.
+
+https://youtu.be/MucGkPUMjNo?si=_4RVAnBg5IsMGqhp
