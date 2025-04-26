@@ -563,6 +563,28 @@ import pprint
 pprint.pprint(duzy_slownik)
 ```
 
+### Kolejka
+
+Kolejka jest kolejną przydatną strukturą danych. Najczęściej jest ona używana do przechowywania danych w kolejce fifo. W pythonie mamy tak właściwie 2 implementacje [`queue.Queue`](https://docs.python.org/3/library/queue.html#queue.Queue) i  `collections.deque`. Pierwsza z nich jest zalecana głównie do komunikacji i wymiany komunikatami między wątkami, zaś druga jest po prostu strukturą danych. Z tego powodu klasa `queue.Queue` ma metody związane z dostępem, jak np `put_nowait()`, czy `join()`, ale brakuje jej np operatora `in`.
+
+```py
+from collections import deque
+
+q = deque([1,2,3,4])
+q.popleft()
+# 1
+print(q)
+# deque([2, 3, 4])
+q.pop()
+# 4
+q.index(2)
+# 0 - indeks elementu 2
+q.append(99) # dodaj 99 na koniec
+q.extend([100,101])
+print(q)
+# deque([2, 3, 99, 100, 101])
+```
+
 ### Funkcje
 
 Funkcje
