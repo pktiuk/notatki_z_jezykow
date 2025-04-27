@@ -565,6 +565,14 @@ import pprint
 pprint.pprint(duzy_slownik)
 ```
 
+Przy okazji pracy ze słownikami warto także poznać klasę [`defaultdict`](https://docs.python.org/3/library/collections.html), która zwraca domyślną wartość dla elementów nieobecnych w słowniku.
+
+```py
+d=defaultdict(int)
+d[31]
+#>0 wartość wygenerowana przed domyślny konstruktor int-a
+```
+
 #### Kolejka
 
 Kolejka jest kolejną przydatną strukturą danych. Najczęściej jest ona używana do przechowywania danych w kolejce fifo. W pythonie mamy tak właściwie 2 implementacje [`queue.Queue`](https://docs.python.org/3/library/queue.html#queue.Queue) i  `collections.deque`. Pierwsza z nich jest zalecana głównie do komunikacji i wymiany komunikatami między wątkami, zaś druga jest po prostu strukturą danych. Z tego powodu klasa `queue.Queue` ma metody związane z dostępem, jak np `put_nowait()`, czy `join()`, ale brakuje jej np operatora `in`.
