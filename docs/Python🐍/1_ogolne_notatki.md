@@ -288,7 +288,9 @@ for x in fruits:
 newlist = [x for x in fruits if "a" in x]
 ```
 
-### Krotka (tuple)
+### Struktury danych
+
+#### Krotka (tuple)
 
 Pewną specyficzną dla języka Python strukturą jest krotka. Polega ona na grupowaniu paru wartości w jeden byt. Warto zaznaczyć, że krotka, która raz została stworzona, nie może być modyfikowana: nie możemy podmienić jednej ze składowych krotki
 
@@ -331,7 +333,7 @@ Jeśli chcemy możemy rozbić krotkę na poszczególne zmienne
 a,b,c = (1,2,3)
 ```
 
-#### named tuple
+##### named tuple
 
 Specjalne obiekty działające jak krotki i kompatybilne z nimi.
 
@@ -348,7 +350,7 @@ line_length = sqrt((pt1[0]-pt2[0])**2 + (pt1[1]-pt2[1])**2)
 x1, y1 = pt1
 ```
 
-#### Funkcja zip
+##### Funkcja zip
 
 Do operowania na krotkach przydatna jest funkcja wbudowana `zip` zwracająca iterator (nie listę) pozwalający iterować po krotkach tworzonych z obiektów danych w funkcji.
 
@@ -364,7 +366,7 @@ for kr in zip(a, b):
 #('Mike', 'Monica')
 ```
 
-### Lista
+#### Lista
 
 Podobną, przynajmniej na pozór, strukturą danych do krotki jest lista. Tutaj także możemy grupować dane oraz nie muszą one być tego samego typu. Jednak główną różnicą jest to, że listę możemy modyfikować. Możemy dodawać nowe elementy czy zastępować dotychczasowe.
 
@@ -476,7 +478,7 @@ print("a" < "b")
 Więcej na:
 <https://www.kodolamacz.pl/blog/wyzwanie-python-3-algorytmy-i-struktury-danych/>
 
-### Zbiór (set)
+#### Zbiór (set)
 
 to tablica (tyle, że bez indeksowania), w których nie ma dwóch lub więcej identycznych elementów. (jest szybszy od listy)
 
@@ -513,7 +515,7 @@ print({1, 5}.issubset({1, 5, 9}))
 ## True
 ```
 
-### Słownik
+#### Słownik
 
 Jest to rozszerzenie idei zbioru.
 Słownik zawiera pary klucz-wartość. Wyszukiwanie po kluczu jest szybkie, tak jak w zbiorze, jednak gdy już odnajdziemy klucz, możemy odzyskać także stowarzyszoną z nim wartość. Gdy usuniemy ze słownika wartości, a zostawimy same klucze, otrzymamy zbiór. Tak jak w zbiorze, w słowniku klucze nie mogą się powtarzać.
@@ -563,7 +565,7 @@ import pprint
 pprint.pprint(duzy_slownik)
 ```
 
-### Kolejka
+#### Kolejka
 
 Kolejka jest kolejną przydatną strukturą danych. Najczęściej jest ona używana do przechowywania danych w kolejce fifo. W pythonie mamy tak właściwie 2 implementacje [`queue.Queue`](https://docs.python.org/3/library/queue.html#queue.Queue) i  `collections.deque`. Pierwsza z nich jest zalecana głównie do komunikacji i wymiany komunikatami między wątkami, zaś druga jest po prostu strukturą danych. Z tego powodu klasa `queue.Queue` ma metody związane z dostępem, jak np `put_nowait()`, czy `join()`, ale brakuje jej np operatora `in`.
 
@@ -583,6 +585,26 @@ q.append(99) # dodaj 99 na koniec
 q.extend([100,101])
 print(q)
 # deque([2, 3, 99, 100, 101])
+```
+
+#### Sterta (heap)
+
+Kolejną typową strukturą jest sterta/kopiec (heap) pozwalająca dorzucać do niej elementy, które można potem efektywnie zdejmować (przy założeniu, że chcemy je zdejmować od najmniejszych).
+
+![heap](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/1920px-Max-Heap-new.svg.png)
+
+W pythonie sterta jest zaimplementowana za pomocą biblioteki [`heapq`](https://docs.python.org/3/library/heapq.html). Jej metody pozwalają traktować listę jak stertę. 
+
+```py
+import heapq
+
+h = [10, 20, 15, 30, 40]
+# zmienia listę w stertę dającą dostęp od najmniejszego elementu
+heapq.heapify(h)
+# elementy na stercie mogą być krotkami, gdzie porównywane są kolejne wartości
+heapq.heappush(h, 5) 
+heapq.heappop(h)
+#> 5
 ```
 
 ### Funkcje
