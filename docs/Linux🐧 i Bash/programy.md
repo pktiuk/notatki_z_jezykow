@@ -296,3 +296,13 @@ ssh -X jkowalski@adres
 ```
 
 Wtedy po uruchomieniu w tym terminalu aplikacji z GUI jak np gedit to będziemy mogli zobaczyć jej okienko na naszej maszynie.
+
+### Montowanie plików ssh
+
+Jeśli chcemy wygodnie pracować na plikach na drugiej maszynie mozemy wykorzystać `sshfs`
+
+```bash
+sshfs user@hostname:/path/ /localpath
+```
+
+Wtedy mamy zamontowany zdalny folder `/path` pod ścieżką `/localpath`. Dodatkowo możemy użyć flagi `-o` do przekazywania dodatkowych opcji montowania. [krótki tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh)
