@@ -78,10 +78,12 @@ Dzięki temu po zakończeniu wykonywania nie wyjdziemy ze skryptu i będziemy mo
 
 ## Użycie modułów z C/C++
 
-Do tego warto użyć bibliotek booosta.
+Do tego warto użyć bibliotek boosta, popularny jest też [pybind11](https://github.com/pybind/pybind11) .
 
 Przykładowy Github Gist zawierający prosty projekt obrazujący działanie: [TUTAJ](https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce)
 
+Przy pracy z bibliotekami tego typu mogą pojawić sie problemy min z autopodpowiadaniem kodu.   
+W takiej sytuacji można np wygenerować sobie stubsy [link stack](https://stackoverflow.com/questions/73879484/vscode-not-autocompleting-python-from-module-made-with-pybind11) (czasami może to działać bez takich obejść)
 
 ## Implementacje Pythonowe
 
