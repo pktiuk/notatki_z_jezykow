@@ -37,6 +37,11 @@ StandardError=syslog
 WantedBy=multi-user.target
 ```
 
+Serwisy mogą mieć wiele instancji. Kiedy w nazwie pliku/seriwsu pojawia się `@` to część po tym znaku jest nazwą instancji (np. `usb-mount@.service`). Wtedy uruchamiając serwis `systemctl start usb-mount@sdb1.service` towrzymy serwis, którego nazwą jest `sdb1`. W pliku konfiguracyjnym serwisu jego nazwę reprezentuje `%i` lub `%I` (ten drugi wariant to nazwa poddana normalizacji). 
+
+[Automount usb devices with udev and systemd](https://andreafortuna.org/2019/06/26/automount-usb-devices-on-linux-using-udev-and-systemd/)
+
+
 ## Logi systemowe
 
 Do prostego wyświetlania logów kernela może być uzyta komenda dmesg
@@ -108,6 +113,30 @@ UUID=8339-1FA4  /boot/efi       vfat    umask=0077      0       1
 
 /dev/sda1	/mnt	auto	defaults,noauto,user	0	0
 ```
+
+## Udev
+
+[Udev](https://wiki.archlinux.org/title/Udev) to system umożliwiający automatyczną obsługę zdarzeń związanych z urządzeniami. zdarzenia generowane przez udev dotyczą zdarzeń takich jak np podłąćzenie/odłączenie urządzeń. Z pomocą udeva możemy ustalić zasady obsługi takiego urządzenia (jak np ustalenie miejsca montowania) bądź uruchamiać skrypty dla wybranych zdarzeń.
+
+PLiki z konfiguracjami udev znajdują się w folderze `/etc/udev/rules.d/` (np. `60-antimicrox-uinput.rules` ).
+
+Przykładowe konfiguracje wyglądają w ten sposób:
+
+```
+#Enable user access to keyboard using uinput event generator
+SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
+
+# dla urządzeń pasujących do regexa z subsystemu usb uruchom skrypt gdy urządzenie jest podłączane
+KERNEL=="sd[a-z][0-9]", SUBSYSTEMS=="usb", ACTION=="add", RUN+="/bin/systemctl start usb-mount@%k.service"
+```
+
+Syntax:
+
+- `%k`, `$kernel` -wyrażenie podmieniane dla wartości KERNELa
+- `%n`, `$number` - kernelowy numer dla urządzenia, np dla `/dev/sda1` jest to `1`
+
+
+Materiały: [writing udev rules](https://www.reactivated.net/writing_udev_rules.html), [About udev-Oracle](https://docs.oracle.com/en/operating-systems/oracle-linux/6/admin/about-udev-rules.html).
 
 ## Bootowanie i GRUB
 
