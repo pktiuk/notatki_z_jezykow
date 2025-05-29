@@ -433,7 +433,8 @@ Za ich pomocą możemy tworzyć trwałe miejsca do przechowywania danych. Trwał
 Dlatego często są one wykorzystywane min. do przechowywania baz danych, abyśmy nic nie tracili wtdy, kiedy np. przy aktualizacji będziemy chcieli zmienić wersję kontenera na świeższą.  
 Kolejną zaletą wolumenów w kontekście compose'a jest to, że mogą one być współdzielone pomiędzy poszczególnymi serwisami. [dokumentacja](https://docs.docker.com/compose/compose-file/07-volumes/)
 
-Składnia podawania wolumenów: `VOLUME:CONTAINER_PATH[:ACCESS_MODE]` [source](https://docs.docker.com/reference/compose-file/services/#short-syntax-5)
+Podstawowa składnia podawania wolumenów: `VOLUME:CONTAINER_PATH[:ACCESS_MODE]` [source](https://docs.docker.com/reference/compose-file/services/#short-syntax-5).   
+Możliwe jest także użycie [złożonej składni](https://docs.docker.com/reference/compose-file/services/#volumes).
 
 Przykład:
 
@@ -444,6 +445,12 @@ services:
     volumes:
       - db-data:/etc/data
     #db-data będzie zamontowane w backendzie pod ścieżką /etc/data
+      - type: bind
+        source: /media/usb
+        target: /usb
+        bind:
+          propagation: shared
+    # zamontowany storage z hosta
 
   backup:
     image: backup-service
@@ -460,7 +467,7 @@ Uruchamiając `docker compose up` docker tworzy wolument jeśli jeszcze nie istn
 
 Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-file/07-volumes/#attributes) takich jak:
 
-- `external`(true, false) - określa, czy ten wolumen jest zarządzany poza danym serwerem. Jeśli ustawiony na `true` to wszystkie pozostałe flagi są ignorowane (za wyjątkiem name). Jeśli taki wolumen nie istnieje to zwracany jest błąd, jeśli istnieje to jest on podłączany.
+- `external`(true, false) - określa, czy ten wolumen jest zarządzany poza wybranym docker composem. Jeśli ustawiony na `true` to wszystkie pozostałe flagi są ignorowane (za wyjątkiem name). Jeśli taki wolumen nie istnieje to zwracany jest błąd, jeśli istnieje to jest on podłączany.
   ```yaml
   volumes:
     db-data:
@@ -484,6 +491,9 @@ Warto tytaj wiedzieć o [atrybutach](https://docs.docker.com/compose/compose-fil
         device: /mnt/duzy_dysk/pliki_dla_cvata/
         o: bind
   ```
+
+Pracująz z wolumenami warto rozgraniczyć zwykłe wolumeny oraz [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/). Różnią się one przede wszystkim tym, że wolumeny są zarządzane przed Dockera, a mounty przez system.  
+Obejmuje to np sytuacje, kiedy chcemy mieć z dockera dostęp do folderu w którym jest storage montowany przez hosta ([bind propagation](https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation))
 
 #### Wykorzystanie zmiennych środowiskowych
 
