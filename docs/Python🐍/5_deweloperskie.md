@@ -179,6 +179,8 @@ Podgląd:
 vizviewer result.json
 ```
 
+Najpopularniejszym GUI do viztracera jest [perfetto](https://perfetto.dev/).
+
 ### Scalene
 
 [Scalene](https://github.com/plasma-umass/scalene) jest nieco bardziej szczegółowym narzędziem. pokazuje także użycie pamięci i GPU.
