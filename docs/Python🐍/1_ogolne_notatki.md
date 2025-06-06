@@ -1469,7 +1469,7 @@ Najczęściej, aby poprawić wydajność aplikacji pisanych w pythonie trzeba si
 
 ### Wielowątkowość
 
-Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie. [dłuższy artykuł](https://realpython.com/python-gil/)  
+Wielowątkowość w pythonie jest nieco [śliskim tematem](https://stackoverflow.com/questions/44793371/is-multithreading-in-python-a-myth), ponieważ w najpopularniejszej implementacji pythona (CPython) mamy do czynienie z mechanizmem GIL, który uniemożliwia pracę wielu wątkom jednocześnie. [dłuższy artykuł](https://realpython.com/python-gil/). GIL jest zwalniany przy operacjach IO (odczyt/zapisa danych) oraz czasem przy okazji wykonywania obliczeń w bibliotekach będących bindingami do innych języków, jak [np. numpy](https://scipy-cookbook.readthedocs.io/items/ParallelProgramming.html).   
 Z tego powodu domyślnie wątki są dobrym pomysłem w wypadku operacji IO, czy też innych zadaniach, które działając w tle nie konsumują czasu procesora.  
 Jeśli zaś chcemy w naszej pracy wykorzystać wiele rdzeni procesora równocześnie to warto użyć biblioteki [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
 
@@ -1496,6 +1496,30 @@ lub
 
 ```python
 my_thread.join(timeout=10)
+```
+
+Innym przydatnym mechanizmem jest [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html) służy on do stworzenia puli procesów, którym możemy dać do przetworzenia wybrane zadania.
+
+```py
+from concurrent.futures import ThreadPoolExecutor
+from time import sleep
+
+values = [3,4,5,6]
+
+def cube(x):
+    print(f'Cube of {x}:{x*x*x}')
+
+
+if __name__ == '__main__':
+    result =[]
+    with ThreadPoolExecutor(max_workers=5) as exe:
+        exe.submit(cube,2)
+        
+        # Maps the method 'cube' with a list of values.
+        result = exe.map(cube,values)
+    
+    for r in result:
+      print(r)
 ```
 
 ### Wieloprocesowość
