@@ -117,7 +117,8 @@ class Person(models.Model):
 Nowe modele powstają poprzez stworzenie klasy dziedziczącej po bazowej klasie W klasie tej zdefiniowane przez nas pola są rekordami.  
 Mamy tutaj typowe [rodzaje pól](https://docs.djangoproject.com/en/5.1/ref/models/fields) takie jak:
 
-- CharField
+- [CharField](https://docs.djangoproject.com/en/dev/ref/models/fields/#charfield) - tekst dla krótkich/średnich określonych ciągów znakowych (nicki adresy etc), wymaga określenia `max_length`.
+- [TextField](https://docs.djangoproject.com/en/dev/ref/models/fields/#textfield) - nieustrukturyzowany tekst, który może być różnej długości (np wpisy na blogu, etc.)
 - IntegerField
 - ForeignKey - klucz obcy [link](https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.ForeignKey)
 - OneToOneField - relacja jeden do jednego [link](https://docs.djangoproject.com/en/5.1/topics/db/examples/one_to_one/)
