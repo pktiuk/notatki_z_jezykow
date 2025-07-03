@@ -1,0 +1,2188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/">
+      
+      
+        <link rel="next" href="../dokumentowanie_kodu/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Docker🐋 - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker🐋
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/architektura_i_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="true">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker🐋
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Docker🐋
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podstawowe-pojecia" class="md-nav__link">
+    Podstawowe Pojęcia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsuga" class="md-nav__link">
+    Obsługa
+  </a>
+  
+    <nav class="md-nav" aria-label="Obsługa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-obrazami" class="md-nav__link">
+    Zarządzanie obrazami
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie obrazami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nowy-obraz" class="md-nav__link">
+    Nowy obraz
+  </a>
+  
+    <nav class="md-nav" aria-label="Nowy obraz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baza" class="md-nav__link">
+    Baza
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budowanie-z-konfiguracji" class="md-nav__link">
+    Budowanie z konfiguracji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stworzenie-poprzez-commita" class="md-nav__link">
+    Stworzenie poprzez commita
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-posiadanymi-obrazami" class="md-nav__link">
+    Zarządzanie posiadanymi obrazami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przenoszenie-obrazow" class="md-nav__link">
+    Przenoszenie obrazów
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-kontenerami" class="md-nav__link">
+    Zarządzanie kontenerami
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie kontenerami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uruchamianie" class="md-nav__link">
+    Uruchamianie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interakcje-z-dziaajacym-kontenerem" class="md-nav__link">
+    Interakcje z działającym kontenerem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-wolumenami" class="md-nav__link">
+    Zarządzanie wolumenami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skadnia-pliku-dockerfile" class="md-nav__link">
+    Składnia pliku dockerfile
+  </a>
+  
+    <nav class="md-nav" aria-label="Składnia pliku dockerfile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrypoint-i-cmd" class="md-nav__link">
+    ENTRYPOINT i CMD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plik-konfiguracyjny" class="md-nav__link">
+    Plik konfiguracyjny
+  </a>
+  
+    <nav class="md-nav" aria-label="Plik konfiguracyjny">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serwisy" class="md-nav__link">
+    Serwisy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wolumeny" class="md-nav__link">
+    Wolumeny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wykorzystanie-zmiennych-srodowiskowych" class="md-nav__link">
+    Wykorzystanie zmiennych środowiskowych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    inne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komendy" class="md-nav__link">
+    Komendy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przydatne-snippety" class="md-nav__link">
+    Przydatne snippety
+  </a>
+  
+    <nav class="md-nav" aria-label="Przydatne snippety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-uzytkownika" class="md-nav__link">
+    Tworzenie użytkownika
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uruchamianie-z-dostepem-do-gui" class="md-nav__link">
+    Uruchamianie z dostępem do GUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprawdzanie-rozmiaru-dockera-i-ogolne-czyszczenie" class="md-nav__link">
+    Sprawdzanie rozmiaru dockera i ogólne czyszczenie
+  </a>
+  
+    <nav class="md-nav" aria-label="Sprawdzanie rozmiaru dockera i ogólne czyszczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przenoszenie-danych-dockerowych" class="md-nav__link">
+    Przenoszenie danych dockerowych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przydatne-aplikacje-do-pracy-z-dockerem" class="md-nav__link">
+    Przydatne aplikacje do pracy z dockerem
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podstawowe-pojecia" class="md-nav__link">
+    Podstawowe Pojęcia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsuga" class="md-nav__link">
+    Obsługa
+  </a>
+  
+    <nav class="md-nav" aria-label="Obsługa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-obrazami" class="md-nav__link">
+    Zarządzanie obrazami
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie obrazami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nowy-obraz" class="md-nav__link">
+    Nowy obraz
+  </a>
+  
+    <nav class="md-nav" aria-label="Nowy obraz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baza" class="md-nav__link">
+    Baza
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#budowanie-z-konfiguracji" class="md-nav__link">
+    Budowanie z konfiguracji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stworzenie-poprzez-commita" class="md-nav__link">
+    Stworzenie poprzez commita
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-posiadanymi-obrazami" class="md-nav__link">
+    Zarządzanie posiadanymi obrazami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przenoszenie-obrazow" class="md-nav__link">
+    Przenoszenie obrazów
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-kontenerami" class="md-nav__link">
+    Zarządzanie kontenerami
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie kontenerami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uruchamianie" class="md-nav__link">
+    Uruchamianie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interakcje-z-dziaajacym-kontenerem" class="md-nav__link">
+    Interakcje z działającym kontenerem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-wolumenami" class="md-nav__link">
+    Zarządzanie wolumenami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skadnia-pliku-dockerfile" class="md-nav__link">
+    Składnia pliku dockerfile
+  </a>
+  
+    <nav class="md-nav" aria-label="Składnia pliku dockerfile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrypoint-i-cmd" class="md-nav__link">
+    ENTRYPOINT i CMD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plik-konfiguracyjny" class="md-nav__link">
+    Plik konfiguracyjny
+  </a>
+  
+    <nav class="md-nav" aria-label="Plik konfiguracyjny">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serwisy" class="md-nav__link">
+    Serwisy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wolumeny" class="md-nav__link">
+    Wolumeny
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wykorzystanie-zmiennych-srodowiskowych" class="md-nav__link">
+    Wykorzystanie zmiennych środowiskowych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    inne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komendy" class="md-nav__link">
+    Komendy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przydatne-snippety" class="md-nav__link">
+    Przydatne snippety
+  </a>
+  
+    <nav class="md-nav" aria-label="Przydatne snippety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-uzytkownika" class="md-nav__link">
+    Tworzenie użytkownika
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uruchamianie-z-dostepem-do-gui" class="md-nav__link">
+    Uruchamianie z dostępem do GUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprawdzanie-rozmiaru-dockera-i-ogolne-czyszczenie" class="md-nav__link">
+    Sprawdzanie rozmiaru dockera i ogólne czyszczenie
+  </a>
+  
+    <nav class="md-nav" aria-label="Sprawdzanie rozmiaru dockera i ogólne czyszczenie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przenoszenie-danych-dockerowych" class="md-nav__link">
+    Przenoszenie danych dockerowych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przydatne-aplikacje-do-pracy-z-dockerem" class="md-nav__link">
+    Przydatne aplikacje do pracy z dockerem
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="docker">Docker🐋</h1>
+<p>Docker jest jednym z najpopularniejszych obecnie systemów do wirtualizacji systemu operacyjnego.<br />
+Pozwala w prosty sposób stworzyć instancję systemu będącą niemalże zupełnie niezależnym bytem od systemu maszyny na której się znajduje, może mieć ona zainstalowane zupełnie inne oprogramowanie, różnić się konfiguracją sieciową etc.<br />
+Różni się on od zwyczajnej maszyny wirtualnej tym, że taki kontener jest dużo bardziej elastyczny od maszyny wirtualnej, ponieważ nie ma na stałe przydzielonych zasobów takich jak RAM, CPU etc.</p>
+<p>Docker często jest wykorzystywany do pracy z różnorodnym oprogramowaniem bez niepotrzebnego zaśmiecania środowiska deweloperskiego. Jest to także jeden ze sposobów uniknięcia piekła zależności.</p>
+<h2 id="podstawowe-pojecia">Podstawowe Pojęcia</h2>
+<p><strong>Obraz/Image</strong> - obrazy dockerowe są już gotowymi, wcześniej przygotowanymi paczkami zawierające systemy w dockerze. Przykładem obrazu jest <code>ubuntu:latest</code>.</p>
+<p><strong>Kontener/Container</strong> - jest to uruchomiona instancja naszego dockera bazująca na danym obrazie. Zawiera on konfigurację oraz wszystkie dane unikalne dla danej instancji.</p>
+<p><strong>Repozytorium</strong> - miejsce z którego pobierane są obrazy oraz ich aktualizacje. Jest to <a href="https://hub.docker.com/">dockerhub</a>, ale można też pobierać z innych repozytoriów (np z gitlaba).</p>
+<h2 id="obsuga">Obsługa</h2>
+<p>Mamy kilka grup komend</p>
+<table>
+<thead>
+<tr>
+<th>Grupa</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config</td>
+<td>Zarządzanie konfiguracją</td>
+</tr>
+<tr>
+<td>container</td>
+<td>Operacje na kontenerach</td>
+</tr>
+<tr>
+<td>context</td>
+<td>Contexts for distributed deployment (k8s, …)</td>
+</tr>
+<tr>
+<td>image</td>
+<td>Zarządzanie obrazami</td>
+</tr>
+<tr>
+<td>network</td>
+<td>Zarządzanie siecią</td>
+</tr>
+<tr>
+<td>service</td>
+<td>Service (i.e. multiple containers that run the same image) management in distributed deployments (e.g.with docker-compose or docker swarm)</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Global management</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>Secondary storage management</td>
+</tr>
+</tbody>
+</table>
+<p>Do zarządzania możemy też używać apek GUI, albo pluginów do IDE.</p>
+<h3 id="zarzadzanie-obrazami">Zarządzanie obrazami</h3>
+<p>Do zarządzania obrazami na naszej maszynie służy polecenie <code>docker image</code>.</p>
+<h4 id="nowy-obraz">Nowy obraz</h4>
+<h5 id="baza">Baza</h5>
+<p>W większości wypadków warto wykorzystywać obrazy znajdujące się na stronie <a href="https://hub.docker.com/">hub.docker.com</a> - zawiera ona zarówno obrazy większości dystrybucji Linuxa, jak i obrazy z systemami zawierające już przygotowane narzędzia deweloperskie (np obrazy zawierające zainstalowane i skonfigurowane bazy danych).</p>
+<p>Aby pobrać taki obraz na naszą maszynę należy użyć komendy:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>image<span class="w"> </span>pull<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>NAME<span class="o">[</span>:TAG<span class="p">|</span>@DIGEST<span class="o">]</span>
+</code></pre></div>
+<p>Na przykład:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>image<span class="w"> </span>pull<span class="w"> </span>alpine:latest<span class="w"> </span><span class="c1"># pobiera najnowszy obraz systemu alpine</span>
+</code></pre></div>
+<h5 id="budowanie-z-konfiguracji">Budowanie z konfiguracji</h5>
+<p>Jeśli potrzebujemy stworzyć własny obraz to możemy go samodzielnie zbudować za pomocą komendy:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>image<span class="w"> </span>build<span class="w"> </span>.
+</code></pre></div>
+<p>Pozwala ona zbudować nam własny obraz dockerowy na bazie pliku <code>dockerfile</code>. (<a href="#składnia-pliku-dockerfile">Opis składni</a>)</p>
+<h5 id="stworzenie-poprzez-commita">Stworzenie poprzez commita</h5>
+<p>Do wygenerowania nowego obrazu możemy też wykorzystać już istniejący kontener, wystarczy użyć komendy <code>commit</code></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>commit<span class="w"> </span>containerName<span class="w"> </span>ImageName
+</code></pre></div>
+<h4 id="zarzadzanie-posiadanymi-obrazami">Zarządzanie posiadanymi obrazami</h4>
+<p>Za pomocy komendy <a href="https://docs.docker.com/engine/reference/commandline/image_ls/"><code>docker image ls</code></a> możemy łatwo wypisać lokalnie pobrane obrazy.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>image<span class="w"> </span>ls
+REPOSITORY<span class="w">                                                </span>TAG<span class="w">             </span>IMAGE<span class="w"> </span>ID<span class="w">       </span>CREATED<span class="w">         </span>SIZE
+&lt;none&gt;<span class="w">                                                    </span>&lt;none&gt;<span class="w">          </span>93c4e800ab68<span class="w">   </span><span class="m">2</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>677MB
+postgres<span class="w">                                                  </span><span class="m">11</span>-alpine<span class="w">       </span>ec1e25ef56d1<span class="w">   </span><span class="m">5</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>156MB
+alpine<span class="w">                                                    </span>latest<span class="w">          </span>6dbb9cc54074<span class="w">   </span><span class="m">5</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span><span class="m">5</span>.61MB
+nginx<span class="w">                                                     </span><span class="m">1</span>.19.0-alpine<span class="w">   </span>7d0cdcc60a96<span class="w">   </span><span class="m">11</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span><span class="m">21</span>.3MB
+</code></pre></div>
+<p><a href="https://docs.docker.com/engine/reference/commandline/image_rm/"><code>docker image rm</code></a> usuwa dany obraz.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>IMAGE<span class="w"> </span><span class="o">[</span>IMAGE...<span class="o">]</span>
+</code></pre></div>
+<p>Ale do czyszczenia jednak lepsze jest <a href="https://docs.docker.com/engine/reference/commandline/image_prune/"><code>docker image prune</code></a>, które usuwa wszystkie "wiszące" (dangling) obrazy, czyli np stare kopie obrazów, które zostały już przebudowane (na liście obrazów podpisane są jako <code>&lt;none&gt;</code>).<br />
+Dodanie flagi <code>-a</code> usuwa także wszystkie obrazy, które są nie są używane przez żadne kontenery.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-a
+WARNING!<span class="w"> </span>This<span class="w"> </span>will<span class="w"> </span>remove<span class="w"> </span>all<span class="w"> </span>images<span class="w"> </span>without<span class="w"> </span>at<span class="w"> </span>least<span class="w"> </span>one<span class="w"> </span>container<span class="w"> </span>associated<span class="w"> </span>to<span class="w"> </span>them.
+Are<span class="w"> </span>you<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span>?<span class="w"> </span><span class="o">[</span>y/N<span class="o">]</span><span class="w"> </span>y
+Deleted<span class="w"> </span>Images:
+untagged:<span class="w"> </span>alpine:latest
+</code></pre></div>
+<h4 id="przenoszenie-obrazow">Przenoszenie obrazów</h4>
+<p>Możliwe jest także zapisywanie istniejących obrazów do plików <code>.tar</code>.</p>
+<p>Dzięki temu można je wczytywać na maszynach pozbawionych dostęþu do sieci.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>save<span class="w"> </span>-o<span class="w"> </span>&lt;path<span class="w"> </span><span class="k">for</span><span class="w"> </span>generated<span class="w"> </span>tar<span class="w"> </span>file&gt;<span class="w"> </span>&lt;image<span class="w"> </span>name&gt;
+<span class="c1">#na przykład</span>
+docker<span class="w"> </span>save<span class="w"> </span>-o<span class="w"> </span>./image.tar<span class="w"> </span>ubuntu:20
+</code></pre></div>
+<p>Wczytuje się analogicznie</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>load<span class="w"> </span>-i<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>image<span class="w"> </span>tar<span class="w"> </span>file&gt;
+</code></pre></div>
+<h3 id="zarzadzanie-kontenerami">Zarządzanie kontenerami</h3>
+<p><a href="https://docs.docker.com/engine/reference/commandline/container_ls/"><code>docker container ls</code></a> - wypisuje kontenery obecnie uruchomione w systemie, dodanie flagi <code>-a</code> sprawia, że pokazuje także te wyłączone.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a
+CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">                                     </span>COMMAND<span class="w">                </span>CREATED<span class="w">       </span>STATUS<span class="w">                </span>PORTS<span class="w">  </span>NAMES
+bd1415cdc985<span class="w">   </span>server_nginx<span class="w">                              </span><span class="s2">&quot;/docker-entrypoint.…&quot;</span><span class="w"> </span><span class="m">25</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">  </span>Exited<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">24</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">       </span>server_nginx_1
+2474e0650b34<span class="w">   </span>registry.gitlab.com/toolkit/server:latest<span class="w"> </span><span class="s2">&quot;sh -c &#39;python manag…&quot;</span><span class="w"> </span><span class="m">25</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">  </span>Exited<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">25</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">       </span>server_web_1
+ce6a641e20c1<span class="w">   </span>postgres:11-alpine<span class="w">                        </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">   </span>Exited<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="m">21</span><span class="w"> </span>hours<span class="w"> </span>ago<span class="w">       </span>server_db_1
+</code></pre></div>
+<h4 id="uruchamianie">Uruchamianie</h4>
+<p>Do podstawowej pracy z kontenerem możemy używać komend:</p>
+<ul>
+<li><code>docker container run</code> albo też <code>docker run</code></li>
+<li><code>docker container create</code></li>
+<li><code>docker container pause</code> / <code>unpause</code> - wstrzymuje (i wznawia) procesy w kontenerze</li>
+<li><code>docker container start</code> / <code>stop</code> - zabija wszystkie procesy w kontenerze i go zamyka</li>
+<li><code>docker container restart</code></li>
+<li><code>docker commit containerName ImageName</code> -zapisujemy zmiany wprowadzone w danym kontenerze jako nowy obraz</li>
+</ul>
+<p>Do usuwania kontenerów służą <code>docker container prune</code> i <code>docker container rm</code>.</p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/container_create/"><code>docker container create [OPTIONS] IMAGE [COMMAND] [ARG...]</code></a> - tworzy nam nowy kontener bazujący na danym obrazie, możemy także wybrać jaka komenda ma zostać w nim uruchomiona. (ale go nie uruchamia)<br />
+Możemy go potem uruchomić komendą <code>docker container start ID</code>.</p>
+<p>Do stworzenia nowego kontenera i natychmiastowego uruchomienia służy <a href="https://docs.docker.com/engine/reference/commandline/container_run/"><code>docker container run</code></a>.</p>
+<p>Przydatne flagi dla <code>docker run [flagi] nazwa-obrazu</code>:</p>
+<ul>
+<li><code>-rm</code> usuwa kontener po zakończeniu pracy</li>
+<li><code>-i</code>, <code>--interactive</code> po odpaleniu nadal mamy podłączone STDIN</li>
+<li><code>-t</code>, <code>--tty</code> Podłączamy się terminalem do kontenera (warto użyć razem z <code>-i</code>)</li>
+<li><code>-d</code>, <code>--detach</code> Uruchom kontener w tle i wypisz jego ID</li>
+<li><code>-e</code>, <code>--env</code> Jakie zmienne środowiskowe mają być w naszym kontenerze (np <code>docker run -e BROKER_PORT=9999 client</code>)</li>
+<li><code>-p</code>, <code>--publish</code> udostępnij wewnętrzne porty obrazu na portach hosta np <code>-p 8089:80</code> wystawia port 80 z wnętrza kontenera na porcie 8089 hosta. (możemy teraz na naszej maszynie otworzyć to pod adresem localhost:8089)
+  <img alt="porty" src="../assets/Docker-ports.png" /></li>
+<li><code>-v</code>, <code>--volume</code> określa jakie pliki/foldery z hosta mamy udostępnić kontenerowi i pod jakimi adresami np <code>-v /tmp/logs.log:/tmp/runlog</code> sprawi że apka w kontenerze pisząc do plików w folderze <code>tmp/runlog/</code> będzie tak na prawdę pisać do folderu <code>/tmp/logs.log/</code> na hoście.</li>
+<li><code>--rm</code> - usuwa kontener po zakończeniu</li>
+<li><code>--device</code> - pozwala na udostępnienie urządzeń kontenerowi dockerowemu (np. kamery) <code>--device=/dev/video0:/dev/video0</code> <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">link</a></li>
+<li><code>--user</code> służy do ustawiania użytkownika oraz wartości userid (format: <code>&lt;name|uid&gt;[:&lt;group|gid&gt;]</code>) np. <code>--user=$(id -u):$(id -g)</code> ustawia uid oraz gid uzytkownika wewnątrz dockera na ten sam co ma użytkownik na hoście (moze to pomóc uniknąć problemów z uprawnieniami do plików)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-i<span class="w"> </span>-t<span class="w"> </span>ubuntu<span class="w"> </span>bash
+</code></pre></div>
+<h4 id="interakcje-z-dziaajacym-kontenerem">Interakcje z działającym kontenerem</h4>
+<p><strong>attach</strong> - podpinanie stdin i stdouta to działającego kontenera.<br />
+<code>docker attach [OPTIONS] CONTAINER</code> lub <code>docker container attach</code></p>
+<p><strong>cp</strong> - kopiowanie plików</p>
+<p><strong>exec</strong> - uruchom w już działającym kontenerze. Bardzo przydatne gdy chcemy np wejść tam z shellem.<br />
+<code>docker exec [OPTIONS] CONTAINER COMMAND [ARG...]</code> lub <code>docker container exec ...</code></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>worker<span class="w"> </span>bash<span class="w"> </span><span class="c1">#-it podpina input i output</span>
+</code></pre></div>
+<h3 id="zarzadzanie-wolumenami">Zarządzanie wolumenami</h3>
+<p><strong>Ręczne tworzenie volume</strong></p>
+<p>Czasami może pojawić się potrzeba ręcznego tworzenia wolumenów. <a href="https://docs.docker.com/reference/cli/docker/volume/create/">link</a></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>VOLUME<span class="o">]</span>
+</code></pre></div>
+<p>Jedną z przydatnych opcji w takim wariancie jest stworzenie go w konkretnym folderze.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--opt<span class="w"> </span><span class="nv">type</span><span class="o">=</span>none<span class="w"> </span>--opt<span class="w"> </span><span class="nv">o</span><span class="o">=</span><span class="nb">bind</span><span class="w"> </span>--opt<span class="w"> </span><span class="nv">device</span><span class="o">=</span>/data/volumes/testvol<span class="w"> </span>testvol
+</code></pre></div>
+<p>Korzystamy wtedy z flag:</p>
+<ul>
+<li><code>--driver</code> - określa jakiego sterownika użyć, domyślnie użwany jest <code>local</code></li>
+<li><code>--opt</code> - pozwala na przekazanie dodatkowych opcji sterownika (odpowiadają one opcjom komendy mount)</li>
+<li><code>type</code> określa typ wolumenu</li>
+<li><code>device</code> określa miejsce na dysku, które ma być zmapowane na ten wolumen (ten folder musi już istnieć)</li>
+</ul>
+<p><strong>Usuwanie</strong></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>testvol
+</code></pre></div>
+<h3 id="skadnia-pliku-dockerfile">Składnia pliku dockerfile</h3>
+<p>Plik <a href="https://docs.docker.com/engine/reference/builder/#format">dockerfile</a> opisuje kolejne operacje pokazujące, jak powinien być zbudowany nasz obraz.</p>
+<p>Przykładowy plik dockerfile:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># wybierz obraz bazowy od którego zaczynasz konstruowanie</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+
+<span class="c"># Ustaw zmienne środowiskowe</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">APP_USER</span><span class="o">=</span>user
+
+<span class="c"># Wykonaj daną komendę, np zainstaluj potrzebne pakiety etc.</span>
+<span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>firefox
+
+<span class="c"># określ położenie folderu roboczego w którym odpalane są komendy</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/home/user</span>
+
+<span class="c"># Kopiuj pliki z hosta do systemu plików wewnątrz kontenera</span>
+<span class="k">COPY</span><span class="w"> </span>./plik<span class="w"> </span>/home/user/
+</code></pre></div>
+<p>Tak zdefiniowany obraz budujemy komendą <code>docker build ./sciezka/folderu</code>.</p>
+<p>Każda nowa linia/polecenie zaczyna się od komendy DUŻYMI_LITERAMI (taka konwencja).</p>
+<p>Komendy:</p>
+<ul>
+<li><code>FROM imageBase</code> to jest <strong>zawsze</strong> pierwsza instrukcja pokazująca na jakim innym obrazie ma bazować nasz nowy obraz</li>
+<li><code>RUN command</code> wykonuje komendy w powłoce kontenera przy budowaniu</li>
+<li><code>ENV variable value</code> ustawia wartości w środowisku (mogą być używane przez wszystko co będzie od teraz chodzić w kontenerze)</li>
+<li><code>COPY source destination</code> kopiuje pliki ze źródła (URL, plik, folder) do miejsca w kontenerze (UWAGA! z przycyn bezpieczeństwa pozwala on tylko na kopie rzeczy tylko z folderu w którym uruchamiamy komendę, czyli nie możemy np skopiować sobie czegoś z katalogu <code>/home/jkowalski/pobrane</code>)</li>
+<li><code>ADD source destination</code> to samo co <code>ADD</code> z różnicą, że gdy potrafi zorpakować archiwum, gdy jest ono podane jako plik</li>
+<li><code>WORKDIR path</code> określa folder roboczy w którym mają się wykonywać pozostałe komendy jak <code>RUN</code>, <code>CMD</code>, <code>ENTRYPOINT</code></li>
+<li><code>CMD command arg1 arg2 ...</code> dostarcza domyślnych komend i wartości argumentów, które zostaną uruchomione w kontenerze</li>
+<li><code>ENTRYPOINT command arg1 arg2 ...</code> uruchamia tą komendę, kiedy kontener jest uruchamiany (kontener jest zamykany kiedy ta komenda się kończy)</li>
+<li><code>EXPOSE port</code> pokazuje na jakim porcie słucha kontaner, sama go nie wystawia, pełni raczej funkcję informacyjną dla użytkownika <a href="https://docs.docker.com/engine/reference/builder/#expose">link</a></li>
+<li><code>VOLUME</code> pozwala kontenerowi podłączyć się do innego systemu plików <a href="https://docs.docker.com/storage/volumes/">więcej info</a></li>
+<li><code>HEALTHCHECK</code> pozwala na sprawdzanie czy kontener jest gotowy do pracy <a href="https://docs.docker.com/reference/dockerfile/#healthcheck">link</a>
+  <div class="highlight"><pre><span></span><code><span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>5m<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="k">CMD</span><span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>http://localhost/<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</code></pre></div></li>
+</ul>
+<p><strong>Uwaga</strong> - w pliku dockerowym może być tylko jeden <code>CMD</code> albo <code>ENTRYPOINT</code>, jak nie to tylko <code>ENTRYPOINT</code> jest używany (na ogół).</p>
+<h4 id="entrypoint-i-cmd">ENTRYPOINT i CMD</h4>
+<p>ENTRYPOINT ma 2 warianty</p>
+<ul>
+<li>bazujący na samej komendzie</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>ENTRYPOINT<span class="w"> </span>node<span class="w"> </span>app.js<span class="w"> </span><span class="m">9000</span><span class="w"> </span><span class="m">9001</span>
+</code></pre></div>
+<ul>
+<li>używany razem z CMD</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/bin/node&quot;</span><span class="p">,</span><span class="s2">&quot;app.js&quot;</span><span class="p">]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;9000&quot;</span><span class="p">,</span><span class="s2">&quot;9001&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>I możemy to potem odpalić tak</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>app
+docker<span class="w"> </span>run<span class="w"> </span>app
+docker<span class="w"> </span>run<span class="w"> </span>app<span class="w"> </span><span class="m">5555</span><span class="w"> </span><span class="m">5556</span><span class="w"> </span><span class="c1"># gdy chcemy użyć własnych argumentów</span>
+</code></pre></div>
+<p>Możliwe jest też ustawienie własnego entrypointa przy uruchomieniu.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Executes bash -c &quot;ls /&quot;</span>
+docker<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>my-image:latest<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ls /&quot;</span>
+</code></pre></div>
+<h2 id="docker-compose">Docker compose</h2>
+<p>Jest on wykorzystywany, kiedy potrzebujemy uruchomić wiele aplikacji, które będą się ze sobą komunikować (a odpalenie w dockerze skryptu, który wszystko nam poodpala nie jest opcją).</p>
+<h3 id="quick-start">Quick start</h3>
+<p>Wyobraźmy sobie, że potrzebujemy 3 apek, które gadają ze sobą.</p>
+<p>Tworzymy plik <code>docker-compose.yml</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="c1">#Każdy z serwisów jest tutaj oddzielony</span>
+<span class="w">    </span><span class="nt">cli</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span><span class="w"> </span><span class="c1">#obraz z którego korzystamy</span>
+<span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./client/</span>
+<span class="w">        </span><span class="nt">links</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bro</span>
+<span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BROKER_HOST=bro</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BROKER_PORT=9998</span>
+<span class="w">    </span><span class="nt">wor</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker</span>
+<span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./worker/</span>
+<span class="w">        </span><span class="nt">links</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bro</span>
+<span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BROKER_HOST=bro</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BROKER_PORT=9999</span>
+<span class="w">    </span><span class="nt">bro</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broker</span>
+<span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./broker/</span>
+<span class="w">        </span><span class="c1"># z wnętrza kontenera bro wystawiamy porty 9998 i 9999 aby inne</span>
+<span class="w">        </span><span class="c1"># kontenery w composie mogły się do nich podpiąć (ale maszyna hosta nie)</span>
+<span class="w">        </span><span class="nt">expose</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9998“</span>
+<span class="w">            </span><span class="s">-</span><span class="nv"> </span><span class="s">&quot;</span><span class="l l-Scalar l-Scalar-Plain">9999&quot;</span>
+</code></pre></div>
+<p>I uruchamiamy komendę <code>docker-compose up -d</code>, która:</p>
+<ul>
+<li>Buduje wszystkie wymagane obrazy (jeśli ich nie mamy)</li>
+<li>Uruchamia kolejne instancje każdego z nich w odpowiedniej kolejności</li>
+</ul>
+<p>Do wyłączenia tego, co uruchomiliśmy wystarczy komenda <code>docker-compose down</code></p>
+<h3 id="plik-konfiguracyjny">Plik konfiguracyjny</h3>
+<p>//TODO opisz dokładniej syntax docker-compose na podstawie pliku tsr-ud04-eng-DockerReferenceDocs2122.pdf oraz https://docs.docker.com/compose/compose-file/</p>
+<p>Plik <code>docker-compose.yml</code> służy do zdefiniowania całych grup kontenerów, która mają być odpalone razem na jednej maszynie (<a href="https://docs.docker.com/compose/compose-file/">pełna dokumentacja</a>).Zawiera on opisy kolejno:</p>
+<ul>
+<li>serwisów (<code>services:</code>) - czyli poszczególnych obrazów dockerowych, które mają tworzyć całość (to jedyna obowiązkowa część, pozostałe są opcjonalne)</li>
+<li>sieci (<code>networks</code>) - czyli poszczególnych sieci</li>
+<li>woluminów (<code>volumes</code>) - trwałych miejsc do przechowywania plików</li>
+<li>sekretów (<code>secrets</code>)</li>
+<li>konfiguracji (<code>configs</code>)</li>
+</ul>
+<details class="note">
+<summary>Przykładowy docker compose</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awesome/webapp</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:8043&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">front-tier</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">back-tier</span>
+<span class="w">    </span><span class="nt">configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd-config</span>
+<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server-certificate</span>
+
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awesome/database</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-data:/etc/data</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">back-tier</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db-data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flocker</span>
+<span class="w">    </span><span class="nt">driver_opts</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10GiB&quot;</span>
+
+<span class="nt">configs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">httpd-config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">secrets</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">server-certificate</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># The presence of these objects is sufficient to define them</span>
+<span class="w">  </span><span class="nt">front-tier</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">  </span><span class="nt">back-tier</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</code></pre></div>
+</details>
+<h4 id="serwisy">Serwisy</h4>
+<p>Podstawowe parametry dla serwisów <a href="https://docs.docker.com/compose/compose-file/05-services/">dokumentacja</a>:</p>
+<ul>
+<li><code>image</code> - obraz, którego ma używać dany serwis</li>
+<li><code>expose</code> - lista portów, które mają być udostępnione innym serwisom wewnątrz dockera (host ich nie widzi)</li>
+<li><code>ports</code> - lista portów wystawionych na zewnątrz dockera (są one także dostępne dla innych serwisów w dockerze)</li>
+<li><a href="https://docs.docker.com/reference/compose-file/services/#depends_on"><code>depends_on</code></a> - lista serwisów, które muszą zostać wystartowane przed uruchomieniem tego serwisu (zastępuje on min przestarzałe pole <code>links</code>). Domyślnie ustawia on tylko kolejność startowania, ale nie sprawdza czy serwis jest już gotowy do pracy. W celu zapewnienia uruchomienia w odpowiednim momencie można użyć pola <code>condition</code> (wartości to <code>service_healthy</code>, <code>service_started</code> lub <code>service_completed_successfully</code>).
+  <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">redis</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+<span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span>
+<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xxxxxxx</span>
+</code></pre></div></li>
+<li><a href="https://docs.docker.com/reference/compose-file/services/#healthcheck"><code>healthcheck</code></a> - pozwala na sprawdzenie czy serwis jest gotowy do pracy (np. czy baza danych jest już dostępna). Można go zdefiniować także w pliku Dockerfile</li>
+<li><code>environment</code> - lista zmiennych środowiskowych w danym kontenerze</li>
+<li><code>build</code> - ścieżka do folderu z plikiem <code>Dockerfile</code>, aby go zbudować, gdyby jeszcze nie było odpowiedniego obrazu</li>
+</ul>
+<p>//TODO dopisz przykłady</p>
+<p>Inne parametry dla serwisów:</p>
+<ul>
+<li><code>extra_hosts</code> - lista mapowań adresów na nazwy (pojawią się w pliku <code>/etc/hosts</code> na maszynie) <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">link</a>. Najbardziej użytecznym mapowaniem może być tutaj mapowanie <code>host-gateway</code>, które mapuje adres maszyny na której stoi docker.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">extra_hosts</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;somehost:162.242.195.82&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;innyhost.local:50.31.209.229&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;host.docker.internal:host-gateway&quot;</span>
+</code></pre></div>
+<h4 id="wolumeny">Wolumeny</h4>
+<p>Za ich pomocą możemy tworzyć trwałe miejsca do przechowywania danych. Trwałych, czyli takich, które nie ulegają skasowaniu, kiedy usuwany jest kontener.<br />
+Dlatego często są one wykorzystywane min. do przechowywania baz danych, abyśmy nic nie tracili wtdy, kiedy np. przy aktualizacji będziemy chcieli zmienić wersję kontenera na świeższą.<br />
+Kolejną zaletą wolumenów w kontekście compose'a jest to, że mogą one być współdzielone pomiędzy poszczególnymi serwisami. <a href="https://docs.docker.com/compose/compose-file/07-volumes/">dokumentacja</a></p>
+<p>Podstawowa składnia podawania wolumenów: <code>VOLUME:CONTAINER_PATH[:ACCESS_MODE]</code> <a href="https://docs.docker.com/reference/compose-file/services/#short-syntax-5">source</a>. <br />
+Możliwe jest także użycie <a href="https://docs.docker.com/reference/compose-file/services/#volumes">złożonej składni</a>.</p>
+<p>Przykład:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awesome/database</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-data:/etc/data</span>
+<span class="w">    </span><span class="c1">#db-data będzie zamontowane w backendzie pod ścieżką /etc/data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/media/usb</span>
+<span class="w">        </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usb</span>
+<span class="w">        </span><span class="nt">bind</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">propagation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shared</span>
+<span class="w">    </span><span class="c1"># zamontowany storage z hosta</span>
+
+<span class="w">  </span><span class="nt">backup</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup-service</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-data:/var/lib/backup/data</span>
+
+<span class="c1">#db-data to automatycznie zdefioniowany wolumen</span>
+<span class="c1">#system stworzy go sobie najpewniej w lokacji /var/lib/docker</span>
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db-data</span><span class="p">:</span>
+</code></pre></div>
+<p>Uruchamiając <code>docker compose up</code> docker tworzy wolument jeśli jeszcze nie istnieje.</p>
+<p>Warto tytaj wiedzieć o <a href="https://docs.docker.com/compose/compose-file/07-volumes/#attributes">atrybutach</a> takich jak:</p>
+<ul>
+<li><code>external</code>(true, false) - określa, czy ten wolumen jest zarządzany poza wybranym docker composem. Jeśli ustawiony na <code>true</code> to wszystkie pozostałe flagi są ignorowane (za wyjątkiem name). Jeśli taki wolumen nie istnieje to zwracany jest błąd, jeśli istnieje to jest on podłączany.
+  <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db-data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1">#szukamy czy volume o nazwie db-data istnieje</span>
+</code></pre></div></li>
+<li><code>driver_opts</code> - pozwala na zamontowanie wolumentu za pomocą jakiegoś sterownika. Pozwala np. na stworzenie wolumenu znajdującego się na serwerze NFS
+  <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
+<span class="nt">example</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">driver_opts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nfs&quot;</span>
+<span class="w">    </span><span class="nt">o</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;addr=10.40.0.199,nolock,soft,rw&quot;</span>
+<span class="w">    </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:/docker/example&quot;</span>
+</code></pre></div>
+  lub zwyczajne określenie na jaki folder hosta ma być on zmapowany
+  <div class="highlight"><pre><span></span><code><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">cvat_share</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver_opts</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="w">      </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/duzy_dysk/pliki_dla_cvata/</span>
+<span class="w">      </span><span class="nt">o</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span>
+</code></pre></div></li>
+</ul>
+<p>Pracująz z wolumenami warto rozgraniczyć zwykłe wolumeny oraz <a href="https://docs.docker.com/engine/storage/bind-mounts/">bind mounts</a>. Różnią się one przede wszystkim tym, że wolumeny są zarządzane przed Dockera, a mounty przez system.<br />
+Obejmuje to np sytuacje, kiedy chcemy mieć z dockera dostęp do folderu w którym jest storage montowany przez hosta (<a href="https://docs.docker.com/engine/storage/bind-mounts/#configure-bind-propagation">bind propagation</a>)</p>
+<h4 id="wykorzystanie-zmiennych-srodowiskowych">Wykorzystanie zmiennych środowiskowych</h4>
+<p>W ramach docker-compose możemy korzystać z zmiennych środowiskowych, które są zdefiniowane w pliku <code>.env</code> znajdującym się w tym samym folderze co plik <code>docker-compose.yml</code>. Może także korzystać ze zmiennych systemowych. <a href="https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/">link</a></p>
+<p>Przykład pliku <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code>POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+</code></pre></div>
+<p>Aby skorzystać z tych zmiennych w pliku <code>docker-compose.yml</code> wystarczy użyć składni <code>${}</code>. Możemy też użyć domyślnych wartości, które są ustawiane w przypadku braku zmiennej.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_USER}</span>
+<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
+<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_DB:-postgres}</span>
+</code></pre></div>
+<p>Składnia podstawień:</p>
+<ul>
+<li><code>${VAR}</code> - podstawia wartość zmiennej <code>VAR</code></li>
+<li><code>${VAR:-default}</code> - podstawia wartość zmiennej <code>VAR</code>, jeśli jest ustawiona i nie jest pusta, w przeciwnym wypadku podstawia wartość <code>default</code></li>
+<li><code>${VAR-default}</code> - podstawia wartość zmiennej <code>VAR</code>, jeśli jest ustawiona, w przeciwnym wypadku podstawia wartość <code>default</code></li>
+<li><code>${VAR:?error message}</code> - Jeśli <code>VAR</code> nie jest ustawiona lub jest pusta to wypisuje <code>error message</code> i kończy działanie compose'a</li>
+<li><code>${VAR+replacement}</code> - podstawia wartość <code>replacement</code> jeśli <code>VAR</code> jest ustawiona, w przeciwnym wypadku zostawia puste</li>
+</ul>
+<h4 id="inne">inne</h4>
+<p>//TODO opisz pozostałe</p>
+<h3 id="komendy">Komendy</h3>
+<p>UWAGA wkrótce komenda docker-ckompose powinna zostać zmieniona na <code>docker compose</code> <a href="https://docs.docker.com/compose/reference/">link</a></p>
+<p><code>docker-compose up</code> -</p>
+<p>Parametry:</p>
+<ul>
+<li><code>--scale service=num</code> pozwala odpalić więcej instancji danego serwisu (jednak gdy skalujemy serwisy, które wystawiają porty <code>expose</code> to tylko jedna z instancji będzie widoczna dla innych) //TODO sprawdź to</li>
+<li><code>-d</code> -//TODO</li>
+<li><code>-f</code> - flaga do <a href="https://docs.docker.com/compose/reference/#specifying-multiple-compose-files">uruchamiania wielu plików docker compose jednocześnie</a> Jeśli wszystkie wysecyfikowane pliki znajdują się w tym samym folderze wtedy docker łączy je w jedną wspólną konfigurację.
+  przykład apki z wtórej w dodatkowym pliku jest dodane szyfrowanie HTTPS:
+  <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.https.yml<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></li>
+</ul>
+<p><code>docker-compose down</code> - zatrzymuje i <strong>usuwa</strong> kontenery z danego compose'a</p>
+<p><code>docker compose stop</code> - zatrzymuje, ale bez usuwania</p>
+<p><code>docker compose start</code> - uruchamia istniejące kontenery dla serwisu</p>
+<h2 id="przydatne-snippety">Przydatne snippety</h2>
+<h3 id="tworzenie-uzytkownika">Tworzenie użytkownika</h3>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-ms<span class="w"> </span>/bin/bash<span class="w"> </span>-G<span class="w"> </span>sudo,inna_grupa<span class="w"> </span>dockeruser
+<span class="c">#Wyłączenie promptu o hasło przy sudo</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;dockeruser ALL=(ALL) NOPASSWD: ALL&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/sudoers.d/ubuntu
+<span class="c">#ustawienie kolorowego terminala</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>xterm-256color
+<span class="c">#przełączenie na użytkownika przy dalszych komendach</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">dockeruser</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/home/dockeruser</span>
+</code></pre></div>
+<h3 id="uruchamianie-z-dostepem-do-gui">Uruchamianie z dostępem do GUI</h3>
+<p>W wypadku aplikacji dockerowych możliwe jest ich uruchamianie aplikacji GUI z ich poziomu.</p>
+<p>Wymaga to najpierw nadania uprawnień do otwierania okien</p>
+<div class="highlight"><pre><span></span><code>xhost<span class="w"> </span>+local:<span class="w"> </span><span class="c1">#Ta opcja jest aktywna do restartu komputera</span>
+</code></pre></div>
+<p>Poza tym należy dać dockerowi dostęp do odpowiedniego gniazda oraz ustawić zmienną <code>DISPLAY</code></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span>ubuntu<span class="w"> </span>bash
+</code></pre></div>
+<p>Do przetestowania działania całości warto użyć aplikacji <code>xeyes</code> znajdującą się w pakiecie <code>x11-apps</code> dla Ubuntu. W wypadku problemów warto dodać opcję <code>--ipc=host</code>.  <br />
+Jeśli ta metoda nie zadziała (na Waylandzie mogą być problemy) warto rozwazyć użycie https://github.com/mviereck/x11docker .</p>
+<h3 id="sprawdzanie-rozmiaru-dockera-i-ogolne-czyszczenie">Sprawdzanie rozmiaru dockera i ogólne czyszczenie</h3>
+<p>Aby otrzymać podsumowanie elementów dockerowych znajdujących się w systemie należy użyć komendy df</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>system<span class="w"> </span>df
+TYPE<span class="w">            </span>TOTAL<span class="w">     </span>ACTIVE<span class="w">    </span>SIZE<span class="w">      </span>RECLAIMABLE
+Images<span class="w">          </span><span class="m">16</span><span class="w">        </span><span class="m">16</span><span class="w">        </span><span class="m">34</span>.44GB<span class="w">   </span><span class="m">6</span>.447GB<span class="w"> </span><span class="o">(</span><span class="m">18</span>%<span class="o">)</span>
+Containers<span class="w">      </span><span class="m">23</span><span class="w">        </span><span class="m">23</span><span class="w">        </span><span class="m">146</span>.5MB<span class="w">   </span>0B<span class="w"> </span><span class="o">(</span><span class="m">0</span>%<span class="o">)</span>
+Local<span class="w"> </span>Volumes<span class="w">   </span><span class="m">18</span><span class="w">        </span><span class="m">14</span><span class="w">        </span><span class="m">806</span>.6GB<span class="w">   </span><span class="m">2</span>.222MB<span class="w"> </span><span class="o">(</span><span class="m">0</span>%<span class="o">)</span>
+Build<span class="w"> </span>Cache<span class="w">     </span><span class="m">116</span><span class="w">       </span><span class="m">0</span><span class="w">         </span>0B<span class="w">        </span>0B
+</code></pre></div>
+<p>Aby otrzymać konkretną listę trzeba dodać flagę <code>-v</code>.</p>
+<p>Do czyszczenia można użyć następujących komend</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>container<span class="w"> </span>prune<span class="w"> </span><span class="c1">#usuwa wyłączone kontenery</span>
+docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span><span class="c1">#usuwa obrazy, do których nie ma przypisanych tagów</span>
+docker<span class="w"> </span>builder<span class="w"> </span>prune<span class="w"> </span><span class="c1">#czyści build cache</span>
+</code></pre></div>
+<h4 id="przenoszenie-danych-dockerowych">Przenoszenie danych dockerowych</h4>
+<p>Domyślnie Docker przechowuje dane takie jak obrazy w folderze <code>/var/lib/docker/</code> w niektórych wypadkach warto zmienić to położenie na jakichś zewnętrzby dysk.</p>
+<p>Aby to zmienić należy to ustawić za pomocą pola <code>data-root</code> w pliku <code>/etc/docker/daemon.json</code>. <a href="https://stackoverflow.com/questions/24309526/how-to-change-the-docker-image-installation-directory">link do stacka</a>, <a href="https://blog.adriel.co.nz/2018/01/25/change-docker-data-directory-in-debian-jessie/">Link do tutorialu o tym</a></p>
+<p>Kroki:</p>
+<ol>
+<li>Edytuj <code>/etc/docker/daemon.json</code></li>
+<li>Wyłącz dockera <code>sudo systemctl stop docker</code> i sprawdź czy już go nie ma <code>ps aux | grep -i docker | grep -v grep</code></li>
+<li>(opcjonalnie) Skopiuj obecne pliki dockera: <code>sudo rsync -axPS /var/lib/docker/ /new/path/to/docker-data</code></li>
+<li>Uruchom ponownie <code>sudo systemctl start docker</code></li>
+<li>Sprawdź położenie <code>docker info | grep 'Docker Root Dir'</code></li>
+<li>Usuń stare pliki <code>sudo rm -r /var/lib/docker</code></li>
+</ol>
+<h2 id="przydatne-aplikacje-do-pracy-z-dockerem">Przydatne aplikacje do pracy z dockerem</h2>
+<p><a href="https://github.com/containers/skopeo"><strong>skopeo</strong></a> - wygodna praca ze zdalnymi rejestrami dockerowymi</p>
+<p>Może służyć do operacji takich jak:</p>
+<ul>
+<li>Listowanie istniejących tagów dla danego obrazu <code>skopeo list-tags ubuntu</code></li>
+<li>Kopiowanie obrazów <code>skopeo copy docker://quay.io/buildah/stable docker://registry.internal.company.com/buildah</code></li>
+<li>Synchronizowanie całych rejestrów <code>skopeo sync --src docker --dest dir registry.example.com/busybox /media/usb</code></li>
+</ul>
+<p><a href="https://github.com/wagoodman/dive"><strong>Dive</strong></a> - sprawdzanie i eksplorowanie zawartości obrazów dockerowych oraz poszczególnych warstw.</p>
+<div class="highlight"><pre><span></span><code>dive<span class="w"> </span>&lt;your-image-tag&gt;
+</code></pre></div>
+<p><img alt="Image" src="https://github.com/wagoodman/dive/raw/main/.data/demo.gif" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
