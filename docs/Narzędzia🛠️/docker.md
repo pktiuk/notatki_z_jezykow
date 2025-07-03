@@ -625,3 +625,21 @@ Kroki:
 4. Uruchom ponownie `sudo systemctl start docker`
 5. Sprawdź położenie `docker info | grep 'Docker Root Dir'`
 6. Usuń stare pliki `sudo rm -r /var/lib/docker`
+
+## Przydatne aplikacje do pracy z dockerem
+
+[**skopeo**](https://github.com/containers/skopeo) - wygodna praca ze zdalnymi rejestrami dockerowymi
+
+Może służyć do operacji takich jak:
+
+- Listowanie istniejących tagów dla danego obrazu `skopeo list-tags ubuntu`
+- Kopiowanie obrazów `skopeo copy docker://quay.io/buildah/stable docker://registry.internal.company.com/buildah`
+- Synchronizowanie całych rejestrów `skopeo sync --src docker --dest dir registry.example.com/busybox /media/usb`
+
+[**Dive**](https://github.com/wagoodman/dive) - sprawdzanie i eksplorowanie zawartości obrazów dockerowych oraz poszczególnych warstw.
+
+```bASH
+dive <your-image-tag>
+```
+
+![Image](https://github.com/wagoodman/dive/raw/main/.data/demo.gif)
