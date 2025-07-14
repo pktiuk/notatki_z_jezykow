@@ -8,7 +8,7 @@ Jeśli chodzi tu o grupowanie to warto zadbać tutaj o złoty środek (pliki nie
 
 ## Zarządzanie paczkami
 
-Do instalacji można używać samodzielnych aplikacji pip (i pip3)
+Do instalacji można używać samodzielnych aplikacji pip (i pip3). (Ale w sytuacjach bardziej złożonych projektów warto rozważyć użycie innych menadżerów pakietów jak np [UV](https://docs.astral.sh/uv/))
 
 ```bash
 pip3 install numpy

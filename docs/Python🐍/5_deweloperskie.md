@@ -60,6 +60,24 @@ Aby aktywować venva (czyli odpalić w pythona korzystającego z pakietów w tym
 | (Windows)cmd.exe    | `C:\> <venv>\Scripts\activate.bat `                                           |
 | (Windows)PowerShell | `PS C:\> <venv>\Scripts\Activate.ps1`                                         |
 
+## UV - alternatywa dla PIPa i Venva
+
+No tak jak w tytule https://docs.astral.sh/uv/
+
+UV to RUST-owa alternatywa dla pipa, pyenva, virtualenva. (jest też DUŻO szybszy)
+
+Automatyczne instalowanie wybranych wersji pythona
+
+```bash
+uv python install 3.10 3.11 3.12
+```
+
+instalacja zamiast pipa
+
+```bash
+uv pip install
+```
+
 ## Uruchamianie skryptu w trybie interaktywnym
 
 Z poziomu basha:
