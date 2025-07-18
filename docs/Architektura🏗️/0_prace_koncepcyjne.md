@@ -31,9 +31,41 @@ Przykłady niewłaściwych historyjek:
 - `Jako product Owner chcę aby zmieniono interfejs na bardziej intuicyjny` - opisujemy co ma być zmienione, a nie jaka jst potrzeba/jaki jest problem
 
 
-### Wymagania funkcjonalne
+### Wymagania funkcjonalne (funkcjonalności)
+
+Opisują one funkcjonalności systemu.
+
+Przykłady:
+
+- System powinien prowadzić indywidualne konta klientów banku
+- System powinien księgować wszystkie wpłaty i wypłaty na koncie klienta
+- System powinien umożliwiać właścicielowi konta wykonanie przelewu na inne rachunki bankowe
 
 
 
 ### Wymagania niefunkcjonalne
 
+Opisują one ograniczenia bądź wymagania stawiana przed systemem.
+
+Ograniczenia jakim moze podlegać tworzenie i działanie systemu:
+
+- niezawodność
+- wydajność
+- pielęgnowalność
+- przenośność
+- bezpieczeństwo
+
+Np.:
+
+- System powinien obsługiwać nie mniej niż 300000 kont
+- Średni czas wykonania transakcji na koncie klienta nie powinien przekraczać 2ms, a żadna transakcja 10ms
+- 
+
+
+## Modele pracy
+
+TODO (wykład IOP) 01A
+
+### Kaskadowy
+
+### Prototypowanie
