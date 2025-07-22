@@ -42,6 +42,9 @@ git+ssh://git@git.example.com/MyProject
 
 ### Struktura projektu pythonowego
 
+
+Przykładowe materiały od [astral - Project structure and files](https://docs.astral.sh/uv/concepts/projects/layout/) oraz [Guide to Python - Structuring Your Project](https://docs.python-guide.org/writing/structure/)
+
 ```
 .
 ├── pyproject.toml
@@ -58,8 +61,8 @@ git+ssh://git@git.example.com/MyProject
 
 Opisy poszczególnych plików:
 
-- `requirements.txt` - plik zawierający listę zależności projektu (instalowanych np. pip-em)
-- `pyproject.toml` - [oficjalnie zalecany](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) plik konfiguracyjny projektu pythonowego. Zawiera on informacje o projekcie, konfiguracje dla narzędzi potrzebnych do jego budowy, testowania, formatowania kodu etc.
+- `requirements.txt` - (teraz już nieco outdated) plik zawierający listę zależności projektu (instalowanych np. pip-em `pip install -r requirements.txt`)
+- `pyproject.toml` - [oficjalnie zalecany](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/) plik konfiguracyjny projektu pythonowego. Zawiera on informacje o projekcie, konfiguracje dla narzędzi potrzebnych do jego budowy, testowania, formatowania kodu etc. Warto w nim umieszczać także requirementsy.
 
 Przykładowy toml
 ```toml
@@ -70,6 +73,26 @@ authors = [{name = "Jan Kowalski", email = "jkowalski@email.pl"}]
 readme = "README.md"
 requires-python = ">=3.10"
 description = "Mega fajny projekt"
+dependencies = [
+  "pyyaml",
+  "jsonschema",
+  "django > 2"
+]
+
+[project.optional-dependencies]
+gui = ["PyQt5"]
+cli = [
+  "rich",
+  "click",
+]
+dev = [
+  # tests
+  "pytest",
+  "pytest-cov",
+  # code-quality
+  "mypy",
+  "ruff",
+]
 
 [project.urls]
 "Source" = https://strona.com
@@ -77,6 +100,9 @@ description = "Mega fajny projekt"
 [project.scripts]
 myproj = "myproj_pythonowy.__main__:main"
 ```
+
+Paczkę instaluje się wtedy komendą: `pip install .`.   
+Paczkę + zależności deweloperskie instalujemy tutaj komendą `pip install .[dev]`.
 
 ### Struktura biblioteki
 
