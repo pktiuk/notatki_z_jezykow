@@ -113,6 +113,13 @@ Im wyższa tym ważniejszy log (Debug to 10, CRITICAL to 50). Dzięki temu możl
     logging.addLevelName(15, "VERBOSE")
 ```
 
+### Zaawansowane logowanie
+
+W bardziej złożonych sytuacjach możemy mieć wiele oddzielnych loggerów (np. dla paczek) z czego każdy może mieć wiele handlerów (dla stdout, plików, dla grafany etc.). 
+
+Tutaj sytuacja zaczyna się robić nieco bardziej skomplikowana. [logging and loggers](https://docs.python.org/3/library/logging.html#logger-objects)
+
+Aby zapoznać się z tymi zagadnieniami polecam wideo [Modern Python logging](https://www.youtube.com/watch?v=9L77QExPmI0).
 
 ## Manipulacja tekstem
 
