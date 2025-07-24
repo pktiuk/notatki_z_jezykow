@@ -668,7 +668,24 @@ def returnOrNot(return_bool=True):
     if return_bool:
         return True
     return
+```
 
+Argument keyword-only [PEP3102](https://peps.python.org/pep-3102/). Są one używane, kiedy chcemy mieć argumenty po kluczach, które nie powinny być definiowane pozycyjnie.
+
+```py
+
+def convert_video(validate=False):
+    pass
+
+# Ta funkcja może być wywołana w taki sposób
+convert_video(True) # co jest nieczytelne, więc aby to poprawić możemy zdefiniować ją tak:
+
+def convert_video2(*, validate=False):
+    pass
+
+convert_video2(True) # nie działa, bo nie ma argumentów pozycyjnych
+convert_video2() # działa
+convert_video(validate=True) # działa
 ```
 
 #### Adnotacje
