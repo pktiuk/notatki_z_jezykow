@@ -47,20 +47,25 @@ Przykłady:
 
 Opisują one ograniczenia bądź wymagania stawiana przed systemem.
 
-Ograniczenia jakim moze podlegać tworzenie i działanie systemu:
+Ograniczenia jakim moze podlegać tworzenie i działanie systemu. (często są to słowa kończące się na `ość`):
 
 - niezawodność
 - wydajność
 - pielęgnowalność
 - przenośność
 - bezpieczeństwo
+- zgodność ze standardami (np. kompatybilność z jakimś konkretnym API)
+- obserwowalność (możliwość zebrania różnorakich metryk i logów z całego systemu)
+
+
+(większą listę można znaleźć na stronie [iso 25000](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010))
 
 Np.:
 
 - System powinien obsługiwać nie mniej niż 300000 kont
 - Średni czas wykonania transakcji na koncie klienta nie powinien przekraczać 2ms, a żadna transakcja 10ms
-- 
 
+Więcej o wymaganiach niefunkcjonalnych można znaleźć w dedykowanym rozdziale [tutaj](./0_wstep_teoretyczny.md#charakterystyki-architektoniczne)
 
 ## Modele pracy
 
