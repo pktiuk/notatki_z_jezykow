@@ -31,9 +31,9 @@ Często zagadnienia architektoniczne nie mogą być łatwo przypisane do jednej 
 
 Czyli w skrócie co twój system musi umieć i czego od niego wymagamy. Ich określenie jest jednym z pierwszych kroków pracy nad przygotowywaniem systemu. (proces ich zbierania jest opisany [tutaj](./2_prace_koncepcyjne.md))
 
-Charakterystyki te można także określać mianem wymagań niefunkcjonalnych. Do charakterystyk można zaliczyć takie chechy jak testowalność, skalowalność, wydajność, modularność etc. (jest tego [dość dużo](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010)).
+Charakterystyki te można także określać mianem **wymagań niefunkcjonalnych**, bądź **wymagań jakościowych**. Do charakterystyk można zaliczyć takie chechy jak testowalność, skalowalność, wydajność, modularność etc. (jest tego [dość dużo](https://iso25000.com/index.php/en/iso-25000-standards/iso-25010)).
 
-Ze względu na mnogość opcji warto podzielić je na kategorie.
+Ze względu na mnogość opcji warto podzielić je na kategorie. (jest to dość luźny podział)
 
 ### Charakterystyki procesowe
 
@@ -48,4 +48,30 @@ Mamy tutaj:
 
 ### Charakterystyki strukturalne
 
-TODO
+Opisują one wewnętrzną strukturę systemu
+
+- **Bezpieczeństwo** systemu
+- **utrzymywalność** (maintainability) - jak łatwo jest deweloperom i architektom wprowadzać zmiany i naprawiać błędy
+- **przenośność** (portability) - jak łatwo jest wrzucić/używać systemu na wielu platformach (windows, Linux, MacOS, Android, Embedded...)
+- **lokalizowalność** - jak łatwo jest dodać i utrzymać wsparcie dla wielu jezyków
+
+
+### Wymagania operacyjne
+
+Charakterystyki opisujące jak współpracuje się z działającym systemem.
+
+- **dostępność** (availability) - jaka jest procentowa czasowa dostęþność systemu (np. 99,99% czasu)
+- **recoverability** - jak szybko system jest w stanie wrócić do stanu używalności po awarii
+- **niezawodność** (robustness) - jak dobrze system radzi sobie z warunkami brzegowymi, obsługą błędów, problemami ze przętem, połączeniem sieciowym etc.
+- **wydajność** - jest to dość ogólne określenie poże ono łączyć się z takimi pojęciami jak opóźnienia, płynność, czy też wykorzytanie dostęþnych zasobów sprzętowych.
+- **skalowalność**
+
+### Inne
+
+- bezpieczeństwo danych - jak zabezpiecznone są dane przechowywane w systemie, czy są zaszyfrowane, czy używane End2End encryption etc.
+- zgodność z przepisami - zgodność z RODO, z ustawami dotyczącymi przepływu danych pomiędzy EU, a innymi krajami, przestrzeganie licencji oprogramowania etc.
+- prywatność - co się może dziać z danymi użytkowników
+- accessibility - czy aplikacja jest dostępna/czytelna dla osób z niepełnosprawnościami
+- autentykacja autoryzacja - jak zamierzamy obsługiwać logowanie do systemu, jak sprawdzamy kto jest kim etc.
+
+

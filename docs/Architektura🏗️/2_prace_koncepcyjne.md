@@ -45,6 +45,7 @@ Przykłady:
 
 ### Wymagania niefunkcjonalne
 
+Innymi słowy są to wymagania jakościowe.  
 Opisują one ograniczenia bądź wymagania stawiana przed systemem.
 
 Ograniczenia jakim moze podlegać tworzenie i działanie systemu. (często są to słowa kończące się na `ość`):
