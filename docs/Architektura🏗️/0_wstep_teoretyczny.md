@@ -45,6 +45,7 @@ Mamy tutaj:
 - **Testowalność** (testability) - jak łatwo jest testować system oraz uruchamiać na nim różne rodzaje testów (jednostkowych, integracyjnych, akceptacyjnych etc.).
 - **Rozszerzalność** - jak łatwo jest deweloperom dodawać nowe funkcjonalności i rozszerzać system. Obejmuje to bardzo wiele aspektów takich jak standardy pisania, podział na moduły, testowalność, sposób zarządzania kodem etc.
 - **Deployowalność/Wdrażalność** - jak łatwo jest wdrożyć dany system
+- **Zwinność** (agility) - możliwość szybkiego reagowania i wprowadzania zmian w systemie (wynika to z architektury (testowalność, wdrażalność, utrzymywalności), ale także z procedur, sposobu zarządzania zespołem etc.)
 
 ### Charakterystyki strukturalne
 
@@ -64,7 +65,8 @@ Charakterystyki opisujące jak współpracuje się z działającym systemem.
 - **recoverability** - jak szybko system jest w stanie wrócić do stanu używalności po awarii
 - **niezawodność** (robustness) - jak dobrze system radzi sobie z warunkami brzegowymi, obsługą błędów, problemami ze przętem, połączeniem sieciowym etc.
 - **wydajność** - jest to dość ogólne określenie poże ono łączyć się z takimi pojęciami jak opóźnienia, płynność, czy też wykorzytanie dostęþnych zasobów sprzętowych.
-- **skalowalność**
+- **skalowalność** - Jak sprawnie jesteśmy w stanie skalować nasz system wraz z rozrostem bazy uzytkowników
+- **elastyczność** - (podobnie do skalowalności) obejmuje mozliwość dynamicznej adaptacji do nagle zmieniającego się natężenia ruchu w serwisie. (Na przykład zapisy na lektoraty na uczelni) (tzw. traffic spike)
 
 ### Inne
 

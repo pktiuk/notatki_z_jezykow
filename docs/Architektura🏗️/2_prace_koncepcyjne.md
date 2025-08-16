@@ -30,6 +30,11 @@ Przykłady niewłaściwych historyjek:
 - `Jako klient banku potrzebuję listy transakcji, żeby kontrolować swoje wydatki` - tutaj niepotrzebnie zdefiniowane jest rozwiązanie problemu. Często istnieje wiele sposobów na rozwiązanie wybranych problemów, z tego powodu warto opisać sam problem, aby deweloperzy mogli samodzielnie pomyśleć nad najlepszym rozwiązaniem. (Może zamiast listy transakcji lepsze byłoby podsumowanie transakcji, bądź pogrupowanie ich typami.)
 - `Jako product Owner chcę aby zmieniono interfejs na bardziej intuicyjny` - opisujemy co ma być zmienione, a nie jaka jst potrzeba/jaki jest problem
 
+??? note "Rozwiązania a wymagania"
+
+    Niezwykle ważne jest to, aby wydobyć z klienta to jakie są jego problemy, a nie to jak on chciałby je sobie rozwiązać, ponieważ znacznie ogranicza to zespołowi możliwość dobrania optymalnego rozwiązania.
+    Wyobraźmy sobie, że mamy klienta, który zleca nam zrobienie odtwarzacza muzyki i w wymaganiach pisze `odtwarzacz ma przyciski do przewijania, podgłaśniania i pauzowania muzyki`. Takie zdefiniowanie wymagań od razu narzuca zespołowi kształt urządzania, co poskutkować może odtwarzaczem pełnym przycisków przypominającym bardziej pilot do telewizora. Prawdziwe wymaganie, które ma na myśli klient brzmi pewnie w ten sposób: `użytkownik może wygodnie przewijać i pauzowac muzykę`. Takie wymaganie pozwala designerom pomyśleć nad alternatywnymi opcjami, jak np użycie do tego celu pokręteł ekranu głosowego, gestów bądź jeszcze bardziej oryginalnych sposobów.   
+    Dlatego warto zawsze dopytywać klienta dlaczego powumyślał sobie akurat takie wymagania. Nie bójmy się używać słowa `Dlaczego?`
 
 ### Wymagania funkcjonalne (funkcjonalności)
 
