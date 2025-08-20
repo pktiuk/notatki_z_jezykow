@@ -146,4 +146,29 @@ Podczas bootowania GRUB wybiera wpis opisujący obecną konfigurację (czyli np 
 
 ## Firewalle i sieć
 
+### Podstawowa Konfiguracja 
+
+Do sprawdzania konfiguracji sieciowej można użyć komendy `ifconfig` lub `ip a` (`ip addr`).   
+
+Wypiszą one wtedy dostępne interfejsy, ich adresy, maski, gatewaye itp.
+
+Do prostego uruchomienia danego interfejsu (przy działającym DHCP) można użyć komendy `dhclient INTERFEJS -v` (czyli np `dhclient eth0 -v`).
+
+W trudniejszych wypadkach używa się komendy `ip`
+
+### komenda `ip`
+
+Podstawowy syntax warto objerzeć [tutaj](https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/).     
+
+ip można go uzyć np do szybkiego przypisania adresu do interfejsu
+
+Używamy tu komendy o składni: `ip a add IP/MASKA dev INTERFACE` (dev to skrót od device). Może to być np `ip a add 192.168.1.119/24 dev eth0`
+
+Do ustawiania bram warto użyć komendy route [link](https://www.cyberciti.biz/faq/ip-route-add-network-command-for-linux-explained/)
+
+TODO
+
+
+### Firewalle
+
 TODO
