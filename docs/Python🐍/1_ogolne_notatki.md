@@ -988,6 +988,7 @@ class C:
 | `[]`     | `__getitem__(self,index)`      | Te kilka jest potrzebne do poprawnego zaimplementowania operatora `[]`           |
 | `[]`     | `__setitem__(self,index,item)` |                                                                                  |
 | `[]`     | `__delitem__(self.index)`      |                                                                                  |
+| `()`     | `__call__(self)`               | Instancja danej klasy jest funkcją, którą można po prostu wywołać                |
 
 [Pełniejsza lista operatorów](https://docs.python.org/3/library/operator.html)
 TODO popraw i rozbuduj
