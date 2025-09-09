@@ -1,0 +1,1864 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2_javascript_interakcje_z_dom/">
+      
+      
+        <link rel="next" href="../4_javascript_inne/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>HTML i CSS - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#html-i-css" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTML i CSS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="true">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HTML i CSS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        HTML i CSS
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podstawowa-struktra" class="md-nav__link">
+    Podstawowa struktra
+  </a>
+  
+    <nav class="md-nav" aria-label="Podstawowa struktra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element" class="md-nav__link">
+    Element
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struktura-plikow" class="md-nav__link">
+    Struktura plików
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przykadowe-elementy-i-tagi" class="md-nav__link">
+    Przykładowe elementy i tagi
+  </a>
+  
+    <nav class="md-nav" aria-label="Przykładowe elementy i tagi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#komentarze" class="md-nav__link">
+    Komentarze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tekst" class="md-nav__link">
+    Tekst
+  </a>
+  
+    <nav class="md-nav" aria-label="Tekst">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nagowek-h1" class="md-nav__link">
+    Nagłówek &lt;h1&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#podstawy" class="md-nav__link">
+    Podstawy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-ul-ol" class="md-nav__link">
+    Lista &lt;ul&gt; &lt;ol&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linki-a" class="md-nav__link">
+    Linki &lt;a&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obraz-img" class="md-nav__link">
+    Obraz &lt;img&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacja-rzeczy-na-stronie" class="md-nav__link">
+    Organizacja rzeczy na stronie
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizacja rzeczy na stronie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#div-div" class="md-nav__link">
+    DIV &lt;div&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wejscia" class="md-nav__link">
+    Wejścia
+  </a>
+  
+    <nav class="md-nav" aria-label="Wejścia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#span-span" class="md-nav__link">
+    SPAN &lt;span&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przekierowywanie-strony-todo" class="md-nav__link">
+    Przekierowywanie strony TODO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skadnia-css" class="md-nav__link">
+    Składnia CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="Składnia CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wartosci-wymiarow" class="md-nav__link">
+    Wartości wymiarów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne-css" class="md-nav__link">
+    Zmienne CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uzyteczne-wartosci" class="md-nav__link">
+    Użyteczne wartości
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box-model" class="md-nav__link">
+    Box Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podstawowa-struktra" class="md-nav__link">
+    Podstawowa struktra
+  </a>
+  
+    <nav class="md-nav" aria-label="Podstawowa struktra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element" class="md-nav__link">
+    Element
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struktura-plikow" class="md-nav__link">
+    Struktura plików
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przykadowe-elementy-i-tagi" class="md-nav__link">
+    Przykładowe elementy i tagi
+  </a>
+  
+    <nav class="md-nav" aria-label="Przykładowe elementy i tagi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#komentarze" class="md-nav__link">
+    Komentarze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tekst" class="md-nav__link">
+    Tekst
+  </a>
+  
+    <nav class="md-nav" aria-label="Tekst">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nagowek-h1" class="md-nav__link">
+    Nagłówek &lt;h1&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#podstawy" class="md-nav__link">
+    Podstawy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lista-ul-ol" class="md-nav__link">
+    Lista &lt;ul&gt; &lt;ol&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linki-a" class="md-nav__link">
+    Linki &lt;a&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obraz-img" class="md-nav__link">
+    Obraz &lt;img&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacja-rzeczy-na-stronie" class="md-nav__link">
+    Organizacja rzeczy na stronie
+  </a>
+  
+    <nav class="md-nav" aria-label="Organizacja rzeczy na stronie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#div-div" class="md-nav__link">
+    DIV &lt;div&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wejscia" class="md-nav__link">
+    Wejścia
+  </a>
+  
+    <nav class="md-nav" aria-label="Wejścia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#span-span" class="md-nav__link">
+    SPAN &lt;span&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przekierowywanie-strony-todo" class="md-nav__link">
+    Przekierowywanie strony TODO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skadnia-css" class="md-nav__link">
+    Składnia CSS
+  </a>
+  
+    <nav class="md-nav" aria-label="Składnia CSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wartosci-wymiarow" class="md-nav__link">
+    Wartości wymiarów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zmienne-css" class="md-nav__link">
+    Zmienne CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uzyteczne-wartosci" class="md-nav__link">
+    Użyteczne wartości
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box-model" class="md-nav__link">
+    Box Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="html-i-css">HTML i CSS</h1>
+<p>Źródło tej notatki <a href="https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/HTML_basics">https://developer.mozilla.org/pl/docs/Learn/Getting_started_with_the_web/HTML_basics</a></p>
+<p>HTML jest językiem znaczników (ang. markup language).<br />
+Składa się z serii znaczników (<strong>tagów</strong>), których używa się do zamknięcia, opakowania różnych części treści, tak aby wyglądały i/lub działały w określony sposób. Z pomocą tagów możesz ze słów czy obrazów zrobić linki do innych stron, etc.</p>
+<h2 id="podstawowa-struktra">Podstawowa struktra</h2>
+<h3 id="element">Element</h3>
+<p>Podstawową strukturą jest element.</p>
+<p><img alt="" src="../assets/budowa_paragrafu.png" />
+Mamy tutaj:</p>
+<ul>
+<li>Tag otwierający</li>
+<li>Tag zamykający</li>
+<li>Zawartość<br />
+  Razem tworzą one nasz element</li>
+</ul>
+<p>Elementy mogą zawierać także atrybuty</p>
+<p><img alt="" src="../assets/atrybut.png" /></p>
+<p>Atrybut zawsze powinien mieć:</p>
+<ul>
+<li>Spację między nazwą tagu a nazwą atrybutu (lub innego atrybutu, jeśli dany element ma więcej atrybutów).</li>
+<li>Nazwę atrybutu oraz znak równości.</li>
+<li>Wartość podaną w "cudzysłowie"</li>
+</ul>
+<p>Atrybuty <code>class</code> i <code>id</code> są uniwersalnymi atrybutami dla wszystkich tagów. Pozwalają one na łatwe zarządzanie elementami strony poprzez przypisywane im identyfikatorów i określanie ich przynależności do różnych klas. (ID musi być unikalne, klasa już nie)
+Potem można używać tego do zmiany stylów w CSS, czy też w skryptacj w JS.</p>
+<p>Warto pamiętać, że elementy mogą mieć wiele klas jednocześnie</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn again&quot;</span><span class="p">&gt;</span>Again!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Elementy mogą się w sobie zagnieżdżać</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>My cat is <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>very<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> grumpy.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Elementy mogą być też <strong>puste</strong> - gdy nie zawierają żadnej treści.<br />
+Nie muszą wtedy mieć tagu zamykającego.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;images/firefox-icon.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;My test image&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<h3 id="struktura-plikow">Struktura plików</h3>
+<p>Całość zawsze jest zawarta w tagach HTML.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My test page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;images/firefox-icon.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;My test image&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Opisy elementów:</p>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code> - typ dokumentu (opcjonalny)</li>
+<li><code>&lt;html&gt;</code> - element <a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/html">html</a> zawiera całą treść strony i czasem nazwany jest elementem bazowym (ang. root element). Wskazuje, gdzie zaczyna i kończy się kod HTML.</li>
+<li><code>&lt;head&gt;</code> -element <a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/head">head</a> to tzw. nagłówek strony. Ten element działa jak kontener dla wszystkich elementów, które chcesz umieścić na stronie HTML, ale nie w treści, które wyświetlasz przeglądającym twoją stronę. Ma on w sobie na ogół konfigurację.</li>
+<li><code>&lt;body&gt;</code> - element <a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/body">body</a>. Zawiera onczęść właściwą strony, czyli jej zawartość.</li>
+<li><code>&lt;meta charset="utf-8"&gt;</code> - reprezentuje metadane, które nie mogą być reprezentowane przez inne elementy związane z metadanymi w HTML. Tutaj ustawia zestaw znaków.</li>
+<li><code>&lt;title&gt;</code> - Ustawia tytuł strony, który jest tytułem wyświetlanym na karcie przeglądarki</li>
+</ul>
+<h3 id="przykadowe-elementy-i-tagi">Przykładowe elementy i tagi</h3>
+<h4 id="komentarze">Komentarze</h4>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- tekst komentarza --&gt;</span>
+</code></pre></div>
+<h4 id="tekst">Tekst</h4>
+<h5 id="nagowek-h1">Nagłówek <code>&lt;h1&gt;</code></h5>
+<p>Nagłówki opisujemy jako h1 (najgłówniejszy), h2,h3...</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My main title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>My top level heading<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>My subheading<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>My sub-subheading<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</code></pre></div>
+<h5 id="podstawy">Podstawy</h5>
+<p>Paragrafy (<code>&lt;p&gt;</code>) służą do dzielenia tekstu na paragrafy</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a single paragraph<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Tekst pogrubiony<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Jest to markup fizyczny alternatywą logiczną jest znacznik &lt;strong&gt; --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>tekst kursywą<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>Tekst czcionką programistyczną<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="cm">&lt;!-- Znak nowej linii --&gt;</span>
+</code></pre></div>
+<h5 id="lista-ul-ol">Lista <code>&lt;ul&gt;</code> <code>&lt;ol&gt;</code></h5>
+<p>unordered list <code>&lt;ul&gt;</code> - lista nieuporządkowana</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>technologists<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>thinkers<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>builders<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>ordered list <code>&lt;ol&gt;</code> - lista uporządkowana.</p>
+<p>Jest dla niej kilka typów np: <code>A</code> -oznaczanie kolejnych punktów jako abc <code>i</code> - osnaczanie rzymskimi cyframi</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>pierwszy<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>drugi<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>trzeci<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</code></pre></div>
+<h5 id="linki-a">Linki <code>&lt;a&gt;</code></h5>
+<p>Aby utworzyć odnośnik musimy użyć prostego elementu — <a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/a">a</a> — "a" jest skrótem od angielskiego "anchor".</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.mozilla.org/en-US/about/manifesto/&quot;</span><span class="p">&gt;</span>Mozilla Manifesto<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>href (hypertext reference) - link (może to być link nie tylko do innej strony, lecz także do elementu tej samej strony)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#section--1&quot;</span><span class="p">&gt;</span>Sekcja 1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- .... --&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;section&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;section--1&quot;</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- Tu nas przeniesie kliknięcie --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Jeśli nasz link będzie prowadził do <code>#</code> to zostaniemy przeniesieni na początek strony.</p>
+<p>Możemy też łatwo tworzyć własne kotwice</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;moja_sekcja&quot;</span><span class="p">&gt;</span>Moja sekcja<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="obraz-img">Obraz <code>&lt;img&gt;</code></h4>
+<p>Używamy do tego tagu <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">img</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;images/firefox-icon.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;My test image&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+<ul>
+<li><code>src</code> - źródło obrazu</li>
+<li><code>alt</code> - tekst alternatywny - pokazuje się w razie problemów z wyświetleniem.</li>
+</ul>
+<h4 id="organizacja-rzeczy-na-stronie">Organizacja rzeczy na stronie</h4>
+<h5 id="div-div">DIV <code>&lt;div&gt;</code></h5>
+<p><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/div">div</a> - jest to element który nie robi nic. Służy on jako kontener, dzięki któremu można łatwo podzielić i pogrupować elementy.</p>
+<h3 id="wejscia">Wejścia</h3>
+<p>pole tekstowe i przycisk (bez JS-a bezuzyteczne)</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Domyślny tekst&quot;</span> <span class="p">/&gt;</span> <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>GIT!<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><input type="text" placeholder="Domyślny tekst" />
+<button>GIT!</button></p>
+<h5 id="span-span">SPAN <code>&lt;span&gt;</code></h5>
+<p>Tak jak <code>&lt;div&gt;</code> nie robi nic, po prostu pozwala łatwo zapanować nad elementami tekstu.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+  słowo
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>ważne słowo<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  Kolejne słowo<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Możemy w ten sposób łatwo zarządzać jakimiś fragmentami tekstu przypisując je np do klas.</p>
+<h2 id="przekierowywanie-strony-todo">Przekierowywanie strony TODO</h2>
+<h2 id="css">CSS</h2>
+<p>CSS służy do ustalania stylu naszej strony. Analogicznie do JS-a może być umieszczony w pliku html, lub w oddzielnym pliku.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Learning CSS<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Osadzamy to za pomocą linku (ale nie tagiem a - anchor, tylko link)</p>
+<div class="highlight"><pre><span></span><code> <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Learning CSS<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;style.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Możemy też przypisać dany styl do poszczególnych elementów</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: flex; flex-direction: column&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="skadnia-css">Składnia CSS</h3>
+<p>Poniżej widać, że przypisujemy dane parametry dla wszystkich elementów należących do tagu <code>body</code> tzn do wszystkich elementów dziedziczących po nim.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">yellow</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Pliki CSS zawierają listy elementów, które mają mieć zmienione wartości, mogą one opisywać zarówno to jak mamy zmienić niektóre tagi, jak i plasy, czy też edytować poszczególne ID.</p>
+<p><strong>Klasa</strong> - do zmian właściwości klasy używamy nazwy klasy poprzedzonej kropką <code>.</code><br />
+Klasa może być też łączona z typem np <code>p.moja_klasa</code> - czyli wszystkie paragrafy należące to tej klasy.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mojaklasa&quot;</span><span class="p">&gt;</span>Przykładowa klasa<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">mojaklasa</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>ID</strong> - tutaj zamiast kropki używamy <code>#</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;moj_paragraf&quot;</span><span class="p">&gt;</span>Przykładowa klasa<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">moj_paragraf</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Co ciekawe widać tutaj właściwość <code>border</code> - może ona mieć więcej niż jedną właściwość - tutaj są to grubość, styl i kolor.</p>
+<p><strong>Kilka elementów</strong> wystarczy je wymienić po przecinku</p>
+<div class="highlight"><pre><span></span><code><span class="nt">input</span><span class="o">,</span>
+<span class="nt">button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Elementy umieszczone względem innych</strong> - jeśli chcemy oznaczyć wszystkie elementy znajdujące się wewnątrz innych to wypisujemy obok siebie, tylko bez przecinków</p>
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">moj-element</span><span class="w"> </span><span class="nt">h2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="c">/* będzie dotyczyć tylko nagłówków h2 wewnątrz elementu z id moj-element */</span>
+</code></pre></div>
+<p><strong>Wszystko</strong></p>
+<p>Za pomocą <code>*</code> można łatwo "złapać" wszystkie elementy.<br />
+Można to użyć, aby łątwo dostosować np. marginesy wszystkich elementów.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span><span class="w"> </span><span class="c">/* ta właściwość zmiania liczenie rozmiaru, od teraz ustalony rozmiar dotyczy zawartości wraz z paddingiem, a nie tylko zawartości */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Warto pamiętać, że nie wszystkie właściwości są dziedziczone, np <code>padding</code> dotyczy tylko wskazanego elementu, elementy wewnątrz nie będą zmieniane.</p>
+<h4 id="wartosci-wymiarow">Wartości wymiarów</h4>
+<p>Wszelkie wymiary mogą być opisywane z użyciem dwóch typów <a href="https://www.w3schools.com/CSSref/css_units.asp">jednostek</a>:</p>
+<ul>
+<li><strong>Bezwzględnych</strong> - <code>px</code> <code>cm</code> <code>mm</code> <code>in</code> <code>pt</code> (piksele, centymetry, milimetry, cale, punkty etc) - wszystkie te (za wyjątkiem pikseli) skalują się do wymiarów urządzenia</li>
+<li><strong>Względnych</strong> - te już są nieco bardziej skomplikowane:</li>
+<li><code>%</code> - procent wymiarów rodzica</li>
+<li><code>vw</code> <code>vh</code> - 1% wysokości lub szerokości okna przeglądarki</li>
+<li><code>em</code> - liczone względem rozmiaru fontu elementu (2em to rozmiar 2 razy większy niż obecny font)</li>
+<li>inne...</li>
+</ul>
+<h4 id="zmienne-css">Zmienne CSS</h4>
+<p><a href="https://developer.mozilla.org/pl/docs/Web/CSS/Using_CSS_custom_properties">Zmienne CSS</a> mogą zawierać różne wartości dostępne w całym dokumencie.</p>
+<div class="highlight"><pre><span></span><code><span class="c">/* najprościej jest zadeklarować je w roocie, wtedy są dostępne wszędzie */</span>
+<span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--glowny-kolor-tla</span><span class="p">:</span><span class="w"> </span><span class="kc">brown</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">blok</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--glowny-kolor-tla</span><span class="p">:</span><span class="w"> </span><span class="kc">green</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">jeden</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span>
+<span class="w">    </span><span class="nv">--glowny-kolor-tla</span>
+<span class="w">  </span><span class="p">);</span><span class="w"> </span><span class="c">/* przy użyciu musi być to umieszczone w var()*/</span>
+<span class="p">}</span>
+<span class="c">/*Jeśli element .jeden znajdzie się wewnątrz elementu .blok, wtedy wartość zmiennej z</span>
+<span class="c">roota zostanie przesłonięta przez wartość zadaną w bloku*/</span>
+</code></pre></div>
+<h4 id="uzyteczne-wartosci">Użyteczne wartości</h4>
+<ul>
+<li><a href="https://developer.mozilla.org/pl/docs/Web/CSS/opacity">opacity</a> - przezroczystość określana od 0 do 1 (przydatna do chowania i pokazywania elementów)</li>
+<li><a href="https://www.w3schools.com/CSSref/pr_class_display.asp">display</a> - sposób w jaki sposób powinny być ułożone elementy w danym pojemniku. Przykładowe wartości:</li>
+<li><code>none</code> - elementy nie będą renderowane</li>
+<li><code>inline</code> - elementy będą ułożone w linii</li>
+<li><code>flex</code></li>
+</ul>
+<p>//TODO opisz dokładniej display</p>
+<h3 id="box-model">Box Model</h3>
+<p>Jest to koncepcja mówiąca, że każdy element strony powinniśmy postrzegać jako prostokąt z zawartością charakteryzujący się takimi właściwościami jak szerokość wysokość etc.</p>
+<p>Właściwości te to:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">margin</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border">border</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding">padding</a></li>
+</ul>
+<p><img alt="box model" src="../assets/css-box-model.jpg" /></p>
+<p>Dodatkowo jest jeszcze <strong>fill area</strong> czyli cała przestrzeń znajdująca się w obrębie granicy (border).</p>
+<p>I właśnie te parametry możemy z łatwością dostosowywać za pomocą CSS-ów.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

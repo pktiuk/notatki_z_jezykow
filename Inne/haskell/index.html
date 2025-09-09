@@ -1,0 +1,1629 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/">
+      
+      
+        <link rel="next" href="../../Java%E2%98%95/java_podstawy/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Haskell λ - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#haskell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Haskell λ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Haskell λ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Haskell λ
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typy" class="md-nav__link">
+    Typy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacje" class="md-nav__link">
+    Operacje
+  </a>
+  
+    <nav class="md-nav" aria-label="Operacje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listy" class="md-nav__link">
+    Listy
+  </a>
+  
+    <nav class="md-nav" aria-label="Listy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-i-dodawanie" class="md-nav__link">
+    Tworzenie i dodawanie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacje_1" class="md-nav__link">
+    Operacje
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-dla-list" class="md-nav__link">
+    Funkcje dla list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiowanie" class="md-nav__link">
+    Definiowanie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aczenie-funkcji" class="md-nav__link">
+    Łączenie funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduy" class="md-nav__link">
+    Moduły
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#zmienne" class="md-nav__link">
+    Zmienne
+  </a>
+  
+    <nav class="md-nav" aria-label="Zmienne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typy" class="md-nav__link">
+    Typy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacje" class="md-nav__link">
+    Operacje
+  </a>
+  
+    <nav class="md-nav" aria-label="Operacje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listy" class="md-nav__link">
+    Listy
+  </a>
+  
+    <nav class="md-nav" aria-label="Listy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tworzenie-i-dodawanie" class="md-nav__link">
+    Tworzenie i dodawanie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operacje_1" class="md-nav__link">
+    Operacje
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-dla-list" class="md-nav__link">
+    Funkcje dla list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiowanie" class="md-nav__link">
+    Definiowanie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aczenie-funkcji" class="md-nav__link">
+    Łączenie funkcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moduy" class="md-nav__link">
+    Moduły
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="haskell">Haskell λ</h1>
+<p>Jest to statycznie typowany, głównie deklaratywny, czysto funkcyjny język programowania.</p>
+<p>Jego najpopularniejszym kompilatorem jest GHC (Glasgow Haskell Compiler).</p>
+<p>Podczas programowania korzystamy z wyrażeń (opisujących coś) a nie z instrukcji (mówiących co ma być zrobione).</p>
+<p>Jedną z najważniejszych właściwości tego języka jest to, że funkcje <strong>zawsze</strong> zwracają tą samą wartość dla tych samych argumentów wejściowych. (nie ma żadnych zmiennych globalnych, statycznych ani innych rzeczy, które mogłyby wpływać na wynik).</p>
+<h2 id="zmienne">Zmienne</h2>
+<p>Większość przydatnych rzeczy jest w <a href="https://hackage.haskell.org/package/base-4.9.1.0/docs/Prelude">dokumentacji</a></p>
+<ul>
+<li><code>Char</code> - znak</li>
+<li><code>isAlpha</code>, <code>isAlphaNum</code>, <code>isDigit</code>, <code>isLower</code>, <code>isUpper</code> :: <strong>Char -&gt; Bool</strong></li>
+<li><code>toLower</code>, <code>toUpper</code> :: <strong>Char -&gt; Char</strong></li>
+<li><code>putChar</code> :: <strong>Char -&gt; IO ()</strong></li>
+<li><code>String</code> - <code>type String = [Char]</code></li>
+<li><code>Num</code>, <code>Int</code>, <code>Float</code> - liczba</li>
+<li><code>div</code>, <code>mod</code></li>
+<li><code>()</code> krotka</li>
+<li><code>fst</code> - zwraca pierwszy element</li>
+<li><code>snd</code> - zwraca drugi element</li>
+<li><code>Bool</code></li>
+<li>Operatory</li>
+<li><code>[]</code> - lista (patrz Operacje na listach)</li>
+</ul>
+<p>Do zdefiniowania zmiennej możemy użyć słowa kluczowego <code>let</code></p>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span>
+</code></pre></div>
+<p><strong>Int &lt;-&gt; Char</strong> konwersja pomiędzy tymi typami jest możliwa</p>
+<div class="highlight"><pre><span></span><code><span class="nf">ord</span><span class="w"> </span><span class="err">‘</span><span class="n">b</span><span class="err">’</span>
+<span class="o">&gt;</span><span class="mi">98</span>
+<span class="nf">chr</span><span class="w"> </span><span class="mi">98</span>
+<span class="o">&gt;</span><span class="err">‘</span><span class="n">b</span><span class="err">’</span>
+</code></pre></div>
+<h3 id="typy">Typy</h3>
+<p>Poza wbudowanymi typami zmiennych możemy definiować własne</p>
+<p><strong>Synonymous types</strong> - używają już istniejących typów używamy tu słowa kluczowego <code>type</code></p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">Name</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">String</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Position</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">String</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Age</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Int</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Course</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Int</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kt">Float</span><span class="p">,</span><span class="w"> </span><span class="kt">Float</span><span class="p">)</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Path</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="kt">Point</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>Algebraic types</strong> - typy algebraiczne są typami złożonymi zdefiniowanymi przez użytkownika. Używamy tu słowa kluczowego <code>data</code></p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">=</span><span class="w">   </span><span class="kt">Student</span><span class="w"> </span><span class="kt">Age</span><span class="w"> </span><span class="kt">Name</span><span class="w"> </span><span class="kt">Course</span><span class="w"> </span><span class="o">|</span>
+<span class="w">                </span><span class="kt">Professor</span><span class="w"> </span><span class="kt">Name</span><span class="w"> </span><span class="kt">Position</span><span class="w"> </span><span class="o">|</span>
+<span class="w">                </span><span class="kt">Director</span><span class="w"> </span><span class="kt">Name</span>
+
+<span class="nf">namePerson</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Person</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Name</span>
+<span class="nf">namePerson</span><span class="w"> </span><span class="p">(</span><span class="kt">Student</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">n</span>
+<span class="nf">namePerson</span><span class="w"> </span><span class="p">(</span><span class="kt">Professor</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">n</span>
+<span class="nf">namePerson</span><span class="w"> </span><span class="p">(</span><span class="kt">Director</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">n</span>
+
+<span class="nf">stud1</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Student</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="s">&quot;Marian&quot;</span><span class="w"> </span><span class="mi">12</span>
+</code></pre></div>
+<p>Tutaj słowa Student, Professor, Director służą do określenia typu danej struktury. (data constructor symbols)</p>
+<p>Wykorzystując same symbole konstruktorów możemy tworzyć enumy</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">Day</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Mon</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Tue</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Wed</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Thu</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Fri</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Sat</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">Sun</span>
+</code></pre></div>
+<p><strong>Functional types</strong> - budują i opisują funkcje</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">MyType</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">fib</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">MyType</span>
+</code></pre></div>
+<p>Przykłady:</p>
+<ul>
+<li><code>not</code> to wartość typu <code>Bool -&gt; Bool</code></li>
+<li><code>(2 +)</code> ma typ <code>Int -&gt; Int</code></li>
+<li><code>map</code> daje <code>(a -&gt; b) -&gt; [a] -&gt; [b]</code> (przyjmuje funkcję robiązą z a b oraz tablicę a z potem zwraca tablicę b)</li>
+</ul>
+<p>Operator <strong>-&gt;</strong> zwija się z prawej strony</p>
+<p>Tzn <code>a -&gt; b -&gt; c</code> <strong>jest równoznaczne</strong> z <code>a -&gt; (b -&gt; c)</code><br />
+a nie <code>(a -&gt; b) -&gt; c</code></p>
+<p>Należy jednocześnie pamiętać, że funkcje zwijają się od prawej</p>
+<p><code>f a b</code> to ekwiwalent <code>(f a) b</code> a <strong>nie</strong> <code>f (a b)</code><br />
+Czyli<br />
+<code>$ not not false</code> da nam error</p>
+<h2 id="operacje">Operacje</h2>
+<p>Funkcje są wywoływane poprzez podanie ich nazwy oraz argumentów</p>
+<div class="highlight"><pre><span></span><code><span class="nf">sort</span><span class="w"> </span><span class="p">[</span><span class="mi">42</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">22</span><span class="p">]</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">42</span><span class="p">]</span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Num</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">Ord</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="listy">Listy</h3>
+<h4 id="tworzenie-i-dodawanie">Tworzenie i dodawanie</h4>
+<p>Aby dodać element do listy używamy <code>:</code></p>
+<div class="highlight"><pre><span></span><code><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="kt">:</span><span class="w"> </span><span class="kt">[]</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="ow">::</span><span class="w"> </span><span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+</code></pre></div>
+<p>Tutaj do pustej listy dodaliśmy literę <code>a</code> dzięki czemu dostaliśmy stringa.</p>
+<p>Do tworzenia list możemy też używać automatycznego generowania</p>
+<p>Przykłady:</p>
+<ul>
+<li><code>[2..10]</code> is <code>[2,3,4,5,6,7,8,9,10]</code></li>
+<li><code>[1..]</code> is <code>[1,2,3,4,...</code></li>
+<li><code>[1,3..10]</code> is <code>[1,3,5,7,9]</code></li>
+<li><code>[’a’..’e’]</code> is <code>“abcde”</code></li>
+</ul>
+<p>Lub mechanizmu <code>List comprehension</code></p>
+<p><code>[wyrażenie przyjmujące zmienne | generator, filtry, generator, filtry, ...]</code></p>
+<p>Na przykład</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="ow">&lt;-</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="n">odd</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">]</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>repeat</strong> nieskończone listy</p>
+<div class="highlight"><pre><span></span><code><span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">repeat</span><span class="w"> </span><span class="mi">3</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="o">...</span><span class="p">]</span>
+</code></pre></div>
+<h4 id="operacje_1">Operacje</h4>
+<p><strong>Pobieranie</strong> - poniżej</p>
+<p><img alt="pobieranie z list" src="../assets/haskell_tail.png" /></p>
+<p><strong>Inne</strong> - operator <code>++</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Łączenie list</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="o">++</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="c1">-- Indeksowane elementy</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">45</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">54</span><span class="p">]</span><span class="w"> </span><span class="o">!!</span><span class="w"> </span><span class="mi">2</span>
+<span class="mi">12</span>
+
+<span class="c1">-- branie x elementów z listy</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">repeat</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">-- usuwanie elementu z listy</span>
+<span class="kt">Prelude</span><span class="o">&gt;</span>
+</code></pre></div>
+<h4 id="funkcje-dla-list">Funkcje dla list</h4>
+<p>Funkcja <code>zip</code> łączy dwie listy w listę krotek</p>
+<div class="highlight"><pre><span></span><code><span class="nf">zip</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">]</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">)]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">3</span>
+</code></pre></div>
+<p><code>filter (a -&gt; Bool) -&gt; [a] -&gt; [a]</code> - przefiltrowuje wybraną listę, otrzymujemy tylko elementy dla których nasza funkcja zwraca <code>True</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">32</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">32</span><span class="p">]</span>
+</code></pre></div>
+<p><code>map :: (a -&gt; b) -&gt; [a] -&gt; [b]</code> - aplikuje wybraną funkcję na wszystkie elementy wybranej listy i zwraca listę wyników</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">81</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="kt">True</span><span class="p">,</span><span class="kt">True</span><span class="p">,</span><span class="kt">False</span><span class="p">]</span>
+</code></pre></div>
+<p><code>foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</code> - funkcja, która pozwala łączyć wartości w tablicy. Podajemy jej argumenty:</p>
+<ul>
+<li>funkcja</li>
+<li>pierwszy element typu docelowego</li>
+<li>lista</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nf">suma</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldr</span><span class="w"> </span><span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span>
+<span class="nf">iloczyn</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">foldr</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+<h2 id="funkcje">Funkcje</h2>
+<p>FUnkcje są podstawotą częścią języka. Mogą być przekazywane jako argumenty, lub modyfikowane i częściowo aplikowane (partial application)</p>
+<p>partial applications:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="o">$</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span>
+<span class="mi">7</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">add_2</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+<span class="nf">add_2</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="p">)</span>
+<span class="o">$</span><span class="w"> </span><span class="n">add_2</span><span class="w"> </span><span class="mi">5</span>
+<span class="mi">7</span>
+</code></pre></div>
+<h3 id="definiowanie">Definiowanie</h3>
+<p>Funkcja składa się z opcjonalnego opisu typów<br />
+<code>nazwaFun :: Typ -&gt; Typ -&gt; Typ...</code><br />
+Oraz samej definicji, tutaj mamy 2 warianty:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">addRange</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">addRange</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">addRange</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">y</span>
+<span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">addRange</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
+</code></pre></div>
+<p>oraz</p>
+<div class="highlight"><pre><span></span><code><span class="nf">numCbetw2</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Char</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Char</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">numCbetw2</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">  </span><span class="kr">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">ord</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ord</span><span class="w"> </span><span class="n">c1</span>
+<span class="w">   </span><span class="kr">in</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">abs</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">abs</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">abs</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+<p>TODO
+Argumenty przekazywane do funkcji mogą mieć formę listy (łączonej strzałkami <code>-&gt;</code>) lub krotek <code>(el1,el2,...)</code>.</p>
+<h3 id="aczenie-funkcji">Łączenie funkcji</h3>
+<p>Wykorzystując kropkę <code>.</code> możemy łączyć funkcje w ciągi</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">even</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<p>Powyższy kod zwróci nam sumę kwadratów liczb parzystych dla liczb z zakresu 1-10.</p>
+<h2 id="moduy">Moduły</h2>
+<p>Moduły są odpowiednikami paczek/bibliotek dla innych języków.</p>
+<p>Aby go włączyć należy go zaimportować</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span><span class="w"> </span><span class="nn">MojModul</span>
+<span class="c1">-- jest to plik MojModul</span>
+</code></pre></div>
+<p>Przy tworzeniu nowego modułu od razu zaznaczamy jakie inne moduły improstujemy</p>
+<div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nn">ModuleNameX</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="kr">import</span><span class="w"> </span><span class="nn">ModuleNameY</span>
+</code></pre></div>
+<p>Przy plikach w folderach używamy kropek. Np jeśli w folderze <code>A/B/C</code> mamy plik <code>EjemImport.hs</code> to importujemy go tak:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span><span class="w"> </span><span class="nn">A.B.C.EjemImport</span>
+</code></pre></div>
+<p><strong>Eksportowanie</strong> - przy definiowaniu modułu możemy zaznaczyć co chcemy z niego eksportować.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Tutaj widać że eksportujemy tylko 2 funkcje</span>
+<span class="kr">module</span><span class="w"> </span><span class="nn">Geometry2D</span><span class="w"> </span><span class="p">(</span><span class="nf">areaSquare</span><span class="p">,</span><span class="w"> </span><span class="nf">perimeterSquare</span><span class="p">)</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="n">areaRectangle</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span>
+<span class="w">  </span><span class="n">areaRectangle</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span>
+<span class="w">  </span><span class="n">perimeterRectangle</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span>
+<span class="w">  </span><span class="n">perimeterRectangle</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">height</span><span class="p">)</span>
+<span class="w">  </span><span class="n">areaSquare</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span>
+<span class="w">  </span><span class="n">areaSquare</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">areaRectangle</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">side</span>
+<span class="w">  </span><span class="n">perimeterSquare</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Float</span>
+<span class="w">  </span><span class="n">perimeterSquare</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">perimeterRectangle</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">side</span>
+</code></pre></div>
+<p>W wypadku, gdy występuje kolizja nazw możemy użyć słowa kluczowego <code>qualified</code></p>
+<div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nn">NormalizeAll</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">  </span><span class="kr">import</span><span class="w"> </span><span class="k">qualified</span><span class="w"> </span><span class="nn">NormalizeSpaces</span>
+<span class="w">  </span><span class="kr">import</span><span class="w"> </span><span class="k">qualified</span><span class="w"> </span><span class="nn">NormalizeCase</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">NC</span>
+<span class="w">  </span><span class="n">normalizeAll</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">  </span><span class="n">normalizeAll</span><span class="w"> </span><span class="ow">=</span><span class="kt">NormalizeSpaces</span><span class="o">.</span><span class="n">normalize</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="kt">NC</span><span class="o">.</span><span class="n">normalize</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

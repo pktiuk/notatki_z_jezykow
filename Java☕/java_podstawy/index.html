@@ -1,0 +1,2749 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Inne/haskell/">
+      
+      
+        <link rel="next" href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Java podstawy - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java-podstawy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java podstawy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="true">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Java podstawy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Java podstawy
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#narzedzia" class="md-nav__link">
+    Narzędzia
+  </a>
+  
+    <nav class="md-nav" aria-label="Narzędzia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helloworld-w-javie" class="md-nav__link">
+    HelloWorld w javie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pakiety" class="md-nav__link">
+    Pakiety
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typy-danych" class="md-nav__link">
+    Typy danych
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy danych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stae" class="md-nav__link">
+    Stałe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typ-wyliczeniowy" class="md-nav__link">
+    Typ wyliczeniowy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencja" class="md-nav__link">
+    Referencja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konwencje-nazewnicze-dla-nazw-zmiennych-i-klas" class="md-nav__link">
+    Konwencje nazewnicze dla nazw zmiennych i klas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cykl-zycia-obiektu" class="md-nav__link">
+    Cykl życia obiektu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operatory" class="md-nav__link">
+    Operatory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kolekcje" class="md-nav__link">
+    Kolekcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Kolekcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody-interfejsow" class="md-nav__link">
+    Metody interfejsów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uporzadkowanie-elementow-kolekcji" class="md-nav__link">
+    Uporządkowanie elementów kolekcji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacje-biblioteczne-kolekcji" class="md-nav__link">
+    Implementacje Biblioteczne kolekcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrukcje-sterujace-petle-i-warunki" class="md-nav__link">
+    Instrukcje sterujące (pętle i warunki)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klasa" class="md-nav__link">
+    Klasa
+  </a>
+  
+    <nav class="md-nav" aria-label="Klasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pola-klasy" class="md-nav__link">
+    Pola klasy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicjalizacja" class="md-nav__link">
+    Inicjalizacja
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dziedziczenie" class="md-nav__link">
+    Dziedziczenie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfejs" class="md-nav__link">
+    Interfejs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modu" class="md-nav__link">
+    Moduł
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programowanie-wspobiezne" class="md-nav__link">
+    Programowanie współbieżne
+  </a>
+  
+    <nav class="md-nav" aria-label="Programowanie współbieżne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stanow-watku" class="md-nav__link">
+    Diagram stanów wątku
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagram stanów wątku">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przyczyny-blokowania-watkow" class="md-nav__link">
+    Przyczyny blokowania wątków
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javautilconcurrentlocks" class="md-nav__link">
+    java.util.concurrent.locks.*
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siec" class="md-nav__link">
+    Sieć
+  </a>
+  
+    <nav class="md-nav" aria-label="Sieć">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rmi-remote-method-invocation" class="md-nav__link">
+    RMI - Remote Method Invocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-messaging-system-jms" class="md-nav__link">
+    Java Messaging System (JMS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atrybuty-systemowe" class="md-nav__link">
+    Atrybuty Systemowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Atrybuty Systemowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#narzedzia" class="md-nav__link">
+    Narzędzia
+  </a>
+  
+    <nav class="md-nav" aria-label="Narzędzia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helloworld-w-javie" class="md-nav__link">
+    HelloWorld w javie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pakiety" class="md-nav__link">
+    Pakiety
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typy-danych" class="md-nav__link">
+    Typy danych
+  </a>
+  
+    <nav class="md-nav" aria-label="Typy danych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stae" class="md-nav__link">
+    Stałe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typ-wyliczeniowy" class="md-nav__link">
+    Typ wyliczeniowy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencja" class="md-nav__link">
+    Referencja
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konwencje-nazewnicze-dla-nazw-zmiennych-i-klas" class="md-nav__link">
+    Konwencje nazewnicze dla nazw zmiennych i klas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cykl-zycia-obiektu" class="md-nav__link">
+    Cykl życia obiektu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operatory" class="md-nav__link">
+    Operatory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kolekcje" class="md-nav__link">
+    Kolekcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Kolekcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody-interfejsow" class="md-nav__link">
+    Metody interfejsów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uporzadkowanie-elementow-kolekcji" class="md-nav__link">
+    Uporządkowanie elementów kolekcji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacje-biblioteczne-kolekcji" class="md-nav__link">
+    Implementacje Biblioteczne kolekcji
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrukcje-sterujace-petle-i-warunki" class="md-nav__link">
+    Instrukcje sterujące (pętle i warunki)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klasa" class="md-nav__link">
+    Klasa
+  </a>
+  
+    <nav class="md-nav" aria-label="Klasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pola-klasy" class="md-nav__link">
+    Pola klasy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicjalizacja" class="md-nav__link">
+    Inicjalizacja
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dziedziczenie" class="md-nav__link">
+    Dziedziczenie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfejs" class="md-nav__link">
+    Interfejs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modu" class="md-nav__link">
+    Moduł
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programowanie-wspobiezne" class="md-nav__link">
+    Programowanie współbieżne
+  </a>
+  
+    <nav class="md-nav" aria-label="Programowanie współbieżne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-stanow-watku" class="md-nav__link">
+    Diagram stanów wątku
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagram stanów wątku">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#przyczyny-blokowania-watkow" class="md-nav__link">
+    Przyczyny blokowania wątków
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javautilconcurrentlocks" class="md-nav__link">
+    java.util.concurrent.locks.*
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siec" class="md-nav__link">
+    Sieć
+  </a>
+  
+    <nav class="md-nav" aria-label="Sieć">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rmi-remote-method-invocation" class="md-nav__link">
+    RMI - Remote Method Invocation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-messaging-system-jms" class="md-nav__link">
+    Java Messaging System (JMS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atrybuty-systemowe" class="md-nav__link">
+    Atrybuty Systemowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Atrybuty Systemowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="java-podstawy">Java podstawy</h1>
+<h2 id="narzedzia">Narzędzia</h2>
+<ul>
+<li><code>jshell</code> – interpretator interaktywny <strong>?jak importować w nim własne pakiety?</strong></li>
+<li><code>jlink</code> – generacja modułu aplikacji</li>
+</ul>
+<h3 id="helloworld-w-javie">HelloWorld w javie</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorldApp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello world from Java!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wszystko jest tu klasą, nasza apka też. Jeżeli chcemy, aby jakaś klasa zaczęła coś robić przy jej samodzielnym uruchomieniu to dodajemy funkcję: <code>public static void main(String[] args)</code></p>
+<h2 id="pakiety">Pakiety</h2>
+<p>W jednym pliku .java można zdefiniować wiele klas, ale tylko jedna z nich może bypubliczna i jej nazwa musi odpowiadać nazwie pliku.</p>
+<p>Każda klasa należy do jakiegoś pakietu. Jeśli w pliku z kodem źródłowym klasy nie występuje na początku deklaracja przynależności tej klasy do konkretnego pakietu, wówczas klasa ta będzie należeć do domyślnego pakietu.
+Klasy należące do tego samego pakietu mogą odwoływać się do siebie bez konieczności stosowania nazw kwalifikowanych (bez przedrostka)</p>
+<p>Konwencja nazewnicza dla nazw pakietów: nazwa_firmy.nazwa_pakietu.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">java.applet.Applet</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">App</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Applet</span><span class="w"> </span><span class="p">{</span><span class="c1">////kod</span>
+<span class="p">}</span>
+<span class="c1">//LUB</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">App</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">applet</span><span class="p">.</span><span class="na">Applet</span><span class="w"> </span><span class="p">{</span><span class="c1">////kod</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Klasa System jest zawarta w java.lang, importowanym automatycznie</p>
+<h2 id="typy-danych">Typy danych</h2>
+<p><strong>Wbudowane</strong> – określone przez twórców języka
+– typy proste (albo: typy dla wartości, value-type): zmienne tych typów zawierają wartości tychże typów
+– typy referencyjne: zmienne tych typów zawierają odniesienie do tablicy lub obiektu, który reprezentują
+<strong>Definiowane</strong> przez programistę
+– klasy
+– typy wyliczeniowe (enumeration)</p>
+<p>Java ma <strong>statyczne typowanie</strong> tzn, że raz zdefiniowana zmienna nie zmienia swojego typu (jak np. w pythonie)</p>
+<p>Wbudowane typy proste</p>
+<ul>
+<li>całkowitoliczbowe, kodowane U2</li>
+<li><code>byte</code> jednobajtowy</li>
+<li><code>short</code> dwubajtowy</li>
+<li><code>int</code> czterobajtowy</li>
+<li><code>long</code> ośmiobajtowy</li>
+<li>zmiennoprzecinkowe, kodowane IEEE 754</li>
+<li><code>float</code> czterobajtowy</li>
+<li><code>double</code> ośmiobajtowy</li>
+<li>inne</li>
+<li><code>char</code> dwubajtowy, kodowany Unicode (utf-16)</li>
+<li><code>boolean</code> wartość logiczna true lub false</li>
+</ul>
+<p>do javy 11 można stosować identyfikator typu wywnioskowanego:
+<code>var s = "test";</code></p>
+<h3 id="stae">Stałe</h3>
+<p><strong>Literały</strong> – stałe bez nazwy, o typie wynikającym ze sposobu zapisu literału, np.</p>
+<table>
+<thead>
+<tr>
+<th>78,</th>
+<th>8864L,</th>
+<th>37.266,</th>
+<th>37.266D,</th>
+<th>37.266F,</th>
+<th>’c’,</th>
+<th>true, null</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>long</td>
+<td>double</td>
+<td>double</td>
+<td>float</td>
+<td>char</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<p>oraz łańcuchy znaków, typu String: "ala ma kota"
+<strong>Stałe symboliczne</strong> – stałe opatrzone nazwą i jawną deklaracją typu</p>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="n">typ</span><span class="w"> </span><span class="n">NAZWA_STAŁEJ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wartość</span><span class="p">;</span>
+<span class="c1">//np.</span>
+<span class="kd">final</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">PI</span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+</code></pre></div>
+<p>Lokalną stałą symboliczną można zainicjować później – najpierw wystąpi sama
+deklaracja, a później przypisanie pierwszej (i ostatecznej) wartości.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">STAŁA_CZYSTA</span><span class="p">;</span><span class="w"> </span><span class="c1">// Definicja stałej</span>
+<span class="cm">/**/</span>
+<span class="n">STAŁA_CZYSTA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Inicjalizacja stałej</span>
+</code></pre></div>
+<h3 id="typ-wyliczeniowy">Typ wyliczeniowy</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="n">Season</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">WINTER</span><span class="p">,</span><span class="w"> </span><span class="n">SPRING</span><span class="p">,</span><span class="w"> </span><span class="n">SUMMER</span><span class="p">,</span><span class="w"> </span><span class="n">FALL</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>– kompilator sprawdza zgodność typu
+– może być użyty w instrukcji switch</p>
+<div class="highlight"><pre><span></span><code><span class="n">Season</span><span class="w"> </span><span class="n">anything</span><span class="o">=</span><span class="n">Season</span><span class="p">.</span><span class="na">WINTER</span><span class="p">;</span>
+<span class="k">switch</span><span class="p">(</span><span class="n">anything</span><span class="p">){</span>
+<span class="k">case</span><span class="w"> </span><span class="n">SUMMER</span><span class="p">:</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Lato&quot;</span><span class="p">);</span>
+<span class="c1">//…</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="referencja">Referencja</h3>
+<p><strong>Referencja</strong> to zmienna, której wartością jest adres.
+Typy referencyjne:</p>
+<ul>
+<li>tablice,</li>
+<li>klasy,</li>
+<li>interfejsy.</li>
+</ul>
+<p>Zmienna referencyjna odnosi się do miejsca pamięci, w którym pomieszczono daną lub
+wektor danych reprezentowanych tą zmienną.
+Java nie zna typu wskaźnikowego, tzn. jawnego korzystania z adresów.</p>
+<h3 id="konwencje-nazewnicze-dla-nazw-zmiennych-i-klas">Konwencje nazewnicze dla nazw zmiennych i klas</h3>
+<ul>
+<li>nazwa zmiennej rozpoczyna się małą literą,</li>
+<li>nazwa klasy rozpoczyna się wielką literą,</li>
+<li>kolejne słowa w nazwie rozpoczyna się wielką literą, np. isVisible,</li>
+<li>znak podkreślenia (_) jest wprawdzie poprawny w nazwie, ale powinien być używany jedynie w nazwach stałych.</li>
+</ul>
+<h3 id="cykl-zycia-obiektu">Cykl życia obiektu</h3>
+<ol>
+<li>Utworzenie zmiennej typu referencji do obiektu (<code>typ nazwa;</code>) Dla typu klasy lub interfejsu zmienna przechowuje adres do obiektu klasy – nie jest on dostępny bezpośrednio, lecz stanowi referencję. Do momentu przypisania jej adresu ma ona wartość zerową (null).</li>
+<li>Utworzenie obiektu (<code>new</code> alokuje obszar pamięci) <code>nazwa=new typ(argumenty)</code> Operator new zwraca referencję do nowo utworzonego obiektu.</li>
+<li>Inicjalizacja -wywołanie konstruktora</li>
+<li>Używanie</li>
+<li>Usuwanie obiektu - "Garbage Collector" środowisko samodzielnie usuwa obiekt, jeżeli wykryje, że już więcej nie będzie używane w programie, wywołuje się on samoczynnie co jakiś czas, ale można to zrobić ręcznie <code>System.gc()</code></li>
+<li>Ewentualne wykonanie metody <code>finalize()</code> dziedziczona po klasie Obiect- pozwala wykonać dodatkowe czynności związane z usuwaniem obiektu</li>
+</ol>
+<h2 id="operatory">Operatory</h2>
+<p>Operator – funkcja podana w notacji operatorowej - z 1, 2 lub 3 argumentami
+(operandami).</p>
+<ul>
+<li>1-argumentowe operatory mogą być przedrostkowe i przyrostkowe:
+  operator operand // notacja przedrostkowa
+  operand operator // notacja przyrostkowa</li>
+<li>przedrostkowe i przyrostkowe <code>++</code> i <code>--</code></li>
+<li>2-argumentowe operatory występują pomiędzy swoimi operandami:
+  operand1 operator operand2</li>
+<li>Działania matematyczne<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>,<code>%</code></li>
+<li>Porównania <code>&gt;</code>,<code>&gt;=</code>,<code>==</code>,<code>&lt;=</code>,<code>&lt;</code>,<code>!=</code></li>
+<li>Tylko dla wartości logicznych:<ul>
+<li><code>&amp;&amp;</code> , <code>&amp;</code> "and"</li>
+<li><code>||</code>, <code>|</code> "or"</li>
+<li><code>!</code> negacja</li>
+<li><code>^</code> op1 ^ op2 true, gdy op1 i op2 mają różne wartości</li>
+</ul>
+</li>
+<li>Przesunięcia<ul>
+<li><code>&gt;&gt;</code> np op1&gt;&gt;op2 przesuń op1 w prawo o op2 bitów</li>
+<li><code>&lt;&lt;</code> np op1&lt;&lt;op2 przesuń op1 w lewo o op2 bitów</li>
+<li><code>&gt;&gt;&gt;</code> op1&gt;&gt;&gt;op2 przesuń op1 w prawo o op2 bitów, zastępując bit znaku zerem</li>
+</ul>
+</li>
+<li>Bitowe logiczne<ul>
+<li><code>&amp;</code> op1 &amp; op2 iloczyn bitowy op1 i op2</li>
+<li><code>|</code> op1 | op2 suma bitowa op1 i op2</li>
+<li><code>^</code> op1 ^ op2 bitowa różnica symetryczna op1 i op2</li>
+<li><code>~</code> ~op bitowa negacja op</li>
+</ul>
+</li>
+<li>Przypisania<ul>
+<li>op1=op2</li>
+<li><code>*=</code>,<code>+=</code>,<code>-=</code>,<code>|=</code>,<code>%=</code>itp...</li>
+</ul>
+</li>
+<li>3-argumentowy operator (jedyny w Javie):
+  operand1 ? operand2 : operand3</li>
+<li><code>op1?op2:op3</code> gdy op1 jest „true”, zwraca op2, w przeciwnym razie zwraca op3</li>
+<li>Inne</li>
+<li><code>typ[]</code>/<code>typ[liczba]</code> deklaracja tablicy</li>
+<li><code>op[liczba]</code> pobranie elementu z tablicy</li>
+<li><code>(typ)op</code> konwersja wyrażenia op do typu typ</li>
+<li><code>net op1</code> utowrzenie obiektu lub tablicy</li>
+<li><code>op1 instanceof op2</code> zwraca „true”, gdy obiekt op1 jest instancją klasy op2</li>
+</ul>
+<p>Za wyjątkiem operatora + używanego też do łączenia napisów, operatory arytmetyczne są przeznaczone tylko dla operandów liczbowych.</p>
+<h2 id="kolekcje">Kolekcje</h2>
+<p><strong>Kolekcja</strong> to obiekt:</p>
+<ul>
+<li>zawierający wiele elementów (teoretycznie dowolna liczba, nieokreślona zawczasu),</li>
+<li>udostępniający operacje</li>
+<li>wstawiania,</li>
+<li>przeglądania,</li>
+<li>usuwania.</li>
+<li>stosowany do magazynowania, przetwarzania i transmisji danych.</li>
+</ul>
+<p>Biblioteka kolekcji w Javie:</p>
+<ul>
+<li>Interfejsy – definiujące zachowanie kolekcji,</li>
+<li>Implementacje interfejsów (na różne sposoby),</li>
+<li>Algorytmy – typowe operacje na kolekcjach różnego rodzaju</li>
+</ul>
+<p>Kolekcje w Javie zostały umieszczone w java.util.
+Mimo, że w java.util występuje interfejs Collection, nie wszystkie
+kolekcje go implementują czy dziedziczą. Dlatego terminu kolekcja
+używamy w szerszym sensie.</p>
+<p>Kolekcje a typy uogólnione:</p>
+<ul>
+<li>Wersje podstawowe – nieparametryzowane typem przechowywanych danych – np. <code>List.insert(Object o)</code></li>
+<li>Wersje parametryzowane typem – np. <code>List&lt;MojTyp&gt;.insert(MojTyp o)</code></li>
+<li>Klasy parametryzowane typem - przykład</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CircularBuffer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="o">[]</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">CircularBuffer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// nadpisanie</span>
+<span class="w">            </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">tail</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">buffer</span><span class="o">[</span><span class="n">head</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+<span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">adjTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">adjTail</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="o">[</span><span class="n">tail</span><span class="o">++]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Error</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Posługując się interfejsami, możemy tworzyć algorytmy operujące na kolekcjach niezależnie od sposobu, w jaki zaimplementowano kolekcję (programowanie abstrakcyjne)
+<img alt="alt text" src="../assets/Kolekcje.jpg" title="Title" />
+Są 2 niezależne hierarchie: „właściwych kolekcji” oraz wykazy asocjacyjne, czyli kolekcje par {klucz,wartość}.
+Oprócz tego dysponujemy obiektami do przeglądania kolekcji:
+jednokierunkowym (Iterator) i dwukierunkowym (ListIterator). Kolekcje można również przeglądać, korzystając z obiektów funkcyjnych w połączeniu z metodą forEach().</p>
+<p>Podstawowe zależności pomiędzy interfejsami kolekcji:</p>
+<ul>
+<li>Collection określa zachowanie najogólniejszego zbioru obiektów,mogącego zawierać obiekty identyczne</li>
+<li>Set „rozszerza” Collection: nie dopuszcza duplikatów</li>
+<li>List rozszerza Collection, dopuszczając indeksowanie przez pozycję obiektu</li>
+<li>Map definiuje funkcjonalności podobne do Collection, ale nie jest z nim spokrewniony</li>
+</ul>
+<h4 id="metody-interfejsow">Metody interfejsów</h4>
+<p><code>Collection</code> i <code>Iterator</code>:</p>
+<ul>
+<li>Metody „jednostkowe”
+  add, contains, remove</li>
+<li>Metody zbiorcze
+  addAll, containsAll, removeAll, retainAll (dla teorii zbiorów różnica zbiorów iloczyn itp.)</li>
+<li>Inne
+  clear, isEmpty, size, toArray</li>
+<li>iterator – produkuje nowy iterator (na początku na nic nie wskazuje, jest przed pierwszym elementem)</li>
+<li>hasNext</li>
+<li>next - przeskakuje dalej i zwraca kolejny element (wskazywał pierwszy, po przeskoku zwraca drugi itd.)</li>
+<li>remove – usuwa ostatnio „przeskoczony” element</li>
+<li>forEach(), Spliterator – do iterowania równoległego (pojedynczego lub w blokach)</li>
+</ul>
+<p>Interfejs <code>Map</code>:</p>
+<ul>
+<li>get(key)</li>
+<li>containsKey(key)</li>
+<li>containsValue(value)</li>
+</ul>
+<p><img alt="alt text" src="../assets/MapMethods.png" title="Title" /></p>
+<p>Parametryzacja np:
+<code>Map&lt;String,Float&gt;</code></p>
+<p>Standardowe algorytmy: klasa Collections
+• sort – sortowanie listy
+• binarySearch – przeszukiwanie metodą bisekcji
+• shuffle – tasowanie elementów
+• reverse – odwrócenie kolejności elementów
+• rotate – przesunięcie elementów
+• fill – nadanie wszystkim elementom takiej samej wartości
+• copy, swap, addAll (typowe działania pomocnicze)
+• binarySearch – wyszukiwanie w liście
+• frequency – zliczanie wystąpień
+• disjoint – test rozłączności
+• min, max – szukanie ekstremów</p>
+<h4 id="uporzadkowanie-elementow-kolekcji">Uporządkowanie elementów kolekcji</h4>
+<p>Mamy dwa sposoby porządkowania kolekcji obiektów:</p>
+<ul>
+<li>Interfejs Comparable zapewnia automatyczny naturalny porządek dla klas go implementujących.
+  W interfejsie deklarowana jest metoda compareTo(obj)</li>
+<li>Interfejs Comparator umożliwia programiście wyznaczenie własnego sposobu porządkowania obiektów.</li>
+</ul>
+<h4 id="implementacje-biblioteczne-kolekcji">Implementacje Biblioteczne kolekcji</h4>
+<p><img alt="alt text" src="../assets/KolekcjeBiblioteczne.png" title="Title" />
+Właściwości:</p>
+<ol>
+<li>Implementują wszystkie opcjonalne operacje
+   Mamy gwarancję, że nie wystąpi UnsupportedOperationException</li>
+<li>Nie są synchronizowane
+   Mamy gwarancję, że przy współbieżnej modyfikacji i przeglądaniu wystąpi
+   ConcurrentModificationException</li>
+<li>
+<p>Są serializowalne i posiadają metodę <code>clone()</code>.</p>
+</li>
+<li>
+<p>HashSet – funkcja skrótu indeksuje miejsce w tablicy, gdzie znajduje się element; jeśli skrót się powiela, tworzona jest lista elementów. Średni czas dostępu do elementu praktycznie stały. Tablica może zmieniać swój rozmiar.</p>
+</li>
+<li>LinkedHashSet – j.w. ale zapamiętuje kolejność dodania elementów do zbioru; minimalnie wolniejsza.</li>
+<li>TreeSet – elementy przechowywane w posortowanym i wyważonym drzewie binarnym (wymaga określenia relacji większości na elementach)</li>
+<li>ArrayList – zapewnia stały czas wykonywania operacji size,
+isEmpty, get, set, iterator i listIterator oraz stały czas operacji add.</li>
+<li>LinkedList – implementacja wykorzystująca listy dwukierunkowe. W związku z tym realizacja dostępu do elementów tej kolekcji za pomocą indeksów jest nieefektywna. Natomiast może być szybsza od ArrayList w przypadku częstego usuwania i wstawiania elementów. Ponadto implementuje interfejsy Queue i Deque, więc nadaje do implementowania stosów i kolejek. LinkedList zawiera min. operacje addFirst, getFirst, removeFirst, addLast, getLast, removeLast.</li>
+</ol>
+<h2 id="instrukcje-sterujace-petle-i-warunki">Instrukcje sterujące (pętle i warunki)</h2>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">wyrażenie</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// Wykonuj pętlę gdy wyrażenie jest prawdziwe</span>
+
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">wyrażenie</span><span class="p">);</span>
+<span class="c1">// Sprawdzenie warunku następuje po zakończeniu pętli</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">inicjalizacja</span><span class="p">;</span><span class="w"> </span><span class="n">warunek</span><span class="p">;</span><span class="w"> </span><span class="n">inkrementacja</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">instrukcje</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// Wszystkie trzy wyrażenia są opcjonalne; może być: for(;;)</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">typ</span><span class="w"> </span><span class="n">zm_lokalna</span><span class="p">:</span><span class="n">ref_obiekt_iterowany_lub_tablica</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">instrukcje</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">wyrażenie</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="w"> </span><span class="n">zmienna</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">wartość1</span><span class="p">:</span><span class="w"> </span><span class="n">instrukcje</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">wartość2</span><span class="p">:</span><span class="w"> </span><span class="n">instrukcje</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="err">…</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="n">instrukcje</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Słowa kluczowe:</p>
+<ul>
+<li><code>break</code> bez etykiety – kończy wykonywanie aktualnej wewnętrznej instrukcji sterującej switch, for, while, do-while</li>
+<li>instrukcja break z etykietą – kończy wykonywanie zewnętrznego switch, for, while, do-while o danej etykiecie:
+  <code>break etykieta_instrukcji;</code></li>
+<li><code>continue</code> kończy bieżącą iterację wewnętrznej pętli</li>
+<li><code>continue</code> z etykietą -analogicznie</li>
+<li><code>return</code> – powrót z wykonywanej metody</li>
+</ul>
+<h2 id="klasa">Klasa</h2>
+<p>Definicja klasys kłada się z</p>
+<ul>
+<li>nagłówka definicji klasy</li>
+<li>class nazwa_klasy (obligatoryjnie)</li>
+<li>specyfikacje: dostępu i dziedziczenia (opcjonalnie)</li>
+<li>bloku definicji klasy</li>
+</ul>
+<p>Specyfikacje domyślne klasy:</p>
+<ul>
+<li>niepubliczna (istnieją restrykcje dostępu)</li>
+<li>nieabstrakcyjna (można tworzyć obiekty tej klasy)</li>
+<li>niefinalna (może mieć klasy pochodne)</li>
+<li>dziedziczy niejawnie po klasie Object</li>
+<li>nie implementuje niejawnie żadnych interfejsów</li>
+</ul>
+<p>Specyfikacje dodatkowe (niedomyślne) klasy:</p>
+<ul>
+<li>public – klasa jest dostępna dla wszystkich klas (domyślnie: tylko dla klas z tego samego pakietu)</li>
+<li>abstract – nie można tworzyć obiektów tej klasy</li>
+<li>final – nie można dziedziczyć z tej klasy</li>
+<li>extends klasa_bazowa – deklaruje dziedziczenie po klasie bazowej</li>
+<li>implements interfejs1, interfejs2 – deklaruje implementowanie jednego lub więcej interfejsów</li>
+</ul>
+<p>Blok definicji klasy – ograniczony parą nawiasów klamrowych, zawiera</p>
+<ul>
+<li>deklaracje wszystkich zmiennych składowych - pól (w tym obiektów i pól statycznych)</li>
+<li>deklaracje i definicje wszystkich funkcji składowych - metod (w tym metod wywoływanych na rzecz obiektu lub metod statycznych)</li>
+<li>ewentualnie, definicje jednego lub więcej konstruktorów</li>
+</ul>
+<p><strong>Konstruktory</strong>
+Nazwy konstruktorów są takie same jak nazwa konstruowanej klasy.
+Wywołania konstruktorów:
+<code>new Stack();</code>
+<code>new Stack(123);</code>
+Odpowiednikiem <strong>destrukotrów</strong> jest metoda <code>finalize()</code>
+Jeśli w klasie nie zdefiniowano żadnego konstruktora, tworzony jest automatycznie domyślny konstruktor (pusty)
+Klasy dziedziczące korzystają z konstruktora pustego, jeżeli go nie ma to należy samodzielnie wywołać inny
+Konstruktory – specyfikacja dostępu</p>
+<ul>
+<li><code>private</code> - żadna inna klasa nie może bezpośrednio użyć takiego konstruktora do tworzenia obiektów danej klasy</li>
+<li><code>protected</code> – obiekty mogą być tworzone przez klasy pochodne danej klasy i klasy należące do tego samego pakietu</li>
+<li><code>public</code> - każda klasa może tworzyć obiekty danej klasy</li>
+<li>brak specyfikatora dostępu - każda klasa z tego samego pakietu może tworzyć obiekty danej klasy</li>
+</ul>
+<h3 id="pola-klasy">Pola klasy</h3>
+<p><strong>Specyfikatory</strong></p>
+<ul>
+<li><code>private</code>, <code>public</code>, <code>protected</code>, (package) – specyfikacja dostępu</li>
+<li><code>static</code> – deklaracja pola statycznego (przynależnego do klasy, a nie – jej obiektów)</li>
+<li><code>final</code> – deklaracja pola stałego</li>
+<li><code>transient</code> – specyfikacja pola, które nie powinno podlegać serializacji</li>
+<li><code>volatile</code> – specyfikacja pola ulotnego, niepodlegającego optymalizacji: przypisanie zmiennej wartości odbywa się zawsze w pamięci (współdzielonej przez wątki), a nie w rejestrze procesora, więc jest od razu widoczne dla współbieżnych wątków</li>
+</ul>
+<p><strong>Dostęp do pól</strong></p>
+<table>
+<thead>
+<tr>
+<th>Specyfikator Dostępu</th>
+<th>Klasa</th>
+<th>Podklasa z tego samego pakietu</th>
+<th>Podklasy z innego pakietu</th>
+<th>Wszystkie klasy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td>✔️</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protected</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr>
+<td>public</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>(package)</td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>*Tylko przy odwołaniu niejawnym do pól klasy bazowej</p>
+<p>Pole i metoda jednej klasy mogą nosić taką samą nazwę:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CircularBuffer</span><span class="p">{</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span><span class="w"> </span><span class="c1">// pole buffer</span>
+<span class="kd">private</span><span class="w"> </span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="nf">buffer</span><span class="p">();</span><span class="w"> </span><span class="c1">// metoda buffer</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="inicjalizacja">Inicjalizacja</h3>
+<p>Składowe zwykłe i statyczne mogą być inicjalizowane w miejscu
+deklaracji. Np.:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StaticInit</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxLines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Ograniczenia inicjalizowania w miejscu deklaracji:</p>
+<ul>
+<li>wykonywana tyko operatorem przypisania.</li>
+<li>tylko wyrażeniem, które nie deklaruje, że może zgłosić wyjątek.</li>
+<li>wystąpienie wyjątku w wyrażeniu kończy program.</li>
+</ul>
+<p>W każdym innym przypadku trzeba użyć bloku statycznej inicjalizacji lub konstruktora.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StaticInit</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="p">{</span><span class="c1">//Przykład dla bloku inicjalizacji</span>
+<span class="w">        </span><span class="k">try</span><span class="p">{</span>
+<span class="w">            </span><span class="n">MAX_LINES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">util</span><span class="p">.</span><span class="na">Properties</span><span class="p">().</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;maxLinesLimit&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">){</span><span class="w"> </span><span class="c1">// obsługa wyjątku</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Liczba bloków statycznej inicjalizacji w programie jest dowolna (wykonywane wg ich kolejności wystąpienia w kodzie źródłowym).</p>
+<h2 id="metody">Metody</h2>
+<p>Deklaracja metody – specyfikacja</p>
+<ul>
+<li>poziomu dostępu</li>
+<li>typu wyniku</li>
+<li>nazwy</li>
+<li>listy argumentów formalnych (typy proste lub referencje do obiektów)
+  <code>public Object push(Object item)</code></li>
+</ul>
+<p>Wszystkie możliwe elementy nagłówka definicji metody (w ich kolejności)</p>
+<ul>
+<li>poziom dostępu - <code>public</code>, <code>protected</code>, <code>package</code>, <code>private</code></li>
+<li><code>static</code> - deklaruje metodę jako statyczną</li>
+<li><code>abstract</code> – metoda nie posiada definicji, jej klasa musi być abstrakcyjna</li>
+<li><code>final</code> - nie może być nadpisana przez metody klas pochodnych</li>
+<li><code>native</code> - metoda rodzima, napisana w innym języku programowania</li>
+<li><code>synchronized</code> – może być jednocześnie wykonywana (na rzecz konkretnego obiektu) tylko przez jeden wątek</li>
+<li>typ wyniku OBOWIĄZKOWE</li>
+<li>nazwa metody OBOWIĄZKOWE</li>
+<li>lista parametrów (w nawiasach) OBOWIĄZKOWE</li>
+<li>throws wyjątki - lista wyjątków zgłaszanych przez metodę</li>
+</ul>
+<p><strong>Wynik metody</strong>
+Można zwrócić</p>
+<ul>
+<li>nic -<code>void</code> <code>return;</code></li>
+<li>zmienną np int <code>return 10;</code></li>
+<li>
+<p>obiekt (referencja) np. <code>return new String();</code></p>
+</li>
+<li>
+<p>Metody przeciążone różnią się liczbą lub typem parametrów</p>
+</li>
+<li>Metoda nadpisana (polimorficzna) ma tę samą sygnaturę, co metoda w klasie bazowej. Nie może rozszerzać zbioru zgłaszanych wyjątków.</li>
+</ul>
+<p><strong>Odwołania w metodach</strong></p>
+<ul>
+<li><code>this</code>-odwołanie do obiektu, na rzecz którego wykonywana jest metoda</li>
+<li><code>super</code> - odwołanie do "nadobiektu", określonego przez klasę bazową</li>
+</ul>
+<h2 id="dziedziczenie">Dziedziczenie</h2>
+<ul>
+<li>Można dziedziczyć (extends) tylko z jednej klasy</li>
+<li>Wszystkie obiekty dziedziczą (niejawnie, obowiązkowo, pośrednio lub bezpośrednio) z klasy java.lang.Object</li>
+<li>Klasa pochodna dziedziczy wszystkie składowe, które są dostępne dla niej i których sama nie przesłania (pola) lub nie nadpisuje (metody)</li>
+<li>Konstruktorów nie dziedziczy się</li>
+<li>Nadpisana metoda może deklarować zgłaszanie tylko podzbioru wyjątków zgłaszanych przez metodę dziedziczoną.</li>
+<li>
+<p>Specyfikator dostępu do metody nadpisanej może zezwolić na większy dostęp niż metoda dziedziczona ale nie na mniejszy. Np. metoda chroniona (protected) w klasie bazowej może zostać upubliczniona, ale nie "uprywatniona"</p>
+</li>
+<li>
+<p>Metody klasy bazowej, których <strong>nie można</strong> nadpisać w klasie pochodnej:</p>
+</li>
+<li>metoda zadeklarowana jako final w klasie bazowej</li>
+<li>metoda statyczna (można jedynie ukryć metodę statyczną dziedziczoną przez jej ponowne zadeklarowanie)</li>
+<li>Metody klasy bazowej, które <strong>muszą</strong> zostać nadpisane w klasie pochodnej:</li>
+<li>metody zadeklarowane jako abstrakcyjne w klasie bazowej</li>
+<li>wszystkie metody bazowej klasy abstrakcyjnej</li>
+</ul>
+<p>Dziedziczenie po java.lang.Object
+Metody klasy Object, które mogą być nadpisane:</p>
+<ul>
+<li>clone</li>
+<li>equals, hashCode - porównywanie obiektów</li>
+<li>finalize - destruktor</li>
+<li>toString - zamienia obiekt w klasę String pozwalając na "tekstowy wydruk" zawartości za pomocą <code>System.out.println</code></li>
+</ul>
+<p>Metody final (nie mogą być nadpisane):</p>
+<ul>
+<li>getClass -Metoda zwraca reprezentację "run-time" klasy obiektu w postaci obiektu typu Class. Można dowiedzieć się z niego o nazwie klasy, jej klasie bazowej i interfejsach, które implementuje klasa</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">PrintClassName</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Klasa obiektu to &quot;</span><span class="o">+</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<span class="n">Object</span><span class="w"> </span><span class="nf">createNewInstanceOf</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">newInstance</span><span class="p">();</span><span class="w"> </span><span class="c1">//Nowa instancja tego samego obiektu</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>notify</li>
+<li>notifyAll</li>
+<li>wait</li>
+</ul>
+<h2 id="interfejs">Interfejs</h2>
+<p><strong>Interfejs</strong> – typ referencyjny, zawierający deklaracje metod, implementacje domyślne metod, pola stałe, metody statyczne, interfejsy i klasy</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">modyfikatory</span><span class="o">]</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">NazwaInterfejsu</span><span class="w"> </span><span class="o">[</span><span class="kd">extends</span><span class="w"> </span><span class="n">Interfejs1</span><span class="p">,</span><span class="err">…</span><span class="o">]</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="c1">// ciało interfejsu</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Interfejs jest domyślnie <code>publiczny</code> i obowiązkowo <code>abstrakcyjny</code>
+Metody interfejsu – domyślnie <code>publiczne</code>; albo abstrakcyjne, albo domyślne, albo statyczne
+Pola interfejsu – domyślnie <code>publiczne</code>, statyczne i finalne.</p>
+<p>Przykład</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;}</span>
+<span class="kd">interface</span> <span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();}</span>
+<span class="kd">interface</span> <span class="nc">C</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">//przesłoni to i z interfejsu A</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">D</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">C</span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i</span><span class="p">);}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>implementacje domyślne i statyczne metod</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Addressable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getStreet</span><span class="p">();</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getCity</span><span class="p">();</span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getFullAddress</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">getStreet</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;, &quot;</span><span class="o">+</span><span class="n">getCity</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Umożliwiają zdefiniowanie metod, których działanie jest niezależne od potencjalnych sposobów implementacji interfejsu.
+Metody domyślne mogą być nadpisywane w klasach implementujących interfejs.</p>
+<h2 id="wyjatki">Wyjątki</h2>
+<p>Java wymaga, aby metody obsługiwały lub specyfikowały wszystkie sprawdzalne
+wyjątki, które mogą wystąpić podczas wykonania programu.
+Wyjątki, które są powodowane przez złą logikę samego programu (np. błędy
+arytmetyczne lub błędy dostępu do pamięci danych programu), nie są sprawdzane przez kompilator. Nie ma wymogu ich obsługi lub deklarowania ich wystąpienia.
+Np. są nimi:</p>
+<ul>
+<li>wyjątki arytmetyczne (np. dzielenie przez zero),</li>
+<li>wyjątki wskazań (np. próba odwołania do obiektu poprzez zerową referencję, próba rzutowania na obiekt niewłaściwej klasy),</li>
+<li>wyjątki indeksowania (np. odwołanie do elementu tablicy poprzez zły indeks).</li>
+</ul>
+<p>Wyrzucenie wyjątku:
+<code>throw obiekt</code>
+Obsługa:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">instrukcje</span><span class="w"> </span><span class="c1">// tu może wystąpić throw</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">typ_wyjątku</span><span class="o">|</span><span class="n">inny_typ</span><span class="w"> </span><span class="n">nazwa</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// obsługa wyjątków dwóch typów</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// wykonywana zawsze niezależnie od zaistnienia wyjątku</span>
+<span class="w">    </span><span class="n">instrukcje</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Jako wyjątek może być zgłoszony jedynie obiekt klasy <code>Throwable</code> lub klasy pochodnej od Throwable. W innym razie wystąpi błąd kompilacji</p>
+<p>Hierarchia klas wyjątków</p>
+<ul>
+<li><code>Error</code>. Błąd dynamicznej konsolidacji programu lub inny "ciężki" błąd w JVM. Programy nie powinny obsługiwać ani zgłaszać takich wyjątków. (błąd w maszynie albo np brak pamięci itp.)</li>
+<li><code>Exception</code>. Jest to klasa bazowa wyjątków w programach Javy. Są już liczne klasy pochodne tej klasy, np. IllegalAccessException, NegativeArraySizeException.</li>
+<li><code>RuntimeException</code>. Specjalna klasa pochodna od Exception, która dotyczy wyjątków niesprawdzalnych, zgłaszanych przez Runtime (środowisko czasu wykonania programu). np dzielenie przez 0</li>
+</ul>
+<p>Delegowanie wyjątków "w górę"</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Example3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">notMainYet</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="p">(</span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">FileReader</span><span class="p">(</span><span class="s">&quot;/testing.txt&quot;</span><span class="p">)))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">br</span><span class="p">.</span><span class="na">readLine</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">{</span>
+<span class="w">    </span><span class="n">notMainYet</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">){</span>
+<span class="w">    </span><span class="n">e</span><span class="p">.</span><span class="na">getSuppressed</span><span class="p">();</span><span class="w"> </span><span class="c1">// zwraca tablicę wyjątków powstałych przy zwalnianiu zasobów</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Kompilator automatycznie generuje niejawny blok finally z kodem bezpiecznie zamykającym zasoby.</p>
+<h2 id="modu">Moduł</h2>
+<p>Moduł grupuje powiązane ze sobą pakiety, określając, które z nich zostaną udostępnione oraz to jakie pakiety i moduły są jemu potrzebne.</p>
+<p>Budowa:</p>
+<ul>
+<li>Katalog bazowy (root direcotry) modułu nazwany tak samo jak nazwa modułu.</li>
+<li>deskryptor modułu <code>module-info.java</code> -zawiera opis modułu</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">module</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">mycompany</span><span class="p">.</span><span class="na">factories</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">mycompany</span><span class="p">.</span><span class="na">interfaces</span><span class="p">;</span><span class="w">  </span><span class="c1">//exports opisuje które paczki mają być dostępne w pozostałych modułach</span>
+<span class="w">    </span><span class="n">exports</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">mycompany</span><span class="p">.</span><span class="na">factories</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">requires</span><span class="w"> </span><span class="n">modulename</span><span class="p">;</span><span class="w">  </span><span class="c1">//requires opisujeod jakich modułów zależy ten moduł</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>exports and exports…to. An exports module directive specifies one of the module’s packages whose public types (and their nested public and protected types) should be accessible to code in all other modules. An exports…to directive enables you to specify in a comma-separated list precisely which module’s or modules’ code can access the exported package—this is known as a qualified export.</p>
+<p>uses. A uses module directive specifies a service used by this module—making the module a service consumer. A service is an object of a class that implements the interface or extends the abstract class specified in the uses directive.</p>
+<p>provides…with. A provides…with module directive specifies that a module provides a service implementation—making the module a service provider. The provides part of the directive specifies an interface or abstract class listed in a module’s uses directive and the with part of the directive specifies the name of the service provider class that implements the interface or extends the abstract class.
+//TODO</p>
+<p><code>javac --module-source-path . -d out -m com.mycompany.factories</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.mycompany.interfaces.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.mycompany.factories.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">){</span>
+<span class="w">        </span><span class="n">RestClientInterface</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RestClientFactory</span><span class="p">().</span><span class="na">makeClient</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;key?2389fg38&quot;</span><span class="p">,</span><span class="s">&quot;loc:21.1,50.9&quot;</span><span class="p">};</span>
+<span class="w">        </span><span class="n">i</span><span class="p">.</span><span class="na">runQuery</span><span class="p">(</span><span class="n">query</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Kompilacja:
+<code>javac --module-path out --add-modules com.mycompany.factories Test.java</code></p>
+<p>Uruchomienie:
+<code>java --module-path out --add-modules com.mycompany.factories Test</code></p>
+<p>//TODO Beans + Swing (w3 i w4 w6)</p>
+<h2 id="programowanie-wspobiezne">Programowanie współbieżne</h2>
+<p>Uruchomienie nowego wątku – zadanie do wykonania przez nowy wątek zdefiniowane w metodzie <code>run()</code></p>
+<p>Są 2 sposoby:</p>
+<p>Klasa implementująca Runnable</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyRunnable</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello from a thread!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyRunnable</span><span class="p">())).</span><span class="na">start</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Klasa dziedzicząca po Thread</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello from a thread!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HelloThread</span><span class="p">()).</span><span class="na">start</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="diagram-stanow-watku">Diagram stanów wątku</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">MyThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="p">{</span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(){</span><span class="err">…</span><span class="p">}}</span>
+</code></pre></div>
+<p><img alt="alt text" src="../assets/Diagram_stan%C3%B3w_w%C4%85tku.jpg" title="Title" /></p>
+<h4 id="przyczyny-blokowania-watkow">Przyczyny blokowania wątków</h4>
+<p><img alt="alt text" src="../assets/Zablokowany.jpg" title="Title" /></p>
+<p><strong>III</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Producent</span><span class="p">();</span>
+<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">setDaemon</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="na">join</span><span class="p">();</span><span class="w"> </span><span class="c1">//join-oczekiwanie</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>IV</strong></p>
+<p>słowo kluczowe <code>synchronized</code> sprawia, że dane obiekty /metody nie mogą być używane dednocześnie przez kilka wątków i jeżeli jeden wątek właśnie korzysta z takiego obiektu to wszystkie pozostałe muszą poczekać</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Schowek</span><span class="w"> </span><span class="p">{</span><span class="kt">int</span><span class="w"> </span><span class="n">wartosc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;}</span>
+<span class="kd">class</span> <span class="nc">Producent</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="n">Schowek</span><span class="w"> </span><span class="n">schowek</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Producent</span><span class="p">(</span><span class="n">Schowek</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">schowek</span><span class="o">=</span><span class="n">s</span><span class="p">};</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; p&quot;</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">schowek</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">schowek</span><span class="p">.</span><span class="na">wartosc</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+
+<span class="kd">class</span> <span class="nc">Konsument</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">                </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">schowek</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">w</span><span class="o">=</span><span class="n">schowek</span><span class="p">.</span><span class="na">wartosc</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; k&quot;</span><span class="o">+</span><span class="n">w</span><span class="p">);</span>
+<span class="w">            </span><span class="n">sleep</span><span class="p">((</span><span class="kt">long</span><span class="p">)(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">()</span><span class="o">*</span><span class="mi">3000</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Schowek</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Schowek</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Producent</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Konsument</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+</code></pre></div>
+<p><strong>V</strong>
+Tak jak ma to miejsce w monitorach</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Schowek</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">jestZapelniony</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+
+<span class="kd">class</span> <span class="nc">Producent</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">schowek</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">schowek</span><span class="p">.</span><span class="na">jestZapelniony</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">schowek</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span>
+<span class="w">        </span><span class="n">schowek</span><span class="p">.</span><span class="na">wartosc</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="n">schowek</span><span class="p">.</span><span class="na">jestZapelniony</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="n">schowek</span><span class="p">.</span><span class="na">notifyAll</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+
+<span class="kd">class</span> <span class="nc">Konsument</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="kd">synchronized</span><span class="p">(</span><span class="n">schowek</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">schowek</span><span class="p">.</span><span class="na">jestZapelniony</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">schowek</span><span class="p">.</span><span class="na">wait</span><span class="p">();</span>
+<span class="w">        </span><span class="n">w</span><span class="o">=</span><span class="n">schowek</span><span class="p">.</span><span class="na">wartosc</span><span class="p">;</span>
+<span class="w">        </span><span class="n">schowek</span><span class="p">.</span><span class="na">jestZapelniony</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">schowek</span><span class="p">.</span><span class="na">notifyAll</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Przy takim schemacie działania należy zawsze:</p>
+<ul>
+<li>Sprawdzać zmienną warunkową w schemacie while(warunek) <code>wait() […] notify/All()</code></li>
+<li>Pamiętać o nadaniu zmiennej warunkowej odpowiedniej wartości (unikanie zakleszczeń)</li>
+<li>Obsługiwać monitor po zajęciu zamka (IllegalStateException)</li>
+</ul>
+<h3 id="javautilconcurrentlocks">java.util.concurrent.locks.*</h3>
+<p>Obiekty ułatwiające synchronizację wątków - Połączenie funkcjonalności zamka i monitora w jednym obiekcie, implementującym interfejs <code>Lock</code></p>
+<ul>
+<li>Ułatwienie podziału i obsługi wątków oczekujących na zasób ze zróżnicowanymi warunkami wznowienia – obiekt <code>Condition</code></li>
+<li>Dodatkowe możliwości, w zależności od implementacji – np. wybór strategii aktywacji wątków wznawianych do wykonania (<code>ReentrantLock</code>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">schowaj</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="n">zamek</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">warunek_zapisu</span><span class="p">)</span>
+<span class="w">        </span><span class="n">zapis</span><span class="p">.</span><span class="na">await</span><span class="p">();</span>
+<span class="w">    </span><span class="o">[</span><span class="err">…</span><span class="o">]</span><span class="w"> </span><span class="c1">// zapis do bufora</span>
+<span class="w">    </span><span class="n">odczyt</span><span class="p">.</span><span class="na">signal</span><span class="p">();</span>
+<span class="o">[</span><span class="err">…</span><span class="o">]</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="n">zamek</span><span class="p">.</span><span class="na">unlock</span><span class="p">();}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">schowaj</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">[</span><span class="err">…</span><span class="o">]</span>
+<span class="w">    </span><span class="n">zamek</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">warunek_zapisu</span><span class="p">)</span>
+<span class="w">        </span><span class="n">zapis</span><span class="p">.</span><span class="na">await</span><span class="p">();</span>
+<span class="w">    </span><span class="o">[</span><span class="err">…</span><span class="o">]</span><span class="w"> </span><span class="c1">// zapis do bufora</span>
+<span class="w">    </span><span class="n">odczyt</span><span class="p">.</span><span class="na">signal</span><span class="p">();</span>
+<span class="o">[</span><span class="err">…</span><span class="o">]</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="n">zamek</span><span class="p">.</span><span class="na">unlock</span><span class="p">();}</span>
+</code></pre></div>
+<p>//TODO fork/join</p>
+<h2 id="siec">Sieć</h2>
+<p>Dwa podstawowe rodzaje protokołów oparte na IP:
+▪ TCP – Transmission Control Protocol – połączeniowy kontroluje poprawność przesłanych danych, dostosowuje się do przepustowości łącza, wymagając informacji zwrotnej od odbiorcy
+▪ UDP – User Datagram Protocol – bezpołączeniowy całe sterowanie transmisją pozostawione użytkownikowi, możliwość transmisji rozgłoszeniowej</p>
+<p>Pakiet <code>java.net</code> zawiera podstawowe klasy związane z komunikacją sieciową: URL, socket i pochodne, itp</p>
+<p>TCP - przykładowy serwer:</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="p">...</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyHttpServer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ServerSocket</span><span class="w"> </span><span class="n">sSocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServerSocket</span><span class="p">(</span><span class="mi">1777</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Socket</span><span class="w"> </span><span class="n">newSocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sSocket</span><span class="p">.</span><span class="na">accept</span><span class="p">();</span><span class="w"> </span><span class="c1">//zawiesza w oczekiwaniu na połączenie</span>
+<span class="w">            </span><span class="n">OutputStream</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newSocket</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">();</span>
+<span class="w">            </span><span class="n">StringBuffer</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuffer</span><span class="p">();</span>
+<span class="w">            </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;&lt;html&gt;&lt;body&gt;HTTPServer works!&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">byteArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">getBytes</span><span class="p">();</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;HTTP/1.0 200 OK\n&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Content-Length: &quot;</span><span class="o">+</span><span class="n">byteArray</span><span class="p">.</span><span class="na">length</span><span class="o">+</span><span class="s">&quot;\n&quot;</span><span class="p">).</span><span class="na">getBytes</span><span class="p">());</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="s">&quot;Content-Type: text/html\n\n&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">byteArray</span><span class="p">);</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">            </span><span class="n">br</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">            </span><span class="n">newSocket</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="http://www.java2s.com/Code/Java/Network-Protocol/BufferedReaderforServerSocket.htm">http://www.java2s.com/Code/Java/Network-Protocol/BufferedReaderforServerSocket.htm</a></p>
+<h3 id="rmi-remote-method-invocation">RMI - Remote Method Invocation</h3>
+<p>Pozwala odnosić się poprzez referencję do obiektów na innych maszynach</p>
+<p><strong>Hello world of RMI – wywołanie zwrotne</strong></p>
+<p>Klient udostępnia usługę:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Callback</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Remote</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">RemoteException</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CallbackImpl</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">UnicastRemoteObject</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Callback</span><span class="p">{</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="nf">CallbackImpl</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">RemoteException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello from the callback&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Serwer definiuje nową usługę (asynchroniczną):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">RemoteException</span><span class="p">{</span>
+<span class="w">    </span><span class="p">((</span><span class="n">Client</span><span class="p">.</span><span class="na">Callback</span><span class="p">)</span><span class="n">o</span><span class="p">).</span><span class="na">callback</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wywołanie u klienta:</p>
+<div class="highlight"><pre><span></span><code><span class="n">worker</span><span class="p">.</span><span class="na">hello</span><span class="p">(</span><span class="n">UnicastRemoteObject</span><span class="p">.</span><span class="na">toStub</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">CallbackImpl</span><span class="p">()));</span>
+</code></pre></div>
+<h3 id="java-messaging-system-jms">Java Messaging System (JMS)</h3>
+<p>Komunikacja pomiędzy wieloma JVM – typowe zadania:
+▪ kolejka komunikatów (z buforowaniem)
+▪ transmisja rozgłoszeniowa do wybranych odbiorców
+▪ filtrowanie komunikatów w transmisji rozgłoszeniowej
+▪ synchroniczne i asynchroniczne modele komunikacji
+▪ zarządzanie trwałością i ważnością komunikatów (data ważności, priorytet, przechowywanie, gdy nie ma odbiorcy)
+▪ gwarancja dostarczenia
+▪ grupowanie serii komunikatów w niepodzielną transakcję
+▪ również: komunikacja z komponentami stworzonymi w innych językach</p>
+<p>//TODO jms</p>
+<h2 id="atrybuty-systemowe">Atrybuty Systemowe</h2>
+<p>Są to dane na temat środowiska takie jak:</p>
+<ul>
+<li>nazwa komputera</li>
+<li>nazwa użytkownika</li>
+<li>katalog roboczy</li>
+<li>identyfikator systemu operacyjnego</li>
+<li>itp</li>
+</ul>
+<p>Atrybuty przechowywane w postaci par: (nazwa,wartość).
+Ustawiane na trzy sposoby:</p>
+<ul>
+<li>ładowane przez klasę <code>java.util.Properties</code> – na sposób trwały między uruchomieniami maszyny wirtualnej</li>
+<li>poprzez argumenty wiersza poleceń – na czas wykonania aplikacji <code>-Dnazwa=wartość</code></li>
+<li>poprzez parametry apletu – na czas wykonania apletu</li>
+</ul>
+<p><param name="nazwa" value="wartość"/></p>
+<p>Metody klasy Properties:</p>
+<ul>
+<li><code>contains(Object value)</code>, <code>containsKey(Object key)</code> – sprawdzają, czy obiekt zawiera daną wartość bądź nazwę atrybutu (podawane jako String)</li>
+<li><code>getProperty(String key)</code>, <code>getProperty(String key, String default)</code>–zwraca wartość danego atrybutu / wartość domyślną jeśli atrybut nie istnieje</li>
+<li><code>setProperty(String key, String value)</code> – zapisuje wartość atrybutu</li>
+<li><code>list(PrintStream s)</code>, <code>list(PrintWriter w)</code> – zapisuje wszystkie własności do strumienia</li>
+<li><code>elements()</code>, <code>keys()</code> – zwraca iteratory wartości i nazw atrybutów</li>
+<li>
+<p><code>load(From)/store(ToXML)</code> – umożliwia pobranie/zapis atrybutów (w formacie XML)</p>
+</li>
+<li>
+<p>Załadowanie atrybutów przy starcie</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">Properties</span><span class="w"> </span><span class="n">p</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">Properties</span><span class="p">();</span>
+<span class="n">FileInputStream</span><span class="w"> </span><span class="n">is</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileInputStream</span><span class="p">(</span><span class="s">&quot;my.properties&quot;</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">is</span><span class="p">);</span>
+<span class="n">is</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Odczyt/wykorzystanie/modyfikacja atrybutów podczas pracy programu</p>
+</li>
+<li>
+<p>Zapamiętanie (zmodyfikowanych) atrybutów przy wyjściu z programu</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">FileOutputStream</span><span class="w"> </span><span class="n">os</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="s">&quot;my.properties&quot;</span><span class="p">);</span>
+<span class="n">p</span><span class="p">.</span><span class="na">store</span><span class="p">(</span><span class="n">os</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;---No Comment---&quot;</span><span class="p">);</span>
+<span class="n">os</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Nazwa atrybutu</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file.separator</td>
+<td>separator nazw plików i katalogów</td>
+</tr>
+<tr>
+<td>java.class.path</td>
+<td>ścieżka przeszukiwania klas Javy</td>
+</tr>
+<tr>
+<td>java.class.version</td>
+<td>wersja biblioteki systemowej Javy</td>
+</tr>
+<tr>
+<td>java.home</td>
+<td>katalog, w którym zainstalowano Javę</td>
+</tr>
+<tr>
+<td>java.vendor</td>
+<td>nazwa producenta używanego JRE</td>
+</tr>
+<tr>
+<td>java.vendor.url</td>
+<td>adres www producenta używanego JRE</td>
+</tr>
+<tr>
+<td>java.version</td>
+<td>wersja Javy</td>
+</tr>
+<tr>
+<td>line.separator</td>
+<td>separator wierszy tj. znak nowego wiersza</td>
+</tr>
+<tr>
+<td>os.arch</td>
+<td>architektura sprzętowa syst. operacyjnego</td>
+</tr>
+<tr>
+<td>os.name</td>
+<td>nazwa systemu operacyjnego</td>
+</tr>
+<tr>
+<td>os.version</td>
+<td>wersja systemu operacyjnego</td>
+</tr>
+<tr>
+<td>path.separator</td>
+<td>separator wpisów na ścieżce (set)</td>
+</tr>
+<tr>
+<td>user.dir</td>
+<td>katalog roboczy</td>
+</tr>
+<tr>
+<td>user.home</td>
+<td>katalog domowy użytkownika</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td>nazwa użytkownika uruchamiającego JRE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runtime">Runtime</h3>
+<p>Większość potrzeb aplikacji dostępu do systemu obsługuje klasa System.
+W rzadkich przypadkach aplikacja może odwołać się bezpośrednio do środowiska czasu wykonania, reprezentowanego przez jeden obiekt klasy java.lang.Runtime, będący sprzęgiem aplikacji ze środowiskiem wykonania VM w systemie operacyjnym.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Runtime</span><span class="w"> </span><span class="nf">getRuntime</span><span class="p">();</span><span class="c1">//zwraca akt. obiekt Runtime</span>
+</code></pre></div>
+<p>Obiekt Runtime umożliwia m.in.
+• wykonanie programu funkcją systemową exec
+• pobranie informacji o liczbie dostępnych procesorów, pamięci operacyjnej
+• zlecenie załadowania biblioteki dynamicznej
+• bezwarunkowe zatrzymanie maszyny wirtualnej</p>
+<p>//TODO wyżej też są todo</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
