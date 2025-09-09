@@ -73,6 +73,25 @@ Np.:
 
 Więcej o wymaganiach niefunkcjonalnych można znaleźć w dedykowanym rozdziale [tutaj](./0_wstep_teoretyczny.md#charakterystyki-architektoniczne)
 
+### Dokumentowanie decyzji (ADR)
+
+ADR (Architectural Decission Record) jest jednym z ważniejszych kawałków dokumentacji powstających przy podejmowaniu decyzji architektonicznych. Jest to na ogół rejestr dokumentów opisujących dane decyzje podjęte przy planowaniu architektury. 
+
+Każdy dokument ADR powinien zawierać takie elementy jak:
+
+- Tytuł - krótki opic czego dotyczy
+- Status - najczęstsze statusy to:
+  - Request for comments (RFC) - pierwszys status mówiący, ze decyzja jest na etapie zbierania informacji od różnych zespołów
+  - Proposed - oczekuje na akceptacje
+  - Accepted - obowiązuje
+  - Superseded - już nie obowiązuje (np została nadpisana inną decyzją)
+- Kontekst - wyjaśnienie kontekstów decyzji, czynników, które są brane pod uwagę (zarówno techniczne jak i nietechniczne)
+- Decyzja
+- Konsekwencje - omówienie możliwych konsekwencji podjętej decyzji. Jest to opis tego jak to wpłynie na dalsze rozwijanie projektu, jego budżet, złożoność deployment etc.
+- Governance - kto ma odpowiadać za wdrożenie danej decyzji
+- Inne końcowe notatki - wszelkie informacje, które mogą być przydatne, ale nie należą do powyższych kategorii, może to być data utworzenia, autorzy, data wejścia w życie etc.
+
+
 ## Modele pracy
 
 TODO (wykład IOP) 01A

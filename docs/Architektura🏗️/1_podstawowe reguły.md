@@ -23,6 +23,16 @@ Bardzo dobry artykuł o tym [link](https://medium.com/@bartoszkrajka/principle-o
 - **I** - Interface Segregation Principle. Klienty nie powinny być zmuszane do implementacji interfejsów, których nie używają.
 - **D** - Dependency Inversion Principle. Moduły wysokiego poziomu nie powinny zależeć od modułów niskiego poziomu. Oba powinny zależeć od abstrakcji. Detale nie powinny zależeć od abstrakcji. Abstrakcje powinny zależeć od detali.
 
+## Zasady w architekturze
+
+**Everything in software architecture is a trade-off**
+
+W architekturze dość rzadko można stosować się do ogólnie zdefiniowanych najlepszych praktyk. Wszystko zależy od konkretnego projektu i jego kontekstu. Każda decyzja architektoniczna wiąże się z kompromisem (prostota vs wydajność, rozszerzalność vs bezpieczeństwo etc.). 
+
+**Why is more important than how.**
+
+W architekturze najważniejszym kawałkiem wiedzy i dokumentacji dotyczącym obecnych systemów jest nie tyle to, jak, coś zostało zrobione, lecz dlaczego. Tylko decyzje wraz z ich pełnym kontekstem mogą być później z bezpieczny sposób zrewidowane. W związku z tym warto przygotowywać sobie ADR. [link](./2_prace_koncepcyjne.md#dokumentowanie-decyzji-adr)
+
 ## Narzędzia dla architektury
 
 Warto najpierw przechytać te artykuły:
