@@ -626,7 +626,50 @@ Kroki:
 5. Sprawdź położenie `docker info | grep 'Docker Root Dir'`
 6. Usuń stare pliki `sudo rm -r /var/lib/docker`
 
-## Przydatne aplikacje do pracy z dockerem
+## Wygodna praca z dockerkami
+
+### Docker context
+
+//TODO
+
+[link docs](https://docs.docker.com/engine/manage-resources/contexts/)
+
+```bash
+docker create mojserwerek --docker "host=ssh://andrzej@192.168.1.111"
+docker context use mojserwerek
+# I od teraz wszystkie komendy dockerowe będą się wykonywały tak jakby na tej podłączonej maszynie 
+docker ps
+#i tu wypisze co chodzi na tym serwerze
+```
+
+### Deployment - Docker Stack i Docker swarm
+
+[Artykuł - What is Docker Stack](https://www.ronaldjamesgroup.com/article/docker-stack)
+
+Docker stack jest zbiorem narzędzi dockerowych, które mogą pomóc przy deploymentach opartych na dockerze i docker compose'ach.  
+Pozwalają min. a zarządzanie grupami maszyn (Docker Swarm), stopniowe przełączanie pomiędzy aktualizacjami oprogramowania, cofanie się do poprzednich wersji (rollback), automatycznego spinania wszystkiego po sieci, oraz zarządzania sekretami.
+
+Pierwszym krokiem jest tak czy siak utworzenie swarmu (potem możemy go sobie np rozszerzać).
+
+```bash
+docker swarm init
+# Swarm initialized: current node (fl7k9wf1ywgykfajgni27f4nr) is now a manager.
+#To add a worker to this swarm, run the following command:
+#    docker swarm join --token SWMTKN-1-k,jhdasklnsal-dsbjiyen380qxk9jo1y7qd7wx 10.9.51.136:2377
+# W razie czego można zobaczyć ten token znowu dzięki komendzie docker swarm join-token worker
+```
+
+Docker swarm używa compose'ów do deploymentu, więc komenda uruchamiająca nasz system to:
+
+```bash
+docker stack deploy -c ./docker-compose.yaml mojstack1
+```
+
+Nasze deploymenty są podzielone na stacki, dzięki czemu nie będą nam się one mieszać.
+
+
+
+### Przydatne aplikacje do pracy z dockerem
 
 [**skopeo**](https://github.com/containers/skopeo) - wygodna praca ze zdalnymi rejestrami dockerowymi
 
