@@ -642,7 +642,7 @@ docker ps
 #i tu wypisze co chodzi na tym serwerze
 ```
 
-### Deployment - Docker Stack i Docker swarm
+### Deployment - Docker Stack i Docker Swarm
 
 [Artykuł - What is Docker Stack](https://www.ronaldjamesgroup.com/article/docker-stack)
 
@@ -667,7 +667,15 @@ docker stack deploy -c ./docker-compose.yaml mojstack1
 
 Nasze deploymenty są podzielone na stacki, dzięki czemu nie będą nam się one mieszać.
 
+W wypadku takich deploymentów warto pamiętać o tym, że system zakłada ziałanie na wielu maszynach. W związku z tym trzeba uważać na wolumeny. Wolumeny są tworzone domyślnie na wybranych maszynach, więc maszyna A i maszyna B mogą widzieć inne pliki w tych miejscach, chyba, że definiowaliśmy wolumeny sieciowe.
+Inną kwestią jest zarządzanie sekretami i zmiennymi środowiskowymi. Zamiast używać zmiennych z enva warto rozważyć wykorzystanie sekretów dockerowych.
 
+### Docker Secrets
+
+https://docs.docker.com/engine/swarm/secrets/
+
+Jest to mechanizm bezpiecznego przechowywania i wymieniania sekretów pomiędzy maszynami w naszym klastrze.   
+Sekrety są montowane jako pliki, w związku z tym warto dodać w naszych aplikachach zmienne środowiskowe takie jak `PASSWORD_FILE`, gdzie podajemy ścieżkę z której mamy odczytać daną wartość.
 
 ### Przydatne aplikacje do pracy z dockerem
 
