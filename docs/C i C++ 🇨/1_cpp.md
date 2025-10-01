@@ -816,10 +816,13 @@ explicit TODO
 
 [Pełna lista z omówieniem](https://oleksandrkvl.github.io/2021/04/02/cpp-20-overview.html)
 
+Z fajnych rzeczy są kontrakty //TODO C++ contracts https://www.modernescpp.com/index.php/c-core-guidelines-a-detour-to-contracts (similar to java JML, or Dafny for C#)
+
+Oraz moduły https://en.cppreference.com/w/cpp/language/modules.html
+
 ## Do zrobienia
 
 TODO: ogólnie o klasach i dziedziczeniu, explicit C- czyli co musi być kompilowane jako czyste C, typy smart pointerów.
 
 //TODO VOLATILE https://en.cppreference.com/w/cpp/language/cv
 
-//TODO C++ contracts https://www.modernescpp.com/index.php/c-core-guidelines-a-detour-to-contracts (similar to java JML, or Dafny for C#)
