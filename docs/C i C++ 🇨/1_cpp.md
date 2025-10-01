@@ -170,6 +170,97 @@ Inne:
   assert(s.find("World") == 7);
   ```
 
+
+### Klasy
+
+Prosta przykładowa klasa w C++
+
+```cpp
+using namespace std;
+class User{
+    public:
+        // prosty konstruktor z domyślną wartością dla nazwiska
+        User(string name, string surname = "Kowal"):
+         name(name),surname(surname) // lista inicjalizacyjna
+        {
+          id = get_proper_id();
+        }
+    protected:
+        ///
+        int id;
+        int get_proper_id();
+    private:
+        string name;
+        string surname;
+        //Destruktor wołany podczas usuwania klasy
+        ~User();
+};
+```
+
+#### Funkcje wirtualne
+
+są oznaczane za pomocą słowa kluczowego `virtual`.
+
+```cpp
+class Base {
+   public:
+    virtual void print() {
+        cout << "Base Function" << endl;
+    }
+};
+
+class Derived : public Base {
+   public:
+    void print() {
+        cout << "Derived Function" << endl;
+    }
+};
+
+int main() {
+    Derived derived1;
+
+    // pointer of Base type that points to derived1
+    Base* base1 = &derived1;
+
+    // calls member function of Derived class
+    base1->print();
+
+    return 0;
+}
+```
+
+Podczas pracy z funkcjami wirtualnymi [dobrą praktyką](https://stackoverflow.com/questions/39932391/should-i-use-virtual-override-or-both-keywords) jest korzystanie ze specyfikatora [override](https://en.cppreference.com/w/cpp/language/override).  
+Dzięki jego użyciu w klasie potomnej będziemy mieć pewność, że ta funkcja w klasie bazowej jest wirtualna.
+
+```cpp
+struct A
+{
+    virtual void foo();
+    void bar();
+    virtual ~A();
+};
+
+// member functions definitions of struct A:
+void A::foo() { std::cout << "A::foo();\n"; }
+A::~A() { std::cout << "A::~A();\n"; }
+
+struct B : A
+{
+//  void foo() const override; // Error: B::foo does not override A::foo
+                               // (signature mismatch)
+    void foo() override; // OK: B::foo overrides A::foo
+//  void bar() override; // Error: A::bar is not virtual
+    ~B() override; // OK: `override` can also be applied to virtual
+                   // special member functions, e.g. destructors
+};
+```
+
+Kiedy chcemy jakiś abstrakcyjny interfejs możemy wymusić na klasach potomnych implementację zaznaczając brak implementacji w interfejsie:
+
+```cpp
+virtual int getValue() = 0;
+```
+
 ## Mechanizmy języka
 
 ### Zarządzanie pamięcią
@@ -481,6 +572,33 @@ public:
 };
 ```
 
+#### Funkcje i klasy zaprzyjaźnione
+
+[link](https://www.geeksforgeeks.org/cpp/friend-class-function-cpp/)
+
+Czasami w C++ może pojawić się potrzeba dostępu do prywatnych lub chronionych pól wybranej klasy poza nią samą. Wtedy przydaje nam się koncept klas zaprzyjaźnionych (friend classes and functions). Warto tutaj pamiętać o tym, że na ogół takie operacje to zły pomysł.
+
+```cpp
+class Customer
+{
+    friend std::ostream &operator<<( std::ostream &, const Customer & )
+    friend std::istream &operator>>( std::istream &, Customer & )
+
+private:
+    std::string name;
+    std::string surname
+public:
+    Customer(std::string name, std::string surname):name(name),surname(surname){};
+};
+
+int main()
+{
+  Customer c = Customer("Jan","K");
+  std::cout<<c;
+}
+```
+
+
 ### Wyjątki
 
 Wyjątki służą do niesekwencyjnego przekazania sterowania, kiedy pojawi się jakiś nieoczywisty problem. W C++ wyjątki są rzucane za pomocą słowa kluczowego `throw`, a łapane za pomocą bloku `try-catch`.
@@ -512,66 +630,6 @@ Zasady używania:
   catch (const Exception& e) //przechwytuje przez referencję
   //catch(Exception e) //tworzy lokalną kopię
   ```
-
-### Klasy
-
-#### Funkcje wirtualne
-
-są oznaczane za pomocą słowa kluczowego `virtual`.
-
-```cpp
-class Base {
-   public:
-    virtual void print() {
-        cout << "Base Function" << endl;
-    }
-};
-
-class Derived : public Base {
-   public:
-    void print() {
-        cout << "Derived Function" << endl;
-    }
-};
-
-int main() {
-    Derived derived1;
-
-    // pointer of Base type that points to derived1
-    Base* base1 = &derived1;
-
-    // calls member function of Derived class
-    base1->print();
-
-    return 0;
-}
-```
-
-Podczas pracy z funkcjami wirtualnymi [dobrą praktyką](https://stackoverflow.com/questions/39932391/should-i-use-virtual-override-or-both-keywords) jest korzystanie ze specyfikatora [override](https://en.cppreference.com/w/cpp/language/override).  
-Dzięki jego użyciu w klasie potomnej będziemy mieć pewność, że ta funkcja w klasie bazowej jest wirtualna.
-
-```cpp
-struct A
-{
-    virtual void foo();
-    void bar();
-    virtual ~A();
-};
-
-// member functions definitions of struct A:
-void A::foo() { std::cout << "A::foo();\n"; }
-A::~A() { std::cout << "A::~A();\n"; }
-
-struct B : A
-{
-//  void foo() const override; // Error: B::foo does not override A::foo
-                               // (signature mismatch)
-    void foo() override; // OK: B::foo overrides A::foo
-//  void bar() override; // Error: A::bar is not virtual
-    ~B() override; // OK: `override` can also be applied to virtual
-                   // special member functions, e.g. destructors
-};
-```
 
 ### Templatki
 
