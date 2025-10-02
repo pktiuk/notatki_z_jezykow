@@ -1,0 +1,1432 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../narzedzia/">
+      
+      
+        <link rel="next" href="../../Python%F0%9F%90%8D/1_ogolne_notatki/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Narzędzia serwerowe☁️ - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#narzedzia-serwerowe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Narzędzia serwerowe☁️
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="true">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Narzędzia serwerowe☁️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Narzędzia serwerowe☁️
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-i-zarzadzanie-infrastruktura" class="md-nav__link">
+    Monitoring i zarządzanie infrastrukturą
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siec-aczenie-sie-i-udostepnianie" class="md-nav__link">
+    Sieć, łączenie się i udostępnianie
+  </a>
+  
+    <nav class="md-nav" aria-label="Sieć, łączenie się i udostępnianie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obsuga-pivpn-a-i-wireguarda" class="md-nav__link">
+    Obsługa PiVPN-a i Wireguarda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dla-chcacych-postawic-sobie-jakis-serwer" class="md-nav__link">
+    Dla chcących postawić sobie jakiś serwer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oszczedzanie-energii" class="md-nav__link">
+    Oszczędzanie energii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szyfrowanie-dyskow-oraz-deszyfrowanie-z-pomoca-tpm" class="md-nav__link">
+    Szyfrowanie dysków oraz deszyfrowanie z pomocą TPM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-i-zarzadzanie-infrastruktura" class="md-nav__link">
+    Monitoring i zarządzanie infrastrukturą
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siec-aczenie-sie-i-udostepnianie" class="md-nav__link">
+    Sieć, łączenie się i udostępnianie
+  </a>
+  
+    <nav class="md-nav" aria-label="Sieć, łączenie się i udostępnianie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obsuga-pivpn-a-i-wireguarda" class="md-nav__link">
+    Obsługa PiVPN-a i Wireguarda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dla-chcacych-postawic-sobie-jakis-serwer" class="md-nav__link">
+    Dla chcących postawić sobie jakiś serwer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oszczedzanie-energii" class="md-nav__link">
+    Oszczędzanie energii
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szyfrowanie-dyskow-oraz-deszyfrowanie-z-pomoca-tpm" class="md-nav__link">
+    Szyfrowanie dysków oraz deszyfrowanie z pomocą TPM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="narzedzia-serwerowe">Narzędzia serwerowe☁️</h1>
+<p>Na dobry początek można zajrzeć <a href="https://www.reddit.com/r/homelab/wiki/introduction/">na wiki reddita homelab</a>, <a href="https://hostbor.com/25-must-have-home-server-services/">artykuł o przykładowych usługach</a></p>
+<p>Fajne serwisy których hostowanie może posłużyć każdemu:</p>
+<ul>
+<li><a href="https://nextcloud.com/">NextCloud</a> - alternatywa dla własnego google clouda. Baza pod dużą ilosć zastosowań, jak file storage, kalendarz, kontakty, zarządzanie zdjęciami, edycja dokumentów, komunikator etc.</li>
+<li><a href="https://jellyfin.org/">Jellyfin</a> - własny prywatny serwer multimedialny (taki netflix/legimi/spotify)</li>
+<li><a href="https://pi-hole.net/">Pi-Hole</a> - domowy adblock dla wszystkich urządzeń w sieci</li>
+<li>Uptime kuma - prosta apka do monitorowania innych serwerów</li>
+</ul>
+<h2 id="monitoring-i-zarzadzanie-infrastruktura">Monitoring i zarządzanie infrastrukturą</h2>
+<p>Przydatne narzędzia dla każdej osoby, która zamierza rozpocząć swoją przygodę z serwerami/homelabem.</p>
+<ul>
+<li>
+<p><a href="https://cockpit-project.org/">cockpit</a> - pozwala w prosty sposób monitorować serwer (poprzez apkę webową możemy się zalogować, uruchomić terminal, sprawdzać obciążenie, logi etc) ( <a href="https://cockpit-project.org/guide/latest/cockpit.conf.5">link to konfiguracji</a>)</p>
+</li>
+<li>
+<p>Jeśli chcemy w cockpicie wygodnie zarządzać także portami warto doinstalować</p>
+</li>
+<li>
+<p><a href="https://afaqurk.github.io/linux-dash/#/system-status">linux-dash</a> - nieco prostsza alternatywa od cockpita</p>
+</li>
+</ul>
+<p>Narzędzia do monitorowania - długa lista <a href="https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/">https://www.ubuntupit.com/most-comprehensive-list-of-linux-monitoring-tools-for-sysadmin/</a></p>
+<details class="note">
+<summary>Cockpit + cloudflare tunnel</summary>
+<p>Wymagana edycja pliku
+<div class="highlight"><pre><span></span><code>cat /etc/cockpit/cockpit.conf
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code>[WebService]
+Origins = https://dashboard.xxxxx.ca wss://dashboard.xxxxx.ca
+ProtocolHeader = X-Forwarded-Proto
+AllowUnencrypted = true
+</code></pre></div>
+Potem w panelu Cloudflate mapujemy nasz adres na <code>http://localhost:9090</code>
+<a href="https://github.com/cockpit-project/cockpit/issues/16396">źródło</a>
+Inną ważną rzeczą jest ograniczenie poziomu domeny. Nie powinno się używać pod-poddomen. może być <code>cockpit-serwer.domena.pl</code>, ale nie <code>cockpit.serwer.domena.pl</code> <a href="https://mindlesstux.com/2022/01/16/cloudflare-tunnels-and-cockpit/">żródło</a></p>
+</details>
+<p>Monitorowanie dockerów 🐋</p>
+<ul>
+<li><a href="https://www.portainer.io/">portainer</a> aplikacja służąca do wygodnej pracy oraz monitorowania dockerów w systemie</li>
+<li><a href="https://yacht.sh/">Yacht</a> - alternatywa dla portainera (trochę młodszy i prostszy projekt)</li>
+</ul>
+<h2 id="siec-aczenie-sie-i-udostepnianie">Sieć, łączenie się i udostępnianie</h2>
+<ul>
+<li><a href="https://ngrok.com/">ngrok</a> - pozwala łatwo udostępniać serwisy z urządzeń w sieci lokalnej. Dobre do prototypowania oraz prostych stron</li>
+<li><a href="https://dash.cloudflare.com/">cloudflare</a> - must-have gdy masz jakąś domenę i nią zarządzasz</li>
+<li>Cloudflare Proxy - zwiększa wydajność twoich stron oraz pozwala tunelować ruch IPv4 na adresy PIv6</li>
+<li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/">Tunelowanie</a> - pozwala wystawiać do sieci serwery z sieci lokalnych pozbawione publicznych adresów. Można użyć tego chociażby do udostępnienia cockpita, czy też <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/use-cases/ssh/#connect-to-ssh-server-with-cloudflared-access">SSH (instrukcje)</a></li>
+</ul>
+<p>VPN-y</p>
+<p>Bazowe protokoły:</p>
+<ul>
+<li>Wireguard - jeden z dwóch popularnych protokołów VPNa.</li>
+<li>OpenVPN - również popularny, lecz troche przestarzały protokół VPNa</li>
+<li><a href="https://www.pivpn.io/">PiVPN</a> - prosty i uniwersalny VPN. Ma UI webowe oraz wpiera Wireguarda i OpenVPN-a.</li>
+</ul>
+<p>Jednak nieco wygodniejsze wydaje się wykorzystywanie narzędzi takich jak netbird i tailscale.</p>
+<h3 id="obsuga-pivpn-a-i-wireguarda">Obsługa PiVPN-a i Wireguarda</h3>
+<p>Zakładam, że PiVPN jest skonfigurowany z Wireguardem.</p>
+<p>Aby dodać nowego nowe połączenie do naszego serwera wireguarda nalezy wywołać komendę <code>pivpn add</code>, tam określamy nazwę połączenia.</p>
+<div class="highlight"><pre><span></span><code>pawel@amd:~$<span class="w"> </span>pivpn<span class="w"> </span>add
+Enter<span class="w"> </span>a<span class="w"> </span>Name<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Client:<span class="w"> </span>superserwer
+:::<span class="w"> </span>Client<span class="w"> </span>Keys<span class="w"> </span>generated
+:::<span class="w"> </span>Client<span class="w"> </span>config<span class="w"> </span>generated
+:::<span class="w"> </span>Updated<span class="w"> </span>server<span class="w"> </span>config
+:::<span class="w"> </span>WireGuard<span class="w"> </span><span class="nv">reloaded</span>
+<span class="o">======================================================================</span>
+:::<span class="w"> </span>Done!<span class="w"> </span>superserwer.conf<span class="w"> </span>successfully<span class="w"> </span>created!
+:::<span class="w"> </span>superserwer.conf<span class="w"> </span>was<span class="w"> </span>copied<span class="w"> </span>to<span class="w"> </span>/home/opc/configs<span class="w"> </span><span class="k">for</span><span class="w"> </span>easytransfer.
+:::<span class="w"> </span>Please<span class="w"> </span>use<span class="w"> </span>this<span class="w"> </span>profile<span class="w"> </span>only<span class="w"> </span>on<span class="w"> </span>one<span class="w"> </span>device<span class="w"> </span>and<span class="w"> </span>create<span class="w"> </span>additional
+:::<span class="w"> </span>profiles<span class="w"> </span><span class="k">for</span><span class="w"> </span>other<span class="w"> </span>devices.<span class="w"> </span>You<span class="w"> </span>can<span class="w"> </span>also<span class="w"> </span>use<span class="w"> </span>pivpn<span class="w"> </span>-qr
+:::<span class="w"> </span>to<span class="w"> </span>generate<span class="w"> </span>a<span class="w"> </span>QR<span class="w"> </span>Code<span class="w"> </span>you<span class="w"> </span>can<span class="w"> </span>scan<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>mobile<span class="w"> </span>app.
+<span class="o">======================================================================</span>
+</code></pre></div>
+<p>Konfigi są też zapisywane w <code>/etc/wireguard/configs</code></p>
+<p><a href="https://docs.pivpn.io/wireguard/">Instrukcja podłączenia się</a> - Aby się podłączyć na maszynie klienckiej umieszczamy ten konfig w folderze <code>/etc/wireguard/</code> i wołamy komendę <code>wg-quick up nazwapliku</code>🟩 any wystartować i <code>wg-quick down nazwapliku</code>🟥 aby zatrzymać.
+(przydać się może paczka resolvconf)</p>
+<h2 id="storage">Storage</h2>
+<ul>
+<li><a href="https://www.truenas.com/">TrueNAS</a> - system operacyjny dedykowany maszynm mającym służyć jako storage</li>
+<li><a href="https://github.com/45Drives/cockpit-file-sharing">Wtyczka do Cockpitu</a> pozwalająca na łatwe udostępnianie zawartości, jest też inna <a href="https://github.com/45Drives/cockpit-navigator">wtyczka do przeglądania plików</a></li>
+<li><a href="https://github.com/duplicati/duplicati">Duplicati</a> - apka do robienia backupów danych (wraz z opcją szyfrowania).</li>
+</ul>
+<h2 id="dla-chcacych-postawic-sobie-jakis-serwer">Dla chcących postawić sobie jakiś serwer</h2>
+<p>Poszukiwanie VPS-a:</p>
+<ul>
+<li><a href="https://mikr.us/">mikr.us</a> - fajne i tanie serwery dla amatorów, jest trochę <a href="https://www.notion.so/MIKR-US-Don-t-Panic-5c3bdde2e0b545e7866524fc117446c3">dokumentacji</a> i fajna społeczność ( <a href="https://www.facebook.com/groups/mikrusy">FB</a> i <a href="https://discord.gg/hFcqJGkppq">Discord</a>)</li>
+<li><a href="https://www.oracle.com/pl/cloud/free/">Oracle free tier</a> - darmowe serwery VPS or oracle. Omówienie: <a href="https://www.pepper.pl/promocje/oracle-cloud-free-tier-darmowe-vpsy-z-ipv4-459055">link pepper</a> <strong>SIDENOTE</strong>: jeśli instancje są nieużywane to mogą być automatyucznie wyłączane: <a href="https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm#compute__idleinstances">link</a></li>
+<li><a href="https://www.serverhunter.com/">serverhunter</a> - wyszukiwarka tanich VPSów (gdy mikrus nie starcza)</li>
+</ul>
+<details class="note">
+<summary>Oracle odblokowywanie portów</summary>
+<p>Jako, że maszyny od Oracle mają domyślnie publiczne IP to mają domyślnie nieco bardziej restrykcyjny firewall.
+<a href="https://docs.oracle.com/en-us/iaas/developer-tutorials/tutorials/apache-on-ubuntu/01oci-ubuntu-apache-summary.htm">link do dokumentacji</a>
+Najpierw trzeba zmienić ustawienia w panelu na stronie oracle, a potem jeszcze dodać zasadę do iptables
+<code>sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT</code>
+i jeśli to działa to możemy zapisać naszą zmianę
+<code>sudo netfilter-persistent save</code></p>
+</details>
+<p>Oganianie domen:</p>
+<ul>
+<li><a href="https://tld-list.com/">tld-list</a> - porównywarka cen domen</li>
+<li><a href="https://seohost.pl/">seohost</a> - moim zdaniem najlepszy dostawca domen w Polsce</li>
+</ul>
+<h2 id="oszczedzanie-energii">Oszczędzanie energii</h2>
+<p>Tutaj jest jedna apka <code>powertop</code> można w niej podejrzeć jakie power states są obecnie na procesorze (C0, C1, C2...)</p>
+<p>Ogólnie warto też zapoznać się z tym wideo.</p>
+<p>https://youtu.be/MucGkPUMjNo?si=_4RVAnBg5IsMGqhp</p>
+<h2 id="szyfrowanie-dyskow-oraz-deszyfrowanie-z-pomoca-tpm">Szyfrowanie dysków oraz deszyfrowanie z pomocą TPM</h2>
+<p>Partycje można zabezpieczyć szyfrowaniem z pomocą LUKS-a.  <br />
+Tutaj jednak problemem może być automatyczne uruchomienie takiego systemu, aby nie było wymagane wpisywanie hasła ręcznie.</p>
+<p>Tutaj z pomocą rzychodzi TPM.</p>
+<p>https://fedoramagazine.org/automatically-decrypt-your-disk-using-tpm2/</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

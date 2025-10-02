@@ -1,0 +1,1906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../3_modu%C5%82y_i_paczki/">
+      
+      
+        <link rel="next" href="../5_deweloperskie/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Różne użyteczne biblioteki i narzędzia - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rozne-uzyteczne-biblioteki-i-narzedzia" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Różne użyteczne biblioteki i narzędzia
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="true">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Różne użyteczne biblioteki i narzędzia
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rozne-linki" class="md-nav__link">
+    Różne linki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsowanie-argumentow" class="md-nav__link">
+    Parsowanie argumentów
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logowanie-logging" class="md-nav__link">
+    Logowanie (logging)
+  </a>
+  
+    <nav class="md-nav" aria-label="Logowanie (logging)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-logow" class="md-nav__link">
+    Formatowanie logów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poziomy-logowania" class="md-nav__link">
+    Poziomy logowania
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaawansowane-logowanie" class="md-nav__link">
+    Zaawansowane logowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacja-tekstem" class="md-nav__link">
+    Manipulacja tekstem
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulacja tekstem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringi-wielolinijkowe" class="md-nav__link">
+    Stringi wielolinijkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rozbijanie-stringow-po-sowach" class="md-nav__link">
+    Rozbijanie stringów po słowach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-tekstu" class="md-nav__link">
+    Formatowanie tekstu
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatowanie tekstu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strformat" class="md-nav__link">
+    str.format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-stringi-python-36" class="md-nav__link">
+    f-stringi (Python 3.6+)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pobieranie-sciezkifolderu-obecnego-skryptu" class="md-nav__link">
+    Pobieranie ścieżki/folderu obecnego skryptu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzywanie-kodu-z-c" class="md-nav__link">
+    Używanie kodu z C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przetwarzanie-strumieniowe" class="md-nav__link">
+    Przetwarzanie strumieniowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czas" class="md-nav__link">
+    Czas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uruchamianie-innych-aplikacji" class="md-nav__link">
+    Uruchamianie innych aplikacji
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-webowe" class="md-nav__link">
+    Aplikacje webowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikacje webowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wykonywanie-zapytan-w-htmlu-requests" class="md-nav__link">
+    Wykonywanie zapytań w HTMLu - requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proste-hostowanie-folderu" class="md-nav__link">
+    Proste hostowanie folderu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask" class="md-nav__link">
+    Flask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottle" class="md-nav__link">
+    Bottle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-z-gui" class="md-nav__link">
+    Aplikacje z GUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zapisywanie" class="md-nav__link">
+    Zapisywanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Zapisywanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pickle-zapisywanie-zmiennych" class="md-nav__link">
+    Pickle - zapisywanie zmiennych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dill-zapisywanie-caej-sesji-w-pythonie" class="md-nav__link">
+    Dill -zapisywanie całej sesji w pythonie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rozne-linki" class="md-nav__link">
+    Różne linki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parsowanie-argumentow" class="md-nav__link">
+    Parsowanie argumentów
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logowanie-logging" class="md-nav__link">
+    Logowanie (logging)
+  </a>
+  
+    <nav class="md-nav" aria-label="Logowanie (logging)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-logow" class="md-nav__link">
+    Formatowanie logów
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poziomy-logowania" class="md-nav__link">
+    Poziomy logowania
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaawansowane-logowanie" class="md-nav__link">
+    Zaawansowane logowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacja-tekstem" class="md-nav__link">
+    Manipulacja tekstem
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulacja tekstem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringi-wielolinijkowe" class="md-nav__link">
+    Stringi wielolinijkowe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rozbijanie-stringow-po-sowach" class="md-nav__link">
+    Rozbijanie stringów po słowach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatowanie-tekstu" class="md-nav__link">
+    Formatowanie tekstu
+  </a>
+  
+    <nav class="md-nav" aria-label="Formatowanie tekstu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strformat" class="md-nav__link">
+    str.format()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-stringi-python-36" class="md-nav__link">
+    f-stringi (Python 3.6+)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pobieranie-sciezkifolderu-obecnego-skryptu" class="md-nav__link">
+    Pobieranie ścieżki/folderu obecnego skryptu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uzywanie-kodu-z-c" class="md-nav__link">
+    Używanie kodu z C++
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#przetwarzanie-strumieniowe" class="md-nav__link">
+    Przetwarzanie strumieniowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czas" class="md-nav__link">
+    Czas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uruchamianie-innych-aplikacji" class="md-nav__link">
+    Uruchamianie innych aplikacji
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-webowe" class="md-nav__link">
+    Aplikacje webowe
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikacje webowe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wykonywanie-zapytan-w-htmlu-requests" class="md-nav__link">
+    Wykonywanie zapytań w HTMLu - requests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proste-hostowanie-folderu" class="md-nav__link">
+    Proste hostowanie folderu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django" class="md-nav__link">
+    Django
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flask" class="md-nav__link">
+    Flask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bottle" class="md-nav__link">
+    Bottle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikacje-z-gui" class="md-nav__link">
+    Aplikacje z GUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zapisywanie" class="md-nav__link">
+    Zapisywanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Zapisywanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pickle-zapisywanie-zmiennych" class="md-nav__link">
+    Pickle - zapisywanie zmiennych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dill-zapisywanie-caej-sesji-w-pythonie" class="md-nav__link">
+    Dill -zapisywanie całej sesji w pythonie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="rozne-uzyteczne-biblioteki-i-narzedzia">Różne użyteczne biblioteki i narzędzia</h1>
+<h2 id="rozne-linki">Różne linki</h2>
+<ul>
+<li>Stronka agregująca w jedny miejscu najpotrzebniejsze API z bibliotek pythonowych: https://overapi.com/python</li>
+<li><a href="https://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie/Wersja_do_druku">Książka Zanurkuj w Pythonie</a> 📖</li>
+<li><a href="https://www.learnpython.org/">Podstawowy tutorial ze strony learnpython</a></li>
+</ul>
+<h2 id="parsowanie-argumentow">Parsowanie argumentów</h2>
+<p>Do parsowania argumentów na ogół korzysta się z biblioteki <a href="https://docs.python.org/3/howto/argparse.html">argparse</a>.</p>
+<p>Przykładowy kod</p>
+<div class="highlight"><pre><span></span><code><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+                    <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;ProgramName&#39;</span><span class="p">,</span>
+                    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;What the program does&#39;</span><span class="p">,</span>
+                    <span class="n">epilog</span><span class="o">=</span><span class="s1">&#39;Text at the bottom of help&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>           <span class="c1"># positional argument</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--count&#39;</span><span class="p">)</span>      <span class="c1"># option that takes a value</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span>
+                    <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>  <span class="c1"># on/off flag - czyli przy podaniu -v args.verbose to true</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span> <span class="c1">#parsowanie argumentów,aby uzyskać obiekt z argumentami</span>
+</code></pre></div>
+<p>Najważniejszą metodą klasy ArgumentParser jest <code>add_argument()</code>.<br />
+Może przyjmować on <a href="https://docs.python.org/3/library/argparse.html#quick-links-for-add-argument">różne argumenty</a>.<br />
+Najważniejsze wydają się:</p>
+<ul>
+<li><code>help</code> - opis argumentu</li>
+<li><code>type</code> - typ argumentu do jakiego wartość ma być przekonwertowana <a href="https://docs.python.org/3/library/argparse.html#argparse-type">link</a>.
+można tutaj podać typ (<code>int</code>, <code>str</code>), <code>argparse.FileType</code> (aby sprawdzić poprawność ścieżki do pliku), bądź funkcja koonwertująca
+    <div class="highlight"><pre><span></span><code><span class="c1"># kiedy chcemy sprawdzić czy plik istnieje, ale chcemy otrzymać stringa</span>
+<span class="k">def</span> <span class="nf">_readable_file_string</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">reader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># if not exists, then raises Exception</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;input_file&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">))</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;file_path&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">_readable_file_string</span><span class="p">)</span>
+</code></pre></div></li>
+<li><code>default</code></li>
+<li><code>required</code></li>
+<li><code>choices</code></li>
+<li><code>nargs</code> - ile razy może się pojawić ten argument</li>
+</ul>
+<h2 id="logowanie-logging">Logowanie (logging)</h2>
+<p>Wbudowane biblioteka <a href="https://docs.python.org/3/library/logging.html">logging</a> w Pythonie dostarcza gotowych mechanizmów do generowania, formatowania oraz zarządzania logami systemowymi. <a href="https://docs.python.org/3/howto/logging.html#custom-levels">Oficjalny tutorial</a></p>
+<p>Minimalny przykład:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is an error&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;This is a critical message&quot;</span><span class="p">)</span>
+<span class="c1">#&gt; WARNING:root:This is a warning</span>
+<span class="c1">#&gt; ERROR:root:This is an error</span>
+<span class="c1">#&gt; CRITICAL:root:This is a critical message</span>
+</code></pre></div>
+<p>Dla takiego sktyptu otrzymany tylko ostatnie 3 linijki, ponieważ domyślny poziom logów jest za niski.</p>
+<p>Do odpowiedniego ustawienia tego parametru można użyć funkcji <a href="https://docs.python.org/3/library/logging.html#logging.basicConfig">logging.basicConfig</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;To już się wyświetli&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Za pomocą tej funkcji możemy określić inne podstawowe parametry jak format, kodowanie, styl, format daty, plik z logami etc.</p>
+<h3 id="formatowanie-logow">Formatowanie logów</h3>
+<p>Format logów można zdefiniować za pomocą jednego stringa odpowiadającego określonej składni.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;is when this event was logged.&#39;</span><span class="p">)</span>
+<span class="c1"># 2019-12-12 11:51:42,692 is when this event was logged.</span>
+</code></pre></div>
+<p>W definicjach logów odwołujemy się do atrybutów klasy <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">LogRecord</a>.</p>
+<p>Z pomocą <code>basicConfig</code> możemy też łatwo określić używany format czasu (<a href="https://www.w3schools.com/python/python_datetime.asp">ściągawka</a>) (milisekundy lepiej określać w ramach formatu z LogRecord-a)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s%(msecs)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %I:%M:%S.&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;is when this event was logged.&#39;</span><span class="p">)</span>
+<span class="c1">#&gt; 12/12/2010 11:46:36.423 is when this event was logged.</span>
+</code></pre></div>
+<h3 id="poziomy-logowania">Poziomy logowania</h3>
+<p>Każdy poziom logowania ma własną przyporządkowaną wartość liczbową <a href="https://docs.python.org/3/library/logging.html#levels">link</a>.</p>
+<p>Im wyższa tym ważniejszy log (Debug to 10, CRITICAL to 50). Dzięki temu możliwe jest dodawanie własnych poziomów logowania. Możliwe jest tutaj wykorzystanie funkcji <a href="https://docs.python.org/3/library/logging.html#logging.addLevelName">addLevelName</a>.</p>
+<div class="highlight"><pre><span></span><code>    <span class="c1">#tutaj nadpisuję aby mieć fajniejszą nazwę</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="s2">&quot;🐞DEBUG&quot;</span><span class="p">)</span>
+    <span class="c1"># a tutaj dodaję nowy poziom</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;VERBOSE&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="zaawansowane-logowanie">Zaawansowane logowanie</h3>
+<p>W bardziej złożonych sytuacjach możemy mieć wiele oddzielnych loggerów (np. dla paczek) z czego każdy może mieć wiele handlerów (dla stdout, plików, dla grafany etc.). </p>
+<p>Oficjalna dokumentacja Pythonowa:  <a href="https://docs.python.org/3/howto/logging.html">Logging HOWTO</a></p>
+<p>Tutaj sytuacja zaczyna się robić nieco bardziej skomplikowana. <a href="https://docs.python.org/3/library/logging.html#logger-objects">logging and loggers</a></p>
+<p>Aby zapoznać się z tymi zagadnieniami polecam wideo <a href="https://www.youtube.com/watch?v=9L77QExPmI0">Modern Python logging</a>.</p>
+<h2 id="manipulacja-tekstem">Manipulacja tekstem</h2>
+<h3 id="stringi-wielolinijkowe">Stringi wielolinijkowe</h3>
+<div class="highlight"><pre><span></span><code><span class="n">slowa</span><span class="o">=</span><span class="s2">&quot;&quot;&quot; linia1</span>
+<span class="s2">linia2</span>
+<span class="s2">linia3</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+<h3 id="rozbijanie-stringow-po-sowach">Rozbijanie stringów po słowach</h3>
+<p><code>string.split(separator, maxsplit)</code> - domyślny separator to jakikolwiek whitespace, maxsplit- domyślnie -1 (opisuje na ile fragmentów maksymalnie możemy dzielić stringa)</p>
+<div class="highlight"><pre><span></span><code><span class="n">slowo</span><span class="o">=</span><span class="s2">&quot;slowo1 slowo2 sl3&quot;</span>
+<span class="n">slowo</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="p">[</span><span class="s1">&#39;slowo1&#39;</span><span class="p">,</span> <span class="s1">&#39;slowo2&#39;</span><span class="p">,</span> <span class="s1">&#39;sl3&#39;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="formatowanie-tekstu">Formatowanie tekstu</h3>
+<p>Formatowanie tekstu nie tylko w kontekście funkcji <code>print()</code></p>
+<h4 id="strformat">str.format()</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+<h4 id="f-stringi-python-36">f-stringi (Python 3.6+)</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Wg <a href="https://peps.python.org/pep-0498/#format-specifiers">dokumentacji</a> używając tej metody możemy wprowadzać dodatkowe zmiany w tekście</p>
+<div class="highlight"><pre><span></span><code><span class="n">width</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12.34567&#39;</span><span class="p">)</span>
+<span class="sa">f</span><span class="s1">&#39;result: </span><span class="si">{</span><span class="n">value</span><span class="si">:{</span><span class="n">width</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">precision</span><span class="si">}}</span><span class="s1">&#39;</span>
+<span class="c1">#12.35</span>
+</code></pre></div>
+<h3 id="pobieranie-sciezkifolderu-obecnego-skryptu">Pobieranie ścieżki/folderu obecnego skryptu</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># obecny folder</span>
+
+<span class="vm">__file__</span> <span class="c1"># zmiennna zawierająca obecnie uruchamiany plik (nie zawsze działa)</span>
+</code></pre></div>
+<h2 id="uzywanie-kodu-z-c">Używanie kodu z C++</h2>
+<p>boost lub ctypes<br />
+Przykład dla boosta: <a href="https://gist.github.com/pktiuk/2136eeefaf4271510d82e59f90c904ce">link</a></p>
+<h2 id="przetwarzanie-strumieniowe">Przetwarzanie strumieniowe</h2>
+<h2 id="czas">Czas</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span><span class="c1">#minuta</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1">#godzina jako epoch w sekundach</span>
+<span class="c1"># 1715610262.8038244 </span>
+</code></pre></div>
+<p>Do wygodniejszej obsługi czasu i jego ptintowania można użyć biblioteki <code>datetime</code>.<br />
+Możemy tutaj zdefiniować także własny format printowania daty. <a href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="c1"># datetime.datetime(2024, 5, 14, 19, 14, 0, 297824)</span>
+
+<span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mf">1715610262.8038244</span><span class="p">)</span>
+<span class="c1"># datetime.datetime(2024, 5, 13, 16, 24, 22, 803824)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B&quot;</span><span class="p">))</span> 
+<span class="c1"># June</span>
+</code></pre></div>
+<h2 id="uruchamianie-innych-aplikacji">Uruchamianie innych aplikacji</h2>
+<p>Do wygodnego uruchamiania innych aplikacji w terminalu można użyć biblioteki subprocess z metodą <a href="https://docs.python.org/3/library/subprocess.html#subprocess.check_output">check_output</a>.</p>
+<p>Przykładowy snippet:</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;pwd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="c1">#&gt;/home/admin/examples</span>
+</code></pre></div>
+<p>Innym, ogólniejszym wariantem jest uruchomienie <a href="https://docs.python.org/3/library/subprocess.html#subprocess.run">`subprocess.run()</a>, który zwraca obiekt <a href="https://docs.python.org/3/library/subprocess.html#subprocess.CompletedProcess">CompletedProcess</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>  <span class="c1">#printuje komendę na stdout</span>
+<span class="c1">#&gt;total 12</span>
+<span class="c1">#&gt;-rw-rw-rw-   1 codespace root  199 Mar  5 13:11 README.md</span>
+<span class="c1">#&gt;drwxrwxrwx+ 10 codespace root 4096 Mar 15 14:44 docs</span>
+<span class="c1">#&gt;-rw-rw-rw-   1 codespace root 1085 Apr  2 12:30 mkdocs.yml</span>
+<span class="c1">#&gt;CompletedProcess(args=[&#39;ls&#39;, &#39;-l&#39;], returncode=0)</span>
+<span class="n">result</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">],</span><span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>
+<p>Przydatne argumenty:</p>
+<ul>
+<li><code>shell: bool = False</code> - dzięki temu możemy podawać komendy jako jeden dłuższy string, a nie listę (<code>ls --all</code>)</li>
+<li><code>check: bool = False</code> - kiedy komenda zwróci status inny niż 0, metoda rzuca wyjątek: <code>CalledProcessError</code></li>
+<li><code>capture_output: bool = False</code> - STDOUT jest przechwytywany i umieszczany w zmiennej <code>CompletedProcess</code></li>
+</ul>
+<h2 id="aplikacje-webowe">Aplikacje webowe</h2>
+<h3 id="wykonywanie-zapytan-w-htmlu-requests">Wykonywanie zapytań w HTMLu - requests</h3>
+<p>Najprostszą i najwygodniejszą biblioteką jest <a href="https://docs.python-requests.org/en/latest/">requests</a>
+Może ona służyć zarówno do pobierania treści z neta jak i do web scrappingu.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Marian&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:5000/&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">text</span>
+<span class="c1"># { &quot;id&quot;: &quot;3123424&quot;, ...</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="c1"># zwróci ospowiedź jako słownik</span>
+<span class="n">r</span><span class="o">.</span><span class="n">status</span>
+<span class="c1"># 200</span>
+</code></pre></div>
+<h3 id="proste-hostowanie-folderu">Proste hostowanie folderu</h3>
+<p>KIedy chcesz w prosty sposób udostępnić dany folder w sieci.</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="c1">#to udostępni pod adresem 8000</span>
+
+<span class="c1">#można też samodzielni wybrać port</span>
+python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8888</span>
+</code></pre></div>
+<h3 id="django">Django</h3>
+<p>jest to dość duża zabawka <a href="../Webówka🌍/9_django">link</a></p>
+<h3 id="flask">Flask</h3>
+<p>Jeden z mikroframeworków, pozwala dość szybko napisać jakąś aplikację REST-ową.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Hello&quot;</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;you posted something&quot;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="bottle">Bottle</h3>
+<p>Mniejsza i dużo prostsza biblioteka (mieści się w jednym pliku).<br />
+Podobna do flaska.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span><span class="n">run</span><span class="p">,</span><span class="n">template</span>
+
+<span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/hello/&lt;name&gt;&#39;</span><span class="p">)</span> <span class="c1">#@route to dekorator</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;Hello {{name}} &lt;br/&gt;?&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span> <span class="c1">#otrzymamy prostego html-a</span>
+
+<span class="c1">#index = route(&#39;//hello/&lt;name&gt;&#39;)(index) #ten sam wynik, w sytuacji bez @route</span>
+
+
+<span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span> <span class="c1">#nasza strona będzie dostępna tutaj</span>
+</code></pre></div>
+<p>albo możemy też chcieć wygenerować jsona</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;klucz&quot;</span><span class="p">:</span><span class="s2">&quot;wartosc&quot;</span><span class="p">,</span><span class="s2">&quot;a_tu&quot;</span><span class="p">:[</span><span class="s2">&quot;bedzie&quot;</span><span class="p">,</span><span class="s2">&quot;lista&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<h2 id="aplikacje-z-gui">Aplikacje z GUI</h2>
+<p>TODO rozpisać się trochę</p>
+<p>https://wiki.python.org/moin/GuiProgramming</p>
+<h2 id="zapisywanie">Zapisywanie</h2>
+<h3 id="pickle-zapisywanie-zmiennych">Pickle - zapisywanie zmiennych</h3>
+<p>Pythonowa biblioteka <a href="https://docs.python.org/3/library/pickle.html">Pickle</a> pozwala na zapisywanie (i odczytywanie) danych i obiektów w pythonie w formie binarnej poprzez serializację.
+Serializacja polega na przekształceniu obiektu w postać, która może być zapisana do pliku lub przesłana przez sieć.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1"># tworzenie obiektu do serializacji</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;USA&#39;</span><span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># serializacja obiektu i zapis do pliku</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># otwieranie pliku z serializowanym obiektem</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># deserializacja obiektu z pliku</span>
+    <span class="n">data2</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>  <span class="c1"># {&#39;name&#39;: &#39;John Smith&#39;, &#39;age&#39;: 30, &#39;country&#39;: &#39;USA&#39;}</span>
+</code></pre></div>
+<h3 id="dill-zapisywanie-caej-sesji-w-pythonie">Dill -zapisywanie całej sesji w pythonie</h3>
+<p>Rozszerzeniem do pickla jest dill, pozwala on na zapisywanie załej sesji w pythonie do pliku, który można potem przywrócić.</p>
+<p>//todo przykład</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

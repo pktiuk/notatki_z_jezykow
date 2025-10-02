@@ -1,0 +1,2420 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../8-REST-HTTP/">
+      
+      
+        <link rel="next" href="../9_fastapi/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Django - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/1_cpp/" class="md-nav__link">
+        Zbiór informacji o C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%20i%20C%2B%2B%20%F0%9F%87%A8/Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="true">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Django
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Django
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktura-projektu" class="md-nav__link">
+    Struktura projektu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zarzadzanie-i-praca-z-projektem" class="md-nav__link">
+    Zarządzanie i praca z projektem
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie i praca z projektem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migracje-danych" class="md-nav__link">
+    Migracje danych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modele-danych" class="md-nav__link">
+    Modele danych
+  </a>
+  
+    <nav class="md-nav" aria-label="Modele danych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiowanie" class="md-nav__link">
+    Definiowanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Definiowanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-modelami" class="md-nav__link">
+    Praca z modelami
+  </a>
+  
+    <nav class="md-nav" aria-label="Praca z modelami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtrowanie" class="md-nav__link">
+    Filtrowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-legacy-badami-danych" class="md-nav__link">
+    Praca z legacy badami danych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widoki" class="md-nav__link">
+    Widoki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tablice-routingu-urlspy" class="md-nav__link">
+    Tablice routingu urls.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-administratora" class="md-nav__link">
+    Panel Administratora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
+  </a>
+  
+    <nav class="md-nav" aria-label="REST API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serializacja" class="md-nav__link">
+    Serializacja
+  </a>
+  
+    <nav class="md-nav" aria-label="Serializacja">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podklasa-meta" class="md-nav__link">
+    Podklasa Meta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reczne-przypisywanie-pol" class="md-nav__link">
+    Ręczne przypisywanie pól
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widoki-dla-resta" class="md-nav__link">
+    Widoki dla RESTa
+  </a>
+  
+    <nav class="md-nav" aria-label="Widoki dla RESTa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dodawanie-widokow-do-sciezek" class="md-nav__link">
+    Dodawanie widoków do ścieżek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiecej-o-widokach-dla-modeli-modelviewset" class="md-nav__link">
+    Więcej o widokach dla modeli ModelViewSet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtrowanie-widokow" class="md-nav__link">
+    Filtrowanie widoków
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-schema" class="md-nav__link">
+    OpenAPI Schema
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAPI Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drf-spectacular" class="md-nav__link">
+    DRF-spectacular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testy" class="md-nav__link">
+    Testy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    Inne
+  </a>
+  
+    <nav class="md-nav" aria-label="Inne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-uzytkownikami" class="md-nav__link">
+    Praca z użytkownikami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formularze" class="md-nav__link">
+    Formularze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kolejkowanie-zadan" class="md-nav__link">
+    Kolejkowanie zadań
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sygnay" class="md-nav__link">
+    Sygnały
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-cache" class="md-nav__link">
+    Praca z cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-plikami" class="md-nav__link">
+    Praca z plikami
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktura-projektu" class="md-nav__link">
+    Struktura projektu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zarzadzanie-i-praca-z-projektem" class="md-nav__link">
+    Zarządzanie i praca z projektem
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie i praca z projektem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migracje-danych" class="md-nav__link">
+    Migracje danych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modele-danych" class="md-nav__link">
+    Modele danych
+  </a>
+  
+    <nav class="md-nav" aria-label="Modele danych">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiowanie" class="md-nav__link">
+    Definiowanie
+  </a>
+  
+    <nav class="md-nav" aria-label="Definiowanie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metody" class="md-nav__link">
+    Metody
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-modelami" class="md-nav__link">
+    Praca z modelami
+  </a>
+  
+    <nav class="md-nav" aria-label="Praca z modelami">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtrowanie" class="md-nav__link">
+    Filtrowanie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-legacy-badami-danych" class="md-nav__link">
+    Praca z legacy badami danych
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#widoki" class="md-nav__link">
+    Widoki
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tablice-routingu-urlspy" class="md-nav__link">
+    Tablice routingu urls.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panel-administratora" class="md-nav__link">
+    Panel Administratora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    REST API
+  </a>
+  
+    <nav class="md-nav" aria-label="REST API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serializacja" class="md-nav__link">
+    Serializacja
+  </a>
+  
+    <nav class="md-nav" aria-label="Serializacja">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#podklasa-meta" class="md-nav__link">
+    Podklasa Meta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reczne-przypisywanie-pol" class="md-nav__link">
+    Ręczne przypisywanie pól
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widoki-dla-resta" class="md-nav__link">
+    Widoki dla RESTa
+  </a>
+  
+    <nav class="md-nav" aria-label="Widoki dla RESTa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dodawanie-widokow-do-sciezek" class="md-nav__link">
+    Dodawanie widoków do ścieżek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wiecej-o-widokach-dla-modeli-modelviewset" class="md-nav__link">
+    Więcej o widokach dla modeli ModelViewSet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtrowanie-widokow" class="md-nav__link">
+    Filtrowanie widoków
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-schema" class="md-nav__link">
+    OpenAPI Schema
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAPI Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drf-spectacular" class="md-nav__link">
+    DRF-spectacular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testy" class="md-nav__link">
+    Testy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne" class="md-nav__link">
+    Inne
+  </a>
+  
+    <nav class="md-nav" aria-label="Inne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-uzytkownikami" class="md-nav__link">
+    Praca z użytkownikami
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formularze" class="md-nav__link">
+    Formularze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kolejkowanie-zadan" class="md-nav__link">
+    Kolejkowanie zadań
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sygnay" class="md-nav__link">
+    Sygnały
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-cache" class="md-nav__link">
+    Praca z cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praca-z-plikami" class="md-nav__link">
+    Praca z plikami
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="django">Django</h1>
+<p>Warto zajrzeć tutaj: <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial01/">https://docs.djangoproject.com/en/5.1/intro/tutorial01/</a></p>
+<p>https://bulldogjob.pl/readme/architektura-django</p>
+<h2 id="struktura-projektu">Struktura projektu</h2>
+<p>Projekt w django tuż po stworzeniu (<code>django-admin startproject mysite</code>) wygląda mniej więcej tak:</p>
+<div class="highlight"><pre><span></span><code>mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+</code></pre></div>
+<p>mamy tu folder projektu w którym mamy poszczególne aplikacje. Na ten moment mamy tylko folder mysite zawierający ogólną konfigurację projektu,a w nim pliki takie jak:</p>
+<ul>
+<li>settings.py - konfiguracja projektu, jakie bazy danych mają byc używane, język projektu, moduły wykorzystywane w projekcie etc. <a href="https://docs.djangoproject.com/en/5.1/topics/settings/">link</a></li>
+<li>urls.py - deklaracje url opisujące co ma być dostepne pod jakimi ścieżkami <a href="https://docs.djangoproject.com/en/5.1/topics/http/urls/">link</a></li>
+</ul>
+<p>Komendą <code>manage.py startapp polls</code> możemy dodać nową apkę o nazwie polls.</p>
+<p>Struktura aplikcaji:</p>
+<div class="highlight"><pre><span></span><code>polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+</code></pre></div>
+<p>Pliki:</p>
+<ul>
+<li>admin.py - to jak ma wyglądać panel administracyjny dla danej apki</li>
+<li>urls.py - analogiczny do pliku urls.py w folderze opisującym projekt</li>
+<li>models.py - modele, które będą znajdować się naszych bazach danych</li>
+<li>views.py - poszczególne widoki znajdujące się w naszej aplikacji, możemy tutaj wystawić poszczególne API RESTowe, lub stronki w HTMLu</li>
+<li>tests.py</li>
+</ul>
+<p><img alt="Django mvt" src="../assets/django_mvt.png" /></p>
+<p>Dodatkowe pliki mogące się tu znajdować:</p>
+<ul>
+<li>serializers.py - <a href="https://docs.djangoproject.com/en/5.1/topics/serialization/">link</a> klasy wykorzystywane do serializacji modeli na inne formaty (np. json, lub xml)</li>
+</ul>
+<p>Przy większych projektach warto rozsądne rozszerzenie powyższego schematu <a href="https://github.com/Mischback/django-project-skeleton">przykład</a></p>
+<h2 id="zarzadzanie-i-praca-z-projektem">Zarządzanie i praca z projektem</h2>
+<p>Do tego wykorzystywany jest skrypcik <code>manage.py</code> znajdujący się w głównym folderze projektu.</p>
+<p>Może byc on wykorzystywany chociażby do tworzenia (lub aktualizacji) tablic w bazie danych odpowiadających strukturom danych opisanych w modelach.</p>
+<div class="highlight"><pre><span></span><code>manage.py<span class="w"> </span>makemigrations<span class="w"> </span><span class="c1"># przygotowuje instrukcje potrzebne do zaktualizowania struktur w bazie</span>
+manage.py<span class="w"> </span>migrate<span class="w"> </span><span class="c1">#wykonanie migracji</span>
+</code></pre></div>
+<p>Do wygodnej "zabawy" z danymi oraz klasami w bazie można użyć <code>manage.py shell</code>.</p>
+<h3 id="migracje-danych">Migracje danych</h3>
+<p>Migracje służą nakładaniu zmian na bazę danych po zmianach w samym kodzie aplikacji (głównie w modelach). <a href="https://docs.djangoproject.com/en/5.1/topics/migrations/">migracje tutorial</a></p>
+<p>Na ogół są generowane automatycznie, jednak w niektórych wypadkach należy ręcznie dopisać trochę logiki do skryptów migrujących.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">migrations</span>
+
+
+<span class="k">def</span> <span class="nf">combine_names</span><span class="p">(</span><span class="n">apps</span><span class="p">,</span> <span class="n">schema_editor</span><span class="p">):</span>
+    <span class="c1"># We can&#39;t import the Person model directly as it may be a newer</span>
+    <span class="c1"># version than this migration expects. We use the historical version.</span>
+    <span class="n">Person</span> <span class="o">=</span> <span class="n">apps</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">&quot;yourappname&quot;</span><span class="p">,</span> <span class="s2">&quot;Person&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">Person</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="n">person</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">person</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Migration</span><span class="p">(</span><span class="n">migrations</span><span class="o">.</span><span class="n">Migration</span><span class="p">):</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;yourappname&quot;</span><span class="p">,</span> <span class="s2">&quot;0001_initial&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">operations</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">migrations</span><span class="o">.</span><span class="n">RunPython</span><span class="p">(</span><span class="n">combine_names</span><span class="p">),</span>
+    <span class="p">]</span>
+</code></pre></div>
+<h2 id="modele-danych">Modele danych</h2>
+<p>W django możemy w prosty sposób stworzyć własne struktury, które potem w automatyczny sposób będą mogły być mapowane na struktury znajdujące się w naszych klasycznych bazach danych. <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/">dokumnetacja</a></p>
+<p>Wszystkie modele bazują na klasie <a href="https://docs.djangoproject.com/en/5.1/ref/models/instances/#django.db.models.Model">django.db.models.Model</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="definiowanie">Definiowanie</h3>
+<p>Nowe modele powstają poprzez stworzenie klasy dziedziczącej po bazowej klasie W klasie tej zdefiniowane przez nas pola są rekordami.<br />
+Mamy tutaj typowe <a href="https://docs.djangoproject.com/en/5.1/ref/models/fields">rodzaje pól</a> takie jak:</p>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/dev/ref/models/fields/#charfield">CharField</a> - tekst dla krótkich/średnich określonych ciągów znakowych (nicki adresy etc), wymaga określenia <code>max_length</code>.</li>
+<li><a href="https://docs.djangoproject.com/en/dev/ref/models/fields/#textfield">TextField</a> - nieustrukturyzowany tekst, który może być różnej długości (np wpisy na blogu, etc.)</li>
+<li>IntegerField</li>
+<li>ForeignKey - klucz obcy <a href="https://docs.djangoproject.com/en/5.1/ref/models/fields/#django.db.models.ForeignKey">link</a></li>
+<li>OneToOneField - relacja jeden do jednego <a href="https://docs.djangoproject.com/en/5.1/topics/db/examples/one_to_one/">link</a></li>
+<li>ManyToManyField - relacja typu wiele do wielu, pozwala na bezpośrednie i <a href="https://docs.djangoproject.com/en/5.1/topics/db/models/#extra-fields-on-many-to-many-relationships">pośrednie</a> łączenie z wieloma rekordami</li>
+<li>GeneratedField - pole generowane automatycznie przez bazę danych</li>
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/models/fields/#filefield">FileField</a> - pole do przechowywania plików (somyślnie przechowuje ono pliki w jakimś folderze, nie z bazie). Z zarządzeniem plikami wiąże się kilka dodatkowych zagadnień <a href="https://docs.djangoproject.com/en/5.1/topics/files/">link</a></li>
+<li>etc.</li>
+</ul>
+<p>Dla każdego pola możemy określić też dodatkowe parametry takie jak nullowalność, maksymalną długość (dla stringów), możliwe dozwolone wartości itp. Możemy też samodzielnie wybierać pole będące kluczem (chociaż na ogół te automatycznie dodawane wystarcza).</p>
+<div class="admonition null i blank">
+<p class="admonition-title">Null</p>
+<p>Polami, które łatwo pomylić są <code>null</code> i <code>blank</code>. Pierwsze z nich określa, czy pole w bazie danych może przyjmować wartość <code>null</code>, drugie czy pole może być puste. Warto zwrócić uwagę, że <code>null</code> jest zdefiniowane dla baz danych, a <code>blank</code> dla formularzy. Podsumowując:
+<code>null=False, blank=False</code> - domyślna konfiguracja. Wartość jest zawsze wymagana
+<code>null=True, blank=True</code> - pole jest zawsze opcjonalne
+<code>null=False, blank=True</code> - pole jest wymagane w bazie danych, ale nie w formularzu. Jest to wykorzystywane np przy polach typu <code>string</code>, które mogą być puste, ale nie mogą przyjmować wartości <code>null</code> (aby w razie braku był tam po prostu pusty string <code>""</code>). Można tego używać także w wypadkach, kiedy chcemy samodzielnie generować zawartość tego pola dopiero w ramach metody <code>save()</code>. 
+<code>null=True, blank=False</code> - pole jest opcjonalne w bazie danych, ale wymagane w formularzu. Może być wykorzystywane np w wypadku pól <code>ForeignKey</code>, które mogą zostać wyczyszczone np w wypadku usunięcia wskazywanego wcześniej obiektu.</p>
+</div>
+<p>Na podstawie tych klas możemy potem wygenerować tabele w baszej bazie (lub zaktualizować obecne, aby dopasowac) wykonując migrację (z użyciek spryptu <code>manage.py</code>).</p>
+<p>W każdej klasie możemy dodatkowo określić klasę <code>Meta</code> pozwalającą określić dodatkowe informacje o naszym modelu, takie jak wymagania co do unikalności pól, tworzenie indeksów ze złączenia dwóch pól etc, nazwę okiektu, lub stworzyć klasę abstrakcyjną. <a href="https://docs.djangoproject.com/en/5.1/ref/models/options/">pełna lista opcji</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Ox</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">horn_length</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;horn_length&quot;</span><span class="p">]</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s2">&quot;oxen&quot;</span>
+</code></pre></div>
+<h4 id="metody">Metody</h4>
+<p>Dodatkowo dla modelu mozęmy zdefiniować własne metody. Warto zaimplementować chociażby <code>__str__()</code>, która jest używana do wypisywania obiektóe w panelu administratora, podobnie jak <code>get_absolute_url()</code>. Przydatny może być też dekorator <code>@property</code>.</p>
+<p>W niektórych wypadkach możemy też chcieć nadpisać domyślne metody takie jak <code>save()</code>, czy też <code>delete()</code>, gdy chcemy np zablokować usuwanie jakichś elementów.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Blog</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">tagline</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Yoko Ono&#39;s blog&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="c1"># Yoko shall never have her own blog!</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the &quot;real&quot; save() method.</span>
+</code></pre></div>
+<h3 id="praca-z-modelami">Praca z modelami</h3>
+<p>Każda klasa ma artybut <code>objects</code>, jest obiekt klasy <a href="https://docs.djangoproject.com/en/5.1/topics/db/managers/#django.db.models.Manager">Manager</a>. Służy on do wykonywania zapytań do bazy.</p>
+<p>Przydatne <a href="https://docs.djangoproject.com/en/5.1/topics/db/queries/">metody do wykonywania zapytań</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">People</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">People</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jan&quot;</span><span class="p">)</span>
+<span class="n">People</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">surname</span><span class="o">=</span><span class="s2">&quot;Kowalski)</span>
+
+<span class="c1"># gdy chcemy uzyskać jeden wynik oraz wiemy, że taki wynik istnieje</span>
+<span class="c1"># jeśli nie istnieje to dostaniemy wyjątek Entry.DoesNotExist</span>
+<span class="n">People</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pesel</span><span class="o">=</span><span class="mi">12345678</span><span class="p">)</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Poeple</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Marian&quot;</span><span class="p">,</span><span class="n">surname</span><span class="o">=</span><span class="s2">&quot;Nowak&quot;</span><span class="p">)</span> <span class="c1">#stworzenie instancji i zapisanie modelu</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">People</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span><span class="n">surname</span><span class="o">=</span><span class="s2">&quot;Kowalski&quot;</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1">#zapisanie do bazy</span>
+</code></pre></div>
+<p>Przykładowe metody:</p>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/5.1/ref/models/querysets/#django.db.models.query.QuerySet.create">create()</a> - tworzy i natychmiast zapisuje obiekt w bazie danych</li>
+<li><a href="https://docs.djangoproject.com/en/5.1/topics/db/queries/#creating-objects">save()</a> ręczne zapisywanie do bazy danych. Często wykorzystywane, kiedy przy pierwszych prokach tworzenia używamy konstruktora</li>
+</ul>
+<h4 id="filtrowanie">Filtrowanie</h4>
+<p>Sposoby filtrowania nie ogarniczają się do podawania wartości oczekiwanych. Możemy też używać różnych prefixów. <a href="https://docs.djangoproject.com/en/5.1/topics/db/queries/">link</a> argumenty w filtrach są podawane wg <a href="https://docs.djangoproject.com/en/5.1/topics/db/queries/#field-lookups">specjalnej składni</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">People</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">surname__startswith</span><span class="o">=</span><span class="s2">&quot;Kowalski)</span>
+</code></pre></div>
+<p>Filtry można też łatwo ze sobą łączyć zanim przejdziemy do wykonania zapytania wykorzystując klasę <code>Q</code>.</p>
+<p>Do łączenia możemy wykorzystać operatory: <code>|=</code> (lub) oraz <code>&amp;=</code> (i).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Q</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">param_1</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">&amp;=</span> <span class="n">Q</span><span class="p">(</span><span class="n">param_1__name</span><span class="o">=</span><span class="n">param_1</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">param_2</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+    <span class="n">q</span> <span class="o">&amp;=</span> <span class="n">Q</span><span class="p">(</span><span class="n">param_2__name</span><span class="o">=</span><span class="n">param_2</span><span class="p">)</span>
+<span class="n">class_var</span> <span class="o">=</span> <span class="n">ClassName</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+
+<span class="c1">#LUB</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="n">param_1</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;param_1__name&#39;</span><span class="p">:</span> <span class="n">param_1</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">param_2</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;param_2__name&#39;</span><span class="p">:</span> <span class="n">param_2</span><span class="p">})</span>
+<span class="n">class_var</span> <span class="o">=</span> <span class="n">ClassName</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">q</span><span class="p">)</span>
+</code></pre></div>
+<p>Przy odpowiednim wykorzystaniu kluczy obcych można także wykonywać proste filtry na łączeniach. <a href="https://docs.djangoproject.com/en/5.1/topics/db/queries/#backwards-related-objects">link</a>. Przydaje się tu argument <code>related_name</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Sessions</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">sessionId</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Ip</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">ipId</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Affiliation</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">affiliationId</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">AutoField</span><span class="p">(</span><span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;Ip&quot;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">db_column</span><span class="o">=</span><span class="s2">&quot;ipId&quot;</span><span class="p">)</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+        <span class="s2">&quot;Sessions&quot;</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s2">&quot;affiliation_session&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="c1">#potem można wołać</span>
+<span class="n">Sessions</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">affiliation_session__ip_id</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
+<p>Na potrzeby filtrowania możemy także wygenerować nowe zmienne  po których mozęmy szukać i sortować używając metody <code>annotate()</code>. <a href="https://docs.djangoproject.com/en/5.1/topics/db/aggregation/">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Count</span>
+
+<span class="c1"># The top 5 publishers, in order by number of books.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pubs</span> <span class="o">=</span> <span class="n">Publisher</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">num_books</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;book&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-num_books&quot;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>TODO więcej przykładów by się przydało</p>
+<h3 id="praca-z-legacy-badami-danych">Praca z legacy badami danych</h3>
+<p>Czasami może pojawić się potrzeba pracy z już istniejącymi (starymi, lub zewnętrznymi) bazamidanych. W takim wypadku możemy zaimportować sobie taką bazę.
+<a href="https://docs.djangoproject.com/en/dev/howto/legacy-databases/">django with legacy database</a></p>
+<p>Możemy łatwo wygenerować modele dla takiej bazy</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>manage.py<span class="w"> </span>inspectdb<span class="w"> </span>&gt;<span class="w"> </span>models.py
+</code></pre></div>
+<h2 id="widoki">Widoki</h2>
+<p><a href="https://docs.djangoproject.com/en/5.1/intro/tutorial03/">link - Writing your first Django app, part 3</a></p>
+<p><a href="https://docs.djangoproject.com/en/4.0/ref/templates/language/">The Django template language</a></p>
+<p>Widok jest typem strony internetowej generowany przez django.<br />
+Widoki mogą być zwykłymi stronkami w HTMLu, mogą to być też widoki na jakieś dane. W wielu wypadkach pozwalają na swoiste zautomatyzowanie danej strony</p>
+<p>Widok może być klasą lub funkcją zwracającą JSON-a, lub stronę w HTMLu.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">UserLogin</span><span class="p">(</span><span class="n">LoginView</span><span class="p">):</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;sjopinie_app/login.html&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">latest_question_list</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="c1">#kontekst pozwala na późniejsze wykorzystywanie wartości w kodzie templatki</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latest_question_list&#39;</span><span class="p">:</span> <span class="n">latest_question_list</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;polls/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<p>Przykładowy schemat strony dla powyższego przykładu</p>
+<div class="highlight"><pre><span></span><code>{% if latest_question_list %}
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  {% for question in latest_question_list %}
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/polls/{{ question.id }}/&quot;</span><span class="p">&gt;</span>{{ question.question_text }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {% endfor %}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+{% else %}
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No polls are available.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endif %}
+</code></pre></div>
+<p>Dzięki przekazaniu wartości w kontekście templatka może korzystać z podanych wartości.</p>
+<p>Prostym sposobem na dopisywanie logiki/wymagań do używanych widoków jest sotosowanie dekoratorów. <a href="https://docs.djangoproject.com/en/5.1/topics/http/decorators/">View decorators</a>. Dzięki nim możemy łątwo dodać np wymóg zalogowania, lub zastrzec typy zapytań.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.views.decorators.http</span> <span class="kn">import</span> <span class="n">require_http_methods</span>
+
+
+<span class="nd">@require_http_methods</span><span class="p">([</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># I can assume now that only GET or POST requests make it this far</span>
+    <span class="c1"># ...</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h2 id="tablice-routingu-urlspy">Tablice routingu <code>urls.py</code></h2>
+<p>W pliku <code>urls.py</code> znajdującym się w folderze aplikacji możemy zdefiniować jakie widoki mają być dostępne pod jakimi ścieżkami.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># ex: /polls/</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+    <span class="c1"># ex: /polls/5/</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&lt;int:question_id&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">detail</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;detail&#39;</span><span class="p">),</span>
+    <span class="c1"># ex: /polls/5/results/</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&lt;int:question_id&gt;/results/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;results&#39;</span><span class="p">),</span>
+    <span class="c1"># ex: /polls/5/vote/</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&lt;int:question_id&gt;/vote/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">vote</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;vote&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Funkcja <a href="https://docs.djangoproject.com/en/5.1/ref/urls/#path"><code>path()</code></a> służy do określania ścieżki oraz funkcji, która ma je przetwarzać. </p>
+<p><code>path(route, view, kwargs=None, name=None)</code><br />
+Pierwszy argument <code>route</code> określa ścieżkę wraz z parametrami, które mogą być przekazywane do funkcji widoku. Dokładniejsze informacje znajdują się <a href="https://docs.djangoproject.com/en/5.1/topics/http/urls/#how-django-processes-a-request">tutaj</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;blog/&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">page</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s2">&quot;blog/page&lt;int:num&gt;/&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">page</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="c1"># View (in blog/views.py)</span>
+<span class="k">def</span> <span class="nf">page</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Output the appropriate page of blog entries, according to num.</span>
+</code></pre></div>
+<h2 id="panel-administratora">Panel Administratora</h2>
+<p><a href="https://docs.djangoproject.com/en/5.1/intro/tutorial02/#introducing-the-django-admin">Ogólny tutorial nt panelu admina</a>, <a href="https://docs.djangoproject.com/en/5.1/intro/tutorial07/">druga część tutoriala</a>.</p>
+<p>Jedną z funkcji Django ułatwiających development jest automatycznie generowany panel administracyjny. Dzięki niemu możemy zarządzać naszymi danymi bez konieczności pisania dodatkowych widoków.</p>
+<p>Aby móc korzystać z panelu administracyjnego musimy zarejestrować nasze modele w pliku <code>admin.py</code> znajdującym się w folderze aplikacji.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Question</span><span class="p">)</span>
+</code></pre></div>
+<p>Wtedy otrzymamy podstawowy widok dla naszego modelu, jednak możemy go dostosować do naszych potrzeb. Możemy dodawać nowe widoki, zmieniać wygląd, dodawać filtry, czy też zmieniać zachowanie. Wykorzystujemy do tego klasę dziedziczącą po <a href="https://docs.djangoproject.com/en/5.1/ref/contrib/admin/"><code>admin.ModelAdmin</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="k">class</span> <span class="nc">QuestionAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pub_date&#39;</span><span class="p">,</span> <span class="s1">&#39;question_text&#39;</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">QuestionAdmin</span><span class="p">)</span>
+</code></pre></div>
+<p>Często edytowane pola dla tej klasy to:</p>
+<ul>
+<li><code>fields</code> - określa jakie pola mają być wyświetlane w panelu administracyjnym</li>
+<li><code>extra_kwargs</code> - pozwala na dodanie dodatkowych argumentów dla konstruktorów poszczególnych pól <a href="https://www.django-rest-framework.org/api-guide/serializers/#additional-keyword-arguments">link</a></li>
+<li><code>list_display</code> - określa jakie kolumny mają być wyświetlane w zbiorczej liście obiektów</li>
+<li><code>list_filter</code> - określa jakie filtry mają być dostępne</li>
+<li><code>search_fields</code> - określa jakie pola mają być używane do wyszukiwania (nad listą będzie wyszukiwarka, która może korzystać z tych pól)</li>
+<li><code>readonly_fields</code> - określa pola tylko do odczytu (dodatkowo można opisać funkcje, które je uzyskują).
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PersonAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;address_report&quot;</span><span class="p">]</span>
+
+    <span class="c1"># description functions like a model field&#39;s verbose_name</span>
+    <span class="nd">@admin</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Address&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">address_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">.</span><span class="n">address</span>
+</code></pre></div></li>
+</ul>
+<p>Panel administratora pozwala także wykonywać różne akcje na obiektach z widoku listy. Możemy je dodawać samodzielnie, lub korzystać z gotowych akcji. <a href="https://docs.djangoproject.com/en/5.1/ref/contrib/admin/actions/">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Person</span>
+
+<span class="k">class</span> <span class="nc">PersonAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;is_adult&#39;</span><span class="p">)</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;make_adult&#39;</span><span class="p">]</span>
+
+    <span class="nd">@admin</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Make selected people adults&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">make_adult</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">queryset</span><span class="p">):</span>
+        <span class="n">queryset</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">is_adult</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="rest-api">REST API</h2>
+<p>Do pracy z API RESTowym zaleca się użycie specjalnego frameworka <a href="https://www.django-rest-framework.org/tutorial/quickstart/">https://www.django-rest-framework.org/tutorial/quickstart/</a></p>
+<h3 id="serializacja">Serializacja</h3>
+<p><a href="https://www.django-rest-framework.org/api-guide/serializers/">link</a></p>
+<p>Serializacja to proces konwertowania danych z modelu na format, który może być łatwo przesłany przez sieć. W Django REST Framework serializatory są używane do konwersji obiektów modelu na JSON, XML lub inny format, który może być łatwo przesłany przez sieć.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+
+<span class="c1">#podstawowy serializator</span>
+<span class="k">class</span> <span class="nc">UserSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">SubjectSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Subject</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;ects&#39;</span><span class="p">,</span> <span class="s1">&#39;semester&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p>Wyróżniamy kilka typów serializatorów:</p>
+<ul>
+<li><a href="https://www.django-rest-framework.org/api-guide/serializers/#modelserializer"><code>ModelSerializer</code></a> - najprostszy sposób na stworzenie serializatora, który będzie działał z modelem, a w wypadku relacji z innymi modelami będzie podawał ich klucze</li>
+<li><a href="https://www.django-rest-framework.org/api-guide/serializers/#hyperlinkedmodelserializer"><code>HyperlinkedModelSerializer</code></a> - podobny do powyższego, ale zamiast kluczy podaje linki do tych modeli</li>
+<li>Serializer - pozwala na pełną kontrolę nad tym, jak dane są serializowane (tutaj trzeba ręcznie podawać pola)</li>
+</ul>
+<p>Serializatory mogą być używane do serializacji pojedynczych obiektów, list obiektów, czy też do walidacji danych. <br />
+Implementują one metody <code>create()</code>, <code>update()</code>, <code>save()</code>, <code>delete()</code>, <code>validate()</code>, <code>to_representation()</code>, <code>to_internal_value()</code>, <code>is_valid()</code>, <code>errors</code> oraz <code>data</code>. Modyfikacja tych metod pozwala na dostosowanie serializatora do naszych potrzeb.</p>
+<h4 id="podklasa-meta">Podklasa Meta</h4>
+<p>Do określania właściwości tych serializatorów można użyć wewnętrznej klasy <code>Meta</code>. Może zawierać ona takie pola jak:</p>
+<ul>
+<li><code>model</code> - model, który ma być serializowany</li>
+<li><code>fields</code> - lista pól, które mają być serializowane (np. <code>fields = '__all__'</code> po prostu przekazuje wszystkie pole z modelu)</li>
+<li><code>exclude</code> - lista pól, które mają być pominięte</li>
+<li><code>read_only_fields</code> - lista pól, które mają być tylko do odczytu</li>
+<li><code>depth</code> - Jeśli chcemy otrzymać pełną reprezentację dla relacji (zamiast samego klucz lub linku) <a href="https://www.django-rest-framework.org/api-guide/serializers/#specifying-nested-serialization">możemy użyć <code>depth</code> w klasie Meta</a>, albo samodzielnie podać pole (np. <code>user = UserSerializer</code>).</li>
+</ul>
+<h4 id="reczne-przypisywanie-pol">Ręczne przypisywanie pól</h4>
+<p>W ramach klas serializujących takich jak ModelSerializer możemy ręcznie określać niektóre pola korzystając klas typu <code>Field</code>. Jest sporo pól dla typowych dla poszczególnych typów danych, jak np <code>CharField</code>, <code>IntegerField</code> etc.</p>
+<p>Przed użyciem warto przejrzeć <a href="https://www.django-rest-framework.org/api-guide/fields/#core-arguments">wspólne argumenty dla tych klas</a>. Jednym z bardziej użytecznych jest tutaj np argument <code>source</code>, który pozwala na określenie z jakiego pola tego lub powiązanego modelu ma być pobierana wartość.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CommentSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;user.full_name&#39;</span><span class="p">)</span> <span class="c1"># pobieranie wartości nazwy od użytkownika, który wrzucił komentarz</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;full_name&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p>Warte uwagi są takie klasy jak:</p>
+<ul>
+<li><a href="https://www.django-rest-framework.org/api-guide/fields/#serializermethodfield">serializers.SerializerMethodField</a> - pozwala na pobranie wartości pola z metody
+  <div class="highlight"><pre><span></span><code>  <span class="k">class</span> <span class="nc">UserSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+  <span class="n">days_since_joined</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">SerializerMethodField</span><span class="p">()</span> <span class="c1">#wartość pobierana z metody get_ + nazwa pola</span>
+
+  <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+      <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span>
+
+  <span class="k">def</span> <span class="nf">get_days_since_joined</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+      <span class="k">return</span> <span class="p">(</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">obj</span><span class="o">.</span><span class="n">date_joined</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+</code></pre></div></li>
+<li><a href="https://www.django-rest-framework.org/api-guide/fields/#readonlyfield">serializers.ReadOnlyField</a> - pole tylko do odczytu automarycznie pobierane z modelu. Jest ono domyślnie używane przez ModelSerializer kiedy pracujemy z atrybutami (np. polami klasy, które nie są modelem a jedynie mają wartość <code>property</code>), a nie elementami modelu.</li>
+</ul>
+<h3 id="widoki-dla-resta">Widoki dla RESTa</h3>
+<p>Używanie widoków pozwala łatwo zautomatyzować wyświetlanie danych. Za jednym zamachem możemy wystawić API reagujące na wszystkie typy zapytań (GET, PUT, POST, DELETE)</p>
+<p>Można do tego wykorzystać na przykład własną klasę dziedziczącą po <a href="https://www.django-rest-framework.org/api-guide/viewsets/#modelviewset"><code>viewsets.ModelViewSet</code></a>. Dzięki temu dostaniemy nie tylko "gołe" API, lecz także django wygeneruje interfejs sieciowy do korzystania z tego API, w razie zgdybyśmy otowrzyli go w przeglądarce.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+
+<span class="c1">#prosty widok na listę przedmiotów posortowanych alfabetycznie</span>
+<span class="k">class</span> <span class="nc">SubjectViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Subject</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">SubjectSerializer</span>
+
+<span class="c1"># tu już nieco bardziej skomplikowany widok, reagujący na podawane parametry</span>
+<span class="c1"># Przykładowa ścieżka: lecturers/?name=Marian</span>
+<span class="k">class</span> <span class="nc">LecturerViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">LecturerSerializer</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">lecturer_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">Lecturer</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">lecturer_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span>
+</code></pre></div>
+<p>Jednak nie każdy widok musi odzwierciedlać jakąś konkretną klasę. Możemy też stworzyć widok, który będzie reagował na konkretne zapytania. DO tego używamy klasy <a href="https://www.django-rest-framework.org/api-guide/views/"><code>APIView</code></a> z modułu <code>rest_framework.views</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+<span class="k">class</span> <span class="nc">ExampleView</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;request was permitted&#39;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="dodawanie-widokow-do-sciezek">Dodawanie widoków do ścieżek</h4>
+<p>Widoki REST-owe dodajemy do <code>urlpatterns</code> wykorzystując <a href="https://www.django-rest-framework.org/api-guide/routers/">routery</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">routers</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">routers</span><span class="o">.</span><span class="n">SimpleRouter</span><span class="p">()</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="n">UserViewSet</span><span class="p">)</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;accounts&#39;</span><span class="p">,</span> <span class="n">AccountViewSet</span><span class="p">)</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">router</span><span class="o">.</span><span class="n">urls</span>
+</code></pre></div>
+<p>Pozwalają one na automatyczne generowanie wielu endpointów dla wybranego widoku.</p>
+<p>Dodatkowo nadal możemy tutaj korzystać z parametrów w ścieżkach</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClientRequests</span><span class="p">(</span><span class="n">ModelsViewSet</span><span class="p">):</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ClientRequestSerializer</span>
+
+   <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="n">models</span><span class="o">.</span><span class="n">ClientRequest</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">cliend_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;client_id&#39;</span><span class="p">)</span>
+
+<span class="c1">## w pliku urls</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s1">&#39;(?P&lt;client_id&gt;\d+)/requests&#39;</span><span class="p">,</span>
+    <span class="n">views</span><span class="o">.</span><span class="n">ClientRequests</span><span class="p">,</span>
+</code></pre></div>
+<h4 id="wiecej-o-widokach-dla-modeli-modelviewset">Więcej o widokach dla modeli ModelViewSet</h4>
+<p>Dla widoków takich jak <code>ModelViewSet</code> lub <code>ReadOnlyModelViewSet</code> możemy wyróżnić kilka rodzajów akcji: </p>
+<ul>
+<li>list - zwraca listę obiektów</li>
+<li>create - tworzy nowy obiekt</li>
+<li>retrieve - zwraca pojedynczy obiekt</li>
+<li>update - aktualizuje obiekt</li>
+<li>partial_update - aktualizuje część obiektu</li>
+<li>destroy - usuwa obiekt</li>
+</ul>
+<p>Domyślnie te akcje są przypisane do odpowiednich metod HTTP (GET, POST, PUT, PATCH, DELETE). Możemy je jednak nadpisać, lub dodać własne akcje.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+<span class="k">class</span> <span class="nc">SubjectViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Subject</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">SubjectSerializer</span>
+
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">()</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SubjectSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="c1"># Do something special here</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="filtrowanie-widokow">Filtrowanie widoków</h4>
+<p>Ręczne pisanie querysetów dla poszczególnych widoków może być nużące.
+Używając niektórych mechanizmów możemy zautomatyzować chociażby filtrowanie danych. Uzywa się do tego biblioteki <a href="https://django-filter.readthedocs.io/en/stable/">django-filter</a>. Charakteryzuje się ona min. dobrą integracją z REST frameworkiem.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">django_filters</span>
+<span class="kn">from</span> <span class="nn">django_filters</span> <span class="kn">import</span> <span class="n">rest_framework</span> <span class="k">as</span> <span class="n">filters</span>
+
+<span class="k">class</span> <span class="nc">ProductFilter</span><span class="p">(</span><span class="n">django_filters</span><span class="o">.</span><span class="n">FilterSet</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">django_filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span><span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;iexact&#39;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Product</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;release_date&#39;</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">ProductViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">ProductSerializer</span>
+    <span class="n">filterset_class</span> <span class="o">=</span> <span class="n">ProductFilter</span>
+    <span class="n">filter_backends</span> <span class="o">=</span> <span class="p">(</span><span class="n">filters</span><span class="o">.</span><span class="n">DjangoFilterBackend</span><span class="p">,)</span> <span class="c1"># podpinanie widoku pod bibliotekę</span>
+</code></pre></div>
+<p>Tak przygotowany widok będzie reagował na parametry przekazywane w zapytaniu. W powyższym przykładzie jeśli podamy parametr <code>name</code> to zwróci nam tylko te produkty, które mają dokładnie taką nazwę. Opcje filtrowania pojawią się także w dokumentacji OpenAPI.</p>
+<h3 id="openapi-schema">OpenAPI Schema</h3>
+<p>OpenAPI jest standardem dokumentowania API RESTowych. W naszym projekcie Django możemy łatwo go generować używając generatora specyfikacji OpenAPI oraz jakiegoś UIa. Można użyć tutaj generowania w ramach <a href="https://www.django-rest-framework.org/community/3.9-announcement/#built-in-openapi-schema-support">REST frameworka</a> lub użyć oddzielnej biblioteki, która to zrobi, takiej jak <a href="https://drf-spectacular.readthedocs.io/">drf-spectacular</a>.</p>
+<p>Po wygenerowaniu schematu endpointów można użyć <a href="https://swagger.io/tools/swagger-ui/">SWAGGER-UI</a> do wyświetlenia ich w wygodny i interaktywny sposób. </p>
+<p>Mając istniejący plik <code>openapi.json</code> możemy go łatwo wyświetlić w przeglądarce.</p>
+<p>Przykłądowa komenda dockera do uruchomienia <code>swagger-ui</code> dla danego pliku:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:8080<span class="w"> </span>-e<span class="w"> </span><span class="nv">SWAGGER_JSON</span><span class="o">=</span>/folder/openapi.json<span class="w"> </span>-v<span class="w"> </span>/tmp/tmp:/folder<span class="w"> </span>swaggerapi/swagger-ui
+</code></pre></div>
+<h4 id="drf-spectacular">DRF-spectacular</h4>
+<p>Użycie tej biblioteki jest dokładnie opisane w <a href="https://drf-spectacular.readthedocs.io/en/latest/index.html#">dokumentacji</a></p>
+<p>Standardowe użycie opiera się na użyciu dekoratora <a href="https://drf-spectacular.readthedocs.io/en/latest/drf_spectacular.html#drf_spectacular.utils.extend_schema">@extend_schema</a>:</p>
+<p>Dla zwykłego endpointa będącego funkcją trzeba dodać jeszcze dekorator <a href="https://drf-spectacular.readthedocs.io/en/latest/faq.html#how-to-correctly-annotate-function-based-views-that-use-api-view">@api_view</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+
+
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">JsonResponse</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">rest_framework.decorators</span> <span class="kn">import</span> <span class="n">api_view</span>
+<span class="kn">from</span> <span class="nn">rest_framework.request</span> <span class="kn">import</span> <span class="n">HttpRequest</span>
+
+<span class="kn">from</span> <span class="nn">drf_spectacular.utils</span> <span class="kn">import</span> <span class="n">extend_schema</span><span class="p">,</span> <span class="n">inline_serializer</span>
+
+
+<span class="k">class</span> <span class="nc">Status</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">UPLOADING</span> <span class="o">=</span> <span class="s2">&quot;UPLOADING&quot;</span>
+    <span class="n">FINISHED</span> <span class="o">=</span> <span class="s2">&quot;FINISHED&quot;</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="s2">&quot;ERROR&quot;</span>
+
+
+<span class="nd">@extend_schema</span><span class="p">(</span>
+    <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">],</span>
+    <span class="n">responses</span><span class="o">=</span><span class="p">{</span>
+        <span class="mi">200</span><span class="p">:</span> <span class="n">inline_serializer</span><span class="p">(</span>
+            <span class="s2">&quot;USB status&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span>
+                    <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">Status</span><span class="p">)]</span>
+                <span class="p">)</span>
+            <span class="p">},</span>
+        <span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+<span class="nd">@api_view</span><span class="p">([</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span> <span class="c1"># MUSI być poniżej extend schema, aby z metody zrobić widok</span>
+<span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">HttpRequest</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JsonResponse</span><span class="p">:</span>
+    <span class="c1">#implementacja</span>
+</code></pre></div>
+<h2 id="testy">Testy</h2>
+<p>Django może być testowane automatycznie z wykorzystaniem różnych frameworków do testowania, jednak domyślnym jest unittest. <a href="https://docs.djangoproject.com/en/5.0/topics/testing/">link</a></p>
+<p>Domyślną klasą do testowania jest <a href="https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.TestCase">django.test.TestCase</a>, które jest subklasą <a href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">unittest.TestCase</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">Animal</span>
+
+
+<span class="k">class</span> <span class="nc">AnimalTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;lion&quot;</span><span class="p">,</span> <span class="n">sound</span><span class="o">=</span><span class="s2">&quot;roar&quot;</span><span class="p">)</span>
+        <span class="n">Animal</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">sound</span><span class="o">=</span><span class="s2">&quot;meow&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_animals_can_speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Animals that can speak are correctly identified&quot;&quot;&quot;</span>
+        <span class="n">lion</span> <span class="o">=</span> <span class="n">Animal</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;lion&quot;</span><span class="p">)</span>
+        <span class="n">cat</span> <span class="o">=</span> <span class="n">Animal</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cat&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">lion</span><span class="o">.</span><span class="n">speak</span><span class="p">(),</span> <span class="s1">&#39;The lion says &quot;roar&quot;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">cat</span><span class="o">.</span><span class="n">speak</span><span class="p">(),</span> <span class="s1">&#39;The cat says &quot;meow&quot;&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Testy uruchamiane są za pomocą <code>manage.py test</code>.</p>
+<p>Na potrzeby testów tworzona jest tymczasowa <a href="https://docs.djangoproject.com/en/5.0/topics/testing/overview/#the-test-database">testowa baza danych</a>, która jest kasowana po zakończeniu testów. Możliwe jest jednak zachowanie bazy danych po testach. <code>test --keepdb</code>.</p>
+<h2 id="inne">Inne</h2>
+<h3 id="praca-z-uzytkownikami">Praca z użytkownikami</h3>
+<p>Django pozwala włatwy sposób dodać uzytkowników do naszej aplikacji. <a href="https://docs.djangoproject.com/en/5.1/topics/auth/default/">link</a></p>
+<p>Możemy tutaj uzyć gotowego modelu <code>django.contrib.auth.models.User</code>. Jeśli ten obiekt nam nie pasuje, zawsze możemy go <a href="https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#custom-users-and-the-built-in-auth-forms">przystosować do swoich potrzeb</a>.</p>
+<p>Do zalogowania uzytkownika z pomocą włanego formularza możemy wykorzystać metodę authenticate.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;secret&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># A backend authenticated the credentials</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># No backend authenticated the credentials</span>
+</code></pre></div>
+<p>Potem będziemy mogli sprawdzać przychodzące żądania pod kątem tego, czy pochodzą od jakiegoś użytkownika.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+    <span class="c1"># Do something for authenticated users.</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Do something for anonymous users.</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Dla prostego zastrzegania treści tylko dla użytkowników możemy używać dekoratorów.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># dla funkcji</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+
+
+<span class="c1">#dla klas widoków</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.mixins</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
+
+<span class="k">class</span> <span class="nc">MyView</span><span class="p">(</span><span class="n">LoginRequiredMixin</span><span class="p">,</span> <span class="n">View</span><span class="p">):</span>
+    <span class="n">login_url</span> <span class="o">=</span> <span class="s1">&#39;/login/&#39;</span>
+    <span class="n">redirect_field_name</span> <span class="o">=</span> <span class="s1">&#39;redirect_to&#39;</span>
+
+<span class="c1"># dla innych wypadków np w serializerze</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">user</span>
+</code></pre></div>
+<p>Możemy także wprowadzać zmiany bezpośrednio na poziomie szablonów.</p>
+<div class="highlight"><pre><span></span><code>{% if user.is_authenticated %}
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Witaj {{user.get_username}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+{% else %}
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Witaj nieznajomy<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+{% endif %}
+</code></pre></div>
+<p>Używając tych mechanizmów możemy także tworzyć grupy użytkowników z różnymi uprawnieniami.</p>
+<h3 id="formularze">Formularze</h3>
+<p>Formularze są jednym z najpopularniejszych sposobów na zbieranie danych od użytkowników. Django jest wyposażone w kilka mechanizmów wspomagających pracę z nimi. (<a href="https://docs.djangoproject.com/en/5.1/topics/forms/">omówienie formularzy w django</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">dokumentacja mozilli</a>)</p>
+<p>Formularze możemy tworzyć ręcznie umieszczasjąc je bezpośrednio w schemacie strony</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/your-name/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;your_name&quot;</span><span class="p">&gt;</span>Your name: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span>
+    <span class="na">id</span><span class="o">=</span><span class="s">&quot;your_name&quot;</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+    <span class="na">name</span><span class="o">=</span><span class="s">&quot;your_name&quot;</span>
+    <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ current_name }}&quot;</span>
+  <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;OK&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Możemy też do tego wykorzystać klasę <a href="https://docs.djangoproject.com/en/5.1/ref/forms/api/#django.forms.Form">Form</a>, która sama wygeneruje nam formularz.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+
+<span class="k">class</span> <span class="nc">NameForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">your_name</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Your name&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<p>Następnie łączymy ten formularz z widokiem, który go obsługuje.(W przykładzie poniżej żądanie jest obsługiwane przez ten sam widok, który udostępnia formularz)</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">NameForm</span>
+
+<span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># if this is a POST request we need to process the form data</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="c1"># create a form instance and populate it with data from the request:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="c1"># check whether it&#39;s valid:</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="c1"># process the data in form.cleaned_data as required</span>
+            <span class="c1"># ...</span>
+            <span class="c1"># redirect to a new URL:</span>
+            <span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="s1">&#39;/thanks/&#39;</span><span class="p">)</span>
+
+    <span class="c1"># if a GET (or any other method) we&#39;ll create a blank form</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">NameForm</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;name.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span>
+</code></pre></div>
+<p>Wykorzystany schemat <code>name.html</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/your-name/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+  {% csrf_token %} {{ form }}
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><code>csrf_token</code> jest sposobem na użycie ochrony przeciwko <a href="https://pl.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a></p>
+<h3 id="kolejkowanie-zadan">Kolejkowanie zadań</h3>
+<p>Jednym z brakujących elementów w Django jest przetwarzanie większych zadań w tle. Możemy to zrobić z użyciem biblioteki <a href="https://docs.celeryproject.org/en/stable/django/index.html">Celery</a> bądź <a href="https://django-q2.readthedocs.io/en/latest/index.html">Django Q2</a> (Q1 jest porzucone).</p>
+<p>Prostszym z tych rozwiązań jest Django Q2, które pozwala na łatwe dodawanie zadań do kolejki, a także na ich monitorowanie. Poza tym jest dobrze zintegrowane z Django.</p>
+<p>Po dodaniu Django Q2 do projektu, możemy dodać zadanie do kolejki w prosty sposób.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django_q.tasks</span> <span class="kn">import</span> <span class="n">async_task</span><span class="p">,</span> <span class="n">schedule</span>
+
+<span class="c1"># do kolejki zostanie dodane zadanie, które zostanie wykonane w tle</span>
+<span class="n">async_task</span><span class="p">(</span><span class="s1">&#39;myapp.tasks.my_task&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">#TODO sprawdzenie czy to dobre API</span>
+
+<span class="c1"># do bazy danych zostanie dodane zadanie, które zostanie wykonane za 10 sekund przez oddzielnego workera</span>
+<span class="c1"># uruchamianego za pomocą `python manage.py qcluster`</span>
+<span class="n">schedule</span><span class="p">(</span><span class="s1">&#39;myapp.tasks.my_task&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
+</code></pre></div>
+<h3 id="sygnay">Sygnały</h3>
+<p>Sygnały w Django pozwalają na reagowanie na różne zdarzenia w trakcie działania aplikacji. <a href="https://docs.djangoproject.com/en/5.1/topics/signals/">link</a></p>
+<p>Możemy je stosunkowo łatwo spiąć z różnymi zdarzeniami w ramach systemu. Możemy np. reagować na tworzenie nowego użytkownika, czy też na zapisanie nowego obiektu w bazie danych.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@receiver</span><span class="p">([</span><span class="n">post_save</span><span class="p">],</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">user_created</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">created</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Użytkownik </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2"> został stworzony&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="praca-z-cache">Praca z cache</h3>
+<p>Django pozwala na łatwe korzystanie z cache. <a href="https://docs.djangoproject.com/en/5.1/topics/cache/">link</a></p>
+<p>TODO</p>
+<h3 id="praca-z-plikami">Praca z plikami</h3>
+<p>TODO - opis sposobu zarządzania plikami oraz ich przesyłania na serwer przez klientów.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

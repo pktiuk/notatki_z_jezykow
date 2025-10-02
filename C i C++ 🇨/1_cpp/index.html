@@ -1,0 +1,2460 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../0_C/">
+      
+      
+        <link rel="next" href="../2_gdb/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Zbiór informacji o C++ - Notatki z języków</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zbior-informacji-o-c" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notatki z języków" class="md-header__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notatki z języków
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Zbiór informacji o C++
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notatki z języków" class="md-nav__button md-logo" aria-label="Notatki z języków" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Notatki z języków
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pktiuk/notatki_z_jezykow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    pktiuk/notatki_z_jezykow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Mały zbiór notatek
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+          Architektura🏗️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Architektura🏗️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Architektura🏗️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/0_wstep_teoretyczny/" class="md-nav__link">
+        Wstęp teoretyczny
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/1_podstawowe%20regu%C5%82y/" class="md-nav__link">
+        Reguły wytwarzania oprogramowania i inne skrótowce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/2_prace_koncepcyjne/" class="md-nav__link">
+        Prace koncepcyjne - opis systemu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/3_style_architektoniczne/" class="md-nav__link">
+        Style Architektoniczne
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/refaktoryzacja/" class="md-nav__link">
+        Refaktoryzacja
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/reguly_paradygmaty/" class="md-nav__link">
+        Paradygmaty i reguły
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/uml/" class="md-nav__link">
+        UML - Unified Modelling Language
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Architektura%F0%9F%8F%97%EF%B8%8F/wzorce_projektowe/" class="md-nav__link">
+        Wzorce projektowe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
+          C i C++ 🇨
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C i C++ 🇨" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C i C++ 🇨
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_C/" class="md-nav__link">
+        ANSIC C (i nie tylko)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Zbiór informacji o C++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Zbiór informacji o C++
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dane-i-struktury" class="md-nav__link">
+    Dane i struktury
+  </a>
+  
+    <nav class="md-nav" aria-label="Dane i struktury">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proste-typy-danych" class="md-nav__link">
+    Proste typy danych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontenery" class="md-nav__link">
+    Kontenery📦
+  </a>
+  
+    <nav class="md-nav" aria-label="Kontenery📦">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    Vector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdset" class="md-nav__link">
+    std::set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciagi-znakow-stdstring" class="md-nav__link">
+    Ciągi znaków std::string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#klasy" class="md-nav__link">
+    Klasy
+  </a>
+  
+    <nav class="md-nav" aria-label="Klasy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kontrola-dostepu-do-skadnikow" class="md-nav__link">
+    Kontrola dostępu do składników
+  </a>
+  
+    <nav class="md-nav" aria-label="Kontrola dostępu do składników">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-i-klasy-zaprzyjaznione" class="md-nav__link">
+    Funkcje i klasy zaprzyjaźnione
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-wirtualne" class="md-nav__link">
+    Funkcje wirtualne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-const" class="md-nav__link">
+    Funkcje const
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambdy" class="md-nav__link">
+    Lambdy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przekazywanie-argumentow-do-funkcji" class="md-nav__link">
+    Przekazywanie argumentów do funkcji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-value-r-value-i-stdmove" class="md-nav__link">
+    L-Value, R-Value i std::move
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanizmy-jezyka" class="md-nav__link">
+    Mechanizmy języka
+  </a>
+  
+    <nav class="md-nav" aria-label="Mechanizmy języka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-pamiecia" class="md-nav__link">
+    Zarządzanie pamięcią
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie pamięcią">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-i-delete" class="md-nav__link">
+    new i delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprytne-wskazniki-smart-pointers" class="md-nav__link">
+    Sprytne wskaźniki - Smart Pointers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templatki" class="md-nav__link">
+    Templatki
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typy-castow-operatorow-rzutowania" class="md-nav__link">
+    Typy castów (operatorów rzutowania)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wydajnosc" class="md-nav__link">
+    Wydajność
+  </a>
+  
+    <nav class="md-nav" aria-label="Wydajność">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watki" class="md-nav__link">
+    Wątki
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wielowatkowosc-z-uzyciem-stdpar" class="md-nav__link">
+    Wielowątkowość z użyciem std::par
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne-sowa-kluczowe" class="md-nav__link">
+    Inne Słowa kluczowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nowe-standardy" class="md-nav__link">
+    Nowe standardy
+  </a>
+  
+    <nav class="md-nav" aria-label="Nowe standardy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c17" class="md-nav__link">
+    C++17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c20" class="md-nav__link">
+    C++20
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-zrobienia" class="md-nav__link">
+    Do zrobienia
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_gdb/" class="md-nav__link">
+        Praca z GDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_openMP/" class="md-nav__link">
+        Programming with OpenMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cmake/" class="md-nav__link">
+        Cmake
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Inne
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Inne" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Inne
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Inne/haskell/" class="md-nav__link">
+        Haskell λ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" tabindex="0" aria-expanded="false">
+          Java☕
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Java☕" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Java☕
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Java%E2%98%95/java_podstawy/" class="md-nav__link">
+        Java podstawy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Linux🐧 i Bash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux🐧 i Bash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux🐧 i Bash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/bash_cheatsheet/" class="md-nav__link">
+        Terminal - podstawowe komendy i koncepty
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/o_systemie/" class="md-nav__link">
+        Zarządzanie systemem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/programy/" class="md-nav__link">
+        Przydatne aplikacje i programy terminalowe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux%F0%9F%90%A7%20i%20Bash/regex/" class="md-nav__link">
+        Wyrażenia regularne (Regexy)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" tabindex="0" aria-expanded="false">
+          Narzędzia🛠️
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Narzędzia🛠️" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Narzędzia🛠️
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/docker/" class="md-nav__link">
+        Docker🐋
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/dokumentowanie_kodu/" class="md-nav__link">
+        Dokumentowanie kodu - Doxygen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/git/" class="md-nav__link">
+        Przydatne komendy git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/narzedzia/" class="md-nav__link">
+        Zbiór różnych użytecznych narzędzi, frameworków , stron i bibliotek z któymi się spotkałem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Narz%C4%99dzia%F0%9F%9B%A0%EF%B8%8F/serwery_i_homelaby/" class="md-nav__link">
+        Narzędzia serwerowe☁️
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
+          Python🐍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python🐍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Python🐍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/1_ogolne_notatki/" class="md-nav__link">
+        Podstawy Pythona 🐍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/3_modu%C5%82y_i_paczki/" class="md-nav__link">
+        Podział na Moduły i Paczki📦
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/4_biblioteki_i_narz%C4%99dzia/" class="md-nav__link">
+        Różne użyteczne biblioteki i narzędzia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/5_deweloperskie/" class="md-nav__link">
+        Narzędzia deweloperskie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/6_testowanie/" class="md-nav__link">
+        Testowanie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python%F0%9F%90%8D/9_sql_alchemy/" class="md-nav__link">
+        SqlAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="false">
+          Webówka🌍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Webówka🌍" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Webówka🌍
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/1_javascript_syntax/" class="md-nav__link">
+        Javascript Syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/2_javascript_interakcje_z_dom/" class="md-nav__link">
+        Javascript DOM - Interakcje i właściwości
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/3_html_i_css/" class="md-nav__link">
+        HTML i CSS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/4_javascript_inne/" class="md-nav__link">
+        Javascript - Inne informacje
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/5_nodejs/" class="md-nav__link">
+        NodeJS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/7_nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/8-REST-HTTP/" class="md-nav__link">
+        REST i HTTP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_django/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Web%C3%B3wka%F0%9F%8C%8D/9_hugo/" class="md-nav__link">
+        Hugo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dane-i-struktury" class="md-nav__link">
+    Dane i struktury
+  </a>
+  
+    <nav class="md-nav" aria-label="Dane i struktury">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proste-typy-danych" class="md-nav__link">
+    Proste typy danych
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kontenery" class="md-nav__link">
+    Kontenery📦
+  </a>
+  
+    <nav class="md-nav" aria-label="Kontenery📦">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    Vector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdset" class="md-nav__link">
+    std::set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciagi-znakow-stdstring" class="md-nav__link">
+    Ciągi znaków std::string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#klasy" class="md-nav__link">
+    Klasy
+  </a>
+  
+    <nav class="md-nav" aria-label="Klasy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kontrola-dostepu-do-skadnikow" class="md-nav__link">
+    Kontrola dostępu do składników
+  </a>
+  
+    <nav class="md-nav" aria-label="Kontrola dostępu do składników">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-i-klasy-zaprzyjaznione" class="md-nav__link">
+    Funkcje i klasy zaprzyjaźnione
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-wirtualne" class="md-nav__link">
+    Funkcje wirtualne
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funkcje-const" class="md-nav__link">
+    Funkcje const
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funkcje" class="md-nav__link">
+    Funkcje
+  </a>
+  
+    <nav class="md-nav" aria-label="Funkcje">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambdy" class="md-nav__link">
+    Lambdy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#przekazywanie-argumentow-do-funkcji" class="md-nav__link">
+    Przekazywanie argumentów do funkcji
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l-value-r-value-i-stdmove" class="md-nav__link">
+    L-Value, R-Value i std::move
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanizmy-jezyka" class="md-nav__link">
+    Mechanizmy języka
+  </a>
+  
+    <nav class="md-nav" aria-label="Mechanizmy języka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zarzadzanie-pamiecia" class="md-nav__link">
+    Zarządzanie pamięcią
+  </a>
+  
+    <nav class="md-nav" aria-label="Zarządzanie pamięcią">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-i-delete" class="md-nav__link">
+    new i delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprytne-wskazniki-smart-pointers" class="md-nav__link">
+    Sprytne wskaźniki - Smart Pointers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petle" class="md-nav__link">
+    Pętle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wyjatki" class="md-nav__link">
+    Wyjątki
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templatki" class="md-nav__link">
+    Templatki
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typy-castow-operatorow-rzutowania" class="md-nav__link">
+    Typy castów (operatorów rzutowania)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wydajnosc" class="md-nav__link">
+    Wydajność
+  </a>
+  
+    <nav class="md-nav" aria-label="Wydajność">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watki" class="md-nav__link">
+    Wątki
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wielowatkowosc-z-uzyciem-stdpar" class="md-nav__link">
+    Wielowątkowość z użyciem std::par
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inne-sowa-kluczowe" class="md-nav__link">
+    Inne Słowa kluczowe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nowe-standardy" class="md-nav__link">
+    Nowe standardy
+  </a>
+  
+    <nav class="md-nav" aria-label="Nowe standardy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c17" class="md-nav__link">
+    C++17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c20" class="md-nav__link">
+    C++20
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-zrobienia" class="md-nav__link">
+    Do zrobienia
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="zbior-informacji-o-c">Zbiór informacji o C++</h1>
+<p>Oficjalna dokumentacja i zalecenia: <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">ISO CPP GUIDELINES</a></p>
+<h2 id="dane-i-struktury">Dane i struktury</h2>
+<h3 id="proste-typy-danych">Proste typy danych</h3>
+<p>Proste typy zmiennych:</p>
+<ul>
+<li><code>int</code> - liczba całkowita</li>
+<li><code>float</code> - liczba zmiennoprzecinkowa</li>
+<li><code>double</code> - liczba zmiennoprzecinkowa podwójnej precyzji</li>
+<li><code>char</code> - pojedynczy znak</li>
+<li><code>bool</code> - wartość logiczna</li>
+<li><code>void</code> - brak wartości</li>
+</ul>
+<h3 id="kontenery">Kontenery📦</h3>
+<p>W bibliotekach standardowych C++ mamy następujące typy kontenerów:</p>
+<ul>
+<li>Sekwencyjne</li>
+<li><code>vector</code> - jednowymiarowa tablica</li>
+<li><code>string</code> - jednowymiarowa tablica</li>
+<li><code>list</code> - lista dwukierunkowa</li>
+<li><code>deque</code> - kolejka o dwóch końcach</li>
+<li>Asocjacyjne</li>
+<li><code>set</code> - usuwa elementy równoważne</li>
+<li><code>map</code> - tablica asocjacyjna (słownik)</li>
+<li><code>multiset</code> - nie usuwa el. równoważnych</li>
+<li><code>multimap</code> - klucz może występować wielokrotnie</li>
+<li>Haszujące (unordered_)</li>
+<li><code>unordered_set</code></li>
+<li><code>unordered_map</code></li>
+<li><code>unordered_multiset</code></li>
+<li><code>unordered_multimap</code></li>
+</ul>
+<p>Można też je podzielić względem tego na czym bazują:</p>
+<ul>
+<li>Tablice: vector, string, array</li>
+<li>Węzły: list, set, map, multiset, multimap, unordered_set, unordered_map, unordered_multiset, unordered_multimap</li>
+</ul>
+<p>Kontenery biblioteki standardowej operują na kopiach elementów. W przypadku, gdy chcemy operować na oryginalnych elementach, należy użyć wskaźników lub referencji.</p>
+<h4 id="vector">Vector</h4>
+<p>Podstawowym kontenerem w C++ jest <code>std::vector</code>, który jest odpowiednikiem tablicy dynamicznej w C.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">zero_vector</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c1">//wektor zainicjalizowany 5 zerami</span>
+
+<span class="c1">//wektor zainicjalizowany podanymi wartościami</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+
+<span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">//zmiana wartości pierwszego elementu</span>
+</code></pre></div>
+<p>Metody dostępu (mogą być używane także do zmieniania wartości):</p>
+<ul>
+<li><code>at(index)</code> - zwraca element na danym indeksie (w razie problemów rzuca wyjątek <a href="https://cplusplus.com/reference/stdexcept/out_of_range/"><code>std::out_of_range</code></a>)</li>
+<li>operator <code>[]</code> - zwraca element na danym indeksie (nie sprawdza czy indeks jest poprawny)</li>
+<li><code>front()</code> - zwraca pierwszy element</li>
+<li><code>back()</code> - zwraca ostatni element</li>
+</ul>
+<p>Metody modyfikujące:</p>
+<ul>
+<li><code>push_back(elem)</code> - dodaje element na koniec</li>
+<li><code>pop_back()</code> - usuwa element (nie zwraca go).</li>
+<li><code>size()</code> - zwraca ilość elementów</li>
+<li><code>clear()</code> - usuwa wszystkie elementy</li>
+</ul>
+<h4 id="list">List</h4>
+<p><code>std::list</code> jest to lista dwukierunkowa, która pozwala na szybkie dodawanie i usuwanie elementów z początku i końca listy. Nie posiada operatora <code>[]</code>, więc dostęp do elementów odbywa się za pomocą iteratorów.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;list&gt;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+</code></pre></div>
+<p>Metody dostępu:</p>
+<ul>
+<li><code>front()</code></li>
+<li><code>back()</code></li>
+</ul>
+<p>Metody modyfikujące:</p>
+<ul>
+<li><code>push_front(elem)</code>, <code>push_back(elem)</code></li>
+<li><code>pop_front()</code>, <code>pop_back()</code></li>
+<li><code>insert(iterator, elem)</code></li>
+<li><code>erase(iterator)</code></li>
+</ul>
+<h4 id="stdset">std::set</h4>
+<p>Jest to kontener zawierający kolekcję niepowtarzalnych elementów.</p>
+<p>Eliminuje on elementy równoważne
+<code>a jest równoważne b, jeżeli !(a &lt; b) &amp;&amp; !(b &lt; a)</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+
+<span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">//zbiór liczb całkowitych</span>
+<span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">//dodaje elementy do kolekcji</span>
+<span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">//ta operacja jest pusta (usuwa elementy równoważne)</span>
+<span class="n">s</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">//bada liczbę elementów</span>
+<span class="n">assert</span><span class="p">(</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//zlicza liczbę wystąpień elementu</span>
+</code></pre></div>
+<p>set jest zaimplementowany jako drzewo czerwono-czarne, co pozwala na szybkie dodawanie i usuwanie elementów. Z tego powodu potrzebuje on operatorów <code>&lt;</code> i <code>==</code> dla swoich elementów.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">para</span><span class="p">;</span>
+<span class="c1">//Aby zdefiniować set z parami, musimy zdefiniować operator &lt; dla pary</span>
+<span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">para</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">para</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">para</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">para</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">para</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)};</span>
+</code></pre></div>
+<h4 id="ciagi-znakow-stdstring">Ciągi znaków <code>std::string</code></h4>
+<p><code>std::string</code> jest to kontener przechowujący ciągi znaków.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Stringi nie są typowymi kontenerami. Mają one wiele metod do mnipulaji nimi.</p>
+<p>Metody do konwersji:</p>
+<ul>
+<li><code>std::string::c_str()</code> - zwraca wskaźnik do tablicy znaków (kiedy potrzebujemy kompatybilności z C)</li>
+<li><code>atoi(str)</code>, <code>atof(str)</code>, <code>atol(str)</code> - konwertują string na liczbę (nie są to metody klasy string, ale funkcje globalne)</li>
+<li><code>std::to_string(num)</code> - konwertuje liczbę na string</li>
+</ul>
+<p>Metody do edycji:</p>
+<ul>
+<li><code>std::string::erase(start, length)</code> - usuwa podciąg</li>
+<li><code>std::string::replace(start, length, str)</code> - zamienia podciąg na inny</li>
+<li><code>std::string::append(str)</code> - dodaje string na koniec (analogiczny do operatora <code>+</code>)</li>
+</ul>
+<p>Inne:</p>
+<ul>
+<li><code>std::string::compare(str)</code> - porównuje dwa stringi (zwraca 0, jeżeli są równe lub liczbę ujemną/dodatnią, jeżeli pierwszy jest mniejszy/większy od drugiego)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;def&quot;</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<p>Do porównań można też użyć operatorów <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></p>
+<ul>
+<li><code>std::string::substr(start, length)</code> - zwraca podciąg stringa</li>
+<li><code>std::string::find(str)</code> - zwraca pozycję, na której zaczyna się podciąg (lub <code>std::string::npos</code>, jeżeli nie znaleziono)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="klasy">Klasy</h3>
+<p>Prosta przykładowa klasa w C++</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="c1">// sama deklaracja klasy w pliku nagłówkowym .hpp</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="c1">// prosty konstruktor z domyślną wartością dla nazwiska</span>
+<span class="w">        </span><span class="n">User</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Kowal&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">protected</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="c1">//ustawiona domyślna wartość jako -1</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_proper_id</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="o">:</span>
+<span class="w">        </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">        </span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">//Destruktor wołany podczas usuwania klasy</span>
+<span class="w">        </span><span class="o">~</span><span class="n">User</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="c1">// definicje konkretnych metod umieszcza się w pliku źródłowym .cpp</span>
+<span class="n">User</span><span class="o">::</span><span class="n">User</span><span class="p">()</span>
+<span class="w"> </span><span class="o">:</span><span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="n">surname</span><span class="p">(</span><span class="n">surname</span><span class="p">)</span><span class="w"> </span><span class="c1">// lista inicjalizacyjna</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_proper_id</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">User</span><span class="o">::</span><span class="n">get_proper_id</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">/////kod</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="kontrola-dostepu-do-skadnikow">Kontrola dostępu do składników</h4>
+<p>W ramach klas możemy ograniczyć dostęp do jej składników, dzięki czemu możemy dokładnie określić, które elementy powinny stanowić publicznie dostępne elementy API dla danej klasy, a które nie.</p>
+<p>Wyróżniamy tutaj 3 rodzaje dostępu (etykiet dla elementów):</p>
+<ul>
+<li><code>private</code> - składniki oznaczone jako private są dostępne tylko dla funkcjo składowych dla danej klasy (no i i dla klas zaprzyjaźnionych)</li>
+<li><code>protected</code> - tak jak private + dodatkowo jest dostępny dla klas dziedziczących</li>
+<li><code>public</code> - dostępny bez ograniczeń</li>
+</ul>
+<p>Na ogół w ramach definicji klasy najpierw umieszcza się elementy publiczne (jako najbardziej interesujące dla używających nasz obiekt), potem protected i na samym końcu private.</p>
+<h5 id="funkcje-i-klasy-zaprzyjaznione">Funkcje i klasy zaprzyjaźnione</h5>
+<p><a href="https://www.geeksforgeeks.org/cpp/friend-class-function-cpp/">link</a></p>
+<p>Czasami w C++ może pojawić się potrzeba dostępu do prywatnych lub chronionych pól wybranej klasy poza nią samą. Wtedy przydaje nam się koncept klas zaprzyjaźnionych (friend classes and functions). Warto tutaj pamiętać o tym, że na ogół takie operacje to zły pomysł.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Customer</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// klasa, która może być wygodnie printowana, albo czytana za pomocą iostreama</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Customer</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">Customer</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Customer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">surname</span><span class="p">)</span><span class="o">:</span><span class="n">name</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="n">surname</span><span class="p">(</span><span class="n">surname</span><span class="p">){};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">Customer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Customer</span><span class="p">(</span><span class="s">&quot;Jan&quot;</span><span class="p">,</span><span class="s">&quot;K&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="funkcje-wirtualne">Funkcje wirtualne</h4>
+<p>są oznaczane za pomocą słowa kluczowego <code>virtual</code>. Bez słowa <code>virtual</code> kompilator nie wiedziałby, że funkcja jest zależna od tego jaką klasę mamy pod wskaźniekiem (po prostu wywoływałby metodę odpowiadającą temu na jaką klasę mamy obecnie zmapowany nasz wskaźnik).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Base Function&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Derived Function&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Derived</span><span class="w"> </span><span class="n">derived1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// pointer of Base type that points to derived1</span>
+<span class="w">    </span><span class="n">Base</span><span class="o">*</span><span class="w"> </span><span class="n">base1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">derived1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// calls member function of Derived class</span>
+<span class="w">    </span><span class="n">base1</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Podczas pracy z funkcjami wirtualnymi <a href="https://stackoverflow.com/questions/39932391/should-i-use-virtual-override-or-both-keywords">dobrą praktyką</a> jest korzystanie ze specyfikatora <a href="https://en.cppreference.com/w/cpp/language/override">override</a>.<br />
+Dzięki jego użyciu w klasie potomnej będziemy mieć pewność, że ta funkcja w klasie bazowej jest wirtualna.</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">bar</span><span class="p">();</span>
+<span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">A</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="c1">// member functions definitions of struct A:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">A::foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A::foo();</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="n">A</span><span class="o">::~</span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;A::~A();</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span>
+<span class="p">{</span>
+<span class="c1">//  void foo() const override; // Error: B::foo does not override A::foo</span>
+<span class="w">                               </span><span class="c1">// (signature mismatch)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK: B::foo overrides A::foo</span>
+<span class="c1">//  void bar() override; // Error: A::bar is not virtual</span>
+<span class="w">    </span><span class="o">~</span><span class="n">B</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK: `override` can also be applied to virtual</span>
+<span class="w">                   </span><span class="c1">// special member functions, e.g. destructors</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Kiedy chcemy jakiś abstrakcyjny interfejs możemy wymusić na klasach potomnych implementację zaznaczając brak implementacji w interfejsie:</p>
+<div class="highlight"><pre><span></span><code><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="funkcje-const">Funkcje <code>const</code></h4>
+<p>Kiedy chcemy zaznaczyć, że metoda w naszej klasie nie zmodyfikuje jej wykorzystuje się słowo kluczowe <code>const</code>.
+Warto tutaj uważać, aby nie pomylić takich deklaracji z deklaracjami zwracającymi wartości typu const.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">{</span>
+<span class="w">  </span><span class="c1">/// kod</span>
+
+<span class="w">  </span><span class="c1">// ta metoda nie może zmodyfikować żadnych danych w klasie</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">//tutaj kompilator pozwoli nam zmodyfikować dane w instancji klasy</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">getSurname</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="funkcje">Funkcje</h2>
+<h3 id="lambdy">Lambdy</h3>
+<p>Składnia lambdy:</p>
+<ul>
+<li><code>[]</code> - Tu podajemy listę przechwytywania</li>
+<li><code>[x]</code> - przechwytuje obiekt x (tylko odczyt)</li>
+<li><code>[&amp;x]</code> - przechwytuje obiekt x (odczyt i zapis)</li>
+<li><code>[=]</code> - dowolny obiekt ze scope'a do odczytu</li>
+<li><code>[&amp;]</code> - dowolny obiekt ze scope'a do odczytu i zapisu</li>
+<li><code>()</code> - argumenty, jakie ma przyjmować wyrażenie lambda. (Opcjonalne)</li>
+<li>atrybuty wyrażenia lambda, z możliwych atrybutów w tym momencie najistotniejszy jest mutable, który sprawia że zmienne przechwycone przez wartość mogą być modyfikowane wewnątrz ciała wyrażenia. (Opcjonalne)</li>
+<li><code>-&gt; T</code> - typ zwracany (Opcjonalne)</li>
+<li><code>{}</code> - ciało wyrażenia</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">//Najprostsza możliwa lambda</span>
+<span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}();</span>
+
+<span class="p">[](</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">float</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5f</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="przekazywanie-argumentow-do-funkcji">Przekazywanie argumentów do funkcji</h3>
+<p>W C++ istnieją różne sposoby na przekazywanie argumentów do funkcji.</p>
+<ul>
+<li>poprzez <strong>kopię</strong> - w domyślnym wypadku do naszej funkcji przekazywana jest kopia naszego obiektu.
+  O ile to nie jest problem przy liczbach to przy większych obiektach to to może być już problem.</li>
+<li>poprzez <strong>wskaźnik</strong> - jest to opcja zalecana bardziej przy kodzie napisanym w czystym C, czy też w wypadku, gdy chcemy sobie zastrzec możliwość przekazania pustego wskaźnika.</li>
+<li>poprzez <strong>referencję</strong> - jest to sposób zbliżony do wskaźnika, do funkcji przekazujemy referencję do naszego obiektu.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Klasa</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="cm">/* data */</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Klasa</span><span class="p">(</span><span class="cm">/* args */</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Wołanie konstruktora</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Klasa</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Klasa</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Wołanie konstruktora kopiującego</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">funkcja_zwykla</span><span class="p">(</span><span class="n">Klasa</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">funkcja_pointer</span><span class="p">(</span><span class="n">Klasa</span><span class="w"> </span><span class="o">*</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">funkcja_referencja</span><span class="p">(</span><span class="n">Klasa</span><span class="w"> </span><span class="o">&amp;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Klasa</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Klasa</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;funkcja_zwykla:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">funkcja_zwykla</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;funkcja_pointer:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">funkcja_pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;funkcja_referencja:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">funkcja_referencja</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>program wypisze:</p>
+<div class="highlight"><pre><span></span><code>Wołanie konstruktora
+funkcja_zwykla:
+Wołanie konstruktora kopiującego
+funkcja_pointer:
+funkcja_referencja:
+</code></pre></div>
+<p>W wypadku przekazywania poprzez referencję lub wskaźnik należy pamiętać o tym, że zmiany obiektu, które miały miejsce wewnątrz funkcji będą nadal widoczne z zewnątrz, ponieważ operujemy tam na tej samej instancji obiektu.
+Aby uniknąć takich problemów warto przekazywać te argumenty jako <code>const</code>, albo zastanowić się, czy jednak kopia nie będzie lepsza.</p>
+<h3 id="l-value-r-value-i-stdmove">L-Value, R-Value i std::move</h3>
+<p><strong>L-Value</strong> - jest to obiekt, który ma swoje miejsce w pamięci, czyli możemy go zmieniać, przypisywać do niego wartości, pozyskać jego położenie itp. Jest on odniesieniem do konkretnego miejsca w pamięci. Jest to wyrażenie zwbędące referencją na obiekt.</p>
+<p><strong>R-Value</strong> - jest to obiekt, który nie ma swojego miejsca w pamięci, czyli nie możemy go zmieniać, przypisywać do niego wartości itp. W niektórych wypadkach można powiedzieć, że to on jest wartością. Nie możemy do niego przypisać jakiejś chcianej przez nas wartości.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">//a jest L-Value, a 5 jest R-Value</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">foo</span><span class="p">(){</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">foo</span><span class="p">()</span><span class="c1">// L-Value ponieważ zwraca referencję na i</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">St</span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">St</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"> </span><span class="c1">// s jest L-Value</span>
+<span class="n">s</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// s.x jest L-Value</span>
+
+<span class="n">Bar</span><span class="p">();</span><span class="w"> </span><span class="c1">// R-Value ponieważ nie zwraca referencji, lecz jest nowym obiektem</span>
+</code></pre></div>
+<p>Jednym z przykładów zastosowania tej wiedzy jest przypisywanie wartości do obiektów.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">32</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">99</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="mi">7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">//błąd kompilacji, 7 jest R-Value</span>
+
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="c1">//poprawne, *p jest L-Value</span>
+
+<span class="p">((</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">21</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"> </span><span class="c1">//dozwolone, ponieważ wyrażenie po lewej zwraca jedno z dwóch l-value</span>
+</code></pre></div>
+<p>Jednak najczęstszym wykorzystaniem tych pojęć jest <a href="https://en.cppreference.com/w/cpp/utility/move"><code>std::move</code></a>. Jest to funkcja, która pozwala na przeniesienie obiektu z jednego miejsca do drugiego. Jest to bardzo przydatne w przypadku, gdy chcemy przenieść obiekt, a nie kopiować go, poniweaż kopiowanie obiektów może być kosztowne. <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html#Move_Semantics">link1</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">tmp</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">   </span><span class="c1">// teraz mamy 2 kopie a</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">      </span><span class="c1">// teraz mamy 2 kopie b</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w">    </span><span class="c1">// teraz mamy 2 kopie tmp (czyli a)</span>
+<span class="p">}</span>
+<span class="c1">// aby zrobić to bez kopii możemy użyć std::move</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="nf">tmp</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Z jego pomocą mówimy też kompilatorowi, że nie zamierzamy już korzystać z danego obiektu, po przekazaniu.</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span><span class="w"> </span><span class="c1">//przenosimy v1 do v2</span>
+<span class="c1">// v1.clear(); //błąd kompilacji, v1 jest już przeniesione i nie powinniśmy z niego korzystać</span>
+</code></pre></div>
+<p><code>std::move</code> łączy się z operatorem <code>&amp;&amp;</code>, który jest oznaczeniem R-Value Reference.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Klasa</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">Obj</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Klasa</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="c1">// prosty konstruktor przenoszący</span>
+<span class="w">    </span><span class="n">Klasa</span><span class="p">(</span><span class="n">Klasa</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">o</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">o</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="mechanizmy-jezyka">Mechanizmy języka</h2>
+<h3 id="zarzadzanie-pamiecia">Zarządzanie pamięcią</h3>
+<h4 id="new-i-delete"><code>new</code> i <code>delete</code></h4>
+<p>Zarządzanie pamięcią w C++ jest podobne do <a href="../0_C/#tablice-i-alokowanie-pamięci">zarządzania w C</a>. Jednak jest oparta o słowa kluczowe <code>new</code> i <code>delete</code>. (NIGDY nie mieszajmy tych dwóch sposobów)</p>
+<p><a href="https://pl.wikibooks.org/wiki/C%2B%2B/Zarz%C4%85dzanie_pami%C4%99ci%C4%85">artykuł</a></p>
+<p><code>new</code> służy do tworzenia nowych obiektów i alokowania pamięci dla nich, natomiast <code>delete</code> służy do zwalniania zarezerwowanej wcześniej pamięci.</p>
+<p>Przykład użycia słowa kluczowego new:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"> </span><span class="c1">// alokuje pamięć dla zmiennej typu int</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// przypisuje wartość 5 do zmiennej</span>
+<span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// zwalnia pamięć zarezerwowaną dla zmiennej p</span>
+</code></pre></div>
+<p>Możliwe jest także użycie słowa kluczowego new do tworzenia tablic dynamicznych:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">tab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"> </span><span class="c1">// alokuje pamięć dla tablicy 10-elementowej</span>
+<span class="n">tab</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// przypisuje wartość 5 do pierwszego elementu tablicy</span>
+<span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">tab</span><span class="p">;</span><span class="w"> </span><span class="c1">// zwalnia pamięć zarezerwowaną dla tablicy tab</span>
+</code></pre></div>
+<h4 id="sprytne-wskazniki-smart-pointers">Sprytne wskaźniki - Smart Pointers</h4>
+<p>W związku z wieloma problemami występującymi przy zarządzaniu pamięcią w C++, takimi jak wycieki pamięci, powstały tzw. smart pointery. Są to obiekty, które pomagają zautomatyzować zarządzanie pamięcią.</p>
+<ul>
+<li><code>std::unique_ptr</code> - jest to smart pointer, który przechowuje wskaźnik do obiektu i zwalnia pamięć po wyjściu poza zakres. Nie można go kopiować, ale można przenieść.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
+<span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>obiekty unique_ptr mają wielkość zwykłego wskaźnika</li>
+<li>zastąpił on <code>auto_ptr</code> z C++98</li>
+<li>automatycznie usuwają wskazywany obiekt w destruktorze</li>
+<li>mogą być przechowywane w kontenerach standardowych</li>
+<li>nie można kopiować, ale można przenieść</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">//konstruktor kopiujący z r-value</span>
+<span class="w">  </span><span class="c1">// v.push_back(p); //błąd kompilacji - nie ma konstruktora kopiującego</span>
+<span class="w">  </span><span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//v staje się wł. wskazywanego obiektu</span>
+<span class="w">  </span><span class="c1">//teraz p wskazuje na null</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>std::shared_ptr</code> - jest to smart pointer, który przechowuje wskaźnik do obiektu i zwalnia pamięć po wyjściu poza zakres, jeżeli nie ma innych shared_ptr wskazujących na ten obiekt. Można go kopiować.</p>
+</li>
+<li>
+<p>obiekty shared_ptr mają dodatkowo licznik referencji</p>
+</li>
+<li>konstruktor ustwia licznik na 1</li>
+<li>konstruktor kopiujący zwiększa licznik referencji</li>
+<li>destruktor zmniejsza licznik</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">};</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p2</span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//licznik odniesien == 2</span>
+<span class="w">    </span><span class="cm">/* ... */</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">//destruktor p2, licznik = 1</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">//destruktor p1 usuwa obiekt</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>std::weak_ptr</code> - jest to smart pointer, który przechowuje wskaźnik do obiektu, ale nie zwiększa licznika referencji. Można go kopiować.</p>
+</li>
+<li>
+<p>używany do uniknięcia cyklicznych referencji</p>
+</li>
+<li>nie zwiększa licznika referencji</li>
+<li>nie ma operatora <code>-&gt;</code> ani <code>*</code></li>
+<li>można go zamienić na shared_ptr za pomocą <code>lock()</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">lock</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// r jest teraz shared_ptr</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Przy okazji korzystania ze sprytnych wskańników warto wspomnić o istnieniu funkcji <code>std::make_shared</code> i <a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique"><code>std::make_unique</code></a>, które pozwalają na tworzenie obiektów bezpośrednio w smart pointerach, bez używaniu operatora <code>new</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/make_shared.hpp&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">//konstruktor domyślny</span>
+<span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pf2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arg1</span><span class="p">,...,</span><span class="n">argN</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="petle">Pętle</h3>
+<p>Typy pętli:</p>
+<ul>
+<li>Podstawowa pętla <code>for</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>pętla <code>while</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// rób coś</span>
+<span class="w">    </span><span class="o">++</span><span class="n">j</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>pętla <code>do-while</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Wykonuj przynajmniej raz, potem sprawdzaj warunek</span>
+<span class="w">    </span><span class="o">++</span><span class="n">k</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>range-based <code>for</code> - jest to zalecana metoda dla zbiorów iterowalnych</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">numbers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Iteracja po elementach kontenera</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>W wypadku bardziej złożonych obiektów można użyć też referencji</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">element</span><span class="o">:</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+</code></pre></div>
+<p>może być też używany do rozpakowywania <a href="https://en.cppreference.com/w/cpp/language/range-for">link</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mymap</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="wyjatki">Wyjątki</h3>
+<p>Wyjątki służą do niesekwencyjnego przekazania sterowania, kiedy pojawi się jakiś nieoczywisty problem. W C++ wyjątki są rzucane za pomocą słowa kluczowego <code>throw</code>, a łapane za pomocą bloku <code>try-catch</code>.</p>
+<p>Są rzucane w rzadkich sytuacjach, kiedy nie da się kontynuować programu. Należy unikać rzucania wyjątków w miejscach, gdzie można to zastąpić zwracaniem wartości. (ich koszt obliczeniowy jest dużo większy)</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Zasady używania:</p>
+<ul>
+<li>Wyjątki powinny dziedziczyć po klasie <a href="https://cplusplus.com/reference/exception/exception/"><code>std::exception</code></a>.</li>
+<li>Nie należy rzucać wyjątków w destruktorach. Bo podczas wyjątku niszczymy stare klasy i wtedy po raz drugi wywołałby się nasz destruktor i poraz drugi pojawiłby się wyjątek.</li>
+<li>Wyjątek rzucać przez wartość.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="c1">//zgłasza wyjątek przez wartość</span>
+<span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Exception</span><span class="p">;</span><span class="c1">//zajmuje pamięć na stercie</span>
+</code></pre></div>
+<ul>
+<li>Wyjątek przechwytywać przez referencję</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="c1">//przechwytuje przez referencję</span>
+<span class="c1">//catch(Exception e) //tworzy lokalną kopię</span>
+</code></pre></div>
+<h3 id="templatki">Templatki</h3>
+<p>Pozwalają kompilatorowi na łatwą autogenerację kodu.</p>
+<p>Templatka metody</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">myType</span><span class="o">&gt;</span>
+<span class="n">myType</span><span class="w"> </span><span class="n">GetMax</span><span class="w"> </span><span class="p">(</span><span class="n">myType</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">myType</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="o">?</span><span class="n">a</span><span class="o">:</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Templatka klasy</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">mypair</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">mypair</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">second</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">second</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Specjalizacje templatek - pozwalają na łatwe doprecyzowanie implementacji dla pewnych ścićle określonych typów.</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">mycontainer</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">mycontainer</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div>
+<h2 id="typy-castow-operatorow-rzutowania">Typy castów (operatorów rzutowania)</h2>
+<p>Używając tych operatorów na ogół powinno się operować na wskaźnikach (albo referencjach)</p>
+<ul>
+<li><code>static_cast&lt;naCoChcemyZrzutowac&gt;(wyrazenie)</code> - wykorzystywany do konwersji danych w zmiennych różnych typów (np pomiędzy typami reprezentującymi liczby), jest on wykonywany w trakcie kompilacji.</li>
+<li><code>dynamic_cast&lt;naCoChcemyZrzutowac&gt;(wyrazenie)</code> - służy do przekształcania typów klas pomiędzy klasami które po sobie dziedziczą. W wypadku niepowodzenia zwraca <code>null</code> Wyróżniamy:</li>
+<li>Downcasting - kastujemy klasę bazową na potomną</li>
+<li>Upcasting - gdy chcemy uzyskać instancję klasy bazowej</li>
+<li><code>reinterpret_cast&lt;naCoChcemyZrzutowac&gt;(wyrazenie)</code> - działa podobnie do dynamic casta, ale nie zwraca nulla, zaleca się używanie tylko kiedy dobrze wiesz co robisz.</li>
+<li><code>const_cast&lt;naCoChcemyZrzutowac&gt;(wyrazenie)</code> - pozwala zmienić stałą na zmienną i na odwrót na ogół jego używanie nie jest zalecane</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">liczbaPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="w">     </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">wskDoStalej</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">liczbaPI</span><span class="p">;</span>
+
+<span class="w">     </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">wskaznik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span><span class="n">wskDoStalej</span><span class="p">);</span><span class="w"> </span><span class="c1">//przypisujemy dane ze stałej do zwykłego wskaźnika</span>
+
+<span class="w">     </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">wskaznik</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//wypisze 3.14</span>
+<span class="w">     </span><span class="o">*</span><span class="n">wskaznik</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">43</span><span class="p">;</span>
+<span class="w">     </span><span class="c1">// *wskDoStalej = 43; ERROR</span>
+<span class="w">     </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">wskaznik</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">//wypisze 3.14</span>
+</code></pre></div>
+<h2 id="wydajnosc">Wydajność</h2>
+<h3 id="watki">Wątki</h3>
+<p>Jest wiele sposobów na wątki, ale najprostszym do użycia jest <a href="https://en.cppreference.com/w/cpp/thread/thread/thread"><code>std::thread</code></a></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// funkcja, którą chcemy uruchomić w nowym wątku</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span><span class="w"> </span><span class="c1">// tworzymy nowy wątek, który uruchomi funkcję foo</span>
+<span class="w">    </span><span class="c1">//robimy coś w głównym wątku</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span><span class="w"> </span><span class="c1">// czekamy na zakończenie wątku</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>W wypadku klas wygląda to następująco:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Klasa</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// funkcja, którą chcemy uruchomić w nowym wątku</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Klasa</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//std::thread t(&amp;Klasa::moja_metoda,&amp;instancja_klasy, argument1, argument2, argument3);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Klasa</span><span class="o">::</span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">k</span><span class="p">);</span><span class="w"> </span><span class="c1">// tworzymy nowy wątek, który uruchomi funkcję foo</span>
+<span class="w">    </span><span class="c1">//robimy coś w głównym wątku</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span><span class="w"> </span><span class="c1">// czekamy na zakończenie wątku</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="wielowatkowosc-z-uzyciem-stdpar">Wielowątkowość z użyciem <code>std::par</code></h3>
+<p>W C++11 i C++17 pojawiły się nowe sposoby przetwarzania wielowątkowego mogącego stanowić swego rodzaju alternatywę dla <a href="../5_openMP/">OpenMP</a>.</p>
+<p>W tym podejściu wykorzystujemy standardowe kontenery oraz algorytmy znajdujące się w bibliotece standardowej. Takie jak <code>std::for_each</code>, <code>std::sort</code>, czy <code>std::reduce</code> etc.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="c1">//Using functor</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Suma</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">267</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;before:&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="n">print</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">){</span><span class="w"> </span><span class="n">n</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// calls Sum::operator() for each number</span>
+<span class="w">    </span><span class="n">Suma</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">Suma</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;after: &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="n">print</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;suma: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wrac z C++17 do algorytmów pojawiły się polityki wykonania (<code>execution policies</code>) które pozwalają na wykorzystanie wielowątkowości w algorytmach.</p>
+<p>Wyróżnia się:</p>
+<ul>
+<li><code>std::execution::seq</code> - wykonanie sekwencyjne. Domyślna polityka. Zabrania zrównoleglania</li>
+<li><code>std::execution::par</code> - umożliwia wykonanie równoległe</li>
+<li><code>std::execution::par_unseq</code> - umożliwia wykonanie równoległe i wektorowe //TODO wyjaśnić dokładniej</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</code></pre></div>
+<p>Przy wykonaniu równoległym należy pamiętać, że zmienne muszą znajdować się na stercie (heap). W przeciwnym wypadku mogą wystąpić problemy z dostępem do pamięci.</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="o">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"> </span><span class="c1">// Error, elementy snadjują się na stosie</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"> </span><span class="c1">// OK, wektor alokuje na stercie</span>
+</code></pre></div>
+<p>Przy takim podjeściu warto pamiętać o ochronie pamięci. W tym celu można użyć <a href="https://en.cppreference.com/w/cpp/thread/mutex"><code>std::mutex</code></a> lub <a href="https://en.cppreference.com/w/cpp/atomic/atomic"><code>std::atomic</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">[</span><span class="n">nbin</span><span class="p">];</span>
+</code></pre></div>
+<p>Dzięki uniwersalnemu kodowi możliwa jest także kompilacja kodu rówloległego w taki sposób, aby mógł wykorzystać zasoby chociażby kart graficznych. <a href="https://developer.nvidia.com/blog/accelerating-standard-c-with-gpus-using-stdpar/">link dla nvidii CUDA</a> i <a href="https://gpuopen.com/learn/amd-lab-notes/amd-lab-notes-hipstdpar-readme/#tl-dr-just-tell-me-how-to-go-fast">AMD z ROCm</a></p>
+<h2 id="inne-sowa-kluczowe">Inne Słowa kluczowe</h2>
+<p>explicit TODO</p>
+<h2 id="nowe-standardy">Nowe standardy</h2>
+<h3 id="c17">C++17</h3>
+<p><a href="https://dsp.krzaq.cc/post/1417/artykul-cpp17-nowy-milosciwie-panujacy-nam-standard-c-z-programisty-66/">Artykuł</a></p>
+<h3 id="c20">C++20</h3>
+<p><a href="https://oleksandrkvl.github.io/2021/04/02/cpp-20-overview.html">Pełna lista z omówieniem</a></p>
+<p>Z fajnych rzeczy są kontrakty //TODO C++ contracts https://www.modernescpp.com/index.php/c-core-guidelines-a-detour-to-contracts (similar to java JML, or Dafny for C#)</p>
+<p>Oraz moduły https://en.cppreference.com/w/cpp/language/modules.html</p>
+<h2 id="do-zrobienia">Do zrobienia</h2>
+<p>TODO: ogólnie o klasach i dziedziczeniu, explicit C- czyli co musi być kompilowane jako czyste C, typy smart pointerów.</p>
+<p>//TODO VOLATILE https://en.cppreference.com/w/cpp/language/cv</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
