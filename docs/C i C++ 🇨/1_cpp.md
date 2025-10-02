@@ -177,17 +177,14 @@ Prosta przykładowa klasa w C++
 
 ```cpp
 using namespace std;
+
+// sama deklaracja klasy w pliku nagłówkowym .hpp
 class User{
     public:
         // prosty konstruktor z domyślną wartością dla nazwiska
-        User(string name, string surname = "Kowal"):
-         name(name),surname(surname) // lista inicjalizacyjna
-        {
-          id = get_proper_id();
-        }
+        User(string name, string surname = "Kowal");
     protected:
-        ///
-        int id;
+        int id = -1; //ustawiona domyślna wartość jako -1
         int get_proper_id();
     private:
         string name;
@@ -195,11 +192,63 @@ class User{
         //Destruktor wołany podczas usuwania klasy
         ~User();
 };
+
+// definicje konkretnych metod umieszcza się w pliku źródłowym .cpp
+User::User()
+ :name(name),surname(surname) // lista inicjalizacyjna
+{
+  id = get_proper_id();
+}
+
+int User::get_proper_id()
+{
+  /////kod
+}
 ```
+
+#### Kontrola dostępu do składników
+
+W ramach klas możemy ograniczyć dostęp do jej składników, dzięki czemu możemy dokładnie określić, które elementy powinny stanowić publicznie dostępne elementy API dla danej klasy, a które nie.
+
+Wyróżniamy tutaj 3 rodzaje dostępu (etykiet dla elementów):
+
+- `private` - składniki oznaczone jako private są dostępne tylko dla funkcjo składowych dla danej klasy (no i i dla klas zaprzyjaźnionych)
+- `protected` - tak jak private + dodatkowo jest dostępny dla klas dziedziczących
+- `public` - dostępny bez ograniczeń
+
+Na ogół w ramach definicji klasy najpierw umieszcza się elementy publiczne (jako najbardziej interesujące dla używających nasz obiekt), potem protected i na samym końcu private.
+
+##### Funkcje i klasy zaprzyjaźnione
+
+[link](https://www.geeksforgeeks.org/cpp/friend-class-function-cpp/)
+
+Czasami w C++ może pojawić się potrzeba dostępu do prywatnych lub chronionych pól wybranej klasy poza nią samą. Wtedy przydaje nam się koncept klas zaprzyjaźnionych (friend classes and functions). Warto tutaj pamiętać o tym, że na ogół takie operacje to zły pomysł.
+
+```cpp
+class Customer
+{
+    // klasa, która może być wygodnie printowana, albo czytana za pomocą iostreama
+    friend std::ostream &operator<<( std::ostream &, const Customer & );
+    friend std::istream &operator>>( std::istream &, Customer & );
+
+private:
+    std::string name;
+    std::string surname
+public:
+    Customer(std::string name, std::string surname):name(name),surname(surname){};
+};
+
+int main()
+{
+  Customer c = Customer("Jan","K");
+  std::cout<<c;
+}
+```
+
 
 #### Funkcje wirtualne
 
-są oznaczane za pomocą słowa kluczowego `virtual`.
+są oznaczane za pomocą słowa kluczowego `virtual`. Bez słowa `virtual` kompilator nie wiedziałby, że funkcja jest zależna od tego jaką klasę mamy pod wskaźniekiem (po prostu wywoływałby metodę odpowiadającą temu na jaką klasę mamy obecnie zmapowany nasz wskaźnik).
 
 ```cpp
 class Base {
@@ -260,6 +309,23 @@ Kiedy chcemy jakiś abstrakcyjny interfejs możemy wymusić na klasach potomnych
 ```cpp
 virtual int getValue() = 0;
 ```
+
+#### Funkcje `const`
+
+Kiedy chcemy zaznaczyć, że metoda w naszej klasie nie zmodyfikuje jej wykorzystuje się słowo kluczowe `const`.
+Warto tutaj uważać, aby nie pomylić takich deklaracji z deklaracjami zwracającymi wartości typu const.
+
+```cpp
+class User{
+  /// kod
+
+  // ta metoda nie może zmodyfikować żadnych danych w klasie
+  std::string getName() const;
+  //tutaj kompilator pozwoli nam zmodyfikować dane w instancji klasy
+  const std::string getSurname();
+}
+```
+
 
 ## Mechanizmy języka
 
@@ -571,33 +637,6 @@ public:
     Klasa(Klasa&& other): o(std::move(other.o)) {}
 };
 ```
-
-#### Funkcje i klasy zaprzyjaźnione
-
-[link](https://www.geeksforgeeks.org/cpp/friend-class-function-cpp/)
-
-Czasami w C++ może pojawić się potrzeba dostępu do prywatnych lub chronionych pól wybranej klasy poza nią samą. Wtedy przydaje nam się koncept klas zaprzyjaźnionych (friend classes and functions). Warto tutaj pamiętać o tym, że na ogół takie operacje to zły pomysł.
-
-```cpp
-class Customer
-{
-    friend std::ostream &operator<<( std::ostream &, const Customer & )
-    friend std::istream &operator>>( std::istream &, Customer & )
-
-private:
-    std::string name;
-    std::string surname
-public:
-    Customer(std::string name, std::string surname):name(name),surname(surname){};
-};
-
-int main()
-{
-  Customer c = Customer("Jan","K");
-  std::cout<<c;
-}
-```
-
 
 ### Wyjątki
 
