@@ -1,0 +1,11 @@
+Profilowanie
+```
+valgrind --tool=callgrind ./my_binary
+kcachegrind callgrind.out.*
+```
+
+
+Wycieki
+``` 
+valgrind --leak-check=full -v ./your_program
+```
